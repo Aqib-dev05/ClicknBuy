@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+.transitions{
+   transition: all .05s ease;
+}
+body{
+   overflow-x: hidden;
+}
+*{
+   box-sizing: border-box;
+}
