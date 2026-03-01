@@ -1,9 +1,10 @@
 import React from 'react'
-import Header from "./components/header"
+import Navbar from "./components/layouts/Navbar"
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
+
     </>
   )
 }

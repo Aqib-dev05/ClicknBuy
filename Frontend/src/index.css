@@ -9,3 +9,9 @@ body{
 *{
    box-sizing: border-box;
 }
+.dynamicBanner{
+   background-image: url(../src/assets/Ellipse\ 23.png);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
