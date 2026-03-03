@@ -11,7 +11,12 @@ const ProductSchema = mongoose.Schema({
   },
   description: String,
   basePrice: Number,
-  discountedPrice:Number,
+  discountedPrice:{
+    type: Number,
+    default: function () {
+      return this.basePrice;
+    },
+  },
   quantity: Number,
   category: {
     type: mongoose.Schema.Types.ObjectId,
