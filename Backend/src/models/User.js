@@ -11,6 +11,11 @@ import mongoose from "mongoose";
         trim:true,
         unique:true,
     },
+    phone:{
+        type:Number,
+        trim:true,
+        default:+920000000001
+    },
     password:{
         type:String,
         required:true,
@@ -21,9 +26,9 @@ import mongoose from "mongoose";
         default:"user",
     },
     address: [{
-        city: String,
-        postalCode: Number,
-        country: String,
+        city: {type:String,default:"XXXXXX"},
+        postalCode: {type:Number,default:"XXXX"},
+        country: {type:String,default:"XXXXXX"},
     }],
     createdAt:{
         type:Date,

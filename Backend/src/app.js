@@ -1,12 +1,18 @@
 import express from "express";
-  
- const app= express();
- app.use(express.json());
- app.use(express.urlencoded({extended:true}));
- app.use(cors());
+import cors from "cors";
+import authRoutes from "./routes/authRoutes.js"
 
- export default app;
-  
-  app.get("/",(req,res)=>{
-    res.send("Hello")
-  })
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+//router routes
+app.use("/api/auth",authRoutes)
+
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
+export default app;
