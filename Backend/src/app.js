@@ -4,6 +4,8 @@ import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js"
 import subCategoryRoutes from "./routes/subCategory.js"
+import orderRoutes from "./routes/orderRoutes.js"
+import checkAuth from "./middlewares/authMiddleware.js";
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories",categoryRoutes);
 app.use("/api/subcategories",subCategoryRoutes);
+app.use("/api/orders",checkAuth,orderRoutes);
 
 
 app.get("/", (req, res) => {

@@ -1,4 +1,5 @@
 import express from "express";
+import checkAuth from "../middlewares/authMiddleware.js";
 import {
   handleGetSubCategory,
   handlePostSubCategory,
@@ -10,8 +11,8 @@ const router = express.Router();
 
 router
   .get("/", handleGetSubCategory)
-  .post("/", handlePostSubCategory)
-  .put("/:id", handlePutSubCategory)
-  .delete("/:id", handleDeleteSubCategory);
+  .post("/",checkAuth, handlePostSubCategory)
+  .put("/:id",checkAuth, handlePutSubCategory)
+  .delete("/:id",checkAuth, handleDeleteSubCategory);
 
 export default router;
