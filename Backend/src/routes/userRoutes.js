@@ -1,4 +1,7 @@
 import express from "express";
+import checkAuth from "../middlewares/authMiddleware.js"
+import checkAdmin from "../middlewares/checkAdmin.js";
+
 import {
     getAllUsersInfo,
     getSingleUser,
@@ -9,9 +12,9 @@ import {
  const router = express.Router();
 
  router
- .get("/",getAllUsersInfo)   //admin only
- .get("/:id",getSingleUser)
- .put("/:id",putSingleUser)
- .delete("/:id",deleteUser)
+ .get("/",checkAuth,checkAdmin,getAllUsersInfo)   //admin only
+ .get("/:id",checkAuth,getSingleUser)
+ .put("/:id",checkAuth,putSingleUser)
+ .delete("/:id",checkAuth,deleteUser)
 
  export default router;

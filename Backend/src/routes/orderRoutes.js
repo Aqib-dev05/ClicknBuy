@@ -1,4 +1,7 @@
 import express from "express";
+import checkAdmin from "../middlewares/checkAdmin.js";
+import checkAuth from "../middlewares/authMiddleware.js"
+
 import {
     getAllOrders,
     getUserOrders,
@@ -11,11 +14,11 @@ import {
 const router = express.Router();
 
 router
-  .get("/",getAllOrders) //admin only
-  .get("/user/:id",getUserOrders) //loggedIn user Only
-  .post("/",postOrder) //create order(loggedIn user)
-  .put("/user/:id",putOrderByUser) //user update order details
-  .put("/:id",putOrderByAdmin) //admin update order status
-  .delete("/:id",deleteOrder);
+  .get("/",checkAuth,checkAdmin,getAllOrders) //admin only
+  .get("/user/:id",checkAuth,getUserOrders) //loggedIn user Only
+  .post("/",checkAuth,postOrder) //create order(loggedIn user)
+  .put("/user/:id",checkAuth,putOrderByUser) //user update order details
+  .put("/:id",checkAuth,checkAdmin,putOrderByAdmin) //admin update order status
+  .delete("/:id",checkAuth,deleteOrder);
 
 export default router;
