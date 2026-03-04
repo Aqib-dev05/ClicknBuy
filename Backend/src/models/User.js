@@ -20,6 +20,10 @@ import mongoose from "mongoose";
         type:String,
         required:true,
     },
+    avatar:{
+        url:String,
+        public_id:String
+    },
     role:{
         type:String,
         enum:["admin","user"],
