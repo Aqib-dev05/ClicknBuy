@@ -1,4 +1,5 @@
 import express from "express";
+import {upload} from "../middlewares/multer.js";
 import {
   handleGetProductsGeneral,
   handleGetProductById,
@@ -14,7 +15,7 @@ router
   .get("/", handleGetProductsGeneral)
   .get("/:id", handleGetProductById)
   .get("/:slug", handleGetProductBySlug)
-  .post("/", handlePostProduct)
+  .post("/",upload.array("images",5), handlePostProduct)
   .put("/:id", handlePutProduct)
   .delete("/:id", handleDeleteProduct);
 

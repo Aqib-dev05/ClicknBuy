@@ -1,5 +1,6 @@
 import express from "express";
 import productModel from "../models/Product.js";
+import { uploadOnCloudinary } from "../utils/cloudinay.js";
 
 async function handleGetProductsGeneral(req, res) {
   const { q, category, sub, sortBy, page = 1, limit = 20 } = req.query;
@@ -110,9 +111,103 @@ async function handlePostProduct(req, res) {
     category,
     ratings,
   } = req.body;
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "Images required" });
+    }
+
+    // Upload all images in parallel and collect the responses
+    const uploadPromises = req.files.map(file =>
+      uploadOnCloudinary(file.path, "products")
+    );
+    const cloudResps = await Promise.all(uploadPromises);
+
+    // Only keep successful uploads
+    const uploadedImages = cloudResps
+      .filter(resp => resp)
+      .map(resp => ({
+        url: resp.secure_url,
+        public_id: resp.public_id,
+      }));
+
+    if (uploadedImages.length === 0) {
+      return res.status(500).json({ message: "Image upload failed" });
+    }
+
+    // Creating product in DB
+    const product = await productModel.create({
+      name,
+      slug,
+      description,
+      basePrice,
+      discountedPrice,
+      quantity,
+      category,
+      ratings,
+      images: uploadedImages,
+    });
+
+    res.status(201).json(product);
+  } catch (error) {
+    console.error("Error in handlePostProduct:", error);
+    res.status(500).json({ message: error.message });
+  }
 }
 
-async function handlePutProduct(req, res) {}
+async function handlePutProduct(req, res) {
+  const { id } = req.params;
+  const {
+    name,
+    slug,
+    description,
+    basePrice,
+    discountedPrice,
+    quantity,
+    category,
+    ratings
+  } = req.body;
+
+  try {
+    const allowedFields = {
+      name,
+      slug,
+      description,
+      basePrice,
+      discountedPrice,
+      quantity,
+      category,
+      ratings,
+    };
+
+    const updateFields = {};
+    for (const [key, value] of Object.entries(allowedFields)) {
+      if (value !== undefined) {
+        updateFields[key] = value;
+      }
+    }
+
+    if (Object.keys(updateFields).length === 0) {
+      return res
+        .status(400)
+        .json({ message: "No valid fields provided to update" });
+    }
+    
+    const updatedProduct = await productModel.findByIdAndUpdate(
+      id,
+      { $set: updateFields },
+      { new: true }
+    );
+
+    if (!updatedProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    res.status(200).json(updatedProduct);
+  } catch (error) {
+    console.error("Error in handlePutProduct:", error);
+    res.status(500).json({ message: error.message });
+  }
+}
 
 async function handleDeleteProduct(req, res) {
   const { id } = req.params;
