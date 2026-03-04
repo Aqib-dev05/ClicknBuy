@@ -1,26 +1,26 @@
 import express from "express";
 import orderModel from "../models/Order.js"
 
- async function getAllOrders(){
+ async function getAllOrders(req,res){
 
  }
 
- async function getUserOrders(){
+ async function getUserOrders(req,res){
     
  }
 
- async function postOrder(){
+ async function postOrder(req,res){
     
  }
 
- async function putOrderByUser(){
+ async function putOrderByUser(req,res){
     
  }
- async function putOrderByAdmin(){
+ async function putOrderByAdmin(req,res){
 
  }
 
- async function deleteOrder(){
+ async function deleteOrder(req,res){
     
  }
 
