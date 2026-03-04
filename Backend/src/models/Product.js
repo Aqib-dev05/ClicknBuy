@@ -22,7 +22,10 @@ const ProductSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "SubCategory",
   },
-  images: [String],
+  images: [{
+    url:String,
+    public_id:String
+  }],
   ratings: {
     type: Number,
     default: 0,
