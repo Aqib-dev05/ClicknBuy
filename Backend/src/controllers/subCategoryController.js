@@ -16,7 +16,7 @@ async function handleGetSubCategory(req, res) {
 
 // POST /api/categories
 async function handlePostSubCategory(req, res) {
-  const { name, slug,parent } = req.body;
+  const { name, slug,parent } = req.body; //parent must be id
 
   if (!name) {
     return res.status(400).json({ message: "Name is required" });
