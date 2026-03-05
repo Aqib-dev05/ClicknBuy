@@ -1,5 +1,6 @@
 import express from "express";
 import productModel from "../models/Product.js";
+import SubCategory from "../models/SubCategory.js";
 import { uploadOnCloudinary } from "../utils/cloudinay.js";
 
 async function handleGetProductsGeneral(req, res) {
@@ -23,9 +24,9 @@ async function handleGetProductsGeneral(req, res) {
       query.category = category;
     }
 
-    // Filter by subcategory (expects subcategory id, assumes Product has subCategory field)
+    // Filter by subcategory (expects subcategory id, Product stores it in `category` field)
     if (sub) {
-      query.subCategory = sub;
+      query.category = sub;
     }
 
     // Sorting
@@ -108,7 +109,7 @@ async function handlePostProduct(req, res) {
     basePrice,
     discountedPrice,
     quantity,
-    category,
+    Subcategory, // this is expected to be SubCategory _id
     ratings,
   } = req.body;
   try {
@@ -116,9 +117,23 @@ async function handlePostProduct(req, res) {
       return res.status(400).json({ message: "Images required" });
     }
 
+    // Find subcategory and its parent category to build Cloudinary folder path
+    const subCat = await SubCategory.findById(Subcategory).populate(
+      "parent",
+      "slug name"
+    );
+
+    if (!subCat) {
+      return res.status(400).json({ message: "Invalid subcategory" });
+    }
+
+    const categorySlug = subCat.parent?.slug || subCat.parent?.name || "uncategorized";
+    const subSlug = subCat.slug;
+    const folderPath = `products/${categorySlug}/${subSlug}`;
+
     // Upload all images in parallel and collect the responses
     const uploadPromises = req.files.map(file =>
-      uploadOnCloudinary(file.path, "products")
+      uploadOnCloudinary(file.path, folderPath)
     );
     const cloudResps = await Promise.all(uploadPromises);
 
@@ -142,7 +157,8 @@ async function handlePostProduct(req, res) {
       basePrice,
       discountedPrice,
       quantity,
-      category,
+      // store subcategory reference in `category` field of Product schema
+      Subcategory,
       ratings,
       images: uploadedImages,
     });
@@ -163,7 +179,7 @@ async function handlePutProduct(req, res) {
     basePrice,
     discountedPrice,
     quantity,
-    category,
+    Subcategory,
     ratings
   } = req.body;
 
@@ -175,7 +191,7 @@ async function handlePutProduct(req, res) {
       basePrice,
       discountedPrice,
       quantity,
-      category,
+      Subcategory,
       ratings,
     };
 

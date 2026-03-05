@@ -1,0 +1,42 @@
+ [
+    {
+      "name": "Mobile Phones",
+      "slug": "mobile-phones"
+    },
+    {
+      "name": "Laptops",
+      "slug": "laptops"
+    },
+    {
+      "name": "Computer Components",
+      "slug": "computer-components"
+    },
+    {
+      "name": "Audio Accessories",
+      "slug": "audio-accessories"
+    },
+    {
+      "name": "Snacks",
+      "slug": "snacks"
+    },
+    {
+      "name": "Dairy Products",
+      "slug": "dairy-products"
+    },
+    {
+      "name": "Grocery",
+      "slug": "grocery"
+    },
+    {
+      "name": "Beverages",
+      "slug": "beverages"
+    },
+    {
+      "name": "Personal Health Care",
+      "slug": "personal-health-care"
+    },
+    {
+      "name": "Household Items",
+      "slug": "household-items"
+    }
+  ]

@@ -1,0 +1,186 @@
+[
+  {
+    "name": "Android Phones",
+    "slug": "android-phones",
+    "parent": "MOBILE_PHONES_ID"
+  },
+  {
+    "name": "iPhones",
+    "slug": "iphones",
+    "parent": "MOBILE_PHONES_ID"
+  },
+  {
+    "name": "Gaming Phones",
+    "slug": "gaming-phones",
+    "parent": "MOBILE_PHONES_ID"
+  },
+
+  {
+    "name": "Ultrabooks",
+    "slug": "ultrabooks",
+    "parent": "LAPTOPS_ID"
+  },
+  {
+    "name": "Gaming Laptops",
+    "slug": "gaming-laptops",
+    "parent": "LAPTOPS_ID"
+  },
+  {
+    "name": "Business Laptops",
+    "slug": "business-laptops",
+    "parent": "LAPTOPS_ID"
+  },
+
+  {
+    "name": "RAM",
+    "slug": "ram",
+    "parent": "COMPUTER_COMPONENTS_ID"
+  },
+  {
+    "name": "SSD",
+    "slug": "ssd",
+    "parent": "COMPUTER_COMPONENTS_ID"
+  },
+  {
+    "name": "HDD",
+    "slug": "hdd",
+    "parent": "COMPUTER_COMPONENTS_ID"
+  },
+  {
+    "name": "Graphics Cards",
+    "slug": "graphics-cards",
+    "parent": "COMPUTER_COMPONENTS_ID"
+  },
+  {
+    "name": "Motherboards",
+    "slug": "motherboards",
+    "parent": "COMPUTER_COMPONENTS_ID"
+  },
+
+  {
+    "name": "Keyboards",
+    "slug": "keyboards",
+    "parent": "COMPUTER_ACCESSORIES_ID"
+  },
+  {
+    "name": "Mouse",
+    "slug": "mouse",
+    "parent": "COMPUTER_ACCESSORIES_ID"
+  },
+  {
+    "name": "Headsets",
+    "slug": "headsets",
+    "parent": "COMPUTER_ACCESSORIES_ID"
+  },
+
+  {
+    "name": "Chips",
+    "slug": "chips",
+    "parent": "SNACKS_ID"
+  },
+  {
+    "name": "Biscuits",
+    "slug": "biscuits",
+    "parent": "SNACKS_ID"
+  },
+  {
+    "name": "Chocolates",
+    "slug": "chocolates",
+    "parent": "SNACKS_ID"
+  },
+
+  {
+    "name": "Milk",
+    "slug": "milk",
+    "parent": "DAIRY_PRODUCTS_ID"
+  },
+  {
+    "name": "Yogurt",
+    "slug": "yogurt",
+    "parent": "DAIRY_PRODUCTS_ID"
+  },
+  {
+    "name": "Butter",
+    "slug": "butter",
+    "parent": "DAIRY_PRODUCTS_ID"
+  },
+  {
+    "name": "Cheese",
+    "slug": "cheese",
+    "parent": "DAIRY_PRODUCTS_ID"
+  },
+
+  {
+    "name": "Rice",
+    "slug": "rice",
+    "parent": "GROCERY_ID"
+  },
+  {
+    "name": "Flour",
+    "slug": "flour",
+    "parent": "GROCERY_ID"
+  },
+  {
+    "name": "Cooking Oil",
+    "slug": "cooking-oil",
+    "parent": "GROCERY_ID"
+  },
+  {
+    "name": "Sugar",
+    "slug": "sugar",
+    "parent": "GROCERY_ID"
+  },
+
+  {
+    "name": "Soft Drinks",
+    "slug": "soft-drinks",
+    "parent": "BEVERAGES_ID"
+  },
+  {
+    "name": "Juices",
+    "slug": "juices",
+    "parent": "BEVERAGES_ID"
+  },
+  {
+    "name": "Tea",
+    "slug": "tea",
+    "parent": "BEVERAGES_ID"
+  },
+  {
+    "name": "Coffee",
+    "slug": "coffee",
+    "parent": "BEVERAGES_ID"
+  },
+
+  {
+    "name": "Shampoo",
+    "slug": "shampoo",
+    "parent": "PERSONAL_HEALTH_CARE_ID"
+  },
+  {
+    "name": "Soap",
+    "slug": "soap",
+    "parent": "PERSONAL_HEALTH_CARE_ID"
+  },
+  {
+    "name": "Toothpaste",
+    "slug": "toothpaste",
+    "parent": "PERSONAL_HEALTH_CARE_ID"
+  },
+
+  {
+    "name": "Detergents",
+    "slug": "detergents",
+    "parent": "HOUSEHOLD_ITEMS_ID"
+  },
+  {
+    "name": "Dishwash",
+    "slug": "dishwash",
+    "parent": "HOUSEHOLD_ITEMS_ID"
+  },
+  {
+    "name": "Cleaning Supplies",
+    "slug": "cleaning-supplies",
+    "parent": "HOUSEHOLD_ITEMS_ID"
+  }
+]

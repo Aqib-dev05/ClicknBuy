@@ -1,5 +1,5 @@
 import { connectDB } from "./src/config/db.js";
-import { seedAdmin } from "./src/seed/seed.js";
+import { seedAdmin, seedCategory, seedSubCategory } from "./src/seed/seed.js";
 import dotenv from "dotenv";
 import app from "./src/app.js";
 
@@ -11,5 +11,7 @@ const MONGO_URI =
 app.listen(PORT, () => {
   connectDB(MONGO_URI);
   seedAdmin();
+  seedCategory();
+  seedSubCategory();
   console.log(`Server is listening at http://localhost:${PORT}`);
 });
