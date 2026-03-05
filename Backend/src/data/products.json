@@ -1,0 +1,526 @@
+[
+    {
+        "name": "Mango Jiuce",
+        "slug": "mango-jiuce",
+        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
+        "baasePrice": 300,
+        "discountedPrice": 300,
+        "quantity": 60,
+        "SubCategory": "69a947954fd536f941aeb98f",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722562/jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul.webp",
+                "public_id": "jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722581/c681a6131199019.Y3JvcCw2MDAwLDQ2OTMsMCw2NTM_afxo6o.jpg",
+                "public_id": "c681a6131199019.Y3JvcCw2MDAwLDQ2OTMsMCw2NTM_afxo6o"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722573/fruit-cocktails-and-juices-AGBFHT_rxtd18.jpg",
+                "public_id": "fruit-cocktails-and-juices-AGBFHT_rxtd18"
+            }
+        ]
+    },
+    {
+        "name": "Nescafe Coffee",
+        "slug": "nescafe-coffee",
+        "description": "Nescafe Coffee, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
+        "baasePrice": 1300,
+        "discountedPrice": 1300,
+        "quantity": 260,
+        "SubCategory": "69a947954fd536f941aeb991",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722538/cloves-and-coffee-benefits-recipe_rlknyf.jpg",
+                "public_id": "cloves-and-coffee-benefits-recipe_rlknyf"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722547/Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt.jpg",
+                "public_id": "Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722530/171026-better-coffee-boost-se-329p_mvgtiu.jpg",
+                "public_id": "171026-better-coffee-boost-se-329p_mvgtiu"
+            }
+        ]
+    },
+    {
+        "name": "Greek Yogurt",
+        "slug": "greek-yogurt",
+        "description": "Greek Yogurt, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
+        "baasePrice": 499,
+        "discountedPrice": 499,
+        "quantity": 70,
+        "SubCategory": "69a947954fd536f941aeb987",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722483/91215_jxkwbm.jpg",
+                "public_id": "91215_jxkwbm"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722500/250px-Turkish_strained_yogurt_xcrtgy.jpg",
+                "public_id": "250px-Turkish_strained_yogurt_xcrtgy"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722491/How-to-Make-Yogurt-7_tido0x.jpg",
+                "public_id": "How-to-Make-Yogurt-7_tido0x"
+            }
+        ]
+    },
+    {
+        "name": "Milk Pack",
+        "slug": "milk-pack",
+        "description": "Milk, 1 Litre, Fresh From Dairy",
+        "baasePrice": 299,
+        "discountedPrice": 299,
+        "quantity": 700,
+        "SubCategory": "69a947954fd536f941aeb986",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722206/pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg.png",
+                "public_id": "pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722221/millk-bottle-farm-background-59785244_iu82nr.jpg",
+                "public_id": "millk-bottle-farm-background-59785244_iu82nr"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722213/avatars-000656046305-0p4aem-t240x240_hmljyh.jpg",
+                "public_id": "avatars-000656046305-0p4aem-t240x240_hmljyh"
+            }
+        ]
+    },
+    {
+        "name": "Cheese",
+        "slug": "cheese",
+        "description": "Cheese, 1 kg, Fresh From Dairy",
+        "baasePrice": 2099,
+        "discountedPrice": 2099,
+        "quantity": 20,
+        "SubCategory": "69a947954fd536f941aeb989",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722168/Buitoni-44128831-20oz-FourCheese-Ravioli-Front-1-scaled_htcmgo.png",
+                "public_id": "Buitoni-44128831-20oz-FourCheese-Ravioli-Front-1-scaled_htcmgo"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722160/swiss_ir7ind.jpg",
+                "public_id": "swiss_ir7ind"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722152/sharp-cheddar-slices_1_i7olin.jpg",
+                "public_id": "sharp-cheddar-slices_1_i7olin"
+            }
+        ]
+    },
+    {
+        "name": "Cow Butter",
+        "slug": "cow-butter",
+        "description": "Butter, 1 kg, Fresh From Dairy.Lorem ipsum dolor",
+        "baasePrice": 2099,
+        "discountedPrice": 2099,
+        "quantity": 20,
+        "SubCategory": "69a947954fd536f941aeb988",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722117/Butter-2-sticks_saktpr.png",
+                "public_id": "Butter-2-sticks_saktpr"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722123/bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6.jpg",
+                "public_id": "bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722130/Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij.jpg",
+                "public_id": "Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij"
+            }
+        ]
+    },
+    {
+        "name": "White Suger",
+        "slug": "white-suger",
+        "description": "Suger, 1 kg, White crystaline powder.Lorem ipsum dolor",
+        "baasePrice": 177,
+        "discountedPrice": 177,
+        "quantity": 200,
+        "SubCategory": "69a947954fd536f941aeb98d",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721600/pngtree-pile-of-sugar-png-image_16070563_yvp97v.png",
+                "public_id": "pngtree-pile-of-sugar-png-image_16070563_yvp97v"
+            }
+        ]
+    },
+    {
+        "name": "Banaspati Rice",
+        "slug": "banaspati-rice",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 400,
+        "discountedPrice": 400,
+        "quantity": 600,
+        "SubCategory": "69a947954fd536f941aeb98a",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721565/68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37.jpg",
+                "public_id": "68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721560/Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv.png",
+                "public_id": "Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv"
+            }
+        ]
+    },
+    {
+        "name": "Wheat Flour",
+        "slug": "wheat-flour",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 400,
+        "discountedPrice": 400,
+        "quantity": 600,
+        "SubCategory": "69a947954fd536f941aeb98b",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721535/All-about-grain-flours-resized_gzluvh.jpg",
+                "public_id": "All-about-grain-flours-resized_gzluvh"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721539/L1040948_inm82z.jpg",
+                "public_id": "L1040948_inm82z"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721544/what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup.jpg",
+                "public_id": "what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721549/AdobeStock_442212782_b3wph0.jpg",
+                "public_id": "AdobeStock_442212782_b3wph0"
+            }
+        ]
+    },
+    {
+        "name": "iPhone 14 Pro Max",
+        "slug": "iphone-14-pro-max",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 500000,
+        "discountedPrice": 500000,
+        "quantity": 10,
+        "SubCategory": "69a947954fd536f941aeb976",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721892/iphone-15-pro-max-render.png_l1fulc.png",
+                "public_id": "iphone-15-pro-max-render.png_l1fulc"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721884/intro-1712862962_vfj5bi.jpg",
+                "public_id": "intro-1712862962_vfj5bi"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721877/iphone-card-40-17-202509_FMT_WHH_a05exi.jpg",
+                "public_id": "iphone-card-40-17-202509_FMT_WHH_a05exi"
+            }
+        ]
+    },
+    {
+        "name": "Red Magic 8 Pro",
+        "slug": "red-magic-8-pro",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 501000,
+        "discountedPrice": 501000,
+        "quantity": 14,
+        "SubCategory": "69a947954fd536f941aeb977",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721838/A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa.jpg",
+                "public_id": "A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721828/hq720_cszbol.jpg",
+                "public_id": "hq720_cszbol"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721822/6g3gfqcFEciKX6xqKw2tuC_p2vj9n.jpg",
+                "public_id": "6g3gfqcFEciKX6xqKw2tuC_p2vj9n"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721851/RedMagic_E-sports_Tablet_Pro_1__do5qym.jpg",
+                "public_id": "RedMagic_E-sports_Tablet_Pro_1__do5qym"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721843/h732_nfeobo.png",
+                "public_id": "h732_nfeobo"
+            }
+        ]
+    },
+    {
+        "name": "Android Phone",
+        "slug": "android-phone",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 50000,
+        "discountedPrice": 50000,
+        "quantity": 50,
+        "SubCategory": "69a947954fd536f941aeb975",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721668/samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo.jpg",
+                "public_id": "samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721662/oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs.jpg",
+                "public_id": "oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs"
+            }
+        ]
+    },
+    {
+        "name": "Cooking Oil Fresh",
+        "slug": "cooking-oil-fresh",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 400,
+        "discountedPrice": 400,
+        "quantity": 50,
+        "SubCategory": "69a947954fd536f941aeb98c",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721507/mazola_2520corn_2520oil_2520pb_xxmyrx.jpg",
+                "public_id": "mazola_2520corn_2520oil_2520pb_xxmyrx"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721512/d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg.jpg",
+                "public_id": "d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg"
+            }
+        ]
+    },
+    {
+        "name": "Laptop Dell Inspiron ",
+        "slug": "laptop-dell-inspiron",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 140000,
+        "discountedPrice": 140000,
+        "quantity": 5,
+        "SubCategory": "69a947954fd536f941aeb97a",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721419/hero_IT-products-laptops-ultrapc_gd4xif.jpg",
+                "public_id": "hero_IT-products-laptops-ultrapc_gd4xif"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721413/71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv.jpg",
+                "public_id": "71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721409/81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4.jpg",
+                "public_id": "81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721403/61TGRBGTNzL_awgc0f.jpg",
+                "public_id": "61TGRBGTNzL_awgc0f"
+            }
+        ]
+    },
+    {
+        "name": "MacBook Air M3 ",
+        "slug": "macbook-air-m3",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 440000,
+        "discountedPrice": 440000,
+        "quantity": 5,
+        "SubCategory": "69a947954fd536f941aeb978",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721372/Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj.jpg",
+                "public_id": "Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721375/im-49790107_q4gacw.jpg",
+                "public_id": "im-49790107_q4gacw"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721379/Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii.jpg",
+                "public_id": "Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721384/164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e.jpg",
+                "public_id": "164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721387/hero-image.fill.size_1248x702.v1742210013_ybxbwc.jpg",
+                "public_id": "hero-image.fill.size_1248x702.v1742210013_ybxbwc"
+            }
+        ]
+    },
+    {
+        "name": "Asus Legion 5 Pro ",
+        "slug": "asus-legion-5-pro",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 340000,
+        "discountedPrice": 340000,
+        "quantity": 7,
+        "SubCategory": "69a947954fd536f941aeb979",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721274/asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576_vzvxic.jpg",
+                "public_id": "asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576_vzvxic"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721277/5sfgkizamk_bpl7pq.webp",
+                "public_id": "5sfgkizamk_bpl7pq"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721272/08_Legion_Pro_7i_10_edjjbv.png",
+                "public_id": "08_Legion_Pro_7i_10_edjjbv"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721266/71sgAr9atBS_tpmgzl.jpg",
+                "public_id": "71sgAr9atBS_tpmgzl"
+            }
+        ]
+    },
+    {
+        "name": "Lays Chips",
+        "slug": "lays-chips",
+        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
+        "baasePrice": 60,
+        "discountedPrice": 60,
+        "quantity": 60000,
+        "SubCategory": "69a947954fd536f941aeb983",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720990/a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0.jpg",
+                "public_id": "a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720988/PhotoRoom_007_20220605_110107_xw3c2x.png",
+                "public_id": "PhotoRoom_007_20220605_110107_xw3c2x"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720986/TAKISFUEGO92.3G_b13qfd.png",
+                "public_id": "TAKISFUEGO92.3G_b13qfd"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/bps-pharma-be-real-4u_tngj7d.jpg",
+                "public_id": "bps-pharma-be-real-4u_tngj7d"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx.jpg",
+                "public_id": "c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720976/663f340576c86_jquwfx.webp",
+                "public_id": "663f340576c86_jquwfx"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720926/chipsfuego-01_kwqbfu.png",
+                "public_id": "chipsfuego-01_kwqbfu"
+            }
+        ]
+    },
+    {
+        "name": "4U Chips",
+        "slug": "4u-chips",
+        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
+        "baasePrice": 60,
+        "discountedPrice": 60,
+        "quantity": 60000,
+        "SubCategory": "69a947954fd536f941aeb983",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720923/Hi_Res-00028400759045_C1C1_ceptsg.jpg",
+                "public_id": "Hi_Res-00028400759045_C1C1_ceptsg"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720920/0002840070569_jtt19c.jpg",
+                "public_id": "0002840070569_jtt19c"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720918/0002840058929_snbvzb.jpg",
+                "public_id": "0002840058929_snbvzb"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720915/81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq.jpg",
+                "public_id": "81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720911/0002840000291_uwraxn.jpg",
+                "public_id": "0002840000291_uwraxn"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720909/lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4.jpg",
+                "public_id": "lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720906/0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs.jpg",
+                "public_id": "0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs"
+            }
+        ]
+    },
+    {
+        "name": "Colgate Toothpaste",
+        "slug": "colgate-toothpaste",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 100,
+        "discountedPrice": 100,
+        "quantity": 70,
+        "SubCategory": "69a947954fd536f941aeb994",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721229/hlt-toms-of-maine-whole-care-natural-toothpaste-with-fluoride-jaimie-hesterberg-2-588bf9d1a0eb45d3b47f4e0520aae2e4_bg8hyy.jpg",
+                "public_id": "hlt-toms-of-maine-whole-care-natural-toothpaste-with-fluoride-jaimie-hesterberg-2-588bf9d1a0eb45d3b47f4e0520aae2e4_bg8hyy"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721225/toothpaste__1523627538_33881-300x225_wgjdqw.jpg",
+                "public_id": "toothpaste__1523627538_33881-300x225_wgjdqw"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721222/ioeCHM2UGXoPRwPyEuPx4_sbifec.png",
+                "public_id": "ioeCHM2UGXoPRwPyEuPx4_sbifec"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721218/shp-update-best-whitening-toothpastes-tout-2652019cc4a24f21972dfd77b8ce7047_zuhxap.jpg",
+                "public_id": "shp-update-best-whitening-toothpastes-tout-2652019cc4a24f21972dfd77b8ce7047_zuhxap"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721213/80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_zy9qqo.webp",
+                "public_id": "80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_zy9qqo"
+            }
+        ]
+    },
+    {
+        "name": "Hair Shampoo Men",
+        "slug": "hair-shampoo-men",
+        "description": "lorem ipsem dolor siitit 30 dd hello world",
+        "baasePrice": 100,
+        "discountedPrice": 100,
+        "quantity": 70,
+        "SubCategory": "69a947954fd536f941aeb992",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721161/shutterstock_243233965_auluql.jpg",
+                "public_id": "shutterstock_243233965_auluql"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721157/Hair_dye_hero_odr3ez.jpg",
+                "public_id": "Hair_dye_hero_odr3ez"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721154/shampoo.2_tqycyc.jpg",
+                "public_id": "shampoo.2_tqycyc"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721151/0004126000715_kgngqs.jpg",
+                "public_id": "0004126000715_kgngqs"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721148/Meclay_London_Smooth_Straight_Shampoo_660ML_dnhz0l.jpg",
+                "public_id": "Meclay_London_Smooth_Straight_Shampoo_660ML_dnhz0l"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721144/PZYQHYRFFWY7NXK5UYPPY4BL_sijoe4.png",
+                "public_id": "PZYQHYRFFWY7NXK5UYPPY4BL_sijoe4"
+            },
+            {
+                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721141/OGX-Nourishing-Coconut-Milk-Moisturizing-Hair-Shampoo-Conditioner-Set-13-fl-oz_d55bf602-8070-4802-aa23-636e9be1736b.59bdf70181a184be2fcbdd3785f0fb14_wbfzuu.jpg",
+                "public_id": "OGX-Nourishing-Coconut-Milk-Moisturizing-Hair-Shampoo-Conditioner-Set-13-fl-oz_d55bf602-8070-4802-aa23-636e9be1736b.59bdf70181a184be2fcbdd3785f0fb14_wbfzuu"
+            }
+        ]
+    }
+]

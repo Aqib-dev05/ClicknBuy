@@ -28,12 +28,11 @@ import fs from "fs"
 
 async function seedCategory() {
   try {
-    // Use countDocuments for efficiency
     const catCount = await categoryModel.countDocuments();
 
     if (catCount === 0) {
       const categories = JSON.parse(
-        fs.readFileSync(new URL("../utils/category.json", import.meta.url), "utf-8")
+        fs.readFileSync(new URL("../data/category.json", import.meta.url), "utf-8")
       );
 
       await categoryModel.insertMany(categories);
@@ -56,18 +55,16 @@ const seedSubCategory = async () => {
       return;
     }
 
-    // 1️⃣ Get categories from DB
     const categories = await categoryModel.find();
 
-    // 2️⃣ Read subcategory JSON
     const subCategories = JSON.parse(
       fs.readFileSync(
-        new URL("../utils/subCategory.json", import.meta.url),
+        new URL("../data/subCategory.json", import.meta.url),
         "utf-8"
       )
     );
 
-    // 3️⃣ Map placeholders with real IDs
+    //  Map placeholders with real IDs
     const categoryMap = {
       MOBILE_PHONES_ID: categories.find(c => c.slug === "mobile-phones")?._id,
       LAPTOPS_ID: categories.find(c => c.slug === "laptops")?._id,
@@ -96,5 +93,6 @@ const seedSubCategory = async () => {
     console.log(error.message);
   }
 };
+
 
  export {seedAdmin,seedCategory,seedSubCategory};

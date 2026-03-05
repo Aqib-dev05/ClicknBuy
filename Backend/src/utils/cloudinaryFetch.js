@@ -10,7 +10,7 @@
 //     api_secret: process.env.CLOUDINARY_API_SECRET,
 // });
 
-// const fetchAllCloudinaryImages = async () => {
+// export const fetchAllCloudinaryImages = async () => {
 //     try {
 //         // Cloudinary only returns a maximum of 500 items per request.
 //         // This helper will paginate through all results using next_cursor
@@ -38,18 +38,3 @@
 //     }
 // };
 
-// // do not invoke automatically; let callers decide when to fetch
-// (async () => {
-//     try {
-//         console.log('Starting Cloudinary fetch test...');
-//         const images = await fetchAllCloudinaryImages();
-        
-//         fs.writeFileSync('cloudinary_images.json', JSON.stringify(images, null, 2));
-         
-
-//         console.log('Fetched', images.length, 'images from Cloudinary');
-//         // Uncomment below to inspect result data
-//     } catch (err) {
-//         console.error('Test failed with error:', err);
-//     }
-// })();
