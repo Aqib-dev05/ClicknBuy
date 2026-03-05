@@ -170,6 +170,8 @@ async function handlePostProduct(req, res) {
       });
     }
 
+
+
     // Creating product in DB
     const product = await productModel.create({
       name,
