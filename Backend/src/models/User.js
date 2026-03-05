@@ -19,6 +19,7 @@ import mongoose from "mongoose";
     password:{
         type:String,
         required:true,
+        min:4
     },
     avatar:{
         url:String,

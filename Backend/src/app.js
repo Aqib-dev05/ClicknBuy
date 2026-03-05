@@ -7,7 +7,6 @@ import subCategoryRoutes from "./routes/subCategory.js"
 import orderRoutes from "./routes/orderRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 
-
 import checkAuth from "./middlewares/authMiddleware.js";
 
 const app = express();
