@@ -1,6 +1,6 @@
 import express from "express";
 import productModel from "../models/Product.js";
-import SubCategory from "../models/SubCategory.js";
+import SubCategoryModel from "../models/SubCategory.js";
 import { uploadOnCloudinary } from "../utils/cloudinay.js";
 
 async function handleGetProductsGeneral(req, res) {
@@ -87,7 +87,7 @@ async function handleGetProductBySlug(req, res) {
   const { slug } = req.params;
 
   try {
-    const product = await productModel.findOne(slug);
+    const product = await productModel.findOne({slug});
 
     if (!product) {
       return res.status(401).send("Product Not Found!!!");
@@ -109,7 +109,7 @@ async function handlePostProduct(req, res) {
     basePrice,
     discountedPrice,
     quantity,
-    Subcategory, // this is expected to be SubCategory _id
+    Subcategory, // this is expected to be SubCategoryModel _id
     ratings,
   } = req.body;
   try {
@@ -118,35 +118,56 @@ async function handlePostProduct(req, res) {
     }
 
     // Find subcategory and its parent category to build Cloudinary folder path
-    const subCat = await SubCategory.findById(Subcategory).populate(
+    const subCat = await SubCategoryModel.findById(Subcategory?.trim()).populate(
       "parent",
       "slug name"
     );
 
     if (!subCat) {
+      console.log(subCat)
       return res.status(400).json({ message: "Invalid subcategory" });
     }
 
     const categorySlug = subCat.parent?.slug || subCat.parent?.name || "uncategorized";
-    const subSlug = subCat.slug;
-    const folderPath = `products/${categorySlug}/${subSlug}`;
+    const subSlug = subCat.slug ;
+    const folderPath = `/products/${categorySlug}/${subSlug}`;
 
+    
     // Upload all images in parallel and collect the responses
     const uploadPromises = req.files.map(file =>
       uploadOnCloudinary(file.path, folderPath)
     );
-    const cloudResps = await Promise.all(uploadPromises);
+    
+    let cloudResps;
+    try {
+      cloudResps = await Promise.all(uploadPromises);
+      console.log("All images uploaded successfully:", cloudResps.length);
+    } catch (uploadError) {
+      console.error("Image upload failed:", uploadError.message);
+      return res.status(500).json({ 
+        message: "Image upload failed",
+        error: uploadError.message 
+      });
+    }
 
     // Only keep successful uploads
+    // Ensure all uploads have required fields
     const uploadedImages = cloudResps
-      .filter(resp => resp)
+      .filter(resp => resp && resp.secure_url && resp.public_id)
       .map(resp => ({
         url: resp.secure_url,
         public_id: resp.public_id,
       }));
 
     if (uploadedImages.length === 0) {
-      return res.status(500).json({ message: "Image upload failed" });
+      return res.status(500).json({ message: "No images were successfully uploaded" });
+    }
+
+    if (uploadedImages.length !== req.files.length) {
+      console.warn(`Expected ${req.files.length} images but got ${uploadedImages.length}`);
+      return res.status(500).json({ 
+        message: `Expected ${req.files.length} images but only ${uploadedImages.length} were successfully uploaded` 
+      });
     }
 
     // Creating product in DB
@@ -158,7 +179,7 @@ async function handlePostProduct(req, res) {
       discountedPrice,
       quantity,
       // store subcategory reference in `category` field of Product schema
-      Subcategory,
+      category:Subcategory,
       ratings,
       images: uploadedImages,
     });

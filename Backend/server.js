@@ -1,9 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { connectDB } from "./src/config/db.js";
 import { seedAdmin, seedCategory, seedSubCategory } from "./src/seed/seed.js";
-import dotenv from "dotenv";
 import app from "./src/app.js";
-
-dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI =

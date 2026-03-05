@@ -18,7 +18,7 @@ const ProductSchema = mongoose.Schema({
     },
   },
   quantity: Number,
-  category: {
+  SubCategory: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "SubCategory",
   },
@@ -38,11 +38,9 @@ const ProductSchema = mongoose.Schema({
       },
       comment: {
         type: String,
-        required: true,
       },
       rating: {
         type: Number,
-        required: true,
       },
       createdAt: {
         type: Date,

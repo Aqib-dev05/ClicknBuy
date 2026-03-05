@@ -18,7 +18,7 @@ router
   .get("/", handleGetProductsGeneral)
   .get("/:id", handleGetProductById)
   .get("/slug/:slug", handleGetProductBySlug)
-  .post("/",checkAuth,checkAdmin,upload.array("images",5), handlePostProduct)
+  .post("/",upload.array("images",5), handlePostProduct)
   .put("/:id",checkAuth,checkAdmin, handlePutProduct)
   .delete("/:id",checkAuth,checkAdmin, handleDeleteProduct);
 
