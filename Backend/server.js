@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { connectDB } from "./src/config/db.js";
-import { seedAdmin, seedCategory, seedSubCategory } from "./src/seed/seed.js";
+import { seedAdmin,seedProducts, seedCategory, seedSubCategory } from "./src/seed/seed.js";
 import app from "./src/app.js";
 
 const PORT = process.env.PORT || 5000;
@@ -13,5 +13,6 @@ app.listen(PORT, () => {
   seedAdmin();
   seedCategory();
   seedSubCategory();
+  seedProducts();
   console.log(`Server is listening at http://localhost:${PORT}`);
 });

@@ -1,7 +1,7 @@
 import express from "express";
 import productModel from "../models/Product.js";
 import SubCategoryModel from "../models/SubCategory.js";
-import { uploadOnCloudinary } from "../utils/cloudinay.js";
+import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinay.js";
 
 async function handleGetProductsGeneral(req, res) {
   const { q, category, sub, sortBy, page = 1, limit = 20 } = req.query;
@@ -252,10 +252,30 @@ async function handleDeleteProduct(req, res) {
   const { id } = req.params;
 
   try {
-    const deleted = await productModel.findByIdAndDelete(id);
-    if (!deleted) {
-      res.status(401).send("Product not found to be delete");
+    // First, fetch the product to get image public_ids
+    const product = await productModel.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
     }
+
+    // Delete all images from Cloudinary
+    if (product.images && product.images.length > 0) {
+      const deletePromises = product.images.map(image =>
+        deleteFromCloudinary(image.public_id)
+      );
+      
+      try {
+        await Promise.all(deletePromises);
+        console.log("All product images deleted from Cloudinary");
+      } catch (cloudinaryError) {
+        console.error("Error deleting images from Cloudinary:", cloudinaryError.message);
+        // Continue with product deletion even if image deletion fails
+      }
+    }
+
+    // Delete product from database
+    const deleted = await productModel.findByIdAndDelete(id);
+    
     res.status(200).json({
       message: "Product deleted successfully!",
     });

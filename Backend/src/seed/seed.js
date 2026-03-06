@@ -1,6 +1,7 @@
 import userModel from "../models/User.js" 
 import categoryModel from "../models/Category.js"
 import subCategoryModel from "../models/SubCategory.js"
+import productModel from "../models/Product.js"
 import fs from "fs"
  
  
@@ -94,5 +95,23 @@ const seedSubCategory = async () => {
   }
 };
 
+const seedProducts = async ()=>{
+    try {
+      const productCount = await productModel.countDocuments();
+      if(productCount > 1){
+        console.log("Products Already Present")
+      }
+      else{
+        const products = JSON.parse(
+          fs.readFileSync(new URL("../data/products.json", import.meta.url), "utf-8")
+        );
+        await productModel.insertMany(products);
+        console.log("Products created successfully!")
+      }
+      
+    } catch (error) {
+      console.log(error.message)
+    }
+}
 
- export {seedAdmin,seedCategory,seedSubCategory};
+ export {seedAdmin,seedProducts,seedCategory,seedSubCategory};
