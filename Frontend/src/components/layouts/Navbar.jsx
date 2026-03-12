@@ -1,75 +1,130 @@
-import React from 'react'
-import Logo from "../../assets/logo.webp"
-import { useState } from 'react'
-import {  Heart, ShoppingCart, House, User, ShoppingBasket } from "lucide-react"
-import { useEffect } from 'react';
-import SearchBar from "../layouts/SearchBar"
+import Logo from "../../assets/logo.webp";
+import { useEffect, useState } from "react";
+import { Heart, House, ShoppingBasket, ShoppingCart, User } from "lucide-react";
+import SearchBar from "../layouts/SearchBar";
 
 export default function Navbar() {
-
   const [isMobile, setIsMobile] = useState(false);
   const [enterHeart, setEnterHeart] = useState(false);
 
-   function handleMouseEnter() {
+  function handleMouseEnter() {
     setEnterHeart(true);
   }
-  
+
   function handleMouseLeave() {
     setEnterHeart(false);
   }
 
   useEffect(() => {
     function changeMobile() {
-      if (window.innerWidth < 1024) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
+      setIsMobile(window.innerWidth < 767);
     }
     changeMobile();
     window.addEventListener("resize", changeMobile);
-  }, [])
-
-
+    return () => window.removeEventListener("resize", changeMobile);
+  }, []);
 
   return (
-    <nav className='flex justify-between bg-gray-50 items-center px-1 sticky z-[100] top-0 left-0 w-full md:px-8 lg:px-4 xl:px-16 border-b-2 border-gray-300'>
-      <div className='flex items-center size-[50]'>
-        <img src={Logo} alt="Logo" className='w-[80px] h-[80px] max-sm:w-[60px] max-sm:h-[60px] object-contain' />
-      </div>
+    <nav className="sticky top-0 left-0 z-[100] w-full border-b border-gray-200 bg-white/80 backdrop-blur">
+      <div className="mx-auto flex w-full items-center justify-between px-2 py-2 md:px-4 lg:px-6 xl:px-16">
+        <div className="flex items-center">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-14 w-14 object-contain sm:h-16 sm:w-16"
+          />
+        </div>
 
-      {!isMobile && (
-        <ul className='flex gap-8 mx-auto text-lg font-medium'>
-          <li className='hover:border-b-2 transitions hover:border-black cursor-pointer'>Home</li>
-          <li className='hover:border-b-2 transitions hover:border-black cursor-pointer'>Products</li>
-          <li className='hover:border-b-2 transitions hover:border-black cursor-pointer'>Sign Up</li>
-        </ul>
-      )}
+        {!isMobile && (
+          <ul className="mx-auto items-center gap-4 lg:gap-8  text-[15px] font-medium text-gray-700 flex">
+            <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+              Home
+            </li>
+            <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+              Products
+            </li>
+            <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+              Categories
+            </li>
+            <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+              Sign Up
+            </li>
+          </ul>
+        )}
 
-      <div className='flex items-center gap-4 sm:mr-3 '>
-       <SearchBar/>
-        <div className='flex gap-3'>
-          {(!isMobile) && (
-            <>
-              <Heart className='cursor-pointer' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} fill={enterHeart ? "red" : "none"} stroke={enterHeart ? "red" : "black"} />
-              <ShoppingCart className='cursor-pointer'  />
-            </>
+        <div className="flex items-center gap-2 lg:gap-3">
+          <SearchBar />
+
+          {!isMobile && (
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Wishlist"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Heart
+                  className="h-5 w-5"
+                  fill={enterHeart ? "red" : "none"}
+                  stroke={enterHeart ? "red" : "currentColor"}
+                />
+              </button>
+
+              <button
+                type="button"
+                className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Cart"
+              >
+                <ShoppingCart className="h-5 w-5" />
+              </button>
+            </div>
           )}
-
         </div>
       </div>
 
       {isMobile && (
-        <div className='fixed z-[100] bottom-0 left-0 w-full bg-white border-t-2 border-gray-300'>
-          <ul className='flex justify-around items-center py-4 text-lg font-medium'>
-            <li className='cursor-pointer px-1'><House /></li>
-            <li className='cursor-pointer px-1'><ShoppingBasket /></li>
-            <li className='cursor-pointer px-1'><ShoppingCart /></li>
-            <li className='cursor-pointer px-1'><User /></li>
-
+        <div className="sticky bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
+          <ul className="flex items-center justify-around py-3 text-sm font-medium text-gray-700">
+            <li>
+              <button
+                type="button"
+                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Home"
+              >
+                <House className="h-6 w-6" />
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Products"
+              >
+                <ShoppingBasket className="h-6 w-6" />
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Cart"
+              >
+                <ShoppingCart className="h-6 w-6" />
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Account"
+              >
+                <User className="h-6 w-6" />
+              </button>
+            </li>
           </ul>
         </div>
       )}
     </nav>
-  )
+  );
 }
