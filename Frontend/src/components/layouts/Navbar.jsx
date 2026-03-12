@@ -25,6 +25,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <header>
     <nav className="sticky top-0 left-0 z-[100] w-full border-b border-gray-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex w-full items-center justify-between px-2 py-2 md:px-4 lg:px-6 xl:px-16">
         <div className="flex items-center">
@@ -83,8 +84,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isMobile && (
-        <div className="sticky bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
+     
+    </nav>
+    {isMobile && (
+        <nav className="fixed bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
           <ul className="flex items-center justify-around py-3 text-sm font-medium text-gray-700">
             <li>
               <button
@@ -123,8 +126,8 @@ export default function Navbar() {
               </button>
             </li>
           </ul>
-        </div>
+        </nav>
       )}
-    </nav>
+  </header>
   );
 }
