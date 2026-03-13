@@ -1,7 +1,8 @@
-import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Heart, ShoppingCart, Star,Eye } from "lucide-react";
 import sampleImage from "../../assets/Frame 694.png";
 import Button from "../layouts/Button";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import {toast} from "react-toastify"
 
 export default function ProductCard({
   image,
@@ -17,14 +18,22 @@ export default function ProductCard({
     setIsWished(prev => !prev)
   };
 
+  useEffect(() => {
+    if(isWished)
+    toast.warn("Product added!")
+    
+  }, [isWished]);
+
   return (
     <>
-    <div className="group relative flex w-full max-w-xs flex-col rounded-md border border-gray-200 bg-white p-3 shadow-sm transition hover:shadow-md">
+    
+    <div className="group relative flex w-full max-w-xs flex-col rounded-md border border-gray-200 bg-white p-3 shadow-md transition hover:shadow-lg">
       {/* Wishlist */}
       <button
         type="button"
         onClick={handleWishlistClick}
-        className="absolute right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+        title="Add to Wishlist"
+        className="absolute cursor-pointer right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
       >
         <Heart
           className="h-4 w-4"
@@ -32,13 +41,22 @@ export default function ProductCard({
           stroke={isWished ? "red" : "currentColor"}
         />
       </button>
+       <button
+        type="button"
+        title="View Product"
+        className="absolute cursor-pointer right-3 top-12 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+      >
+        <Eye
+          className="h-4 w-4"
+        />
+      </button>
 
       {/* Image + hover CTA */}
-      <div className="relative mb-3 flex h-60 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+      <div className="relative mb-3 flex flex-col gap-2 h-70 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
         <img
           src={image || sampleImage}
           alt={title || "Sample product"}
-          className="w-full object-cover transition duration-300 group-hover:scale-105"
+          className="w-[95%] object-cover transition duration-300 group-hover:scale-105"
         />
 
         <Button
@@ -46,17 +64,17 @@ export default function ProductCard({
           width="full"
           varient="blacked"
           text={<ShoppingCart className="h-4 w-4" />}
-          className="pointer-events-auto absolute inset-x-3 bottom-3 hidden items-center justify-center gap-2 rounded-md bg-[rgb(219,68,68)] px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition group-hover:flex"
+          className="pointer-events-auto  mx-auto   items-center justify-center gap-2 flex rounded-md bg-[rgb(219,68,68)]  py-1.5 text-xs font-semibold text-white shadow-sm transition"
         />
       </div>
 
       {/* Title */}
-      <h3 className="line-clamp-2 text-sm font-semibold text-gray-900">
+      <h3 className="line-clamp-2 text-md font-semibold text-gray-900">
         {title || "Sample Product Title Goes Here"}
       </h3>
 
       {/* Price */}
-      <div className="mt-1 flex items-center gap-2 text-sm">
+      <div className="mt-1 flex items-center gap-2 text-lg">
         <span className="font-bold text-[rgb(219,68,68)]">
           ${discountedPrice ?? basePrice ?? 120}
         </span>

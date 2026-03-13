@@ -1,4 +1,5 @@
 import React from "react";
+import {ToastContainer} from "react-toastify"
 import Navbar from "./Components/layouts/Navbar";
 import NotFound from "./Components/layouts/NotFound";
 import Footer from "./Components/layouts/Footer";
@@ -11,6 +12,7 @@ import FeaturedProducts from "./Components/home/FeaturedProducts";
 function App() {
   return (
     <>
+    <ToastContainer/>
       <Navbar />
       <FeaturedProducts/>
     </>
