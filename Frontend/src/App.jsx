@@ -17,9 +17,7 @@ function App() {
     <>
     <ToastContainer/>
       <Navbar />
-     {/* <ProductDetails/> */}
-     {/* <LoginForm/> */}
-     <RegisterForm/>
+    <FeaturedProducts/>
     </>
   )
 }

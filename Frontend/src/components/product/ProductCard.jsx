@@ -6,12 +6,7 @@ import {toast} from "react-toastify"
 import RatingStars from "./RatingStars";
 
 export default function ProductCard({
-  image,
-  title,
-  basePrice,
-  discountedPrice,
-  rating ,
-  reviews ,
+  payload
 }) {
   const [isWished, setIsWished] = useState(false);
 
@@ -53,11 +48,12 @@ export default function ProductCard({
       </button>
 
       {/* Image + hover CTA */}
-      <div className="relative mb-3 flex flex-col gap-2 h-70 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+      <div className="relative mb-3 flex flex-col gap-2 h-75 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
         <img
-          src={image || sampleImage}
-          alt={title || "Sample product"}
-          className="w-[95%] object-cover transition duration-300 group-hover:scale-105"
+          src={payload.images[0].url || sampleImage}
+          alt={payload.title || "Sample product"}
+          loading="lazy"
+          className="w-[80%] h-[80%] object-cover transition duration-300 group-hover:scale-105"
         />
 
         <Button
@@ -71,22 +67,22 @@ export default function ProductCard({
 
       {/* Title */}
       <h3 className="line-clamp-2 text-md font-semibold text-gray-900">
-        {title || "Sample Product Title Goes Here"}
+        {payload.title || "Sample Product Title Goes Here"}
       </h3>
 
       {/* Price */}
       <div className="mt-1 flex items-center gap-2 text-lg">
         <span className="font-bold text-[rgb(219,68,68)]">
-          ${discountedPrice ?? basePrice ?? 120}
+          ${payload.discountedPrice ?? payload.basePrice ?? 120}
         </span>
-        {basePrice && (
+        {payload.basePrice && (
           <span className="text-xs text-gray-400 line-through">
-            ${basePrice}
+            ${payload.basePrice}
           </span>
         )}
       </div>
 
-      <RatingStars rating={rating} reviews={reviews}/>
+      <RatingStars rating={payload.rating} reviews={payload.reviews}/>
     </div>
     </>
   );
