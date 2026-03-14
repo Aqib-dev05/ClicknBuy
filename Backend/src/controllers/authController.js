@@ -25,12 +25,18 @@ async function handleRegister(req, res) {
 
 async function handleLogin(req, res) {
   const { email, password } = req.body;
+  console.log(req.body)
 
   try {
-    const user = await UserModel.findOne({ email, password });
+    // Find user by email first
+    const user = await UserModel.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Email not found" });
+    }
+    // Check password
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Incorrect password" });
     }
 
     const token = generateToken(user);
