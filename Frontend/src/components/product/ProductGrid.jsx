@@ -6,12 +6,7 @@ function ProductGrid() {
         <ProductCard/>
         <ProductCard/>
         <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
+       
 
     </section>
   )

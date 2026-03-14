@@ -7,6 +7,8 @@ import SaleBanner from "./Components/home/SaleBanner"
 import OfferBanner from "./Components/home/OfferBanner"
 import HeroSection from "./Components/home/HeroSection";
 import FeaturedProducts from "./Components/home/FeaturedProducts";
+import ProductDetails from "./Components/product/ProductDetails";
+
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
     <>
     <ToastContainer/>
       <Navbar />
-      <FeaturedProducts/>
+     {/* <ProductDetails/> */}
     </>
   )
 }
