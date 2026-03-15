@@ -2,6 +2,7 @@ import Logo from "../../assets/logo.webp";
 import { useEffect, useState } from "react";
 import { Heart, House, ShoppingBasket, ShoppingCart, User } from "lucide-react";
 import SearchBar from "../layouts/SearchBar";
+import {Link} from "react-router-dom"
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,16 +40,16 @@ export default function Navbar() {
         {!isMobile && (
           <ul className="mx-auto items-center gap-4 lg:gap-8  text-[15px] font-medium text-gray-700 flex">
             <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-              Home
+              <Link to={"/"} >Home</Link>
             </li>
             <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-              Products
+              <Link to={"/products"} >Products</Link>
             </li>
             <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-              Categories
+              <Link  to={"/categories"}>Categories</Link>
             </li>
             <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-              Sign Up
+              <Link to={"/Register"}>Sign Up</Link>
             </li>
           </ul>
         )}
@@ -58,7 +59,8 @@ export default function Navbar() {
 
           {!isMobile && (
             <div className="flex items-center gap-1">
-              <button
+              <Link
+                to={"/wishlist"}
                 type="button"
                 className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Wishlist"
@@ -70,15 +72,16 @@ export default function Navbar() {
                   fill={enterHeart ? "red" : "none"}
                   stroke={enterHeart ? "red" : "currentColor"}
                 />
-              </button>
+              </Link>
 
-              <button
+              <Link
+                to={"/cart"}
                 type="button"
                 className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Cart"
               >
                 <ShoppingCart className="h-5 w-5" />
-              </button>
+              </Link>
             </div>
           )}
         </div>
@@ -88,42 +91,46 @@ export default function Navbar() {
     </nav>
     {isMobile && (
         <nav className="fixed bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
-          <ul className="flex items-center justify-around py-3 text-sm font-medium text-gray-700">
+          <ul className="flex items-center justify-around py-1 text-sm font-medium text-gray-700">
             <li>
-              <button
+              <Link
+                to={"/"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Home"
               >
                 <House className="h-6 w-6" />
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link
+                to={"/products"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Products"
               >
                 <ShoppingBasket className="h-6 w-6" />
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link
+                to={"/cart"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Cart"
               >
                 <ShoppingCart className="h-6 w-6" />
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link
+                to={"/profile"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Account"
               >
                 <User className="h-6 w-6" />
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>

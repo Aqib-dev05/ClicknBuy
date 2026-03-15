@@ -1,6 +1,6 @@
 import Button from "../layouts/Button";
 import heroImage from "../../assets/Frame 694.png";
-
+import {Link} from "react-router-dom"
 export default function SaleBanner() {
   return (
     <section className="w-full bg-gray-200">
@@ -24,11 +24,13 @@ export default function SaleBanner() {
 
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
             <Button text="Shop Now" varient="default" className="w-full sm:w-auto" />
+            <Link to={"/categories"}>
             <Button
               text="Browse Categories"
               varient="outlined"
               className="w-full sm:w-auto text-sm sm:text-base"
             />
+            </Link>
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500 sm:text-sm md:justify-start">

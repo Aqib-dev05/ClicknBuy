@@ -4,41 +4,25 @@ import {Link} from "react-router-dom"
 
 
 export default function Footer() {
-  function handleSubscribe(e) {
-    e.preventDefault();
-  }
+  
 
   return (
-    <footer className="mt-10 w-full bg-black text-gray-200">
+    <footer className=" w-full bg-black text-gray-200">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8 ">
         {/* Col 1 */}
         <div className="space-y-4 ">
+         <Link to={"/"}>
           <div className="flex items-center bg-white p-1  w-fit">
             <img src={Logo} alt="Logo" className="h-15 w-15 object-contain" />
           </div>
+         </Link>
+         {/* my links like github, linkedIn, */}
+         <div>
 
-          <div className="space-y-2">
-            <p className="text-lg font-semibold text-white">
-              Subscribe to our newsletter
-            </p>
-            <form
-              onSubmit={handleSubscribe}
-              className="flex w-full items-center gap-2"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Enter your email"
-                className="h-10 w-full rounded-md border border-white/15 bg-white/5 px-3 text-sm text-white placeholder:text-gray-400 outline-none focus:border-white/30 focus:ring-2 focus:ring-white/20"
-              />
-              <Button
-                text="Subscribe"
-                type="submit"
-                varient="blacked"
-                className="h-10  text-sm"
-              />
-            </form>
-          </div>
+         </div>
+       
+
+        
         </div>
         {/* Col 2 */}
         <div className="space-y-4">

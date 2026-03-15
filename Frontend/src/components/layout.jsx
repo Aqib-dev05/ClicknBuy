@@ -22,4 +22,13 @@ function SecondaryLayout(){
     )
 }
 
-export {MainLayout,SecondaryLayout}
+function AuthLayout(){
+    return(
+        <>
+        <NavBar/>
+        <Outlet/>
+        </>
+    )
+}
+
+export {MainLayout,SecondaryLayout,AuthLayout}

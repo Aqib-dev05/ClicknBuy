@@ -1,7 +1,7 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
-import { MainLayout, SecondaryLayout } from "./Components/layout"
+import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import {
   AboutPage,
   CartPage,
@@ -18,7 +18,7 @@ import {
   WishListPage,
   Faq,
   TermAndConditions,
-  PrivayPolicy
+  PrivayPolicy,
 } from "./Pages/index.js";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
     <>
       <ToastContainer />
       <Routes>
-        <Route element={<MainLayout />} >
+        <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products" element={<ProductsPage />} />
@@ -42,23 +42,22 @@ function App() {
 
           <Route path="/profile" element={<ProfilePage />} />
 
-
           <Route path="/about" element={<AboutPage />} />
 
           <Route path="/contact" element={<ContactPage />} />
-
         </Route>
 
-        <Route element={<SecondaryLayout />} >
+        <Route element={<AuthLayout />}>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+
+        <Route element={<SecondaryLayout />}>
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/terms-and-conditions" element={<TermAndConditions />} />
           <Route path="/privacy-policy" element={<PrivayPolicy />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="*" element={<ErrorPage />} />
-
         </Route>
-
       </Routes>
     </>
   );

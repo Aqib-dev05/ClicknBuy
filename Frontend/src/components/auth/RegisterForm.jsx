@@ -6,7 +6,7 @@ import { register } from '../../services/authService'
 import {useDispatch,useSelector} from "react-redux";
 import { setUser,setToken,setIsAuthenticated,setError,setLoading } from '../../Redux/Slices/authSlics'
 import {HashLoader} from "react-spinners"
-
+import {Link} from "react-router-dom"
 
 function RegisterForm() {
   const {error,loading}= useSelector((state)=>state.auth);
@@ -71,9 +71,9 @@ function RegisterForm() {
    }
 
   return (
-    <section className='flex  items-center  overflow-hidden w-full'>
+    <section className='flex  items-center  overflow-x-hidden w-full'>
         <div className=' hidden lg:flex justify-end items-end p-6 w-full'>
-            <img src={authImage} loading='lazy' className='object-cover w-[90%]' alt="store" />
+            <img src={authImage} loading='lazy' className='object-cover w-[80%]' alt="store" />
         </div>
         <form method='post' className=' flex flex-col items-center max-lg:justify-center max-lg:min-h-[70vh]  w-full'>
           {loading && <HashLoader />};
@@ -85,8 +85,11 @@ function RegisterForm() {
             <input onChange={handleInputChange} className='border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="password" name='password' placeholder='Enter Your Password*'  />
             <h4 className='my-4 bg-red-100 italic text-lg font-md'>{error}</h4>
             <div className='flex items-center  mt-3 gap-9 flex-wrap'>
-                <Button type='submit' onClick={handleSubmit}  text={"Login"}/>
-                <span className='text-[crimson] cursor-pointer font-semibold ' onClick={()=>toast.info("Feature will be added in Future")}>Forget Password?</span>
+                <Button type='submit' onClick={handleSubmit}  text={"Sign Up"}/>
+                {/* <span className='text-[crimson] cursor-pointer font-semibold ' onClick={()=>toast.info("Feature will be added in Future")}>Forget Password?</span> */}
+                 <Link to={"/login"} className='text-[crimson] font-semibold ' >
+                          <Button text={"Login Here "} varient='blacked'/>
+                          </Link>
             </div>
         </form>
     </section>

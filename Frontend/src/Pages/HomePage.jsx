@@ -3,7 +3,8 @@ import FeaturedProducts from "../Components/home/FeaturedProducts"
 import HeroSection from "../Components/home/HeroSection"
 import OfferBanner from "../Components/home/OfferBanner"
 import SaleBanner from "../Components/home/SaleBanner"
-
+import Features from '../Components/layouts/Features'
+import SubscribeToNewsLetter from '../Components/layouts/SubscribeToNewsLetter'
 
 function HomePage() {
   return (
@@ -12,6 +13,8 @@ function HomePage() {
       <SaleBanner/>
       <FeaturedProducts/>
       <OfferBanner/>
+      <Features/>
+      <SubscribeToNewsLetter/>
     </div>
   )
 }
