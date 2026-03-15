@@ -1,5 +1,7 @@
 import Logo from "../../assets/logo.webp";
 import Button from "./Button";
+import {Link} from "react-router-dom"
+
 
 export default function Footer() {
   function handleSubscribe(e) {
@@ -43,24 +45,24 @@ export default function Footer() {
           <p className="text-sm font-semibold text-white">Account</p>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <a className="transition hover:text-white" href="/login">
+              <Link className="transition hover:text-white" to="/login">
                 Login
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/signup">
+              <Link className="transition hover:text-white" to="/register">
                 Sign Up
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/cart">
+              <Link className="transition hover:text-white" to="/cart">
                 Cart
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/wishlist">
+              <Link className="transition hover:text-white" to="/wishlist">
                 Wishlist
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -70,25 +72,26 @@ export default function Footer() {
           <p className="text-sm font-semibold text-white">Important Links</p>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <a className="transition hover:text-white" href="/products">
-                Products
-              </a>
+              <Link className="transition hover:text-white" to="/contact">
+                Contact
+              </Link>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/categories">
+              <Link className="transition hover:text-white" to="/products">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link className="transition hover:text-white" to="/categories">
                 Categories
-              </a>
+              </Link>
             </li>
             <li>
               <a className="transition hover:text-white" href="/subcategories">
                 Sub Categories
               </a>
             </li>
-            <li>
-              <a className="transition hover:text-white" href="/orders">
-                Orders
-              </a>
-            </li>
+           
           </ul>
         </div>
 
@@ -97,24 +100,25 @@ export default function Footer() {
           <p className="text-sm font-semibold text-white">Quick Links</p>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <a className="transition hover:text-white" href="/faq">
+              <Link className="transition hover:text-white" to="/faq">
                 FAQ
-              </a>
+              </Link>
             </li>
+            
             <li>
-              <a className="transition hover:text-white" href="/contact">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a className="transition hover:text-white" href="/terms">
+              <Link className="transition hover:text-white" to="/terms-and-conditions">
                 Terms &amp; Conditions
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/privacy">
+              <Link className="transition hover:text-white" to="/privacy-policy">
                 Privacy Policy
-              </a>
+              </Link>
+            </li>
+             <li>
+              <Link className="transition hover:text-white" to="/about">
+                About Us
+              </Link>
             </li>
           </ul>
         </div>

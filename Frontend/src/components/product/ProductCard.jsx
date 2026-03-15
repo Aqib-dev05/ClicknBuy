@@ -1,42 +1,20 @@
 import { Heart, ShoppingCart,Eye } from "lucide-react";
 import sampleImage from "../../assets/Frame 694.png";
 import Button from "../layouts/Button";
-import { useState,useEffect } from "react";
-import {toast} from "react-toastify"
+import Wish from "../wishlist/Wish";
 import RatingStars from "./RatingStars";
 
 export default function ProductCard({
   payload
 }) {
-  const [isWished, setIsWished] = useState(false);
-
-  const handleWishlistClick = () => {
-    setIsWished(prev => !prev)
-  };
-
-  useEffect(() => {
-    if(isWished)
-    toast.warn("Product added!")
-    
-  }, [isWished]);
+  
 
   return (
     <>
     
     <div className="group relative flex w-full max-w-xs flex-col rounded-md border border-gray-200 bg-white p-3 shadow-md transition hover:shadow-lg">
       {/* Wishlist */}
-      <button
-        type="button"
-        onClick={handleWishlistClick}
-        title="Add to Wishlist"
-        className="absolute cursor-pointer right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
-      >
-        <Heart
-          className="h-4 w-4"
-          fill={isWished ? "red" : "white"}
-          stroke={isWished ? "red" : "currentColor"}
-        />
-      </button>
+     <Wish payload={payload._id}/>
        <button
         type="button"
         title="View Product"

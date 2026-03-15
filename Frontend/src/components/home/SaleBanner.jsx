@@ -1,9 +1,9 @@
 import Button from "../layouts/Button";
 import heroImage from "../../assets/Frame 694.png";
 
-export default function HeroSection() {
+export default function SaleBanner() {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-gray-200">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-10 sm:px-6 md:flex-row md:py-16 lg:px-8">
         {/* Left: Text */}
         <div className="flex-1 space-y-5 text-center md:text-left">

@@ -1,25 +1,67 @@
 import React from "react";
-import {ToastContainer} from "react-toastify"
-import Navbar from "./Components/layouts/Navbar";
-import NotFound from "./Components/layouts/NotFound";
-import Footer from "./Components/layouts/Footer";
-import SaleBanner from "./Components/home/SaleBanner"
-import OfferBanner from "./Components/home/OfferBanner"
-import HeroSection from "./Components/home/HeroSection";
-import FeaturedProducts from "./Components/home/FeaturedProducts";
-import ProductDetails from "./Components/product/ProductDetails";
-import LoginForm from "./Components/auth/LoginForm";
-import RegisterForm from "./components/auth/RegisterForm"
-
+import { ToastContainer } from "react-toastify";
+import { Routes, Route } from "react-router-dom";
+import { MainLayout, SecondaryLayout } from "./Components/layout"
+import {
+  AboutPage,
+  CartPage,
+  SingleCategoryPage,
+  CategoryPage,
+  ContactPage,
+  ErrorPage,
+  LoginPage,
+  RegisterPage,
+  HomePage,
+  ProductsPage,
+  ProfilePage,
+  SingleProductPage,
+  WishListPage,
+  Faq,
+  TermAndConditions,
+  PrivayPolicy
+} from "./Pages/index.js";
 
 function App() {
   return (
     <>
-    <ToastContainer/>
-      <Navbar />
-    <FeaturedProducts/>
+      <ToastContainer />
+      <Routes>
+        <Route element={<MainLayout />} >
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/categories" element={<CategoryPage />} />
+
+          <Route path="/products/:id" element={<SingleProductPage />} />
+
+          <Route path="/category/:category" element={<SingleCategoryPage />} />
+
+          <Route path="/cart" element={<CartPage />} />
+
+          <Route path="/wishlist" element={<WishListPage />} />
+
+          <Route path="/profile" element={<ProfilePage />} />
+
+
+          <Route path="/about" element={<AboutPage />} />
+
+          <Route path="/contact" element={<ContactPage />} />
+
+        </Route>
+
+        <Route element={<SecondaryLayout />} >
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/terms-and-conditions" element={<TermAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivayPolicy />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<ErrorPage />} />
+
+        </Route>
+
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
