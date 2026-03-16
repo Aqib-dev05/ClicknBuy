@@ -1,44 +1,69 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import RatingStars from "./RatingStars";
 import QuantitySelector from "./QuantitySelector";
 import { Heart, Truck, RotateCcw } from "lucide-react";
 import Button from "../layouts/Button";
+import {useParams} from "react-router-dom"
+import {getProductById} from "../../services/productService"
+import ImgPlaceholder from "../../assets/imgPlaceholder.jpg"
 
 function ProductDetails() {
+
+   const {id} = useParams();
+   const [product,setProduct] = useState(null);
+   const [mainImage, setMainImage] = useState("");
+   const [loaded,setLoaded] = useState(false);
+
+
+   useEffect(() => {
+    const fetchProduct = async () => {
+      const data = await getProductById(id);
+      setProduct(data);
+    }
+    fetchProduct();
+    if (product?.images && product.images.length > 0) {
+      setMainImage(product.images[0].url);
+    }
+   }, [id]);
+   
+
   return (
-    <section className="container mx-auto px-4 py-10">
+    <section className="container mx-auto px-4 py-10 ]">
       <div className="flex flex-col md:flex-row gap-10">
         {/* Left Section: Image Gallery */}
         <div className="flex flex-col-reverse md:flex-row gap-4 w-full md:w-1/2">
           {/* Sidebar Thumbnails */}
           <div className="flex md:flex-col  gap-3 overflow-y-auto max-h-[500px]">
-            {[1, 2, 3, 4].map((img, index) => (
-              <div
+            {product?.images?.map((img, index) => (
+              <div onClick={() => setMainImage(img.url)}
                 key={index}
-                className="w-20 h-20 md:w-22 md:h-22 bg-gray-100 rounded-md flex items-center justify-center cursor-pointer hover:border-red-500 border-2 border-transparent transition"
+                className={`w-20 h-20 overflow-hidden md:w-22 md:h-22 bg-gray-100  rounded-md flex items-center justify-center cursor-pointer border-[1px]  hover:border-red-500    transition-all duration-300 ${mainImage === img.url ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <img
-                  src="https://via.placeholder.com/100"
-                  alt={`Thumbnail ${index}`}
-                  className="object-contain"
+                  src={loaded ? (product?.images[index].url) : ImgPlaceholder}
+                  alt={`Product Thumbnail ${index}`}
+                  className="object-contain w-full h-full"
+                  loading="lazy"
+                  onLoad={()=>setLoaded(true)}
                 />
               </div>
             ))}
           </div>
 
           {/* Main Display Image */}
-          <div className="flex-1 bg-gray-100 rounded-md flex items-center justify-center p-8 min-h-[400px]">
-            <img
-              src="https://via.placeholder.com/400"
+          <div className="flex-1  bg-gray-200 rounded-md flex items-center justify-center p-4 overflow-hidden h-[350px] md:h-[420px] ">
+            <img src={mainImage || product?.images[0]?.url || ImgPlaceholder}
               alt="Main Product"
-              className="max-w-full h-auto object-contain"
+              className="w-full h-full object-contain"
+              loading="lazy"
+              
             />
           </div>
         </div>
 
         {/* Right Section: Product Info & Actions */}
         <div className="w-full md:w-1/2 flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-gray-900">Havic HV G-92 Gamepad</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{product?.name}</h2>
 
           <div className="flex items-center gap-4">
             <RatingStars rating={4.5} reviews={150} />
@@ -46,10 +71,19 @@ function ProductDetails() {
             <span className="text-green-500 text-sm font-medium">In Stock</span>
           </div>
 
-          <div className="text-2xl font-semibold text-gray-900">$192.00</div>
+           <div className="mt-1 flex items-center gap-2 text-lg">
+        <span className="font-bold text-[rgb(219,68,68)]">
+          ${product.discountedPrice ?? product.basePrice }
+        </span>
+        {product.basePrice && (
+          <span className="text-xs text-gray-400 line-through">
+            ${product.basePrice}
+          </span>
+        )}
+      </div>
 
           <p className="text-gray-600 text-sm leading-relaxed border-b pb-6">
-            PlayStation 5 Controller Features with immersive haptic feedback, dynamic adaptive triggers and a built-in microphone, all integrated into an iconic design.
+            {product?.description}
           </p>
 
           {/* Colors/Variants */}
@@ -77,7 +111,7 @@ function ProductDetails() {
           <div className="flex items-center gap-4 mt-2">
             <span className="text-lg">Category:</span>
             <div className="flex gap-2">
-              <span className="text-gray-600">Electronics</span>
+              <span className="text-gray-600">{product?.category}</span>
             </div>
           </div>
 

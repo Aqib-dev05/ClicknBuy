@@ -1,5 +1,6 @@
 import { Heart, ShoppingCart,Eye } from "lucide-react";
 import sampleImage from "../../assets/Frame 694.png";
+import { useNavigate } from "react-router-dom";
 import Button from "../layouts/Button";
 import Wish from "../wishlist/Wish";
 import RatingStars from "./RatingStars";
@@ -7,7 +8,11 @@ import RatingStars from "./RatingStars";
 export default function ProductCard({
   payload
 }) {
+  const navigate = useNavigate();
   
+   function handleViewProduct(){
+navigate(`/products/${payload._id}`)
+   }
 
   return (
     <>
@@ -19,6 +24,7 @@ export default function ProductCard({
         type="button"
         title="View Product"
         className="absolute cursor-pointer right-3 top-12 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+        onClick={handleViewProduct}
       >
         <Eye
           className="h-4 w-4"
