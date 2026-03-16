@@ -51,17 +51,17 @@ navigate(`/products/${payload._id}`)
 
       {/* Title */}
       <h3 className="line-clamp-2 text-md font-semibold text-gray-900">
-        {payload.title || "Sample Product Title Goes Here"}
+        {payload.name || "Sample Product Title Goes Here"}
       </h3>
 
       {/* Price */}
       <div className="mt-1 flex items-center gap-2 text-lg">
         <span className="font-bold text-[rgb(219,68,68)]">
-          ${payload.discountedPrice ?? payload.basePrice ?? 120}
+          Rs. {(payload.discountedPrice ?? payload.basePrice) ?? 120}
         </span>
         {payload.basePrice && (
           <span className="text-xs text-gray-400 line-through">
-            ${payload.basePrice}
+            Rs. {payload.basePrice}
           </span>
         )}
       </div>

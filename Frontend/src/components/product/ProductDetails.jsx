@@ -13,18 +13,26 @@ function ProductDetails() {
    const [product,setProduct] = useState(null);
    const [mainImage, setMainImage] = useState("");
    const [loaded,setLoaded] = useState(false);
+   const [loading,setLoading] = useState(true);
+
 
 
    useEffect(() => {
     const fetchProduct = async () => {
-      const data = await getProductById(id);
-      setProduct(data);
+      try {
+        const data = await getProductById(id);
+        setProduct(data);
+        if (data?.images && data.images.length > 0) {
+          setMainImage(data.images[0].url);
+        }
+      } catch (error) {
+        console.error("Failed to fetch product:", error);
+      }
     }
-    fetchProduct();
-    if (product?.images && product.images.length > 0) {
-      setMainImage(product.images[0].url);
-    }
+    fetchProduct().finally(() => setLoading(false));
    }, [id]);
+
+   if (loading) return <div className="container mx-auto px-4 py-10">Loading...</div>;
    
 
   return (
@@ -34,7 +42,7 @@ function ProductDetails() {
         <div className="flex flex-col-reverse md:flex-row gap-4 w-full md:w-1/2">
           {/* Sidebar Thumbnails */}
           <div className="flex md:flex-col  gap-3 overflow-y-auto max-h-[500px]">
-            {product?.images?.map((img, index) => (
+            {product?.images && product.images.length > 0 && product.images.map((img, index) => (
               <div onClick={() => setMainImage(img.url)}
                 key={index}
                 className={`w-20 h-20 overflow-hidden md:w-22 md:h-22 bg-gray-100  rounded-md flex items-center justify-center cursor-pointer border-[1px]  hover:border-red-500    transition-all duration-300 ${mainImage === img.url ? 'border-red-500' : 'border-gray-300'}`}
@@ -56,7 +64,7 @@ function ProductDetails() {
               alt="Main Product"
               className="w-full h-full object-contain"
               loading="lazy"
-              
+              onLoad={()=>setLoaded(true)}
             />
           </div>
         </div>
@@ -68,12 +76,12 @@ function ProductDetails() {
           <div className="flex items-center gap-4">
             <RatingStars rating={4.5} reviews={150} />
             <span className="text-gray-300">|</span>
-            <span className="text-green-500 text-sm font-medium">In Stock</span>
+            <span className="text-green-500 text-sm font-medium">{product?.quantity > 0 ? "In Stock" : "Out of Stock"}</span>
           </div>
 
            <div className="mt-1 flex items-center gap-2 text-lg">
         <span className="font-bold text-[rgb(219,68,68)]">
-          ${product.discountedPrice ?? product.basePrice }
+          ${product.discountedPrice ? product.discountedPrice : product.basePrice }
         </span>
         {product.basePrice && (
           <span className="text-xs text-gray-400 line-through">

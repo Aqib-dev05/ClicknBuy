@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import ProductCard from './ProductCard'
 import {getProducts} from "../../services/productService"
 import { useDispatch,useSelector } from 'react-redux'
@@ -40,7 +40,9 @@ function ProductGrid({num}) {
     <section className='mx-auto  flex flex-wrap justify-center items-center gap-6'>
       {loading && <HashLoader className='mt-16' />}
      {product && Array.isArray(product.products) && product.products.slice(0, num).map((item) => (
-       <ProductCard key={item._id} product={item} payload={item} />
+      <Suspense fallback={<div>Loading....</div> }>
+         <ProductCard key={item._id} product={item} payload={item} />
+      </Suspense>
      ))}
     </section>
   )
