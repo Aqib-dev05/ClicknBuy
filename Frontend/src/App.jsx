@@ -26,30 +26,33 @@ import {
 } from "./Pages/index.js";
 
 import { useDispatch } from "react-redux";
-import { setUser, logout } from "./Redux/Slices/authSlics.js";
+import { setUser, logout, setLoading,setError } from "./Redux/Slices/authSlics.js";
 import api from "./api/api.js";
 
 function App() {
-
   const dispatch = useDispatch();
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
-    toast.dismiss()
-  }, [location])
+    toast.dismiss();
+  }, [location]);
 
   useEffect(() => {
-
-    api.get("/auth/me")
-      .then(res => {
+    const fetchUser = async () => {
+      dispatch(setLoading(true));
+      try {
+        const res = await api.get("/auth/me");
         dispatch(setUser(res.data.user));
-      })
-      .catch(() => {
+      } catch (err) {
+        dispatch(setError(err.response.data.message));
         dispatch(logout());
-      });
+      } finally {
+        dispatch(setLoading(false));
+      }
+    };
 
+    fetchUser();
   }, []);
-
   return (
     <>
       <ToastContainer
@@ -60,7 +63,8 @@ function App() {
         closeOnClick
         rtl={false}
         draggable
-        theme="dark" />
+        theme="dark"
+      />
       <Routes>
         {/* public routes  */}
         <Route element={<MainLayout />}>
@@ -78,8 +82,6 @@ function App() {
             <Route path="/wishlist" element={<WishListPage />} />
             <Route path="/profile" element={<ProfilePage />} />
           </Route>
-
-
         </Route>
 
         <Route element={<AuthLayout />}>

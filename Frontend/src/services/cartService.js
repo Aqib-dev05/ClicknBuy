@@ -1,4 +1,4 @@
-import api from "../api/api";
+import api from "../api/api.js";
 
 async function getCart() {
   const { data } = await api.get("/cart");
