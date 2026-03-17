@@ -5,6 +5,13 @@ import { generateToken } from "../utils/jwtGenerator.js";
 async function handleRegister(req, res) {
   const { name, email, phone, password, address } = req.body;
   try {
+ 
+     const existingUser = await UserModel.findOne({ email });
+
+     if (existingUser) {
+       return res.status(409).json({ message: "Email already exists" });
+     }
+
     const user = await UserModel.create({
       name,
       email,
