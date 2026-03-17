@@ -130,7 +130,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                to={"/profile"}
+                to={isAuthenticated ? "/profile" : "/login"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Account"

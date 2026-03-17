@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
-import { ToastContainer,toast } from "react-toastify";
-import { Routes, Route,useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import AdminProtected from "./Components/protectedChecker/AdminProtected.jsx";
@@ -31,8 +31,8 @@ import api from "./api/api.js";
 
 function App() {
 
-   const dispatch = useDispatch();
-   const location = useLocation()
+  const dispatch = useDispatch();
+  const location = useLocation()
 
   useEffect(() => {
     toast.dismiss()
@@ -52,7 +52,15 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="dark" />
       <Routes>
         {/* public routes  */}
         <Route element={<MainLayout />}>
@@ -65,11 +73,11 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
 
           {/* user protected routes */}
-         <Route element={<UserProtected />}>
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/wishlist" element={<WishListPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-         </Route>
+          <Route element={<UserProtected />}>
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/wishlist" element={<WishListPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Route>
 
 
         </Route>

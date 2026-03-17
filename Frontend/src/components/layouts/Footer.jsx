@@ -1,9 +1,11 @@
 import Logo from "../../assets/logo.webp";
 import Button from "./Button";
 import {Link} from "react-router-dom"
-
+import {useSelector} from "react-redux"
 
 export default function Footer() {
+   
+   const {isAuthenticated} = useSelector(state => state.auth)
   
 
   return (
@@ -28,16 +30,22 @@ export default function Footer() {
         <div className="space-y-4">
           <p className="text-sm font-semibold text-white">Account</p>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li>
-              <Link className="transition hover:text-white" to="/login">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" to="/register">
-                Sign Up
-              </Link>
-            </li>
+           {isAuthenticated ? (
+              <li>
+                <Link className="transition hover:text-white" to="/profile">
+                  Profile
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link className="transition hover:text-white" to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link className="transition hover:text-white" to="/register">Sign Up</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link className="transition hover:text-white" to="/cart">
                 Cart
