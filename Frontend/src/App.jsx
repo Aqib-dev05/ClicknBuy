@@ -75,6 +75,7 @@ function App() {
           <Route path="/category/:category" element={<SingleCategoryPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/faq" element={<Faq />} />
 
           {/* user protected routes */}
           <Route element={<UserProtected />}>
@@ -91,7 +92,6 @@ function App() {
 
         <Route element={<SecondaryLayout />}>
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/faq" element={<Faq />} />
           <Route path="/terms-and-conditions" element={<TermAndConditions />} />
           <Route path="/privacy-policy" element={<PrivayPolicy />} />
         </Route>
