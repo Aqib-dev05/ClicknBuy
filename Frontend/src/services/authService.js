@@ -16,8 +16,14 @@ import api from "../api/api";
   return data;
 }
 
+async function getMe(){
+  const { data } = await api.get("/auth/me");
+  return data;
+}
+
 
 export {
  register,
- login
+ login,
+ getMe
 };

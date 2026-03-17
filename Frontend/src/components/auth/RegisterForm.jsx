@@ -6,10 +6,10 @@ import { register } from '../../services/authService'
 import {useDispatch,useSelector} from "react-redux";
 import { setUser,setToken,setIsAuthenticated,setError,setLoading } from '../../Redux/Slices/authSlics'
 import {HashLoader} from "react-spinners"
-import {Link} from "react-router-dom"
+import {Link,Navigate} from "react-router-dom"
 
 function RegisterForm() {
-  const {error,loading}= useSelector((state)=>state.auth);
+  const {error,loading,isAuthenticated}= useSelector((state)=>state.auth);
 
 
      const dispatch = useDispatch();
@@ -19,6 +19,10 @@ function RegisterForm() {
        email: "",
        password: ""
      });
+
+     if (isAuthenticated) {
+    return <Navigate to={"/"} />;
+  }
 
      function handleInputChange(e) {
        const { name, value } = e.target;
