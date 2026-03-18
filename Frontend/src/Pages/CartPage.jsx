@@ -11,15 +11,17 @@ import {
   clearCartRedux,
   addToCartRedux,
 } from "../Redux/Slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function CartPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [updatedCart, setUpdatedCart] = useState([]);
+  const {cartItems} = useSelector((state) => state.cart);
+
 
   const handleQuantityChange = (productId, quantity) => {
-    if (quantity < 1) return;
+    if (quantity < 1 || quantity > 9) return;
 
     setUpdatedCart((prev) => {
       const exists = prev.find((i) => i.productId === productId);
@@ -117,16 +119,16 @@ function CartPage() {
             className="hover:bg-black hover:text-white rounded-sm transition duration-200"
           />
 
-          <Button
+         {cartItems.length > 0 && <Button
             onClick={handleUpdateCart}
             text={"Update Cart"}
             varient="default"
             className="hover:bg-blue-600 hover:text-white rounded-sm transition duration-200"
-          />
+          />}
         </div >
         <div className="flex justify-end w-full px-4 sm:px-6 lg:px-8 mt-3">
 
-        <CartTotalCalc   />
+        {cartItems.length > 0 && <CartTotalCalc   />}
         </div>
       </div>
     </div>
