@@ -5,18 +5,38 @@ import Button from "../layouts/Button";
 import Wish from "../wishlist/Wish";
 import RatingStars from "./RatingStars";
 import { addToCart } from "../../services/cartService.js"
+import { toast } from "react-toastify";
+import {setError,setLoading} from "../../Redux/Slices/cartSlice.js"
+import { useDispatch } from "react-redux";
 
 export default function ProductCard({
   payload
 }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   function handleViewProduct() {
     navigate(`/products/${payload._id}`)
   }
+
+  
   async function handleCartInsertion() {
+   dispatch(setLoading(true));
+    try{
     const  data  = await addToCart(payload._id, 1);
-    console.log(data)
+   
+    if(data){
+      toast.success("Product added to cart successfully!")
+    }
+    }
+    catch(err){
+      toast.error("Failed to add product to cart!");
+      dispatch(setError(err.message));
+    }
+    finally{
+      dispatch(setLoading(false));
+    }
   }
 
 
@@ -31,6 +51,7 @@ export default function ProductCard({
           title="View Product"
           className="absolute cursor-pointer right-3 top-12 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
           onClick={handleViewProduct}
+
         >
           <Eye
             className="h-4 w-4"

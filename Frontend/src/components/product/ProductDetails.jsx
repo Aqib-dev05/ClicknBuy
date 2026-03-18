@@ -14,6 +14,20 @@ function ProductDetails() {
    const [mainImage, setMainImage] = useState("");
    const [loaded,setLoaded] = useState(false);
    const [loading,setLoading] = useState(true);
+   const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    setQuantity((prev) => prev + 1);
+    if (quantity >= 10) {
+      setQuantity(10);
+    }
+  }
+  function handleDecrease() {
+    setQuantity((prev) => prev - 1);
+    if (quantity <= 1) {
+      setQuantity(1);
+    }
+  }
 
 
 
@@ -119,14 +133,14 @@ function ProductDetails() {
           <div className="flex items-center gap-4 mt-2">
             <span className="text-lg">Category:</span>
             <div className="flex gap-2">
-              <span className="text-gray-600">{product?.category}</span>
+              <span className="text-green-700 text-lg font-[cursive] font-semibold ">{product?.SubCategory.name}</span>
             </div>
           </div>
 
 
           {/* Actions */}
           <div className="flex items-center gap-4 mt-4">
-            <QuantitySelector />
+            <QuantitySelector quantity={quantity} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
             <Button 
               className="bg-[#DB4444] text-white px-10 py-2 rounded-md font-medium"
               text="Buy Now"

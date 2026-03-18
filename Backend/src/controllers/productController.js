@@ -69,7 +69,12 @@ async function handleGetProductById(req, res) {
   const { id } = req.params;
 
   try {
-    const product = await productModel.findById(id);
+    const product = await productModel.findById(id).populate(
+      {
+        path:"SubCategory",
+        select:"name slug ",
+      }
+    );
 
     if (!product) {
       return res.status(401).send("Product Not Found!!!");
@@ -87,7 +92,10 @@ async function handleGetProductBySlug(req, res) {
   const { slug } = req.params;
 
   try {
-    const product = await productModel.findOne({slug});
+    const product = await productModel.findOne({slug}).populate(
+      "SubCategory",
+      
+    );
 
     if (!product) {
       return res.status(401).send("Product Not Found!!!");

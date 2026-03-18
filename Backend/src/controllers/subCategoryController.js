@@ -4,7 +4,10 @@ import SubCategory from "../models/SubCategory.js";
 // GET /api/categories
 async function handleGetSubCategory(req, res) {
   try {
-    const categories = await SubCategory.find({});
+    const categories = await SubCategory.find({}).populate(
+      "Category",
+      "name, slug"
+    );
     return res.status(200).json(categories);
   } catch (error) {
     console.error("Error in handleGetSubCategory:", error);

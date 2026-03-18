@@ -79,6 +79,7 @@ function CartList() {
             {cartItems.map((item) => (
               <tr key={item.product._id}>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                 
                   {item.product.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
