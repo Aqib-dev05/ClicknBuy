@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
@@ -55,14 +56,14 @@ function App() {
   }, []);
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
+       <ToastContainer
+        position="top-right"   
+        autoClose={1200}       
         hideProgressBar={false}
-        newestOnTop={true}
+        newestOnTop={false}
         closeOnClick
         rtl={false}
-        draggable
+        limit={3}           
         theme="dark"
       />
       <Routes>

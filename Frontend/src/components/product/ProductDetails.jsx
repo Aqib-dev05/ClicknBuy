@@ -3,13 +3,14 @@ import RatingStars from "./RatingStars";
 import QuantitySelector from "./QuantitySelector";
 import { Heart, Truck, RotateCcw } from "lucide-react";
 import Button from "../layouts/Button";
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import {getProductById} from "../../services/productService"
 import ImgPlaceholder from "../../assets/imgPlaceholder.jpg"
 
 function ProductDetails() {
 
    const {id} = useParams();
+   const navigate= useNavigate();
    const [product,setProduct] = useState(null);
    const [mainImage, setMainImage] = useState("");
    const [loaded,setLoaded] = useState(false);
@@ -95,11 +96,11 @@ function ProductDetails() {
 
            <div className="mt-1 flex items-center gap-2 text-lg">
         <span className="font-bold text-[rgb(219,68,68)]">
-          ${product.discountedPrice ? product.discountedPrice : product.basePrice }
+          Rs.{product.discountedPrice ? product.discountedPrice : product.basePrice }
         </span>
         {product.basePrice && (
           <span className="text-xs text-gray-400 line-through">
-            ${product.basePrice}
+            {product.basePrice}
           </span>
         )}
       </div>
@@ -171,6 +172,7 @@ function ProductDetails() {
               </div>
             </div>
           </div>
+            <Button onClick={()=>navigate(-1)} text={"Go Back"}/>
         </div>
       </div>
     </section>

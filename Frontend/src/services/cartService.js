@@ -15,6 +15,11 @@ async function updateCartItem(productId, payload) {
   return data;
 }
 
+async function bulkUpdate(updates) {
+  const { data } = await api.patch("/cart/bulk", { updates });
+  return data;
+}
+
 async function removeFromCart(productId) {
   const { data } = await api.delete(`/cart/${productId}`);
   return data;
@@ -30,5 +35,6 @@ export {
   addToCart,
   updateCartItem,
   removeFromCart,
+  bulkUpdate,
   clearCart,
 };

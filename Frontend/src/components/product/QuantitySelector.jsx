@@ -2,9 +2,7 @@ import React from "react";
 
 
 
-export default function QuantitySelector({quantity,handleDecrease,handleIncrease}) {
- 
-
+export default function QuantitySelector({ quantity=1, handleDecrease, handleIncrease }) {
   return (
     <span className="border-black border-2 rounded-sm flex gap-4 items-center justify-center text-lg font-medium w-fit">
       <button

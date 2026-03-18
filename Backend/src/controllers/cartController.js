@@ -159,10 +159,54 @@ async function handleClearCart(req, res) {
   }
 }
 
+
+//bulk update controller. Put request for many product's quantity in cart
+ async function handleBulkUpdate(req, res) {
+  const userId = req.user?._id || req.user?.id;
+  const { updates } = req.body;    
+   if (!Array.isArray(updates)) {
+    return res.status(400).json({ message: "Updates must be an array" });
+  }
+
+  try {
+    let cart = await Cart.findOne({ user: userId });
+
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+
+    updates.forEach((update) => {
+      const itemIndex = cart.products.findIndex(
+        (item) => item.product.toString() === update.productId
+      );
+      if (itemIndex > -1) {
+        cart.products[itemIndex].quantity = update.quantity;
+      }
+    });
+
+    await cart.save();
+    const updatedCart = await cart.populate(
+      "products.product",
+      "name basePrice discountedPrice images slug"
+    );
+
+    return res.status(200).json(updatedCart);
+  } catch (error) {
+    console.error("Error in handleBulkUpdate:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to bulk update cart", error: error.message });
+  }
+ }
+
+
+
+
 export {
   handleGetCart,
   handleAddToCart,
   handleUpdateCartItem,
   handleRemoveFromCart,
   handleClearCart,
+  handleBulkUpdate,
 };
