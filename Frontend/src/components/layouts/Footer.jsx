@@ -1,116 +1,127 @@
 import Logo from "../../assets/logo.webp";
 import Button from "./Button";
-import {Link} from "react-router-dom"
-import {useSelector} from "react-redux"
+import { NavLink } from "react-router-dom"
+import { useSelector } from "react-redux"
+import MyLinks from "../../data/myInfo"
 
 export default function Footer() {
-   
-   const {isAuthenticated} = useSelector(state => state.auth)
-  
+
+  const { isAuthenticated } = useSelector(state => state.auth)
+
 
   return (
     <footer className=" w-full bg-black text-gray-200">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8 ">
         {/* Col 1 */}
-        <div className="space-y-4 ">
-         <Link to={"/"}>
-          <div className="flex items-center bg-white p-1  w-fit">
-            <img src={Logo} alt="Logo" className="h-15 w-15 object-contain" />
+        <div className="space-y-4 flex flex-col ">
+          <NavLink to={"/"}>
+            <div className="flex items-center bg-white rounded-2xl p-1 ml-12 w-fit">
+              <img src={Logo} alt="Logo" className="h-15 w-15  object-contain" />
+            </div>
+          </NavLink>
+          <div className="flex  items-center gap-3 mt-2 ">
+            {MyLinks.map((link, index) => (
+              <span key={index + 1} className="w-12 h-12 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              </span>
+            ))}
           </div>
-         </Link>
-         {/* my links like github, linkedIn, */}
-         <div>
 
-         </div>
-       
 
-        
+
         </div>
         {/* Col 2 */}
         <div className="space-y-4">
           <p className="text-sm font-semibold text-white">Account</p>
           <ul className="space-y-2 text-sm text-gray-400">
-           {isAuthenticated ? (
+            {isAuthenticated ? (
               <li>
-                <Link className="transition hover:text-white" to="/profile">
+                <NavLink className="transition hover:text-white" to="/profile">
                   Profile
-                </Link>
+                </NavLink>
               </li>
             ) : (
               <>
                 <li>
-                  <Link className="transition hover:text-white" to="/login">Login</Link>
+                  <NavLink className="transition hover:text-white" to="/login">Login</NavLink>
                 </li>
                 <li>
-                  <Link className="transition hover:text-white" to="/register">Sign Up</Link>
+                  <NavLink className="transition hover:text-white" to="/register">Sign Up</NavLink>
                 </li>
               </>
             )}
             <li>
-              <Link className="transition hover:text-white" to="/cart">
+              <NavLink className="transition hover:text-white" to="/cart">
                 Cart
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="transition hover:text-white" to="/wishlist">
+              <NavLink className="transition hover:text-white" to="/wishlist">
                 Wishlist
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
 
         {/* Col 3 */}
         <div className="space-y-4">
-          <p className="text-sm font-semibold text-white">Important Links</p>
+          <p className="text-sm font-semibold text-white">Important NavLinks</p>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <Link className="transition hover:text-white" to="/contact">
+              <NavLink className="transition hover:text-white" to="/contact">
                 Contact
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="transition hover:text-white" to="/products">
+              <NavLink className="transition hover:text-white" to="/products">
                 Products
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="transition hover:text-white" to="/categories">
+              <NavLink className="transition hover:text-white" to="/categories">
                 Categories
-              </Link>
+              </NavLink>
             </li>
             <li>
               <a className="transition hover:text-white" href="/subcategories">
                 Sub Categories
               </a>
             </li>
-           
+
           </ul>
         </div>
 
         {/* Col 4 */}
         <div className="space-y-4">
-          <p className="text-sm font-semibold text-white">Quick Links</p>
+          <p className="text-sm font-semibold text-white">Quick NavLinks</p>
           <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <Link className="transition hover:text-white" to="/faq">
+              <NavLink className="transition hover:text-white" to="/faq">
                 FAQ
-              </Link>
+              </NavLink>
             </li>
-            
+
             <li>
-              <Link className="transition hover:text-white" to="/terms-and-conditions">
+              <NavLink className="transition hover:text-white" to="/terms-and-conditions">
                 Terms &amp; Conditions
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="transition hover:text-white" to="/privacy-policy">
+              <NavLink className="transition hover:text-white" to="/privacy-policy">
                 Privacy Policy
-              </Link>
+              </NavLink>
             </li>
-             <li>
-              <Link className="transition hover:text-white" to="/about">
+            <li>
+              <NavLink className="transition hover:text-white" to="/about">
                 About Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

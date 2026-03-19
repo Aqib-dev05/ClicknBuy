@@ -2,7 +2,7 @@ import Logo from "../../assets/logo.webp";
 import { useEffect, useState } from "react";
 import { Heart, House, ShoppingBasket, ShoppingCart, User } from "lucide-react";
 import SearchBar from "../layouts/SearchBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
@@ -42,21 +42,21 @@ export default function Navbar() {
           {!isMobile && (
             <ul className="mx-auto items-center gap-4 lg:gap-8  text-[15px] font-medium text-gray-700 flex">
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                <Link to={"/"}>Home</Link>
+                <NavLink  to={"/"}>Home</NavLink>
               </li>
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                <Link to={"/products"}>Products</Link>
+                <NavLink to={"/products"}>Products</NavLink>
               </li>
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                <Link to={"/categories"}>Categories</Link>
+                <NavLink to={"/categories"}>Categories</NavLink>
               </li>
               {!isAuthenticated ? (
                 <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                  <Link to={"/Register"}>Sign Up</Link>
+                  <NavLink to={"/Register"}>Sign Up</NavLink>
                 </li>
               ) : (
                 <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                  <Link to={"/profile"}>Profile</Link>
+                  <NavLink to={"/profile"}>Profile</NavLink>
                 </li>
               )}
             </ul>
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             {!isMobile && (
               <div className="flex items-center gap-1">
-                <Link
+                <NavLink
                   to={"/wishlist"}
                   type="button"
                   className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
@@ -80,16 +80,16 @@ export default function Navbar() {
                     fill={enterHeart ? "red" : "none"}
                     stroke={enterHeart ? "red" : "currentColor"}
                   />
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to={"/cart"}
                   type="button"
                   className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                   aria-label="Cart"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
@@ -99,44 +99,44 @@ export default function Navbar() {
         <nav className="fixed bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
           <ul className="flex items-center justify-around py-1 text-sm font-medium text-gray-700">
             <li>
-              <Link
+              <NavLink
                 to={"/"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Home"
               >
                 <House className="h-6 w-6" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={"/products"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Products"
               >
                 <ShoppingBasket className="h-6 w-6" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={"/cart"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Cart"
               >
                 <ShoppingCart className="h-6 w-6" />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={isAuthenticated ? "/profile" : "/login"}
                 type="button"
                 className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
                 aria-label="Account"
               >
                 <User className="h-6 w-6" />
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>

@@ -1,26 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Components/layouts/Button";
-
+import MyLinks from "../data/myInfo"
 import MyPic from "../assets/mypicAi.png"
-import { Github,Globe, Linkedin,CodeXml,Hexagon ,BugOff} from "lucide-react";
-const MyLinks = [
-  {
-    name: "GitHub",
-    icon: <Github />,
-    url: "https://github.com/Aqib-dev05",
-  },
-  {
-    name: "LinkedIn",
-    icon: <Linkedin />,
-    url: "https://www.linkedin.com/in/aqib-ali-37a6a3357",
-  },
-  {
-    name: "Portfolio",
-    icon: <Globe/>,
-    url: "https://aqib-dev05-portfolio.vercel.app",
-  },
-];
+import { CodeXml,Hexagon ,BugOff} from "lucide-react";
+
 
 const SERVICES = [
   {
@@ -79,7 +63,7 @@ function AboutPage() {
 
    <div className="flex justify-center items-center gap-3 w-full">
     {MyLinks.map((link, index) => (
-      <span className="w-14 h-14 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
+      <span key={index +2} className="w-14 h-14 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
         <a
         key={index}
         href={link.url}

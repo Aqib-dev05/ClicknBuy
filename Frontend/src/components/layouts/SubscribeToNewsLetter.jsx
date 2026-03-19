@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from "./Button";
+import {toast} from "react-toastify"
+
 
 function SubscribeToNewsLetter() {
+
+     const [val,setVal] = useState("");
+
+     function handleChange(e){
+      setVal(e.target.value)
+     }
+
     function handleSubscribe(e) {
     e.preventDefault();
+    toast.info("Feature is not available yet");
+    setVal('');
   }
+
+
   return (
       <div className="w-full space-y-4   bg-[#000] p-6 md:p-12">
             <p className="text-center text-xl font-semibold text-white md:text-2xl">
@@ -17,6 +30,8 @@ function SubscribeToNewsLetter() {
               <input
                 type="email"
                 required
+                onChange={handleChange}
+                value={val}
                 placeholder="Enter your email"
                 className="h-12 w-full rounded-md border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-gray-400 outline-none focus:border-white/30 focus:ring-2 focus:ring-white/20"
               />

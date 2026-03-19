@@ -11,11 +11,11 @@ export default function Contact() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 gap-10  md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
         {/* Contact Information */}
-        <div className="space-y-8 rounded-md   p-8 shadow-sm border border-gray-100">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#db4444] text-white">
+        <div className="space-y-8 rounded-md p-6 md:p-8 shadow-sm border border-gray-100">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#db4444] text-white">
               <Phone size={24} />
             </div>
             <div>
@@ -29,8 +29,8 @@ export default function Contact() {
 
           <hr className="border-gray-200" />
 
-          <div className="flex items-center justify-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#db4444] text-white">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#db4444] text-white">
               <Mail size={24} />
             </div>
             <div>
@@ -43,9 +43,9 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="md:col-span-2 rounded-md bg-white p-8 shadow-sm border border-gray-100">
+        <div className="lg:col-span-2 rounded-md bg-white px-3 py-6 md:p-8 shadow-sm border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <input
                 type="text"
                 name="name"
@@ -78,11 +78,11 @@ export default function Contact() {
              {state.submitting ?  <div className="flex justify-center items-center">
                 <HashLoader/>
               </div> : state.succeeded ? toast.success("Message sent successfully") : state.errors ? toast.error(state.errors) : null  }
-            <div className="flex justify-end">
+            <div className="flex justify-center sm:justify-end">
               <Button
                 text="Send Message"
                 type="submit"
-                className="px-10 py-4"
+                className="w-full sm:w-auto px-10 py-4"
                 icon={<Send size={18} />}
                 disabled={state.submitting}
               />

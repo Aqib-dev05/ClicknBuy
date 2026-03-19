@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import AdminProtected from "./Components/protectedChecker/AdminProtected.jsx";
-
+import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
 import {
   AboutPage,
   CartPage,
@@ -56,6 +56,7 @@ function App() {
   }, []);
   return (
     <>
+    <ScrollToTop/>
        <ToastContainer
         position="top-right"   
         autoClose={1200}       
