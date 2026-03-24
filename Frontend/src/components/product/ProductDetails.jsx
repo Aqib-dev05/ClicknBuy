@@ -1,21 +1,26 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import RatingStars from "./RatingStars";
 import QuantitySelector from "./QuantitySelector";
 import { Heart, Truck, RotateCcw } from "lucide-react";
 import Button from "../layouts/Button";
-import {useNavigate, useParams} from "react-router-dom"
-import {getProductById} from "../../services/productService"
+import { useNavigate, useParams } from "react-router-dom"
+import { getProductById } from "../../services/productService"
 import ImgPlaceholder from "../../assets/imgPlaceholder.jpg"
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux"
+import { setLoading, setError } from "../../Redux/Slices/cartSlice";
+import { addToCart } from "../../services/cartService"
 
 function ProductDetails() {
 
-   const {id} = useParams();
-   const navigate= useNavigate();
-   const [product,setProduct] = useState(null);
-   const [mainImage, setMainImage] = useState("");
-   const [loaded,setLoaded] = useState(false);
-   const [loading,setLoading] = useState(true);
-   const [quantity, setQuantity] = useState(1);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [mainImage, setMainImage] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  const [pageLoading, setPageLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1);
 
   function handleIncrease() {
     setQuantity((prev) => prev + 1);
@@ -30,9 +35,25 @@ function ProductDetails() {
     }
   }
 
+  async function handleAddToCart() {
+    dispatch(setLoading(true));
+    try {
+      const data = await addToCart(product._id, quantity);
 
+      if (data) {
+        toast.success("Product added to cart successfully!")
+      }
+    }
+    catch (err) {
+      toast.error("Failed to add product to cart!");
+      dispatch(setError(err.message));
+    }
+    finally {
+      dispatch(setLoading(false));
+    }
+  }
 
-   useEffect(() => {
+  useEffect(() => {
     const fetchProduct = async () => {
       try {
         const data = await getProductById(id);
@@ -44,11 +65,11 @@ function ProductDetails() {
         console.error("Failed to fetch product:", error);
       }
     }
-    fetchProduct().finally(() => setLoading(false));
-   }, [id]);
+    fetchProduct().finally(() => setPageLoading(false));
+  }, [id]);
 
-   if (loading) return <div className="container mx-auto px-4 py-10">Loading...</div>;
-   
+  if (pageLoading) return <div className="container mx-auto px-4 py-10">Loading...</div>;
+
 
   return (
     <section className="container mx-auto px-4 py-10 ]">
@@ -67,7 +88,7 @@ function ProductDetails() {
                   alt={`Product Thumbnail ${index}`}
                   className="object-contain w-full h-full"
                   loading="lazy"
-                  onLoad={()=>setLoaded(true)}
+                  onLoad={() => setLoaded(true)}
                 />
               </div>
             ))}
@@ -79,7 +100,7 @@ function ProductDetails() {
               alt="Main Product"
               className="w-full h-full object-contain"
               loading="lazy"
-              onLoad={()=>setLoaded(true)}
+              onLoad={() => setLoaded(true)}
             />
           </div>
         </div>
@@ -94,16 +115,16 @@ function ProductDetails() {
             <span className="text-green-500 text-sm font-medium">{product?.quantity > 0 ? "In Stock" : "Out of Stock"}</span>
           </div>
 
-           <div className="mt-1 flex items-center gap-2 text-lg">
-        <span className="font-bold text-[rgb(219,68,68)]">
-          Rs.{product.discountedPrice ? product.discountedPrice : product.basePrice }
-        </span>
-        {product.basePrice && (
-          <span className="text-xs text-gray-400 line-through">
-            {product.basePrice}
-          </span>
-        )}
-      </div>
+          <div className="mt-1 flex items-center gap-2 text-lg">
+            <span className="font-bold text-[rgb(219,68,68)]">
+              Rs.{product.discountedPrice ? product.discountedPrice : product.basePrice}
+            </span>
+            {product.basePrice && (
+              <span className="text-xs text-gray-400 line-through">
+                {product.basePrice}
+              </span>
+            )}
+          </div>
 
           <p className="text-gray-600 text-sm leading-relaxed border-b pb-6">
             {product?.description}
@@ -142,11 +163,12 @@ function ProductDetails() {
           {/* Actions */}
           <div className="flex items-center gap-4 mt-4">
             <QuantitySelector quantity={quantity} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
-            <Button 
+            <Button
+              onClick={handleAddToCart}
               className="bg-[#DB4444] text-white px-10 py-2 rounded-md font-medium"
               text="Buy Now"
             />
-            <button className="border p-2 rounded-md hover:bg-gray-50">
+            <button onClick={() => toast.info("Wishing Functionality will be Added Soon!")} className="border p-2 rounded-md hover:bg-gray-50">
               <Heart className="h-5 w-5" />
             </button>
           </div>
@@ -172,7 +194,7 @@ function ProductDetails() {
               </div>
             </div>
           </div>
-            <Button onClick={()=>navigate(-1)} text={"Go Back"}/>
+          <Button onClick={() => navigate(-1)} text={"Go Back"} />
         </div>
       </div>
     </section>

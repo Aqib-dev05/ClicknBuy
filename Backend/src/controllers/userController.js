@@ -24,6 +24,10 @@ import { uploadOnCloudinary } from "../utils/cloudinay.js"
  async function putSingleUser(req,res) {
    const { id } = req.params;
 
+  if (req.body.role !== (undefined || null || "" )) {
+    return res.status(403).json({ message: "Role updates are not allowed" });
+  }
+
   const { name, email, phone, password, address } = req.body;
 
    try {

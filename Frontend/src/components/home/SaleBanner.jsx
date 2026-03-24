@@ -31,7 +31,7 @@ export default function SaleBanner() {
             <Button
               text="Browse Categories"
               varient="outlined"
-              className="w-full sm:w-auto text-sm sm:text-base"
+              className="w-full sm:w-auto text-sm sm:text-base hover:bg-black hover:text-white transition duration-200  "
             />
             </Link>
           </div>

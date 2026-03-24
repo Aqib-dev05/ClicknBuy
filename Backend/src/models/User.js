@@ -12,9 +12,9 @@ import mongoose from "mongoose";
         unique:true,
     },
     phone:{
-        type:Number,
+        type:String,
         trim:true,
-        default:+920000000001
+        default:"+920000000001"
     },
     password:{
         type:String,
@@ -22,8 +22,14 @@ import mongoose from "mongoose";
         min:4
     },
     avatar:{
-        url:String,
-        public_id:String
+        url: {
+            type: String,
+            default: "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"
+        },
+        public_id: {
+            type: String,
+            default: "default"
+        }
     },
     role:{
         type:String,
