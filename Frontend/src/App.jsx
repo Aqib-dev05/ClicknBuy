@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
-import AdminProtected from "./Components/protectedChecker/AdminProtected.jsx";
 import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
 import {
   AboutPage,
@@ -26,13 +25,16 @@ import {
   PrivayPolicy,
 } from "./Pages/index.js";
 
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setUser, logout, setLoading,setError } from "./Redux/Slices/authSlics.js";
 import api from "./api/api.js";
+import { HashLoader } from "react-spinners";
 
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const {loading,user} = useSelector((state) => state.auth);
+
 
   useEffect(() => {
     toast.dismiss();
@@ -54,6 +56,19 @@ function App() {
 
     fetchUser();
   }, []);
+
+  if(loading) return <div className=" w-[100vw] h-[100vh] flex justify-center items-center text-4xl bg-amber-200 ">
+     <HashLoader className="mt-16" />
+  </div>
+
+
+  if(user?.role === "admin" ) return (
+    <>
+    <p>admin panel</p>
+    </>
+  )
+
+
   return (
     <>
     <ScrollToTop/>
