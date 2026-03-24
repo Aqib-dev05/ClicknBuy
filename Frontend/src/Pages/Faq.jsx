@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
+import { HashLoader } from 'react-spinners';
 
 const FAQ_DATA = [
   {
@@ -24,8 +25,19 @@ const FAQ_DATA = [
 ];
 
 function Faq() {
+
+   const [loading, setLoading] = useState(true);
+
+   useEffect(()=>{
+    setLoading(false)
+   },[])
+
+  if (loading) return <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader/> </div>
+
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      
+    <div  className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-10 text-gray-900">
           Frequently Asked <span className="text-red-600">Questions</span>

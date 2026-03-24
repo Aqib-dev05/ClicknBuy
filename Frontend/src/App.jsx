@@ -44,6 +44,7 @@ function App() {
     const fetchUser = async () => {
       dispatch(setLoading(true));
       try {
+        if(user) return;
         const res = await api.get("/auth/me");
         dispatch(setUser(res.data.user));
       } catch (err) {

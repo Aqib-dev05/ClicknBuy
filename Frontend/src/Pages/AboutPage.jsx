@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Components/layouts/Button";
 import MyLinks from "../data/myInfo"
 import MyPic from "../assets/mypicAi.png"
 import { CodeXml,Hexagon ,BugOff} from "lucide-react";
+import { HashLoader } from "react-spinners";
+
 
 
 const SERVICES = [
@@ -44,11 +46,23 @@ const SKILLS = [
   "Git & GitHub",
 ];
 
+
+
+
 function AboutPage() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+
+
+
 
   return (
-    <div className="min-h-screen bg-white">
+    <div onLoad={()=>setLoading(false)} className="min-h-screen bg-white">
+      {
+   loading &&  <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader/> </div>
+
+      }
       {/* Hero Section */}
       <section className="bg-gray-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
@@ -82,6 +96,7 @@ function AboutPage() {
               <div className="absolute inset-0 bg-red-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <img
                 src={MyPic}
+                loading="lazy"
                 alt="M. Aqib Ali"
                 className="relative z-10 rounded-full border-4 border-red-600 object-cover w-full h-full"
               />

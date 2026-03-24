@@ -81,6 +81,8 @@ function LoginForm() {
     }
   }
 
+  if (loading) return <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader/> </div>
+
   return (
     <section className="flex  items-center  overflow-x-hidden w-full">
       <div className=" hidden lg:flex justify-end items-end p-6 w-full">
