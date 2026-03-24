@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Components/layouts/Button";
 import MyLinks from "../data/myInfo"
-import MyPic from "../assets/mypicAi.png"
+import MyPic from "../assets/mypicAi.jpeg"
 import { CodeXml,Hexagon ,BugOff} from "lucide-react";
 import { HashLoader } from "react-spinners";
 
