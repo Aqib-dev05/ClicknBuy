@@ -4,8 +4,8 @@ import SubCategory from "../models/SubCategory.js";
 // GET /api/categories
 async function handleGetSubCategory(req, res) {
   try {
-    const categories = await SubCategory.find({}).populate(
-      "Category",
+    const categories = await SubCategory.find().populate(
+      "parent",
       "name, slug"
     );
     return res.status(200).json(categories);
@@ -15,7 +15,25 @@ async function handleGetSubCategory(req, res) {
       .status(500)
       .json({ message: "Failed to fetch categories", error: error.message });
   }
+
+
+}// GET /api/subcategories/category/:catId
+async function handleGetSubCategoryByCategory(req, res) {
+  const { catId } = req.params;
+  try {
+    const subCategories = await SubCategory.find({ parent: catId }).populate(
+      "parent",
+      "name slug"
+    );
+    return res.status(200).json(subCategories);
+  } catch (error) {
+    console.error("Error in handleGetSubCategoryByCategory:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to fetch subcategories", error: error.message });
+  }
 }
+
 
 // POST /api/categories
 async function handlePostSubCategory(req, res) {
@@ -103,6 +121,7 @@ async function handleDeleteSubCategory(req, res) {
 
 export {
   handleGetSubCategory,
+  handleGetSubCategoryByCategory,
   handlePostSubCategory,
   handlePutSubCategory,
   handleDeleteSubCategory,

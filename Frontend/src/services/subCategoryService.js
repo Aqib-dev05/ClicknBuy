@@ -5,6 +5,12 @@ async function getSubCategories() {
   return data;
 }
 
+async function getSubCategoryByCategory(catId) {
+  const { data } = await api.get(`/subcategories/category/${catId}`);
+  return data;
+}
+
+
 async function createSubCategory(payload) {
   const { data } = await api.post("/subcategories", payload);
   return data;
@@ -25,4 +31,5 @@ export {
   createSubCategory,
   updateSubCategory,
   deleteSubCategory,
+  getSubCategoryByCategory,
 };

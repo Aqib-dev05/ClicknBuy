@@ -1,6 +1,5 @@
 import AboutPage from "./AboutPage";
 import CartPage from "./CartPage";
-import SingleCategoryPage from "./SingleCategoryPage";
 import ContactPage from "./ContactPage";
 import ErrorPage from "./ErrorPage";
 import HomePage from "./HomePage";
@@ -14,11 +13,11 @@ import CategoryPage from "./CategoryPage";
 import Faq from "./Faq"
 import TermAndConditions from "./TermAndConditions"
 import PrivayPolicy from "./PrivacyPolicy"
+import SubCategoryPage from "./SubCategoryPage";
 
 export {
   AboutPage,
   CartPage,
-  SingleCategoryPage,
   ContactPage,
   ErrorPage,
   LoginPage,
@@ -32,4 +31,5 @@ export {
   Faq,
   TermAndConditions,
   PrivayPolicy,
+  SubCategoryPage
 };

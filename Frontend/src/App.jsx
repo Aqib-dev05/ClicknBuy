@@ -9,7 +9,6 @@ import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
 import {
   AboutPage,
   CartPage,
-  SingleCategoryPage,
   CategoryPage,
   ContactPage,
   ErrorPage,
@@ -23,6 +22,7 @@ import {
   Faq,
   TermAndConditions,
   PrivayPolicy,
+  SubCategoryPage
 } from "./Pages/index.js";
 
 import { useDispatch,useSelector } from "react-redux";
@@ -90,7 +90,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<SingleProductPage />} />
           <Route path="/categories" element={<CategoryPage />} />
-          <Route path="/category/:category" element={<SingleCategoryPage />} />
+          <Route path="/subcategories" element={<SubCategoryPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<Faq />} />

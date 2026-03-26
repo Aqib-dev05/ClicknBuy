@@ -4,7 +4,7 @@ import SubCategoryModel from "../models/SubCategory.js";
 import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinay.js";
 
 async function handleGetProductsGeneral(req, res) {
-  const { q, category, sub, sortBy, page = 1, limit = 20 } = req.query;
+  const { q, sub, sortBy, page = 1, limit = 20 } = req.query;
 
   try {
     const pageNumber = parseInt(page, 10) || 1;
@@ -19,15 +19,10 @@ async function handleGetProductsGeneral(req, res) {
       query.$or = [{ name: regex }, { description: regex }];
     }
 
-    // Filter by category (expects category id)
-    if (category) {
-      query.category = category;
+    if (sub) {
+      query.SubCategory = sub;
     }
 
-    // Filter by subcategory (expects subcategory id, Product stores it in `category` field)
-    if (sub) {
-      query.category = sub;
-    }
 
     // Sorting
     let sort = {};

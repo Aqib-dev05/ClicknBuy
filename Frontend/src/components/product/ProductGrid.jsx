@@ -1,47 +1,29 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ProductCard from './ProductCard'
-import {getProducts} from "../../services/productService"
-import { useDispatch,useSelector } from 'react-redux'
-import {setProducts,setError,setLoading} from "../../Redux/Slices/productSlice"
-import { HashLoader } from 'react-spinners'
-import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import Button from '../layouts/Button'
 
-function ProductGrid({num}) {
-   
-   const dispatch =useDispatch();
-   const {product} = useSelector((state)=>state.products);
 
-    useEffect(() => {
-      const fetchProducts = async () => {
-        dispatch(setLoading(true));
-        try {
-          const data = await getProducts({
-            //queryParams add krny hein yahan
-          });
-          if (data) {
-            dispatch(setProducts(data));
-            toast.success("Fetched Products successful!");
-          }
-        } catch (error) {
-          const message = error?.response?.data?.message;
-          toast.error(`Something went wrong. ${message}`);
-          dispatch(setError(message || "An unexpected error occurred."));
-        } finally {
-          dispatch(setLoading(false));
-        }
-      };
-      fetchProducts();
-    }, []);
+function ProductGrid({product }) {
 
-    useEffect(() => {
-    }, [product]);
-   
+    const navigate = useNavigate();
+
+  
+
   return (
     <section className='mx-auto  flex flex-wrap justify-center items-center gap-6'>
-     {product && Array.isArray(product.products) && product.products.slice(0, num).map((item) => (
-         <ProductCard key={item._id} product={item} payload={item} />
-      
-     ))}
+      {product && Array.isArray(product.products) && product.products.map((item) => (
+        <ProductCard key={item._id} product={item} payload={item} />
+
+      ))}
+      {product && product.products && product.products.length === 0 && (
+        <>
+          <p className='text-center text-xl font-semibold w-full'>No Product Found!!!</p>
+          <br /><br />
+          <Button text={"Go Back"} className='mt-8 ml-2' onClick={() => navigate(-1)} />
+        </>
+
+      )}
     </section>
   )
 }
