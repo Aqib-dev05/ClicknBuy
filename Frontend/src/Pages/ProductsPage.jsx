@@ -6,6 +6,7 @@ import { setProducts, setError, setLoading } from "../Redux/Slices/productSlice"
 import { HashLoader } from 'react-spinners'
 import { toast } from 'react-toastify'
 import { useSearchParams } from "react-router-dom"
+import Pagination from '../Components/product/Pagination'
 
 function ProductsPage() {
 
@@ -19,7 +20,7 @@ function ProductsPage() {
     sub: searchParams.get("sub") || "",
     sortBy: searchParams.get("sortBy") || "",
     page: Number(searchParams.get("page")) || 1,
-    limit: 20
+    limit: 10
   }
 
   useEffect(() => {
@@ -48,7 +49,14 @@ function ProductsPage() {
     <div>
       <h1 className='text-center my-6 text-3xl font-bold'><span className='text-red-600   ' >All</span> Products </h1>
       <ProductGrid product={product} />
-      <br /><br /><br /><br />
+      <br />
+      <Pagination
+      page={params.page}
+      totalPages={product?.totalPages}
+      searchParams={searchParams}
+      setSearchParams={setSearchParams}
+      />
+      <br /><br /><br />
     </div>
   )
 }
