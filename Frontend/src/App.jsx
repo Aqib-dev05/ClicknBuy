@@ -75,11 +75,12 @@ function App() {
     <ScrollToTop/>
        <ToastContainer
         position="top-right"   
-        autoClose={1200}       
+        autoClose={600}       
         hideProgressBar={false}
         newestOnTop={false}
-        closeOnClick
+        closeOnClick={true}
         rtl={false}
+        
         limit={3}           
         theme="dark"
       />

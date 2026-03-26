@@ -20,7 +20,7 @@ function ProductsPage() {
     sub: searchParams.get("sub") || "",
     sortBy: searchParams.get("sortBy") || "",
     page: Number(searchParams.get("page")) || 1,
-    limit: 10
+    limit: 3
   }
 
   useEffect(() => {
