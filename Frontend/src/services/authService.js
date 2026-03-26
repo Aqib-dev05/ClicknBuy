@@ -21,9 +21,14 @@ async function getMe(){
   return data;
 }
 
+ async function logOut(){
+   const { data } = await api.post("/auth/logout");
+  return data;
+ }
 
 export {
  register,
  login,
- getMe
+ getMe,
+ logOut
 };

@@ -1,9 +1,60 @@
-import React from 'react'
+import React, { useMemo } from "react";
+import { useProfileContext } from "./profileContext";
 
-function profileCard() {
+function ProfileCard() {
+  const { currentProfile } = useProfileContext();
+  const memberSince = useMemo(() => {
+    const dateValue = currentProfile?.createdAt;
+    if (!dateValue) return "N/A";
+    const parsed = new Date(dateValue);
+    return Number.isNaN(parsed.getTime()) ? "N/A" : parsed.toLocaleDateString();
+  }, [currentProfile?.createdAt]);
+
   return (
-    <div>profileCard</div>
-  )
+    <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 max-w-md">
+      <div className="flex flex-col items-center text-center">
+        <img
+          src={
+            currentProfile?.avatar?.url ||
+            "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"
+          }
+          alt="User avatar"
+          className="w-24 h-24 rounded-full object-cover border-4 border-gray-100 shadow-sm"
+        />
+      </div>
+
+      <div className="mt-6 space-y-3">
+        <div className="rounded-xl bg-gray-50 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Name</p>
+          <p className="mt-1 text-gray-900 font-semibold">{currentProfile?.name || "User"}</p>
+        </div>
+        <div className="rounded-xl bg-gray-50 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Email</p>
+          <p className="mt-1 text-gray-900 break-all">{currentProfile?.email || "No email found"}</p>
+        </div>
+        <div className="rounded-xl bg-gray-50 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Phone</p>
+          <p className="mt-1 text-gray-900">{currentProfile?.phone || "N/A"}</p>
+        </div>
+        <div className="rounded-xl bg-gray-50 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Address</p>
+          <p className="mt-1 text-gray-900">
+            {currentProfile?.address?.[0]
+              ? `${currentProfile.address[0].city || ""}${
+                  currentProfile.address[0].city && currentProfile.address[0].country ? ", " : ""
+                }${currentProfile.address[0].country || ""}${
+                  currentProfile.address[0].postalCode ? ` (${currentProfile.address[0].postalCode})` : ""
+                }`
+              : "N/A"}
+          </p>
+        </div>
+        <div className="rounded-xl bg-gray-50 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Member Since</p>
+          <p className="mt-1 text-gray-900">{memberSince}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default profileCard
+export default ProfileCard;
