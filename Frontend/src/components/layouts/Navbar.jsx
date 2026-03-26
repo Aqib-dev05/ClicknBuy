@@ -50,6 +50,9 @@ export default function Navbar() {
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
                 <NavLink to={"/categories"}>Categories</NavLink>
               </li>
+              <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+                <NavLink to={"/about"}>About Us</NavLink>
+              </li>
               {!isAuthenticated ? (
                 <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
                   <NavLink to={"/login"}>Log In</NavLink>

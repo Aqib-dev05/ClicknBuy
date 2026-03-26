@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 function ProductGrid({num}) {
    
    const dispatch =useDispatch();
-   const {loading,product} = useSelector((state)=>state.products);
+   const {product} = useSelector((state)=>state.products);
 
     useEffect(() => {
       const fetchProducts = async () => {
@@ -38,7 +38,6 @@ function ProductGrid({num}) {
    
   return (
     <section className='mx-auto  flex flex-wrap justify-center items-center gap-6'>
-      {loading && <HashLoader className='mt-16' />}
      {product && Array.isArray(product.products) && product.products.slice(0, num).map((item) => (
          <ProductCard key={item._id} product={item} payload={item} />
       

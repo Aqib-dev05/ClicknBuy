@@ -5,6 +5,8 @@ import MyLinks from "../data/myInfo"
 import MyPic from "../assets/mypicAi.jpeg"
 import { CodeXml,Hexagon ,BugOff} from "lucide-react";
 import { HashLoader } from "react-spinners";
+import { motion } from "framer-motion";
+
 
 
 
@@ -67,17 +69,17 @@ function AboutPage() {
       <section className="bg-gray-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <motion.h1 initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} transition={{duration:1}} className="text-4xl md:text-6xl font-bold mb-4">
               Hi, I'm <span className="text-red-600">M. Aqib Ali</span>
-            </h1>
-            <p className="text-xl text-gray-400 mb-8">
+            </motion.h1>
+            <motion.p initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:1}} className="text-xl text-gray-400 mb-8">
               A passionate Full Stack Developer dedicated to building
               high-quality e-commerce experiences and digital solutions.
-            </p>
+            </motion.p>
 
    <div className="flex justify-center items-center gap-3 w-full">
     {MyLinks.map((link, index) => (
-      <span key={index +2} className="w-14 h-14 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
+      <motion.span initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:1,delay:index * 0.2}} key={index +2} className="w-14 h-14 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
         <a
         key={index}
         href={link.url}
@@ -86,13 +88,13 @@ function AboutPage() {
       >
         {link.icon}
       </a>
-      </span>
+      </motion.span>
     ))}
    </div>
 
           </div>
           <div className="flex-1">
-            <div className="relative w-84 h-84 max-md:w-60 max-md:h-60 mx-auto">
+            <motion.div initial={{opacity:0,scale:0}} animate={{opacity:1,scale:1}} transition={{duration:.5}} className="relative w-84 h-84 max-md:w-60 max-md:h-60 mx-auto">
               <div className="absolute inset-0 bg-red-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <img
                 src={MyPic}
@@ -100,7 +102,7 @@ function AboutPage() {
                 alt="M. Aqib Ali"
                 className="relative z-10 rounded-full border-4 border-red-600 object-cover w-full h-full"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -113,12 +115,17 @@ function AboutPage() {
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             {SKILLS.map((skill, index) => (
-              <span
+              <motion.span
+               initial={{opacity:0,y:20}}
+               whileInView={{opacity:1,y:0}}
+               transition={{duration:.2,delay:index * 0.1}}
+               viewport={{once:true}}
+               
                 key={index}
                 className="px-6 py-2 cursor-default bg-white shadow-sm border border-gray-200 rounded-full text-gray-700 font-medium hover:border-red-600 transition-colors"
               >
                 {skill}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>
@@ -132,7 +139,11 @@ function AboutPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {SERVICES.map((service, index) => (
-              <div
+              <motion.div
+              initial={{opacity:0,y:20}}
+              whileInView={{opacity:1,y:0}}
+              transition={{duration:.3,delay:index*.1,ease:"easeInOut"}}
+              viewport={{once:true,amount:.5}}
                 key={index}
                 className="p-8 bg-white border border-gray-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
@@ -145,7 +156,7 @@ function AboutPage() {
                 <p className="text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
