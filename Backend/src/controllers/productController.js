@@ -36,6 +36,9 @@ async function handleGetProductsGeneral(req, res) {
       case "ratingDesc":
         sort = { ratings: -1 };
         break;
+      case "alphabetical":
+        sort = { name: 1 };
+        break;
       default:
         sort = {};
     }
