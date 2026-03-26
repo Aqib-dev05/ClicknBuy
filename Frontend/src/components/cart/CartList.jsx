@@ -13,6 +13,8 @@ import {
 } from "../../Redux/Slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import Button from "../layouts/Button";
+import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
+
 
 function CartList({ onQuantityChange, getQuantity }) {
 
@@ -106,7 +108,7 @@ function CartList({ onQuantityChange, getQuantity }) {
                   <img
                     onClick={() => handleViewProduct(item.product._id)}
                     className="w-14 h-14 cursor-pointer "
-                    src={item.product.images[0].url}
+                    src={cloudinaryOptimizer(item.product.images[0].url)}
                     alt="image"
                   />
                   <p> {item.product.name}</p>

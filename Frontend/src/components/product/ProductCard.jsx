@@ -8,6 +8,7 @@ import { addToCart } from "../../services/cartService.js"
 import { toast } from "react-toastify";
 import {setError,setLoading} from "../../Redux/Slices/cartSlice.js"
 import { useDispatch } from "react-redux";
+import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
 
 export default function ProductCard({
   payload
@@ -61,7 +62,7 @@ export default function ProductCard({
         {/* Image + hover CTA */}
         <div className="relative mb-3 flex flex-col gap-2 max-md:h-60 h-75 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
           <img
-            src={payload.images[0].url || sampleImage}
+            src={cloudinaryOptimizer(payload.images[0].url) || sampleImage}
             alt={payload.title || "Sample product"}
             loading="lazy"
             className="w-[80%] h-[80%] max-md:w-[90%] max-md:h-[90%] rounded-lg  object-cover transition duration-300 group-hover:scale-105"

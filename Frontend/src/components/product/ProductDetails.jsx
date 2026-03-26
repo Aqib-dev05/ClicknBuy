@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux"
 import { setLoading, setError } from "../../Redux/Slices/cartSlice";
 import { addToCart } from "../../services/cartService"
+import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
+
 
 function ProductDetails() {
 
@@ -79,12 +81,12 @@ function ProductDetails() {
           {/* Sidebar Thumbnails */}
           <div className="flex md:flex-col  gap-3 overflow-y-auto max-h-[500px]">
             {product?.images && product.images.length > 0 && product.images.map((img, index) => (
-              <div onClick={() => setMainImage(img.url)}
+              <div onClick={() => setMainImage((img.url))}
                 key={index}
                 className={`w-20 h-20 overflow-hidden md:w-22 md:h-22 bg-gray-100  rounded-md flex items-center justify-center cursor-pointer border-[1px]  hover:border-red-500    transition-all duration-300 ${mainImage === img.url ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <img
-                  src={loaded ? (product?.images[index].url) : ImgPlaceholder}
+                  src={loaded ? (cloudinaryOptimizer(product?.images[index].url)) : ImgPlaceholder}
                   alt={`Product Thumbnail ${index}`}
                   className="object-contain w-full h-full"
                   loading="lazy"
@@ -96,7 +98,7 @@ function ProductDetails() {
 
           {/* Main Display Image */}
           <div className="flex-1  bg-gray-200 rounded-md flex items-center justify-center p-4 overflow-hidden h-[350px] md:h-[420px] ">
-            <img src={mainImage || product?.images[0]?.url || ImgPlaceholder}
+            <img src={mainImage || (product?.images[0]?.url) || ImgPlaceholder}
               alt="Main Product"
               className="w-full h-full object-contain"
               loading="lazy"
