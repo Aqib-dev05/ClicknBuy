@@ -28,7 +28,13 @@ async function putSingleUser(req, res) {
     return res.status(403).json({ message: "Role updates are not allowed" });
   }
 
-  const { name, email, phone, password, address } = req.body;
+  let { name, email, phone, password, address } = req.body;
+
+  if (name) name = name.trim();
+  if (email) email = email.trim();
+  if (password) password = password.trim();
+  if (phone) phone = phone.trim();
+  if (address) address = JSON.parse(address);
 
   try {
     // Only update non-undefined fields
@@ -65,7 +71,7 @@ async function putSingleUser(req, res) {
       { $set: updateFields },
       { new: true },
     );
-
+ console.log(updatedUser)
     if (!updatedUser) {
       return res.status(404).json({ message: "User not updated or not found" });
     }

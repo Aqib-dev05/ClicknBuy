@@ -5,6 +5,7 @@ import { updateUser } from "../../services/userService";
 import { setUser } from "../../Redux/Slices/authSlics";
 import { setProfile } from "../../Redux/Slices/profileSlice";
 import { useProfileContext } from "./profileContext";
+import { formatPhone, validatePhone, validateEmail } from "../../Validators/phoneVal";
 
 function ProfileEditor() {
   const {
@@ -20,7 +21,9 @@ function ProfileEditor() {
     email: "",
     phone: "",
     password: "",
-    address: [],
+    city: "",
+    postalCode: "",
+    country: "",
     avatar: null,
   });
 
@@ -29,8 +32,10 @@ function ProfileEditor() {
       ...prev,
       name: currentProfile?.name || "",
       email: currentProfile?.email || "",
-      phone: currentProfile?.phone || "",
-      address: currentProfile?.address || [],
+      phone: formatPhone(currentProfile?.phone) || "",
+      city: currentProfile?.address?.[0]?.city || "",
+      postalCode: currentProfile?.address?.[0]?.postalCode || "",
+      country: currentProfile?.address?.[0]?.country || "",
       avatar: null,
     }));
   }, [
@@ -54,6 +59,17 @@ function ProfileEditor() {
     event.preventDefault();
     if (!user?._id) return;
 
+    if (!validateEmail(formData?.email)) {
+      toast.error("Invalid email format.");
+      return 
+    }
+    if (formData.phone && !validatePhone(formData?.phone)) {
+      toast.error("Invalid phone number format.");
+      return
+    }
+
+
+
     const payload = new FormData();
     payload.append("name", formData.name);
     payload.append("email", formData.email);
@@ -64,15 +80,14 @@ function ProfileEditor() {
     const hasAddressValue =
       formData.city.trim() || formData.country.trim() || formData.postalCode.trim();
     if (hasAddressValue) {
-      const addressPayload = [
-        {
-          city: formData.city.trim(),
-          country: formData.country.trim(),
-          ...(formData.postalCode.trim()
-            ? { postalCode: Number(formData.postalCode.trim()) }
-            : {}),
-        },
-      ];
+      const addressPayload =
+      {
+        city: formData.city.trim(),
+        country: formData.country.trim(),
+        ...(formData.postalCode.trim()
+          ? { postalCode: Number(formData.postalCode.trim()) }
+          : {}),
+      }
       payload.append("address", JSON.stringify(addressPayload));
     }
 

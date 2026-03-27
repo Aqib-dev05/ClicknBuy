@@ -37,7 +37,10 @@ async function handleGetSubCategoryByCategory(req, res) {
 
 // POST /api/categories
 async function handlePostSubCategory(req, res) {
-  const { name, slug,parent } = req.body; //parent must be id
+  let { name, slug,parent } = req.body; //parent must be id
+
+   if(name) name = name.trim()
+   if(slug) slug = slug.trim()
 
    if((name == undefined && name == null && name == "") || 
     (parent == undefined && parent == null && parent == "") 
@@ -69,7 +72,10 @@ async function handlePostSubCategory(req, res) {
 // PUT /api/categories/:id
 async function handlePutSubCategory(req, res) {
   const { id } = req.params;
-  const { name, slug,parent } = req.body;
+  let { name, slug,parent } = req.body;
+
+   if(name) name = name.trim()
+   if(slug) slug = slug.trim()
 
   try {
     const updateFields = {};

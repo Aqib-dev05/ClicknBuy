@@ -2,13 +2,17 @@ import Logo from "../../assets/logo.webp";
 import { useEffect, useState } from "react";
 import { Heart, House, ShoppingBasket, ShoppingCart, User } from "lucide-react";
 import SearchBar from "../layouts/SearchBar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [enterHeart, setEnterHeart] = useState(false);
   const { isAuthenticated } = useSelector((state) => state.auth);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   function handleMouseEnter() {
     setEnterHeart(true);
@@ -58,8 +62,17 @@ export default function Navbar() {
                   <NavLink to={"/login"}>Log In</NavLink>
                 </li>
               ) : (
-                <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                  <NavLink to={"/profile"}>Profile</NavLink>
+                <li
+                onClick={()=>{
+                  if(location.pathname == "/profile"){
+                    return;
+                  }
+                   navigate("/profile")
+                   window.location.reload();
+                }}
+                className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+                  {/* <NavLink to={"/profile"}>Profile</NavLink> */}
+                  Profile
                 </li>
               )}
             </ul>

@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useProfileContext } from "./profileContext";
+import {formatPhone} from "../../Validators/phoneVal"
 
 function ProfileCard() {
   const { currentProfile } = useProfileContext();
@@ -19,36 +20,33 @@ function ProfileCard() {
             "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"
           }
           alt="User avatar"
+          loading="lazy"
           className="w-24 h-24 rounded-full object-cover border-4 border-gray-100 shadow-sm"
         />
       </div>
 
       <div className="mt-6 space-y-3">
-        <div className="rounded-xl bg-gray-50 p-3">
+        <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Name</p>
           <p className="mt-1 text-gray-900 font-semibold">{currentProfile?.name || "User"}</p>
         </div>
-        <div className="rounded-xl bg-gray-50 p-3">
+        <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Email</p>
           <p className="mt-1 text-gray-900 break-all">{currentProfile?.email || "No email found"}</p>
         </div>
-        <div className="rounded-xl bg-gray-50 p-3">
+        <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Phone</p>
-          <p className="mt-1 text-gray-900">{currentProfile?.phone || "N/A"}</p>
+          <p className="mt-1 text-gray-900">{formatPhone(currentProfile?.phone) || "N/A"}</p>
         </div>
-        <div className="rounded-xl bg-gray-50 p-3">
-          <p className="text-xs uppercase tracking-wide text-gray-500">Address</p>
+        <div className="rounded-xl bg-gray-200 p-3">
+          <p className="text-xs uppercase tracking-wide text-gray-500">Address (city) </p>
           <p className="mt-1 text-gray-900">
-            {currentProfile?.address?.[0]
-              ? `${currentProfile.address[0].city || ""}${
-                  currentProfile.address[0].city && currentProfile.address[0].country ? ", " : ""
-                }${currentProfile.address[0].country || ""}${
-                  currentProfile.address[0].postalCode ? ` (${currentProfile.address[0].postalCode})` : ""
-                }`
+            {currentProfile?.address
+              ? `${currentProfile?.address?.city}`
               : "N/A"}
           </p>
         </div>
-        <div className="rounded-xl bg-gray-50 p-3">
+        <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Member Since</p>
           <p className="mt-1 text-gray-900">{memberSince}</p>
         </div>

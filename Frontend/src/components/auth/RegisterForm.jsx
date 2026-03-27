@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser, setToken, setIsAuthenticated, setError, setLoading } from '../../Redux/Slices/authSlics'
 import { HashLoader } from "react-spinners"
 import { Link, Navigate } from "react-router-dom"
+import { validateEmail} from "../../Validators/phoneVal"
 
 function RegisterForm() {
   const { error, loading, isAuthenticated } = useSelector((state) => state.auth);
@@ -41,12 +42,30 @@ function RegisterForm() {
 
       return;
     }
+
+    if (!validateEmail(form.email)) {
+      toast.error("Invalid email format");
+      return;
+    }
+
+    if (form.password.length < 6) {
+      toast.error("Password must be at least 6 characters long");
+      return;
+    }
+
+
+     const sanitizedData = {
+      name:form.name.trim(),
+      email: form.email.trim().toLowerCase(),
+      password: form.password.trim(),
+     }
+
     try {
       dispatch(setLoading(true))
       const data = await register({
-        name: form.name,
-        email: form.email,
-        password: form.password
+        name: sanitizedData.name,
+        email: sanitizedData.email,
+        password: sanitizedData.password
       });
 
       if (data && data.user && data.token) {

@@ -13,6 +13,7 @@ import {
 } from "../../Redux/Slices/authSlics";
 import { HashLoader } from "react-spinners";
 import { Link, Navigate } from "react-router-dom";
+import { validateEmail } from "../../Validators/phoneVal"
 
 function LoginForm() {
   const { error, loading } = useSelector((state) => state.auth);
@@ -46,11 +47,22 @@ function LoginForm() {
 
       return;
     }
+    if (!validateEmail(form.email)) {
+      toast.error("Invalid email format");
+      return;
+    }
+
+    const sanitizedData = {
+      email: form.email.trim().toLowerCase(),
+      password: form.password.trim(),
+    };
+
+
     try {
       dispatch(setLoading(true));
       const data = await login({
-        email: form.email,
-        password: form.password,
+        email: sanitizedData.email,
+        password: sanitizedData.password,
       });
 
       if (data && data.user && data.token) {
@@ -119,7 +131,7 @@ function LoginForm() {
         />
         <h4 className="my-4 bg-red-100 italic text-lg font-md">{error}</h4>
         <span
-          className="text-[crimson] cursor-pointer font-semibold "
+          className="text-[crimson] cursor-pointer font-semibold hover:text-red-800"
           onClick={() => toast.info("Feature will be added in Future")}
         >
           Forget Password?
