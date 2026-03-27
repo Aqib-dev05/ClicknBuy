@@ -18,13 +18,14 @@ async function handleGetCategory(req, res) {
 async function handlePostCategory(req, res) {
   const { name, slug } = req.body;
 
-  if (!name) {
-    return res.status(400).json({ message: "Name is required" });
+
+  if(name == undefined && name == null && name == "") {
+    return res.status(400).json({message: "Name is required"});
   }
 
   try {
     const existing = await Category.findOne({ name });
-    if (existing) {
+    if (existing) { 
       return res.status(409).json({ message: "Category already exists" });
     }
 
@@ -46,8 +47,8 @@ async function handlePutCategory(req, res) {
   try {
     const updateFields = {};
 
-    if (name !== undefined) updateFields.name = name;
-    if (slug !== undefined) updateFields.slug = slug;
+    if (name !== undefined && name !== "" && name !== null) updateFields.name = name;
+    if (slug !== undefined && slug !== "" && slug !== null) updateFields.slug = slug;
 
     if (Object.keys(updateFields).length === 0) {
       return res

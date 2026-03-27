@@ -39,6 +39,13 @@ async function handleGetSubCategoryByCategory(req, res) {
 async function handlePostSubCategory(req, res) {
   const { name, slug,parent } = req.body; //parent must be id
 
+   if((name == undefined && name == null && name == "") || 
+    (parent == undefined && parent == null && parent == "") 
+
+   ){ 
+    return res.status(400).json({message: "Invalid Parameters"}); 
+   }
+
   if (!name) {
     return res.status(400).json({ message: "Name is required" });
   }
@@ -67,9 +74,9 @@ async function handlePutSubCategory(req, res) {
   try {
     const updateFields = {};
 
-    if (name !== undefined) updateFields.name = name;
-    if (slug !== undefined) updateFields.slug = slug;
-    if (parent !== undefined) updateFields.parent = parent;
+    if (name !== undefined && name !== "" && name !== null) updateFields.name = name;
+    if (slug !== undefined && slug !== "" && slug !== null) updateFields.slug = slug;
+    if (parent !== undefined && parent !== "" && parent !== null) updateFields.parent = parent;
 
 
     if (Object.keys(updateFields).length === 0) {

@@ -1,55 +1,59 @@
 import mongoose from "mongoose";
- 
- const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true,
+
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    email:{
-        type:String,
-        required:true,
-        trim:true,
-        unique:true,
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
     },
-    phone:{
-        type:String,
-        trim:true,
-        default:"+920000000001"
+    phone: {
+      type: String,
+      trim: true,
+      default: "+920000000001",
     },
-    password:{
-        type:String,
-        required:true,
-        min:4
+    password: {
+      type: String,
+      required: true,
+      min: 4,
     },
-    avatar:{
-        url: {
-            type: String,
-            default: "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"
-        },
-        public_id: {
-            type: String,
-            default: "default"
-        }
+    avatar: {
+      url: {
+        type: String,
+        default:
+          "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png",
+      },
+      public_id: {
+        type: String,
+        default: "default",
+      },
     },
-    role:{
-        type:String,
-        enum:["admin","user"],
-        default:"user",
+    role: {
+      type: String,
+      enum: ["admin", "user"],
+      default: "user",
     },
-    address: [{
-        city: {type:String,default:"XXXXXX"},
-        postalCode: {type:Number,default:"XXXX"},
-        country: {type:String,default:"XXXXXX"},
-    }],
-    createdAt:{
-        type:Date,
-        default:Date.now,
+    address: {
+      city: { type: String, default: "XXXXXX" },
+      postalCode: { type: String, default: "XXXX" },
+      country: { type: String, default: "XXXXXX" },
     },
-    updatedAt:{
-        type:Date,
-        default:Date.now,
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
- },{timestamps:true});
- 
- const User = mongoose.model("User",userSchema);
- export default User;   
+    updatedAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { timestamps: true },
+);
+
+const User = mongoose.model("User", userSchema);
+export default User;

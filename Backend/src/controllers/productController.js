@@ -119,6 +119,14 @@ async function handlePostProduct(req, res) {
     ratings,
   } = req.body;
   try {
+
+     if((name == undefined && name == null && name == "" ) ||
+     (description == undefined && description == null && description == "") ||
+      (Subcategory == undefined && Subcategory == null && Subcategory == "")
+     ) {
+      return res.status(400).json({message: "Invalid Parameters"});
+     }
+
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ message: "Images required" });
     }
@@ -226,7 +234,7 @@ async function handlePutProduct(req, res) {
 
     const updateFields = {};
     for (const [key, value] of Object.entries(allowedFields)) {
-      if (value !== undefined) {
+      if (value !== undefined && value !== null && value !== "") {
         updateFields[key] = value;
       }
     }

@@ -28,10 +28,14 @@ async function handleAddToCart(req, res) {
   const userId = req.user?._id || req.user?.id;
   const { productId, quantity } = req.body;
 
-  if (!productId || !quantity) {
+  if (!productId ) {
     return res
       .status(400)
-      .json({ message: "Product ID and quantity are required" });
+      .json({ message: "Product ID is required" });
+  }
+
+  if(!quantity){
+    quantity=1;
   }
 
   try {
