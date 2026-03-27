@@ -81,7 +81,7 @@ function LoginForm() {
     }
   }
 
-  if (loading) return <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader/> </div>
+  if (loading) return <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader /> </div>
 
   return (
     <section className="flex  items-center  overflow-x-hidden w-full">
@@ -124,12 +124,14 @@ function LoginForm() {
         >
           Forget Password?
         </span>
-        <div className="flex items-center  mt-3 gap-9 flex-wrap">
-          <Button type="submit" onClick={handleSubmit} text={"Login"} />
-          <Link to={"/register"} className="text-[crimson] font-semibold ">
-            <Button text={"Sign Up "} varient="blacked" />
-          </Link>
+        <div className="flex items-center md:w-[50%] w-[60%]  mt-3 gap-9 flex-wrap">
+          <Button type="submit" width="full" onClick={handleSubmit} text={"Login"} />
         </div>
+        <br />
+        <p className="mt-4">
+          Don't have an account? <Link to={"/register"} className="text-blue-500 hover:text-red-600 italic  font-semibold">Sign Up</Link>
+        </p>
+        
       </form>
     </section>
   );
