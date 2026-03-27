@@ -53,14 +53,13 @@ function RegisterForm() {
         dispatch(setUser(data.user));
         dispatch(setToken(data.token));
         dispatch(setIsAuthenticated(true));
-        toast.success("Login successful!");
+        toast.success("Register successful!");
 
       } else {
-        // handle case when login fails (wrong credentials, etc.)
         console.log(data)
-        toast.error(data?.message || "Login failed. Please check your credentials.");
+        toast.error(data?.message || "Registeration failed.");
         dispatch(setIsAuthenticated(false));
-        dispatch(setError(data?.message || "Login failed. Please check your credentials."));
+        dispatch(setError(data?.message || "Registeration failed."));
       }
     } catch (error) {
       const message = error.response?.data?.message;

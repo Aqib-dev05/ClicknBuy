@@ -19,9 +19,26 @@ async function handleRegister(req, res) {
       password,
       address,
     });
-    return res
-      .status(201)
-      .json({ message: "User registered successfully", user });
+    
+      const token = generateToken(user);
+         res.cookie("access-token", token, {
+           httpOnly: true,
+           secure: true,
+           maxAge: 7 * 24 * 60 * 60 * 1000,
+         });
+     
+         return res.status(200).json({
+           message: "Registeration successfull",
+           token,
+           user: {
+             id: user._id,
+             name: user.name,
+             email: user.email,
+             role: user.role,
+           },
+         });  
+
+
   } catch (err) {
     console.error("Error occurred during registration:", err.message);
     return res

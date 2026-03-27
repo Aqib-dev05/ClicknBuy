@@ -104,7 +104,7 @@ function LoginForm() {
         <input
           onChange={handleInputChange}
           className="border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 "
-          type="text"
+          type="email"
           name="email"
           placeholder="Enter Your Email*"
           required:true
