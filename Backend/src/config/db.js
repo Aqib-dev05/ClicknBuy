@@ -6,7 +6,9 @@ import mongoose from "mongoose";
     }
 
     try{
-        const conn = await mongoose.connect(mongo_uri);
+        const conn = await mongoose.connect(mongo_uri,{
+           dbName:"ecommerce"
+        });
         console.log(`MongoDB connected: ${conn.connection.host}`);
         return conn;
     }catch(error){
