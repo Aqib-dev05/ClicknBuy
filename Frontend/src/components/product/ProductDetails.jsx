@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import RatingStars from "./RatingStars";
 import QuantitySelector from "./QuantitySelector";
-import { Heart, Truck, RotateCcw } from "lucide-react";
+import Wish from "../wishlist/Wish";
 import Button from "../layouts/Button";
+import ImgPlaceholder from "../../assets/imgPlaceholder.jpg"
+import { Heart, Truck, RotateCcw } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom"
 import { getProductById } from "../../services/productService"
-import ImgPlaceholder from "../../assets/imgPlaceholder.jpg"
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux"
 import { setLoading, setError } from "../../Redux/Slices/cartSlice";
 import { addToCart } from "../../services/cartService"
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
-
 
 function ProductDetails() {
 
@@ -170,9 +170,8 @@ function ProductDetails() {
               className="bg-[#DB4444] text-white px-10 py-2 rounded-md font-medium"
               text="Buy Now"
             />
-            <button onClick={() => toast.info("Wishing Functionality will be Added Soon!")} className="border p-2 rounded-md hover:bg-gray-50">
-              <Heart className="h-5 w-5" />
-            </button>
+              
+                <Wish classList="border-[1px] border-black p-2 rounded-md" size={25} payload={product} />
           </div>
 
           {/* Delivery Info */}

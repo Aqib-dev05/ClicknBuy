@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import {setError,setLoading} from "../../Redux/Slices/cartSlice.js"
 import { useDispatch } from "react-redux";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
+import { getLocally, setLocally } from "../../utils/LocalStore.jsx";
 
 export default function ProductCard({
   payload
@@ -29,6 +30,11 @@ export default function ProductCard({
    
     if(data){
       toast.success("Product added to cart successfully!")
+      const inLS = getLocally("wishlist");
+      if(inLS){
+        const updatedWishlist = inLS.filter((item) => item._id !== payload._id);
+        setLocally("wishlist", updatedWishlist);
+      }
     }
     }
     catch(err){
@@ -46,7 +52,9 @@ export default function ProductCard({
 
       <div className="group relative flex w-[88%] max-w-xs flex-col rounded-md border border-gray-200 bg-white  p-3 shadow-md transition hover:shadow-lg">
         {/* Wishlist */}
-        <Wish payload={payload._id} />
+        <Wish
+        classList="absolute cursor-pointer right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+        payload={payload} />
         <button
           type="button"
           title="View Product"

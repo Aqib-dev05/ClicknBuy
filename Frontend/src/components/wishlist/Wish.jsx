@@ -1,86 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Heart } from "lucide-react";
 import { cn } from "../../utils/merge";
-import {setLocally, getLocally} from "../../utils/LocalStore.jsx"
-import { useDispatch } from "react-redux"
-import { addToWishlist, removeFromWishlist, setLoading, setError } from "../../Redux/Slices/wishSlice.js";
+import { setLocally, getLocally } from "../../utils/LocalStore.jsx";
 
+function Wish({ classList = "", payload, size = "16px" }) {
 
-
-
-function Wish({ classList = "", payload }) {
   const [isWished, setIsWished] = useState(false);
-  const dispatch = useDispatch();
 
- 
+  useEffect(() => {
+    const existingItems = getLocally("wishlist") || [];
+    const isAlreadyWished = existingItems.some((item) => item._id === payload._id);
+    setIsWished(isAlreadyWished);
+  }, [payload._id]);
 
-  const handleWishlistClick = () => {
-    setIsWished((prev) => !prev);
-    if (!isWished) {
-      addToWish(payload);
+  const handleWishedProduct = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const existingItems = getLocally("wishlist") || [];
+    const isAlreadyWished = existingItems.some((item) => item._id === payload._id);
+
+    if (isAlreadyWished) {
+      const updatedWishlist = existingItems.filter((item) => item._id !== payload._id);
+      setLocally("wishlist", updatedWishlist);
+      setIsWished(false);
+      toast.info("Removed from wishlist");
     } else {
-      removeFromWish(payload);
+      const updatedWishlist = [...existingItems, payload];
+      setLocally("wishlist", updatedWishlist);
+      setIsWished(true);
+      toast.success("Added to wishlist");
     }
   };
 
 
-function addToWish(payload) {
-  dispatch(setLoading(true));
-
-  try {
-    let wishlist = getLocally("wishedItem") || [];
-
-    if (!wishlist.includes(payload)) {
-      wishlist.push(payload);
-      setLocally("wishedItem", wishlist);
-    }
-
-    dispatch(addToWishlist(payload));
-    toast.success("Product added!");
-  } catch (error) {
-    const message = error?.response?.data?.message;
-    toast.error(`Something went wrong. ${message}`);
-    dispatch(setError(message || "An unexpected error occurred."));
-  } finally {
-    dispatch(setLoading(false));
-  }
-}
-
-function removeFromWish(payload) {
-  dispatch(setLoading(true));
-
-  try {
-    let wishlist = getLocally("wishedItem") || [];
-
-    wishlist = wishlist.filter(id => id !== payload);
-
-    setLocally("wishedItem", wishlist);
-
-    dispatch(removeFromWishlist(payload));
-    toast.success("Product removed!");
-  } catch (error) {
-    const message = error?.response?.data?.message;
-    toast.error(`Something went wrong. ${message}`);
-    dispatch(setError(message || "An unexpected error occurred."));
-  } finally {
-    dispatch(setLoading(false));
-  }
-}
-
   return (
     <button
       type="button"
-      onClick={handleWishlistClick}
+      onClick={handleWishedProduct}
       title="Add to Wishlist"
-      className={cn(
-        `absolute cursor-pointer right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100`,
-        classList,
-      )}
+      className={cn(classList)}
     >
       <Heart
-        className="h-4 w-4"
-        fill={isWished? "red" : "none"}
+        size={size}
+        fill={isWished ? "red" : "none"}
         stroke={isWished ? "red" : "black"}
       />
     </button>

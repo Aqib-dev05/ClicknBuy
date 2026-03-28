@@ -28,14 +28,12 @@ async function handleAddToCart(req, res) {
   const userId = req.user?._id || req.user?.id;
   const { productId, quantity } = req.body;
 
-  if (!productId ) {
-    return res
-      .status(400)
-      .json({ message: "Product ID is required" });
+  if (!productId) {
+    return res.status(400).json({ message: "Product ID is required" });
   }
 
-  if(!quantity){
-    quantity=1;
+  if (!quantity) {
+    quantity = 1;
   }
 
   try {
@@ -67,6 +65,46 @@ async function handleAddToCart(req, res) {
     return res
       .status(500)
       .json({ message: "Failed to add to cart", error: error.message });
+  }
+}
+
+//Post /api/cart/bulk-insertion
+async function handleBulkInsertion(req, res) {
+  const userId = req.user?._id || req.user?.id;
+  let { items } = req.body; //array of productIds
+  const quantity = 1;
+
+  if (typeof items === "string") {
+    items = JSON.parse(items);
+  }
+  
+  try {
+    let cart = await Cart.findOne({ user: userId });
+
+    if (!cart) {
+      cart = new Cart({ user: userId, products: [] });
+    }
+
+    items.forEach((productId) => {
+      const itemIndex = cart.products.findIndex(
+        (item) => item.product.toString() === productId,
+      );
+      if (itemIndex === -1) {
+        cart.products.push({ product: productId, quantity });
+      }
+      else {
+        cart.products[itemIndex].quantity += quantity;
+      }
+    });
+
+    await cart.save();
+
+    return res.status(200).json({ message: "Products added to cart successfully" });
+  } catch (error) {
+    console.error("Error in handleBulkInsertion:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to bulk insert to cart", error: error.message });
   }
 }
 
@@ -163,12 +201,11 @@ async function handleClearCart(req, res) {
   }
 }
 
-
 //bulk update controller. Put request for many product's quantity in cart
- async function handleBulkUpdate(req, res) {
+async function handleBulkUpdate(req, res) {
   const userId = req.user?._id || req.user?.id;
-  const { updates } = req.body;    
-   if (!Array.isArray(updates)) {
+  const { updates } = req.body;
+  if (!Array.isArray(updates)) {
     return res.status(400).json({ message: "Updates must be an array" });
   }
 
@@ -181,7 +218,7 @@ async function handleClearCart(req, res) {
 
     updates.forEach((update) => {
       const itemIndex = cart.products.findIndex(
-        (item) => item.product.toString() === update.productId
+        (item) => item.product.toString() === update.productId,
       );
       if (itemIndex > -1) {
         cart.products[itemIndex].quantity = update.quantity;
@@ -191,7 +228,7 @@ async function handleClearCart(req, res) {
     await cart.save();
     const updatedCart = await cart.populate(
       "products.product",
-      "name basePrice discountedPrice images slug"
+      "name basePrice discountedPrice images slug",
     );
 
     return res.status(200).json(updatedCart);
@@ -201,10 +238,7 @@ async function handleClearCart(req, res) {
       .status(500)
       .json({ message: "Failed to bulk update cart", error: error.message });
   }
- }
-
-
-
+}
 
 export {
   handleGetCart,
@@ -213,4 +247,5 @@ export {
   handleRemoveFromCart,
   handleClearCart,
   handleBulkUpdate,
+  handleBulkInsertion,
 };

@@ -7,6 +7,7 @@ import {
   handleRemoveFromCart,
   handleClearCart,
   handleBulkUpdate,
+  handleBulkInsertion,
 } from "../controllers/cartController.js";
 
 const router = express.Router();
@@ -16,6 +17,7 @@ router.use(checkAuth);
 router
   .get("/", handleGetCart)
   .post("/", handleAddToCart)
+  .post("/bulk-insertion", handleBulkInsertion)
   .put("/:productId", handleUpdateCartItem)
   .patch("/bulk",handleBulkUpdate)
   .delete("/:productId", handleRemoveFromCart)
