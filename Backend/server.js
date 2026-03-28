@@ -7,7 +7,7 @@ import app from "./src/app.js";
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI =
-  process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce";
+  process.env.MONGO_URI ;
 app.listen(PORT, () => {
   connectDB(MONGO_URI);
   seedAdmin();
