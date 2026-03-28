@@ -7,6 +7,8 @@ import app from "./src/app.js";
 
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI ;
+
+
 app.listen(PORT,async () => {
   await connectDB(MONGO_URI);
   seedAdmin();
