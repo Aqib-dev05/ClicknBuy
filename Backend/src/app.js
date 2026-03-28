@@ -32,9 +32,15 @@ app.use("/api/users",checkAuth,userRoutes);
 app.use("/api/cart",checkAuth,cartRoutes);
 
 
+dotenv.config();
+import { connectDB } from "./config/db.js";
+const conn = connectDB(process.env.MONGO_URI);
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.json({
+    message: "Welcome to the E-commerce API",
+    connection: conn
+  })
 });
 
 export default app;
