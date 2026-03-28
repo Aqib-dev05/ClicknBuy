@@ -1,12 +1,14 @@
 import express from "express";
-import SubCategory from "../models/SubCategory.js";
+import SubCategoryModel from "../models/SubCategory.js";
+import productModel from "../models/Product.js";
+import mongoTransection from "../config/mongoTransection.js";
 
 // GET /api/categories
 async function handleGetSubCategory(req, res) {
   try {
-    const categories = await SubCategory.find().populate(
+    const categories = await SubCategoryModel.find().populate(
       "parent",
-      "name, slug"
+      "name, slug",
     );
     return res.status(200).json(categories);
   } catch (error) {
@@ -15,15 +17,13 @@ async function handleGetSubCategory(req, res) {
       .status(500)
       .json({ message: "Failed to fetch categories", error: error.message });
   }
-
-
-}// GET /api/subcategories/category/:catId
+} // GET /api/subcategories/category/:catId
 async function handleGetSubCategoryByCategory(req, res) {
   const { catId } = req.params;
   try {
-    const subCategories = await SubCategory.find({ parent: catId }).populate(
+    const subCategories = await SubCategoryModel.find({ parent: catId }).populate(
       "parent",
-      "name slug"
+      "name slug",
     );
     return res.status(200).json(subCategories);
   } catch (error) {
@@ -34,32 +34,31 @@ async function handleGetSubCategoryByCategory(req, res) {
   }
 }
 
-
 // POST /api/categories
 async function handlePostSubCategory(req, res) {
-  let { name, slug,parent } = req.body; //parent must be id
+  let { name, slug, parent } = req.body; //parent must be id
 
-   if(name) name = name.trim()
-   if(slug) slug = slug.trim()
+  if (name) name = name.trim();
+  if (slug) slug = slug.trim();
 
-   if((name == undefined && name == null && name == "") || 
-    (parent == undefined && parent == null && parent == "") 
-
-   ){ 
-    return res.status(400).json({message: "Invalid Parameters"}); 
-   }
+  if (
+    (name == undefined && name == null && name == "") ||
+    (parent == undefined && parent == null && parent == "")
+  ) {
+    return res.status(400).json({ message: "Invalid Parameters" });
+  }
 
   if (!name) {
     return res.status(400).json({ message: "Name is required" });
   }
 
   try {
-    const existing = await SubCategory.findOne({ name });
+    const existing = await SubCategoryModel.findOne({ name });
     if (existing) {
       return res.status(409).json({ message: "SubCategory already exists" });
     }
 
-    const SubCategory = await SubCategory.create({ name, slug,parent });
+    const SubCategory = await SubCategoryModel.create({ name, slug, parent });
     return res.status(201).json(SubCategory);
   } catch (error) {
     console.error("Error in handlePostSubCategory:", error);
@@ -72,18 +71,20 @@ async function handlePostSubCategory(req, res) {
 // PUT /api/categories/:id
 async function handlePutSubCategory(req, res) {
   const { id } = req.params;
-  let { name, slug,parent } = req.body;
+  let { name, slug, parent } = req.body;
 
-   if(name) name = name.trim()
-   if(slug) slug = slug.trim()
+  if (name) name = name.trim();
+  if (slug) slug = slug.trim();
 
   try {
     const updateFields = {};
 
-    if (name !== undefined && name !== "" && name !== null) updateFields.name = name;
-    if (slug !== undefined && slug !== "" && slug !== null) updateFields.slug = slug;
-    if (parent !== undefined && parent !== "" && parent !== null) updateFields.parent = parent;
-
+    if (name !== undefined && name !== "" && name !== null)
+      updateFields.name = name;
+    if (slug !== undefined && slug !== "" && slug !== null)
+      updateFields.slug = slug;
+    if (parent !== undefined && parent !== "" && parent !== null)
+      updateFields.parent = parent;
 
     if (Object.keys(updateFields).length === 0) {
       return res
@@ -91,10 +92,10 @@ async function handlePutSubCategory(req, res) {
         .json({ message: "No valid fields provided to update" });
     }
 
-    const updated = await SubCategory.findByIdAndUpdate(
+    const updated = await SubCategoryModel.findByIdAndUpdate(
       id,
       { $set: updateFields },
-      { new: true }
+      { new: true },
     );
 
     if (!updated) {
@@ -115,15 +116,32 @@ async function handleDeleteSubCategory(req, res) {
   const { id } = req.params;
 
   try {
-    const deleted = await SubCategory.findByIdAndDelete(id);
+    //  porduction k liye,
+    // await mongoTransection(async (session) => {
+
+    //   await productModel.deleteMany({ SubCategory: id }).session(session);
+    //   const sub = await SubCategoryModel.findByIdAndDelete(id).session(session);
+
+    //   if (!sub) {
+    //     throw new Error("User not found");
+    //   }
+    // });
+    // res
+    //   .status(200)
+    //   .json({
+    //     message: "SubCategory and associated Products deleted successfully",
+    //   });
+
+    await productModel.deleteMany({ SubCategory: id });
+    const deleted = await SubCategoryModel.findByIdAndDelete(id);
 
     if (!deleted) {
       return res.status(404).json({ message: "SubCategory not found" });
     }
-
     return res
       .status(200)
-      .json({ message: "SubCategory deleted successfully" });
+      .json({ message: "SubCategory and associated Products deleted successfully" });
+
   } catch (error) {
     console.error("Error in handleDeleteSubCategory:", error);
     return res

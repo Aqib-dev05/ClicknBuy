@@ -1,5 +1,9 @@
 import express from "express";
 import Category from "../models/Category.js";
+import subCategoryModel from "../models/SubCategory.js";
+import productModel from "../models/Product.js";
+import mongoTransection from "../config/mongoTransection.js";
+import SubCategory from "../models/SubCategory.js";
 
 // GET /api/categories
 async function handleGetCategory(req, res) {
@@ -18,14 +22,13 @@ async function handleGetCategory(req, res) {
 async function handlePostCategory(req, res) {
   const { name, slug } = req.body;
 
-
-  if(name == undefined && name == null && name == "") {
-    return res.status(400).json({message: "Name is required"});
+  if (name == undefined && name == null && name == "") {
+    return res.status(400).json({ message: "Name is required" });
   }
 
   try {
     const existing = await Category.findOne({ name });
-    if (existing) { 
+    if (existing) {
       return res.status(409).json({ message: "Category already exists" });
     }
 
@@ -47,8 +50,10 @@ async function handlePutCategory(req, res) {
   try {
     const updateFields = {};
 
-    if (name !== undefined && name !== "" && name !== null) updateFields.name = name;
-    if (slug !== undefined && slug !== "" && slug !== null) updateFields.slug = slug;
+    if (name !== undefined && name !== "" && name !== null)
+      updateFields.name = name;
+    if (slug !== undefined && slug !== "" && slug !== null)
+      updateFields.slug = slug;
 
     if (Object.keys(updateFields).length === 0) {
       return res
@@ -59,7 +64,7 @@ async function handlePutCategory(req, res) {
     const updated = await Category.findByIdAndUpdate(
       id,
       { $set: updateFields },
-      { new: true }
+      { new: true },
     );
 
     if (!updated) {
@@ -80,15 +85,43 @@ async function handleDeleteCategory(req, res) {
   const { id } = req.params;
 
   try {
-    const deleted = await Category.findByIdAndDelete(id);
+    const subCat = await subCategoryModel.find({ parent: id });
+    const subCatIds = subCat.map((sub) => sub._id);
 
-    if (!deleted) {
-      return res.status(404).json({ message: "Category not found" });
+    //porduction k liye,
+    // await mongoTransection(async (session) => {
+    //   //delete products
+    //   await productModel
+    //     .deleteMany({
+    //       SubCategory: { $in: subCatIds },
+    //     })
+    //     .session(session);
+
+    //   //delete subCategories
+    //   await subCategoryModel.deleteMany({ parent: id }).session(session);
+
+    //   //delete category
+    //   const cat = await Category.findByIdAndDelete(id).session(session);
+
+    //   if (!cat) {
+    //     throw new Error("Category not found");
+    //   }
+    // });
+    // res
+    //   .status(200)
+    //   .json({ message: "Category and associated data deleted successfully" });
+
+    await productModel.deleteMany({ SubCategory: { $in: subCatIds } });
+    await subCategoryModel.deleteMany({ parent: id });
+    const cat = await Category.findByIdAndDelete(id);
+    if (!cat) {
+      throw new Error("Category not found");
     }
-
-    return res
+    res
       .status(200)
-      .json({ message: "Category deleted successfully" });
+      .json({ message: "Category and associated data deleted successfully" });
+      
+      
   } catch (error) {
     console.error("Error in handleDeleteCategory:", error);
     return res

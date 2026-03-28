@@ -1,6 +1,9 @@
 import express from "express";
 import userModel from "../models/User.js";
+import cartModel from "../models/Cart.js";
+import orderModel from "../models/Order.js";
 import { uploadOnCloudinary } from "../utils/cloudinay.js";
+import mongoTransection from "../config/mongoTransection.js";
 
 async function getAllUsersInfo(req, res) {
   try {
@@ -71,7 +74,7 @@ async function putSingleUser(req, res) {
       { $set: updateFields },
       { new: true },
     );
- console.log(updatedUser)
+    console.log(updatedUser);
     if (!updatedUser) {
       return res.status(404).json({ message: "User not updated or not found" });
     }
@@ -91,14 +94,31 @@ async function putSingleUser(req, res) {
 async function deleteUser(req, res) {
   const { id } = req.params;
   try {
-    const deleted = await userModel.findByIdAndDelete(id);
-    if (!deleted) {
-      return res.status(402).send("USer not found");
+    //porduction k liye, as localDb standalone hy
+    //    await mongoTransection(async (session) => {
+
+    //     await cartModel.deleteMany({ user: id }).session(session);
+    //     await orderModel.deleteMany({ user: id }).session(session);
+
+    //     const user = await userModel.findByIdAndDelete(id).session(session);
+
+    //     if (!user) {
+    //       throw new Error("User not found");
+    //     }
+    // });
+    //   res.status(200).json({ message: "User and associated data deleted successfully" });
+
+    await cartModel.deleteOne({ user: id });
+    await orderModel.deleteOne({ user: id });
+    const deletedUser = await userModel.findByIdAndDelete(id);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json({
-      message: "User deleted successfully",
-      deletedPerson: deleted,
-    });
+
+    res
+      .status(200)
+      .json({ message: "User and associated data deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
