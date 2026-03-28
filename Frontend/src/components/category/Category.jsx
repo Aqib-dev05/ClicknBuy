@@ -118,14 +118,16 @@ function Category() {
                 {subCategories && subCategories.length > 0 ? (
                   subCategories.map((sub) => (
                     <div
-                      onClick={()=>productsView(sub._id)}
                       key={sub._id}
                       className="group p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-white hover:shadow-md transition-all duration-300 cursor-pointer"
                     >
                       <h4 className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
                         {sub.name}
                       </h4>
-                      <p className="text-sm text-gray-500 mt-2">
+                      <p 
+                      onClick={()=>productsView(sub._id)}
+                      
+                      className="text-sm text-gray-500 mt-2">
                         View Products
                       </p>
                     </div>
