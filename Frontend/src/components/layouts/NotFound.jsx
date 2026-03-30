@@ -1,7 +1,7 @@
 import errorImg from "../../assets/404.svg";
 import Button from './Button'
 import React from 'react'
-import { motion } from "motion/react"
+import { motion as Motion } from "motion/react"
 
 function NotFound() {
     return (
@@ -11,7 +11,7 @@ function NotFound() {
                
                onClick={() => window.history.back()}
            />
-            <motion.img
+            <Motion.img
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}

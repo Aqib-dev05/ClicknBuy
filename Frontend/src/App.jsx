@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout.jsx";
+import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
+import ErrorBoundary from "./Components/ErrorBoundary.jsx";
 import {
   AboutPage,
   CartPage,
@@ -48,7 +49,13 @@ function App() {
         const res = await api.get("/auth/me");
         dispatch(setUser(res.data.user));
       } catch (err) {
-        dispatch(setError(err.response.data.message));
+        // Vercel/production me backend na ho to `err.response` undefined hota hai.
+        // Isliye safe error message set karna zaroori hai (warna React crash = blank screen).
+        const message =
+          err?.response?.data?.message ||
+          err?.message ||
+          "Something went wrong";
+        dispatch(setError(message));
         dispatch(logout());
       } finally {
         dispatch(setLoading(false));
@@ -84,6 +91,7 @@ function App() {
         limit={3}           
         theme="dark"
       />
+      <ErrorBoundary>
       <Routes>
         {/* public routes  */}
         <Route element={<MainLayout />}>
@@ -115,6 +123,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivayPolicy />} />
         </Route>
       </Routes>
+      </ErrorBoundary>
     </>
   );
 }

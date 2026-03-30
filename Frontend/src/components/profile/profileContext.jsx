@@ -1,3 +1,4 @@
+/* eslint react-refresh/only-export-components: off */
 import React, { createContext, useContext, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
