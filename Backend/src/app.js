@@ -39,15 +39,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/check",(req,res)=>{
-  res.json({
-    "MONGOI_URI": process.env.MONGO_URI,
-    "PORT":process.env.PORT,
-    "JWT_SECRET":process.env.JWT_SECRET,
-    "CLIENT_ORIGIN":process.env.CLIENT_ORIGIN,
-    "CLOUDINARY_CLOUD_NAME":process.env.CLOUDINARY_CLOUD_NAME,
-    "CLOUDINARY_API_KEY":process.env.CLOUDINARY_API_KEY,
-    "CLOUDINARY_API_SECRET":process.env.CLOUDINARY_API_SECRET
-  })
+  res.send("Authenticated");
 })
 
 export default app;
