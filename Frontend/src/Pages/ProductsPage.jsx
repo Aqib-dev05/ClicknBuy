@@ -15,7 +15,7 @@ import Filters from "../Components/filters/Filters";
 
 function ProductsPage() {
   const dispatch = useDispatch();
-  const { product } = useSelector((state) => state.products);
+  const { product, loading } = useSelector((state) => state.products);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const params = {
@@ -62,9 +62,12 @@ function ProductsPage() {
 
 
       <br /><br />
+              {loading && <div className=" flex w-full justify-center items-center my-8 "><HashLoader/></div>}
+      
       <ProductGrid product={product} />
       <br />
-      {product.totalPages > 1 && (
+
+      {product?.totalPages > 1 && (
         <Pagination
           page={params.page}
           totalPages={product?.totalPages}
