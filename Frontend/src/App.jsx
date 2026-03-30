@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/layout";
+import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/Layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
 import ErrorBoundary from "./Components/ErrorBoundary.jsx";
