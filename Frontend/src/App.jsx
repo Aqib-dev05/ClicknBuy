@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/Layout";
+// import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/Layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
 import ErrorBoundary from "./Components/ErrorBoundary.jsx";
@@ -94,7 +94,7 @@ function App() {
       <ErrorBoundary>
       <Routes>
         {/* public routes  */}
-        <Route element={<MainLayout />}>
+        <Route >
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<SingleProductPage />} />
@@ -112,12 +112,12 @@ function App() {
           </Route>
         </Route>
 
-        <Route element={<AuthLayout />}>
+        <Route >
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Route>
 
-        <Route element={<SecondaryLayout />}>
+        <Route >
           <Route path="*" element={<ErrorPage />} />
           <Route path="/terms-and-conditions" element={<TermAndConditions />} />
           <Route path="/privacy-policy" element={<PrivayPolicy />} />
