@@ -11,10 +11,10 @@ const MONGO_URI = process.env.MONGO_URI ;
 
 const startServer = async () => {
   await connectDB(MONGO_URI);
-  // seedAdmin();
-  // seedCategory();
-  // seedSubCategory();
-  // seedProducts();
+  seedAdmin();
+  seedCategory();
+  seedSubCategory();
+  seedProducts();
 
   app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
