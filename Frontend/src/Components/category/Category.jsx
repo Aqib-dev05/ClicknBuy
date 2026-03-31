@@ -109,56 +109,58 @@ function Category() {
         {/* Main Content - Subcategories */}
         <div className="flex-1 p-8">
 
+
           {
-            loading && (
+
+            loading ? (
               <div className="flex justify-center p-10">
                 <HashLoader color="#dc2626" />
               </div>
             )
-          }
+              :
 
-          {selectedCategory ? (
-            <div>
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {selectedCategory.name}
-                </h3>
-                <p className="text-gray-500">
-                  Explore sub-categories in {selectedCategory.name}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {subCategories && subCategories.length > 0 ? (
-                  subCategories.map((sub) => (
-                    <div
-                      key={sub._id}
-                      className="group p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-white hover:shadow-md transition-all duration-300 cursor-pointer"
-                    >
-                      <h4 className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
-                        {sub.name}
-                      </h4>
-                      <p
-                        onClick={() => productsView(sub._id)}
-
-                        className="text-sm text-gray-500 mt-2">
-                        View Products
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <div className="col-span-full py-20 text-center text-gray-400 italic">
-                    No sub-categories found for {selectedCategory.name}
+              selectedCategory ? (
+                <div>
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {selectedCategory.name}
+                    </h3>
+                    <p className="text-gray-500">
+                      Explore sub-categories in {selectedCategory.name}
+                    </p>
                   </div>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="h-full flex flex-col items-center justify-center text-gray-400">
-              <LayoutGrid size={48} className="mb-4 opacity-20" />
-              <p>Select a category to view details</p>
-            </div>
-          )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {subCategories && subCategories.length > 0 ? (
+                      subCategories.map((sub) => (
+                        <div
+                          key={sub._id}
+                          className="group p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-white hover:shadow-md transition-all duration-300 cursor-pointer"
+                        >
+                          <h4 className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
+                            {sub.name}
+                          </h4>
+                          <p
+                            onClick={() => productsView(sub._id)}
+
+                            className="text-sm text-gray-500 mt-2">
+                            View Products
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="col-span-full py-20 text-center text-gray-400 italic">
+                        No sub-categories found for {selectedCategory.name}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <div className="h-full flex flex-col items-center justify-center text-gray-400">
+                  <LayoutGrid size={48} className="mb-4 opacity-20" />
+                  <p>Select a category to view details</p>
+                </div>
+              )}
         </div>
       </div>
     </div>
