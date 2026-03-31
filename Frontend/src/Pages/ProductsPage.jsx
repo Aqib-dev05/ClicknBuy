@@ -28,6 +28,7 @@ function ProductsPage() {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      dispatch(setProducts(null));
       dispatch(setLoading(true));
       try {
         const data = await getProducts({
@@ -36,7 +37,6 @@ function ProductsPage() {
         if (data) {
           dispatch(setProducts(data));
           toast.success("Fetched Products successful!");
-          
         }
       } catch (error) {
         const message = error?.response?.data?.message;
@@ -54,21 +54,21 @@ function ProductsPage() {
       <h1 className="text-center my-6 text-3xl font-bold">
         <span className="text-red-600   ">All</span> Products{" "}
       </h1>
-      <br /><br />
- 
-     <Filters
-     searchParams={searchParams}
-     setSearchParams={setSearchParams}
-     />
+      <br />
+      <br />
 
+      <Filters searchParams={searchParams} setSearchParams={setSearchParams} />
 
-      <br /><br />
-              {loading && <div className=" flex w-full justify-center items-center my-8 "><HashLoader/></div>}
-      
-      {
-        !loading && < ProductGrid product={product} />
+      <br />
+      <br />
+      {loading ? (
+        <div className=" flex w-full justify-center items-center my-8 ">
+          <HashLoader />
+        </div>
+      ) : (
+        <ProductGrid product={product} />
+      )}
 
-      }
       <br />
 
       {product?.totalPages > 1 && (

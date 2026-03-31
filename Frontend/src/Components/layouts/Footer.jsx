@@ -90,9 +90,9 @@ export default function Footer() {
               </NavLink>
             </li>
             <li>
-              <a className="transition hover:text-white" href="/subcategories">
+              <NavLink className="transition hover:text-white" to="/subcategories">
                 Sub Categories
-              </a>
+              </NavLink>
             </li>
 
           </ul>

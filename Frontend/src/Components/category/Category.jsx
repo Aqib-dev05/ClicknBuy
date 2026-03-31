@@ -20,11 +20,12 @@ function Category() {
     (state) => state.products,
   );
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [pageLoading, setPageLoading] = useState(false);
 
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        dispatch(setLoading(true));
+        setPageLoading(true);
         const response = await getCategories();
         dispatch(setCategories(response));
         if (response && response.length > 0) {
@@ -33,13 +34,14 @@ function Category() {
       } catch (error) {
         dispatch(setError(error.message));
       } finally {
-        dispatch(setLoading(false));
+        setPageLoading(false);
       }
     };
     fetchCategory();
   }, [dispatch]);
 
   async function fetchSubCategory(categoryId) {
+    dispatch(setLoading(true))
     try {
       const res = await getSubCategoryByCategory(categoryId);
       if (res) {
@@ -47,6 +49,8 @@ function Category() {
       }
     } catch (err) {
       dispatch(setError(err.message));
+    } finally {
+      dispatch(setLoading(false));
     }
   }
 
@@ -55,11 +59,11 @@ function Category() {
     fetchSubCategory(cat._id);
   }
 
-  async function  productsView(sub) {
-       navigate(`/products?sub=${sub}`);
+  async function productsView(sub) {
+    navigate(`/products?sub=${sub}`);
   }
 
-  if (loading)
+  if (pageLoading)
     return (
       <div className="flex justify-center p-10">
         <HashLoader color="#dc2626" />
@@ -81,11 +85,10 @@ function Category() {
                 <li
                   key={category._id}
                   onClick={() => handleTabClick(category)}
-                  className={`px-6 py-4 cursor-pointer flex justify-between items-center transition-all duration-200 ${
-                    selectedCategory?._id === category._id
-                      ? "bg-red-50 text-red-600 border-l-4 border-red-600 font-semibold"
-                      : "hover:bg-gray-100 text-gray-600"
-                  }`}
+                  className={`px-6 py-4 cursor-pointer flex justify-between items-center transition-all duration-200 ${selectedCategory?._id === category._id
+                    ? "bg-red-50 text-red-600 border-l-4 border-red-600 font-semibold"
+                    : "hover:bg-gray-100 text-gray-600"
+                    }`}
                 >
                   {category.name}
                   <ChevronRight
@@ -103,6 +106,15 @@ function Category() {
 
         {/* Main Content - Subcategories */}
         <div className="flex-1 p-8">
+
+          {
+            loading && (
+              <div className="flex justify-center p-10">
+                <HashLoader color="#dc2626" />
+              </div>
+            )
+          }
+
           {selectedCategory ? (
             <div>
               <div className="mb-8">
@@ -124,10 +136,10 @@ function Category() {
                       <h4 className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
                         {sub.name}
                       </h4>
-                      <p 
-                      onClick={()=>productsView(sub._id)}
-                      
-                      className="text-sm text-gray-500 mt-2">
+                      <p
+                        onClick={() => productsView(sub._id)}
+
+                        className="text-sm text-gray-500 mt-2">
                         View Products
                       </p>
                     </div>
