@@ -36,6 +36,7 @@ function ProductsPage() {
         if (data) {
           dispatch(setProducts(data));
           toast.success("Fetched Products successful!");
+          
         }
       } catch (error) {
         const message = error?.response?.data?.message;
@@ -64,7 +65,10 @@ function ProductsPage() {
       <br /><br />
               {loading && <div className=" flex w-full justify-center items-center my-8 "><HashLoader/></div>}
       
-      <ProductGrid product={product} />
+      {
+        !loading && < ProductGrid product={product} />
+
+      }
       <br />
 
       {product?.totalPages > 1 && (

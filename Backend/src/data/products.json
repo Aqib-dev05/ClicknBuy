@@ -6,7 +6,7 @@
         "basePrice": 300,
         "discountedPrice": 300,
         "quantity": 60,
-        "SubCategory": "69a947954fd536f941aeb98f",
+        "SubCategory": "juices",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722562/jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul.webp",
@@ -29,7 +29,7 @@
         "basePrice": 1300,
         "discountedPrice": 1300,
         "quantity": 260,
-        "SubCategory": "69a947954fd536f941aeb991",
+        "SubCategory": "coffee",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722538/cloves-and-coffee-benefits-recipe_rlknyf.jpg",
@@ -52,7 +52,7 @@
         "basePrice": 499,
         "discountedPrice": 499,
         "quantity": 70,
-        "SubCategory": "69a947954fd536f941aeb987",
+        "SubCategory": "yogurt",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722483/91215_jxkwbm.jpg",
@@ -75,7 +75,7 @@
         "basePrice": 299,
         "discountedPrice": 299,
         "quantity": 700,
-        "SubCategory": "69a947954fd536f941aeb986",
+        "SubCategory": "milk",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722206/pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg.png",
@@ -98,7 +98,7 @@
         "basePrice": 2099,
         "discountedPrice": 2099,
         "quantity": 20,
-        "SubCategory": "69a947954fd536f941aeb989",
+        "SubCategory": "cheese",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722168/Buitoni-44128831-20oz-FourCheese-Ravioli-Front-1-scaled_htcmgo.png",
@@ -121,7 +121,7 @@
         "basePrice": 2099,
         "discountedPrice": 2099,
         "quantity": 20,
-        "SubCategory": "69a947954fd536f941aeb988",
+        "SubCategory": "butter",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722117/Butter-2-sticks_saktpr.png",
@@ -144,7 +144,7 @@
         "basePrice": 177,
         "discountedPrice": 177,
         "quantity": 200,
-        "SubCategory": "69a947954fd536f941aeb98d",
+        "SubCategory": "sugar",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721600/pngtree-pile-of-sugar-png-image_16070563_yvp97v.png",
@@ -159,7 +159,7 @@
         "basePrice": 400,
         "discountedPrice": 400,
         "quantity": 600,
-        "SubCategory": "69a947954fd536f941aeb98a",
+        "SubCategory": "rice",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721565/68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37.jpg",
@@ -178,7 +178,7 @@
         "basePrice": 400,
         "discountedPrice": 400,
         "quantity": 600,
-        "SubCategory": "69a947954fd536f941aeb98b",
+        "SubCategory": "flour",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721535/All-about-grain-flours-resized_gzluvh.jpg",
@@ -205,7 +205,7 @@
         "basePrice": 500000,
         "discountedPrice": 500000,
         "quantity": 10,
-        "SubCategory": "69a947954fd536f941aeb976",
+        "SubCategory": "iphones",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721892/iphone-15-pro-max-render.png_l1fulc.png",
@@ -228,7 +228,7 @@
         "basePrice": 501000,
         "discountedPrice": 501000,
         "quantity": 14,
-        "SubCategory": "69a947954fd536f941aeb977",
+        "SubCategory": "gaming-phones",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721838/A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa.jpg",
@@ -259,7 +259,7 @@
         "basePrice": 50000,
         "discountedPrice": 50000,
         "quantity": 50,
-        "SubCategory": "69a947954fd536f941aeb975",
+        "SubCategory": "android-phones",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721668/samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo.jpg",
@@ -278,7 +278,7 @@
         "basePrice": 400,
         "discountedPrice": 400,
         "quantity": 50,
-        "SubCategory": "69a947954fd536f941aeb98c",
+        "SubCategory": "cooking-oil",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721507/mazola_2520corn_2520oil_2520pb_xxmyrx.jpg",
@@ -297,7 +297,7 @@
         "basePrice": 140000,
         "discountedPrice": 140000,
         "quantity": 5,
-        "SubCategory": "69a947954fd536f941aeb97a",
+        "SubCategory": "business-laptops",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721419/hero_IT-products-laptops-ultrapc_gd4xif.jpg",
@@ -324,7 +324,7 @@
         "basePrice": 440000,
         "discountedPrice": 440000,
         "quantity": 5,
-        "SubCategory": "69a947954fd536f941aeb978",
+        "SubCategory": "ultrabooks",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721372/Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj.jpg",
@@ -355,7 +355,7 @@
         "basePrice": 340000,
         "discountedPrice": 340000,
         "quantity": 7,
-        "SubCategory": "69a947954fd536f941aeb979",
+        "SubCategory": "gaming-laptops",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721274/asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576_vzvxic.jpg",
@@ -382,7 +382,7 @@
         "basePrice": 60,
         "discountedPrice": 60,
         "quantity": 60000,
-        "SubCategory": "69a947954fd536f941aeb983",
+        "SubCategory": "chips",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720990/a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0.jpg",
@@ -421,7 +421,7 @@
         "basePrice": 60,
         "discountedPrice": 60,
         "quantity": 60000,
-        "SubCategory": "69a947954fd536f941aeb983",
+        "SubCategory": "chips",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720923/Hi_Res-00028400759045_C1C1_ceptsg.jpg",
@@ -460,7 +460,7 @@
         "basePrice": 100,
         "discountedPrice": 100,
         "quantity": 70,
-        "SubCategory": "69a947954fd536f941aeb994",
+        "SubCategory": "toothpaste",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721229/hlt-toms-of-maine-whole-care-natural-toothpaste-with-fluoride-jaimie-hesterberg-2-588bf9d1a0eb45d3b47f4e0520aae2e4_bg8hyy.jpg",
@@ -491,7 +491,7 @@
         "basePrice": 100,
         "discountedPrice": 100,
         "quantity": 70,
-        "SubCategory": "69a947954fd536f941aeb992",
+        "SubCategory": "shampoo",
         "images": [
             {
                 "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721161/shutterstock_243233965_auluql.jpg",

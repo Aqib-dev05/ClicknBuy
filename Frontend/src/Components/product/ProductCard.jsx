@@ -50,15 +50,17 @@ export default function ProductCard({
   return (
     <>
 
-      <div className="group relative flex w-[88%] max-w-xs flex-col rounded-md border border-gray-200 bg-white  p-3 shadow-md transition hover:shadow-lg">
+      <div className="group relative flex w-[88%] max-w-xs flex-col rounded-md border border-gray-200 bg-white p-2 sm:p-3 shadow-md transition hover:shadow-lg">
         {/* Wishlist */}
-        <Wish
-        classList="absolute cursor-pointer right-3 top-3 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+        
+        <div className="absolute top-6 right-6 flex flex-col justify-center items-center gap-1 ">
+          <Wish
+        classList=" cursor-pointer z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
         payload={payload} />
         <button
           type="button"
           title="View Product"
-          className="absolute cursor-pointer right-3 top-12 z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+          className=" cursor-pointer  z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
           onClick={handleViewProduct}
 
         >
@@ -66,24 +68,25 @@ export default function ProductCard({
             className="h-4 w-4"
           />
         </button>
+        </div>
 
         {/* Image + hover CTA */}
-        <div className="relative mb-3 flex flex-col gap-2 max-md:h-60 h-75 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+        <div className=" flex flex-col  max-md:h-60 h-75 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
           <img
             src={cloudinaryOptimizer(payload.images[0].url) || sampleImage}
             alt={payload.title || "Sample product"}
             loading="lazy"
-            className="w-[80%] h-[80%] max-md:w-[90%] max-md:h-[90%] rounded-lg  object-cover transition duration-300 group-hover:scale-105"
+            className="w-[90%] h-[90%]  rounded-lg  object-cover transition duration-300 group-hover:scale-105"
           />
 
+        </div>
           <Button
             icon="Add to Cart"
             varient="blacked"
             onClick={handleCartInsertion}
             text={<ShoppingCart className="h-4 w-4" />}
-            className="pointer-events-auto mt-2  mx-auto w-full max-md:w-[90%]   items-center justify-center gap-2 flex rounded-md bg-[rgb(219,68,68)]  py-1.5 text-xs font-semibold text-white shadow-sm transition"
+            className="pointer-events-auto mb-2  mx-auto w-full max-md:w-[90%]   items-center justify-center gap-2 flex rounded-md bg-[rgb(219,68,68)]  py-1.5 text-xs font-semibold text-white shadow-sm transition"
           />
-        </div>
 
         {/* Title */}
         <h3 className="line-clamp-2 text-md font-semibold text-gray-900">

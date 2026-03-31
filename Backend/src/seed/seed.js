@@ -98,14 +98,30 @@ const seedSubCategory = async () => {
 const seedProducts = async ()=>{
     try {
       const productCount = await productModel.countDocuments();
-      if(productCount > 1){
+      if(productCount > 0){
         console.log("Products Already Present")
       }
       else{
+        // Fetch all subcategories from DB
+        const subCategories = await subCategoryModel.find();
+
+        // Build a map: slug -> ObjectId
+        const subCategoryMap = {};
+        subCategories.forEach(sub => {
+          subCategoryMap[sub.slug] = sub._id;
+        });
+
         const products = JSON.parse(
           fs.readFileSync(new URL("../data/products.json", import.meta.url), "utf-8")
         );
-        await productModel.insertMany(products);
+
+        // Replace slug placeholders with actual SubCategory ObjectIds
+        const formattedProducts = products.map(product => ({
+          ...product,
+          SubCategory: subCategoryMap[product.SubCategory]
+        }));
+
+        await productModel.insertMany(formattedProducts);
         console.log("Products created successfully!")
       }
       

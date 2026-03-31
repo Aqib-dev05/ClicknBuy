@@ -8,7 +8,7 @@ import SubscribeToNewsLetter from '../Components/layouts/SubscribeToNewsLetter'
 
 function HomePage() {
   return (
-    <div className='min-h-screen flex gap-10 flex-col'>
+    <div className='min-h-screen flex gap-10 flex-col overflow-x-hidden'>
       <HeroSection/>
       <SaleBanner/>
       <FeaturedProducts/>
