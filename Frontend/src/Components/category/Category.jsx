@@ -30,6 +30,7 @@ function Category() {
         dispatch(setCategories(response));
         if (response && response.length > 0) {
           setSelectedCategory(response[0]);
+          console.log(categories)
         }
       } catch (error) {
         dispatch(setError(error.message));

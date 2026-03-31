@@ -175,14 +175,14 @@ function CartList({ onQuantityChange, getQuantity }) {
               <span>Quantity:</span>
               <span>
                 {" "}
-               <QuantitySelector
-                    quantity={getQuantity(item)}
-                    onChange={(newQty) =>
-                      onQuantityChange(item.product._id, newQty)
-                    }
-                    handleIncrease={() => onQuantityChange(item.product._id, getQuantity(item) + 1)}
-                    handleDecrease={() => onQuantityChange(item.product._id, getQuantity(item) - 1)}
-                  />
+                <QuantitySelector
+                  quantity={getQuantity(item)}
+                  onChange={(newQty) =>
+                    onQuantityChange(item.product._id, newQty)
+                  }
+                  handleIncrease={() => onQuantityChange(item.product._id, getQuantity(item) + 1)}
+                  handleDecrease={() => onQuantityChange(item.product._id, getQuantity(item) - 1)}
+                />
               </span>
             </div>
             <div className="flex justify-between text-base font-semibold text-red-500 mt-2 pt-2 border-t border-gray-100">
