@@ -40,8 +40,10 @@ function Category() {
     fetchCategory();
   }, [dispatch]);
 
+
   async function fetchSubCategory(categoryId) {
     dispatch(setLoading(true))
+    dispatch(setSubCategories(null))
     try {
       const res = await getSubCategoryByCategory(categoryId);
       if (res) {
