@@ -41,10 +41,24 @@ function ProfilePage() {
 
 
 
+  if (loading) {
+    return (
+      <div className='w-full flex justify-center items-center bg-gray-100 min-h-[80vh]'>
+        <HashLoader color="#dc2626" />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='w-full flex justify-center items-center bg-gray-100 min-h-[80vh]'>
+        <p className='text-red-500 text-lg font-semibold'>{error}</p>
+      </div>
+    )
+  }
+
   return (
     <div className='w-full flex justify-center bg-gray-100'>
-      {loading && <div className='flex justify-center items-center w-full h-[100px]'><HashLoader /></div>}
-      {error && <p className='text-red-500'>{error}</p>}
       {profile && <Profile />}
     </div>
   )

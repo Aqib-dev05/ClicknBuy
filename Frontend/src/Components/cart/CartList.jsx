@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getCart, removeFromCart } from "../../services/cartService";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -20,6 +20,7 @@ import { motion as Motion, AnimatePresence } from "framer-motion";
 function CartList({ onQuantityChange, getQuantity }) {
 
   const { loading, error, cartItems } = useSelector((state) => state.cart);
+  const [initialLoading, setInitialLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -38,6 +39,7 @@ function CartList({ onQuantityChange, getQuantity }) {
         toast.error(`Something went wrong. ${error}`);
       } finally {
         dispatch(setLoading(false));
+        setInitialLoading(false);
       }
     };
 
@@ -70,6 +72,14 @@ function CartList({ onQuantityChange, getQuantity }) {
     navigate(`/products/${_id}`);
   }
 
+  // Show full-screen loader during initial data fetch
+  if (initialLoading) {
+    return (
+      <div className="flex justify-center items-center w-full min-h-[50vh]">
+        <HashLoader color="#dc2626" />
+      </div>
+    )
+  }
 
   if (cartItems.length === 0) return (
     <Motion.div
