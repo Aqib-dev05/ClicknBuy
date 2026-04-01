@@ -115,7 +115,7 @@ function LoginForm() {
         </div>
         <input
           onChange={handleInputChange}
-          className="border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 "
+          className="border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 focus:outline-none "
           type="email"
           name="email"
           placeholder="Enter Your Email*"
@@ -123,7 +123,7 @@ function LoginForm() {
         />
         <input
           onChange={handleInputChange}
-          className="border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 "
+          className="border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 focus:outline-none"
           type="password"
           name="password"
           placeholder="Enter Your Password*"
@@ -143,7 +143,7 @@ function LoginForm() {
         <p className="mt-4">
           Don't have an account? <Link to={"/register"} className="text-blue-500 hover:text-red-600 italic  font-semibold">Sign Up</Link>
         </p>
-        
+
       </form>
     </section>
   );

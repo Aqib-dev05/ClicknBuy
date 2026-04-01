@@ -4,7 +4,7 @@ import { setError, setLoading, setProfile } from "../Redux/Slices/profileSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserById } from '../services/userService'
 import { toast } from "react-toastify"
-import {HashLoader} from "react-spinners"
+import { HashLoader } from "react-spinners"
 
 function ProfilePage() {
 
@@ -37,16 +37,15 @@ function ProfilePage() {
 
   }, [dispatch, user._id])
 
-  useEffect(()=>{
-    console.log(profile)
-  },[profile])
+
 
 
 
   return (
     <div className='w-full flex justify-center bg-gray-100'>
-      {loading && <HashLoader/> }
-      <Profile  />
+      {loading && <div className='flex justify-center items-center w-full h-[100px]'><HashLoader /></div>}
+      {error && <p className='text-red-500'>{error}</p>}
+      {profile && <Profile />}
     </div>
   )
 }

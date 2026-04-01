@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser, setToken, setIsAuthenticated, setError, setLoading } from '../../Redux/Slices/authSlics'
 import { HashLoader } from "react-spinners"
 import { Link, Navigate } from "react-router-dom"
-import { validateEmail} from "../../Validators/phoneVal"
+import { validateEmail } from "../../Validators/phoneVal"
 
 function RegisterForm() {
   const { error, loading, isAuthenticated } = useSelector((state) => state.auth);
@@ -54,11 +54,11 @@ function RegisterForm() {
     }
 
 
-     const sanitizedData = {
-      name:form.name.trim(),
+    const sanitizedData = {
+      name: form.name.trim(),
       email: form.email.trim().toLowerCase(),
       password: form.password.trim(),
-     }
+    }
 
     try {
       dispatch(setLoading(true))
@@ -105,18 +105,18 @@ function RegisterForm() {
         <div className='md:w-[50%]  w-[90%]'>
           <h2 className='text-2xl font-semibold'>Sign Up to Click&Buy</h2>
         </div>
-        <input onChange={handleInputChange} className='border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="text" name="name" placeholder='Enter Your Name*' />
-        <input onChange={handleInputChange} className='border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="text" name="email" placeholder='Enter Your Email*' />
-        <input onChange={handleInputChange} className='border-b-2 border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="password" name='password' placeholder='Enter Your Password*' />
+        <input onChange={handleInputChange} className='border-b-2 focus:outline-none border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="text" name="name" placeholder='Enter Your Name*' />
+        <input onChange={handleInputChange} className='border-b-2 focus:outline-none border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="text" name="email" placeholder='Enter Your Email*' />
+        <input onChange={handleInputChange} className='border-b-2 focus:outline-none border-black py-1 md:w-[50%] w-[90%] mt-6 ' type="password" name='password' placeholder='Enter Your Password*' />
         <h4 className='my-4 bg-red-100 italic text-lg font-md'>{error}</h4>
         <span className='text-[crimson] cursor-pointer font-semibold ' onClick={() => toast.info("Feature will be added in Future")}>Forget Password?</span>
         <div className="flex items-center md:w-[50%] w-[60%]  mt-3 gap-9 flex-wrap">
-                  <Button type="submit" width="full" onClick={handleSubmit} text={"Sign Up"} />
-                </div>
-                <br />
-                <p className="mt-4">
-                  Already Signed Up? <Link to={"/login"} className="text-blue-500 hover:text-red-600 italic  font-semibold">Login</Link>
-                </p>
+          <Button type="submit" width="full" onClick={handleSubmit} text={"Sign Up"} />
+        </div>
+        <br />
+        <p className="mt-4">
+          Already Signed Up? <Link to={"/login"} className="text-blue-500 hover:text-red-600 italic  font-semibold">Login</Link>
+        </p>
       </form>
     </section>
   )
