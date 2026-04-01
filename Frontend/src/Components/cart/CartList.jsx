@@ -99,7 +99,7 @@ function CartList({ onQuantityChange, getQuantity }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {loading && <HashLoader className="mt-16" />}
+      {loading && <div className="w-full flex justify-center items-center mt-16"><HashLoader /></div>}
       <Motion.div
         className="mt-8 hidden md:block overflow-x-auto"
         initial={{ opacity: 0, y: 20 }}
