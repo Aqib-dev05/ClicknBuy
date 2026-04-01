@@ -46,7 +46,7 @@ export default function Navbar() {
           {!isMobile && (
             <ul className="mx-auto items-center gap-4 lg:gap-8  text-[15px] font-medium text-gray-700 flex">
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
-                <NavLink  to={"/"}>Home</NavLink>
+                <NavLink to={"/"}>Home</NavLink>
               </li>
               <li className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
                 <NavLink to={"/products"}>Products</NavLink>
@@ -63,14 +63,14 @@ export default function Navbar() {
                 </li>
               ) : (
                 <li
-                onClick={()=>{
-                  if(location.pathname == "/profile"){
-                    return;
-                  }
-                   navigate("/profile")
-                   window.location.reload();
-                }}
-                className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
+                  onClick={() => {
+                    if (location.pathname == "/profile") {
+                      return;
+                    }
+                    navigate("/profile")
+                    window.location.reload();
+                  }}
+                  className="cursor-pointer border-b-2 border-transparent pb-1 transition hover:border-gray-900 hover:text-gray-900">
                   {/* <NavLink to={"/profile"}>Profile</NavLink> */}
                   Profile
                 </li>
@@ -78,36 +78,38 @@ export default function Navbar() {
             </ul>
           )}
 
-          <div className="flex items-center gap-2 lg:gap-3">
+          <div className="flex items-center gap-2 max-sm:gap-1 lg:gap-3">
             <SearchBar />
 
-            {!isMobile && (
-              <div className="flex items-center gap-1">
-                <NavLink
-                  to={"/wishlist"}
-                  type="button"
-                  className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
-                  aria-label="Wishlist"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Heart
-                    className="h-5 w-5"
-                    fill={enterHeart ? "red" : "none"}
-                    stroke={enterHeart ? "red" : "currentColor"}
-                  />
-                </NavLink>
+            <div className="flex items-center gap-1">
+              <NavLink
+                to={"/wishlist"}
+                type="button"
+                className="rounded-md p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                aria-label="Wishlist"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Heart
+                  className="h-5 w-5"
+                  fill={enterHeart ? "red" : "none"}
+                  stroke={enterHeart ? "red" : "currentColor"}
+                />
+              </NavLink>
+              {!isMobile && (
+                <>
 
-                <NavLink
-                  to={"/cart"}
-                  type="button"
-                  className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
-                  aria-label="Cart"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                </NavLink>
-              </div>
-            )}
+                  <NavLink
+                    to={"/cart"}
+                    type="button"
+                    className="rounded-md p-1 lg:p-2 text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                    aria-label="Cart"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                  </NavLink>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </nav>
@@ -134,16 +136,18 @@ export default function Navbar() {
                 <ShoppingBasket className="h-6 w-6" />
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to={"/cart"}
-                type="button"
-                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
-                aria-label="Cart"
-              >
-                <ShoppingCart className="h-6 w-6" />
-              </NavLink>
-            </li>
+            {isAuthenticated
+              && <li>
+                <NavLink
+                  to={"/cart"}
+                  type="button"
+                  className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                  aria-label="Cart"
+                >
+                  <ShoppingCart className="h-6 w-6" />
+                </NavLink>
+
+              </li>}
             <li>
               <NavLink
                 to={isAuthenticated ? "/profile" : "/login"}

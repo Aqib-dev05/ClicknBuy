@@ -22,9 +22,9 @@ export default function SearchBar() {
 
 
   return (
-    <form onSubmit={handleSearch} className='flex items-center gap-2 transitions  focus-within:border-2 focus-within:border-black bg-gray-200 px-4 py-2 rounded-sm'>
+    <form onSubmit={handleSearch} className='flex w-fit items-center gap-2 transitions  focus-within:border-2 focus-within:border-black bg-gray-200 sm:px-4 px-2 py-2 rounded-sm'>
 
-      <input type="text" placeholder='Search Products 🤷‍♂️' className='focus:outline-none ' value={query} onChange={(e) => setQuery(e.target.value)} />
+      <input type="text" placeholder='Search Products 🤷‍♂️' className='focus:outline-none w-fit max-sm:w-35 ' value={query} onChange={(e) => setQuery(e.target.value)} />
       <button type='submit'>
         <Search className='cursor-pointer' />
 
