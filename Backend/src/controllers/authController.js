@@ -5,12 +5,12 @@ import { generateToken } from "../utils/jwtGenerator.js";
 async function handleRegister(req, res) {
   const { name, email, phone, password, address } = req.body;
   try {
- 
-     const existingUser = await UserModel.findOne({ email });
 
-     if (existingUser) {
-       return res.status(409).json({ message: "Email already exists" });
-     }
+    const existingUser = await UserModel.findOne({ email });
+
+    if (existingUser) {
+      return res.status(409).json({ message: "Email already exists" });
+    }
 
     const user = await UserModel.create({
       name,
@@ -19,24 +19,25 @@ async function handleRegister(req, res) {
       password,
       address,
     });
-    
-      const token = generateToken(user);
-         res.cookie("access-token", token, {
-           httpOnly: true,
-           secure: true,
-           maxAge: 7 * 24 * 60 * 60 * 1000,
-         });
-     
-         return res.status(200).json({
-           message: "Registeration successfull",
-           token,
-           user: {
-             id: user._id,
-             name: user.name,
-             email: user.email,
-             role: user.role,
-           },
-         });  
+
+    const token = generateToken(user);
+    res.cookie("access-token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
+    return res.status(200).json({
+      message: "Registeration successfull",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
 
 
   } catch (err) {
@@ -66,6 +67,7 @@ async function handleLogin(req, res) {
     res.cookie("access-token", token, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -87,15 +89,15 @@ async function handleLogin(req, res) {
   }
 }
 
-const handleLogout = async (req,res)=>{
-  try{
+const handleLogout = async (req, res) => {
+  try {
     res.clearCookie("access-token");
     res.status(200).json({
-      message:"Logout successful"
+      message: "Logout successful"
     })
   }
-  catch(error){
-    res.status(500).json({message:"Server error during logout"})
+  catch (error) {
+    res.status(500).json({ message: "Server error during logout" })
   }
 }
 
@@ -117,4 +119,4 @@ const getCurrentUser = async (req, res) => {
   }
 };
 
-export { handleLogin, handleRegister, getCurrentUser,handleLogout };
+export { handleLogin, handleRegister, getCurrentUser, handleLogout };
