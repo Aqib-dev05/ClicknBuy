@@ -8,6 +8,8 @@ export default function Button({
     onClick,
     icon,
     width = "fit",
+    disabled = false,
+    ...props
 }) {
 
     const baseStyles = ` flex items-center max-sm:gap-1  gap-2 justify-center text-[20px] w-${width} py-2  px-6 max-sm:px-3 rounded-[2px] cursor-pointer border transition-all duration-300 `;
@@ -20,7 +22,7 @@ export default function Button({
     const [isThrottled, setIsThrottled] = useState(false);
 
     const handleClick = (e, onClick) => {
-        if (isThrottled) return;
+        if (isThrottled || disabled) return;
 
         if (onClick) {
             onClick(e);
@@ -35,7 +37,9 @@ export default function Button({
         <button
             type={type}
             onClick={(e) => handleClick(e, onClick)}
-            className={`${baseStyles}  ${varientStyles[varient]} ${className}  `}
+            className={`${baseStyles}  ${varientStyles[varient]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""} `}
+            disabled={disabled}
+            {...props}
         >
             {text} {icon}{" "}
         </button>

@@ -1,4 +1,5 @@
-import { Heart, ShoppingCart, Eye } from "lucide-react";
+import { Heart, ShoppingCart, Eye, Check, Loader2 } from "lucide-react";
+import React, { useState } from "react";
 import sampleImage from "../../assets/Frame 694.png";
 import { useNavigate } from "react-router-dom";
 import Button from "../layouts/Button";
@@ -17,6 +18,7 @@ export default function ProductCard({
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [cartStatus, setCartStatus] = useState("idle"); // 'idle', 'loading', 'success'
 
 
   function handleViewProduct() {
@@ -25,24 +27,34 @@ export default function ProductCard({
 
   
   async function handleCartInsertion() {
-   dispatch(setLoading(true));
-    try{
-    const  data  = await addToCart(payload._id, 1);
-   
-    if(data){
-      toast.success("Product added to cart successfully!")
-      const inLS = getLocally("wishlist");
-      if(inLS){
-        const updatedWishlist = inLS.filter((item) => item._id !== payload._id);
-        setLocally("wishlist", updatedWishlist);
+    if (cartStatus !== "idle") return;
+
+    setCartStatus("loading");
+    dispatch(setLoading(true));
+    try {
+      const data = await addToCart(payload._id, 1);
+
+      if (data) {
+        toast.success("Product added to cart successfully!");
+        setCartStatus("success");
+        const inLS = getLocally("wishlist");
+        if (inLS) {
+          const updatedWishlist = inLS.filter((item) => item._id !== payload._id);
+          setLocally("wishlist", updatedWishlist);
+        }
+        
+        // Reset to idle after 2 seconds
+        setTimeout(() => {
+          setCartStatus("idle");
+        }, 2000);
       }
     }
-    }
-    catch(err){
+    catch (err) {
       toast.error("Failed to add product to cart!");
       dispatch(setError(err.message));
+      setCartStatus("idle");
     }
-    finally{
+    finally {
       dispatch(setLoading(false));
     }
   }
@@ -89,11 +101,22 @@ export default function ProductCard({
 
         </div>
           <Button
-            icon="Add to Cart"
+            icon={
+              cartStatus === "loading" ? "Processing..." : 
+              cartStatus === "success" ? "Added!" : 
+              "Add to Cart"
+            }
             varient="blacked"
             onClick={handleCartInsertion}
-            text={<ShoppingCart className="h-4 w-4" />}
-            className="pointer-events-auto mb-2  mx-auto w-full max-md:w-[90%]   items-center justify-center gap-2 flex rounded-md bg-[rgb(219,68,68)]  py-1.5 text-xs font-semibold text-white shadow-sm transition"
+            text={
+              cartStatus === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : 
+              cartStatus === "success" ? <Check className="h-4 w-4" /> : 
+              <ShoppingCart className="h-4 w-4" />
+            }
+            className={`pointer-events-auto mb-2 mx-auto w-full max-md:w-[90%] items-center justify-center gap-2 flex rounded-md py-1.5 text-xs font-semibold text-white shadow-sm transition ${
+              cartStatus === "success" ? "bg-green-600 hover:bg-green-700" : "bg-[rgb(219,68,68)] hover:bg-[rgb(190,50,50)]"
+            }`}
+            disabled={cartStatus === "loading"}
           />
 
         {/* Title */}
