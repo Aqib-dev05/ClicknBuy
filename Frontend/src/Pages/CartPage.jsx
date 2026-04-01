@@ -12,6 +12,7 @@ import {
   addToCartRedux,
 } from "../Redux/Slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { motion as Motion } from "framer-motion";
 
 function CartPage() {
   const dispatch = useDispatch();
@@ -91,9 +92,19 @@ function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <Motion.div
+      className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="flex max-md:flex-col-reverse justify-between items-center w-full px-4 lg:px-8">
+        <Motion.div
+          className="flex max-md:flex-col-reverse justify-between items-center w-full px-4 lg:px-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <h1 className="text-3xl max-md:text-xl font-extrabold text-gray-900 mb-2 font-mono">
             Your Shopping Cart
           </h1>
@@ -104,14 +115,20 @@ function CartPage() {
             varient="blacked"
             className="rounded-md"
           />
-        </div>
+        </Motion.div>
 
         <CartList
           onQuantityChange={handleQuantityChange}
           getQuantity={getQuantity}
         />
 
-        <div className="my-6 flex-wrap-reverse gap-y-2 flex w-full justify-between items-center px-4 sm:px-6 lg:px-8">
+        <Motion.div
+          className="my-6 flex-wrap-reverse gap-y-2 flex w-full justify-between items-center px-4 sm:px-6 lg:px-8"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <Button
             onClick={() => navigate("/products")}
             text={"Return to Shop"}
@@ -125,13 +142,13 @@ function CartPage() {
             varient="default"
             className="hover:bg-blue-600 hover:text-white rounded-sm transition duration-200"
           />}
-        </div >
+        </Motion.div >
         <div className="flex justify-end w-full px-4 sm:px-6 lg:px-8 mt-3">
 
         {cartItems.length > 0 && <CartTotalCalc   />}
         </div>
       </div>
-    </div>
+    </Motion.div>
   );
 }
 

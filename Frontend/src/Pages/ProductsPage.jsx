@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../Components/product/Pagination";
 import Filters from "../Components/filters/Filters";
+import { motion as Motion } from "framer-motion";
 
 function ProductsPage() {
   const dispatch = useDispatch();
@@ -50,10 +51,19 @@ function ProductsPage() {
   }, [searchParams]);
 
   return (
-    <div>
-      <h1 className="text-center my-6 text-3xl font-bold">
+    <Motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <Motion.h1
+        className="text-center my-6 text-3xl font-bold"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         <span className="text-red-600   ">All</span> Products{" "}
-      </h1>
+      </Motion.h1>
       <br />
       <br />
 
@@ -82,7 +92,7 @@ function ProductsPage() {
       <br />
       <br />
       <br />
-    </div>
+    </Motion.div>
   );
 }
 

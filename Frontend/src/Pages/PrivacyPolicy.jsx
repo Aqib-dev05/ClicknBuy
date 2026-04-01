@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Components/layouts/Button';
 import { useNavigate } from 'react-router-dom';
+import { motion as Motion } from 'framer-motion';
 
 const PRIVACY_DATA = [
   {
@@ -29,35 +30,62 @@ function PrivacyPolicy() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 border-b pb-4">
+    <Motion.div
+      className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <Motion.div
+        className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <Motion.h1
+          className="text-3xl font-bold text-gray-900 mb-8 border-b pb-4"
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
           Privacy <span className="text-red-600">Policy</span>
-        </h1>
+        </Motion.h1>
         
         <div className="space-y-8">
           {PRIVACY_DATA.map((item, index) => (
-            <section key={index}>
+            <Motion.section
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+            >
               <h2 className="text-xl font-semibold text-gray-800 mb-3">
                 {item.title}
               </h2>
               <p className="text-gray-600 leading-relaxed">
                 {item.content}
               </p>
-            </section>
+            </Motion.section>
           ))}
         </div>
 
         <Button text={"Go Back"} className='mt-8 ml-2' onClick={() => navigate(-1)} />
         
-        <div className="mt-12 pt-6 border-t text-sm text-gray-500">
+        <Motion.div
+          className="mt-12 pt-6 border-t text-sm text-gray-500"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <p>Last updated: {new Date().toLocaleDateString()}</p>
           <p className="mt-2">
             If you have any questions regarding our privacy practices, please contact us at <a className='hover:text-red-500 text-md font-semibold text-blue-600 ' href="mailto:m.aqibali3040@gmail.com">m.aqibali3040@gmail.com</a>.
           </p>
-        </div>
-      </div>
-    </div>
+        </Motion.div>
+      </Motion.div>
+    </Motion.div>
   );
 }
 

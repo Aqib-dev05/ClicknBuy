@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { bulkInsertion } from "../services/cartService.js";
 import { toast } from "react-toastify";
 import { HashLoader, PulseLoader } from "react-spinners"
+import { motion as Motion } from "framer-motion";
 
 
 function WishListPage() {
@@ -62,8 +63,18 @@ function WishListPage() {
 
 
   return (
-    <div className="max-w-7xl mx-auto py-10">
-      <div className="flex justify-between items-center mb-8">
+    <Motion.div
+      className="max-w-7xl mx-auto py-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <Motion.div
+        className="flex justify-between items-center mb-8"
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         <h1 className="text-2xl font-medium">
           Wishlist ({wishedProducts.length})
         </h1>
@@ -72,28 +83,38 @@ function WishListPage() {
           onClick={handleCartInsertion}
           className="border border-gray-300 px-6 py-2 rounded"
         />
-      </div>
+      </Motion.div>
 
       {
         loading ? <HashLoader /> :
 
           wishedProducts.length > 0 ? (
-            <div className=" flex flex-wrap gap-6 px-4 py-8">
+            <Motion.div
+              className=" flex flex-wrap gap-6 px-4 py-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               {wishedProducts.map((item) => (
                 <ProductCard key={item._id} payload={item} />
               ))}
-            </div>
+            </Motion.div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-20">
+            <Motion.div
+              className="flex flex-col items-center justify-center py-20"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <p className="text-gray-500 text-lg">Your wishlist is empty.</p>
               <Button
                 text="  Return To Shop"
                 className="mt-4 bg-[#DB4444] text-white px-8 py-2 rounded"
                 onClick={() => navigate('/products')}
               />
-            </div>
+            </Motion.div>
           )}
-    </div>
+    </Motion.div>
   );
 }
 

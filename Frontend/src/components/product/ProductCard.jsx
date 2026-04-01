@@ -10,6 +10,7 @@ import {setError,setLoading} from "../../Redux/Slices/cartSlice.js"
 import { useDispatch } from "react-redux";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
 import { getLocally, setLocally } from "../../utils/LocalStore.jsx";
+import { motion as Motion } from "framer-motion";
 
 export default function ProductCard({
   payload
@@ -50,7 +51,14 @@ export default function ProductCard({
   return (
     <>
 
-      <div className="group relative flex w-[88%] max-w-xs flex-col rounded-md border border-gray-200 bg-white p-2 sm:p-3 shadow-md transition hover:shadow-lg">
+      <Motion.div
+        className="group relative flex w-[88%] max-w-xs flex-col rounded-md border border-gray-200 bg-white p-2 sm:p-3 shadow-md transition hover:shadow-lg"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      >
         {/* Wishlist */}
         
         <div className="absolute top-6 right-6 flex flex-col justify-center items-center gap-1 ">
@@ -106,7 +114,7 @@ export default function ProductCard({
         </div>
 
         <RatingStars rating={payload.rating} reviews={payload.reviews} />
-      </div>
+      </Motion.div>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getSubCategories } from '../../services/subCategoryService';
 import {toast} from "react-toastify"
+import { motion as Motion } from 'framer-motion';
 
 
 
@@ -31,9 +32,19 @@ function Filters({ searchParams, setSearchParams }) {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 px-4 py-2 ">
+    <Motion.div
+      className="flex flex-wrap items-center justify-center gap-4 px-4 py-2 "
+      initial={{ opacity: 0, y: -15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       {/* Sort By Filter */}
-      <div className="flex items-center gap-2">
+      <Motion.div
+        className="flex items-center gap-2"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
         <label className="text-sm font-semibold text-gray-700">Sort By:</label>
         <select
           className="p-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-red-500 outline-none transition-all"
@@ -45,10 +56,15 @@ function Filters({ searchParams, setSearchParams }) {
           <option value="priceDesc">Price: High to Low</option>
           <option value="alphabetical">Alphabetical (A-Z)</option>
         </select>
-      </div>
+      </Motion.div>
 
       {/* Sub Category Filter */}
-      <div className="flex items-center gap-2">
+      <Motion.div
+        className="flex items-center gap-2"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
         <label className="text-sm font-semibold text-gray-700">Category:</label>
         <select
           className="p-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-red-500 outline-none transition-all"
@@ -62,10 +78,15 @@ function Filters({ searchParams, setSearchParams }) {
             </option>
           ))}
         </select>
-      </div>
+      </Motion.div>
 
       {/* Price Range Filter */}
-      <div className="flex items-center gap-2">
+      <Motion.div
+        className="flex items-center gap-2"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+      >
         <label className="text-sm font-semibold text-gray-700">Price Range:</label>
         <select
           className="p-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-red-500 outline-none transition-all"
@@ -79,16 +100,21 @@ function Filters({ searchParams, setSearchParams }) {
           <option value="100-500">$100 to $500</option>
           <option value="500+">Over $500</option>
         </select>
-      </div>
+      </Motion.div>
 
       {/* Clear Filters Button */}
-      <button
+      <Motion.button
         onClick={() => setSearchParams({})}
         className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition-colors"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         Clear Filters
-      </button>
-    </div>
+      </Motion.button>
+    </Motion.div>
   );
 }
 

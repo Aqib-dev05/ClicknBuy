@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux"
 import { setLoading, setError } from "../../Redux/Slices/cartSlice";
 import { addToCart } from "../../services/cartService"
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
+import { motion as Motion } from "framer-motion";
 
 function ProductDetails() {
 
@@ -74,16 +75,30 @@ function ProductDetails() {
 
 
   return (
-    <section className="container mx-auto px-4 py-10 ]">
+    <Motion.section
+      className="container mx-auto px-4 py-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex flex-col md:flex-row gap-10">
         {/* Left Section: Image Gallery */}
-        <div className="flex flex-col-reverse md:flex-row gap-4 w-full md:w-1/2">
+        <Motion.div
+          className="flex flex-col-reverse md:flex-row gap-4 w-full md:w-1/2"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           {/* Sidebar Thumbnails */}
           <div className="flex md:flex-col  gap-3 overflow-y-auto max-h-[500px]">
             {product?.images && product.images.length > 0 && product.images.map((img, index) => (
-              <div onClick={() => setMainImage((img.url))}
+              <Motion.div onClick={() => setMainImage((img.url))}
                 key={index}
                 className={`w-20 h-20 overflow-hidden md:w-22 md:h-22 bg-gray-100  rounded-md flex items-center justify-center cursor-pointer border-[1px]  hover:border-red-500    transition-all duration-300 ${mainImage === img.url ? 'border-red-500' : 'border-gray-300'}`}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <img
                   src={loaded ? (cloudinaryOptimizer(product?.images[index].url)) : ImgPlaceholder}
@@ -92,32 +107,59 @@ function ProductDetails() {
                   loading="lazy"
                   onLoad={() => setLoaded(true)}
                 />
-              </div>
+              </Motion.div>
             ))}
           </div>
 
           {/* Main Display Image */}
-          <div className="flex-1  bg-gray-200 rounded-md flex items-center justify-center p-4 overflow-hidden h-[350px] md:h-[420px] ">
+          <Motion.div
+            className="flex-1  bg-gray-200 rounded-md flex items-center justify-center p-4 overflow-hidden h-[350px] md:h-[420px] "
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <img src={mainImage || (product?.images[0]?.url) || ImgPlaceholder}
               alt="Main Product"
               className="w-full h-full object-contain"
               loading="lazy"
               onLoad={() => setLoaded(true)}
             />
-          </div>
-        </div>
+          </Motion.div>
+        </Motion.div>
 
         {/* Right Section: Product Info & Actions */}
-        <div className="w-full md:w-1/2 flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-gray-900">{product?.name}</h2>
+        <Motion.div
+          className="w-full md:w-1/2 flex flex-col gap-4"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <Motion.h2
+            className="text-2xl font-bold text-gray-900"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          >
+            {product?.name}
+          </Motion.h2>
 
-          <div className="flex items-center gap-4">
+          <Motion.div
+            className="flex items-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+          >
             <RatingStars rating={4.5} reviews={150} />
             <span className="text-gray-300">|</span>
             <span className="text-green-500 text-sm font-medium">{product?.quantity > 0 ? "In Stock" : "Out of Stock"}</span>
-          </div>
+          </Motion.div>
 
-          <div className="mt-1 flex items-center gap-2 text-lg">
+          <Motion.div
+            className="mt-1 flex items-center gap-2 text-lg"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.45 }}
+          >
             <span className="font-bold text-[rgb(219,68,68)]">
               Rs.{product.discountedPrice ? product.discountedPrice : product.basePrice}
             </span>
@@ -126,44 +168,38 @@ function ProductDetails() {
                 {product.basePrice}
               </span>
             )}
-          </div>
+          </Motion.div>
 
-          <p className="text-gray-600 text-sm leading-relaxed border-b pb-6">
+          <Motion.p
+            className="text-gray-600 text-sm leading-relaxed border-b pb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             {product?.description}
-          </p>
-
-          {/* Colors/Variants */}
-          {/* <div className="flex items-center gap-4 mt-2">
-            <span className="text-lg">Colours:</span>
-            <div className="flex gap-2">
-              <div className="w-4 h-4 rounded-full bg-blue-400 cursor-pointer border-2 border-black"></div>
-              <div className="w-4 h-4 rounded-full bg-red-500 cursor-pointer"></div>
-            </div>
-          </div> */}
-
-          {/* Size Selector */}
-          {/* <div className="flex items-center gap-4 mt-2">
-            <span className="text-lg">Size:</span>
-            <div className="flex gap-2">
-              {['XS', 'S', 'M', 'L', 'XL'].map(size => (
-                <button key={size} className="border rounded-md px-3 py-1 text-sm hover:bg-red-500 hover:text-white transition">
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div> */}
+          </Motion.p>
 
           {/* Sub Category */}
-          <div className="flex items-center gap-4 mt-2">
+          <Motion.div
+            className="flex items-center gap-4 mt-2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.55 }}
+          >
             <span className="text-lg">Category:</span>
             <div className="flex gap-2">
               <span className="text-green-700 text-lg font-[cursive] font-semibold ">{product?.SubCategory.name}</span>
             </div>
-          </div>
+          </Motion.div>
 
 
           {/* Actions */}
-          <div className="flex items-center gap-4 mt-4">
+          <Motion.div
+            className="flex items-center gap-4 mt-4"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <QuantitySelector quantity={quantity} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
             <Button
               onClick={handleAddToCart}
@@ -172,10 +208,15 @@ function ProductDetails() {
             />
               
                 <Wish classList="border-[1px] border-black p-2 rounded-md" size={25} payload={product} />
-          </div>
+          </Motion.div>
 
           {/* Delivery Info */}
-          <div className="mt-6 border w-fit rounded-md">
+          <Motion.div
+            className="mt-6 border w-fit rounded-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
             <div className="flex items-center gap-4 p-4 border-b">
               <Truck className="h-6 w-6" />
               <div>
@@ -194,11 +235,11 @@ function ProductDetails() {
                 </p>
               </div>
             </div>
-          </div>
+          </Motion.div>
           <Button onClick={() => navigate(-1)} text={"Go Back"} />
-        </div>
+        </Motion.div>
       </div>
-    </section>
+    </Motion.section>
   );
 }
 

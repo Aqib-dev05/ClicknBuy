@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { motion as Motion } from "framer-motion";
 
 import hero1 from "../../assets/shoe.avif";
 import hero2 from "../../assets/headphone.avif";
@@ -39,7 +40,12 @@ export default function HeroSection() {
   }, [current, isPaused, goNext]);
 
   return (
-    <section className="w-full bg-white">
+    <Motion.section
+      className="w-full bg-white"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className="mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8">
         <div
           className="relative overflow-hidden rounded-2xl bg-black"
@@ -72,39 +78,52 @@ export default function HeroSection() {
           </div>
 
           {/* Arrows */}
-          <button
+          <Motion.button
             type="button"
             onClick={goPrev}
             className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-2 py-1 text-sm font-medium text-gray-800 shadow hover:bg-white"
             aria-label="Previous slide"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
           >
             ‹
-          </button>
-          <button
+          </Motion.button>
+          <Motion.button
             type="button"
             onClick={goNext}
             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-2 py-1 text-sm font-medium text-gray-800 shadow hover:bg-white"
             aria-label="Next slide"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
           >
             ›
-          </button>
+          </Motion.button>
 
           {/* Dots */}
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
             {slides.map((slide, index) => (
-              <button
+              <Motion.button
                 key={slide.id}
                 type="button"
                 onClick={() => goTo(index)}
                 className={`h-2.5 w-2.5 rounded-full border border-white/60 transition ${index === current ? "bg-white" : "bg-white/20"
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 + index * 0.08 }}
+                whileHover={{ scale: 1.4 }}
               />
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </Motion.section>
   );
 }
-

@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { HashLoader } from 'react-spinners';
+import { motion as Motion } from 'framer-motion';
 
 const FAQ_DATA = [
   {
@@ -37,25 +38,43 @@ function Faq() {
 
   return (
       
-    <div  className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <Motion.div
+      className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10 text-gray-900">
+        <Motion.h1
+          className="text-4xl font-bold text-center mb-10 text-gray-900"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           Frequently Asked <span className="text-red-600">Questions</span>
-        </h1>
+        </Motion.h1>
         <div className="space-y-6">
           {FAQ_DATA.map((item, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-600">
+            <Motion.div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-600"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+            >
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {item.question}
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 {item.answer}
               </p>
-            </div>
+            </Motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </Motion.div>
   )
 }
 

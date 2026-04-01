@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from "./Button";
 import {toast} from "react-toastify"
+import { motion as Motion } from 'framer-motion'
 
 
 function SubscribeToNewsLetter() {
@@ -19,13 +20,29 @@ function SubscribeToNewsLetter() {
 
 
   return (
-      <div className="w-full space-y-4   bg-[#000] p-6 md:p-12">
-            <p className="text-center text-xl font-semibold text-white md:text-2xl">
+      <Motion.div
+        className="w-full space-y-4   bg-[#000] p-6 md:p-12"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+            <Motion.p
+              className="text-center text-xl font-semibold text-white md:text-2xl"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               Subscribe to our newsletter
-            </p>
-            <form
+            </Motion.p>
+            <Motion.form
               onSubmit={handleSubscribe}
               className="mx-auto flex max-w-md flex-col items-center gap-3 sm:flex-row"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
               <input
                 type="email"
@@ -41,9 +58,9 @@ function SubscribeToNewsLetter() {
                 varient="blacked"
                 className="h-12 w-full text-sm sm:w-fit"
               />
-            </form>
+            </Motion.form>
       <div className="w-[90%] mb-5 mt-15 bg-gray-400 h-[1px] mx-auto "></div>
-          </div>
+          </Motion.div>
   )
 }
 
