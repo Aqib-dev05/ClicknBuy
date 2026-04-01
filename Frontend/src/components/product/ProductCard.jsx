@@ -7,7 +7,7 @@ import Wish from "../wishlist/Wish";
 import RatingStars from "./RatingStars";
 import { addToCart } from "../../services/cartService.js"
 import { toast } from "react-toastify";
-import {setError,setLoading} from "../../Redux/Slices/cartSlice.js"
+import { setError, setLoading } from "../../Redux/Slices/cartSlice.js"
 import { useDispatch } from "react-redux";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
 import { getLocally, setLocally } from "../../utils/LocalStore.jsx";
@@ -25,7 +25,7 @@ export default function ProductCard({
     navigate(`/products/${payload._id}`)
   }
 
-  
+
   async function handleCartInsertion() {
     if (cartStatus !== "idle") return;
 
@@ -42,7 +42,7 @@ export default function ProductCard({
           const updatedWishlist = inLS.filter((item) => item._id !== payload._id);
           setLocally("wishlist", updatedWishlist);
         }
-        
+
         // Reset to idle after 2 seconds
         setTimeout(() => {
           setCartStatus("idle");
@@ -69,25 +69,24 @@ export default function ProductCard({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        whileHover={{ y: -6, transition: { duration: 0.25 } }}
       >
         {/* Wishlist */}
-        
+
         <div className="absolute top-6 right-6 flex flex-col justify-center items-center gap-1 ">
           <Wish
-        classList=" cursor-pointer z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
-        payload={payload} />
-        <button
-          type="button"
-          title="View Product"
-          className=" cursor-pointer  z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
-          onClick={handleViewProduct}
+            classList=" cursor-pointer z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+            payload={payload} />
+          <button
+            type="button"
+            title="View Product"
+            className=" cursor-pointer  z-10 rounded-full bg-white p-1.5 shadow-sm transition hover:bg-gray-100"
+            onClick={handleViewProduct}
 
-        >
-          <Eye
-            className="h-4 w-4"
-          />
-        </button>
+          >
+            <Eye
+              className="h-4 w-4"
+            />
+          </button>
         </div>
 
         {/* Image + hover CTA */}
@@ -100,24 +99,23 @@ export default function ProductCard({
           />
 
         </div>
-          <Button
-            icon={
-              cartStatus === "loading" ? "Processing..." : 
-              cartStatus === "success" ? "Added!" : 
-              "Add to Cart"
-            }
-            varient="blacked"
-            onClick={handleCartInsertion}
-            text={
-              cartStatus === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : 
-              cartStatus === "success" ? <Check className="h-4 w-4" /> : 
-              <ShoppingCart className="h-4 w-4" />
-            }
-            className={`pointer-events-auto mb-2 mx-auto w-full max-md:w-[90%] items-center justify-center gap-2 flex rounded-md py-1.5 text-xs font-semibold text-white shadow-sm transition ${
-              cartStatus === "success" ? "bg-green-600 hover:bg-green-700" : "bg-[rgb(219,68,68)] hover:bg-[rgb(190,50,50)]"
+        <Button
+          icon={
+            cartStatus === "loading" ? "Processing..." :
+              cartStatus === "success" ? "Added!" :
+                "Add to Cart"
+          }
+          varient="blacked"
+          onClick={handleCartInsertion}
+          text={
+            cartStatus === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> :
+              cartStatus === "success" ? <Check className="h-4 w-4" /> :
+                <ShoppingCart className="h-4 w-4" />
+          }
+          className={`pointer-events-auto mb-2 mx-auto w-full max-md:w-[90%] items-center justify-center gap-2 flex rounded-md py-1.5 text-xs font-semibold text-white shadow-sm transition ${cartStatus === "success" ? "bg-green-600 hover:bg-green-700" : "bg-[rgb(219,68,68)] hover:bg-[rgb(190,50,50)]"
             }`}
-            disabled={cartStatus === "loading"}
-          />
+          disabled={cartStatus === "loading"}
+        />
 
         {/* Title */}
         <h3 className="line-clamp-2 text-md font-semibold text-gray-900">
@@ -131,7 +129,7 @@ export default function ProductCard({
           </span>
           {payload.basePrice && (
             <span className="text-xs text-gray-400 line-through">
-             {payload.basePrice}
+              {payload.basePrice}
             </span>
           )}
         </div>
