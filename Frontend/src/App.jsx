@@ -35,7 +35,6 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const { loading, user } = useSelector((state) => state.auth);
-  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     toast.dismiss();
@@ -82,18 +81,19 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <ToastContainer
+      {window.innerWidth > 768 && <ToastContainer
         position="top-right"
-        autoClose={isMobile ? 1000 : 600}
-        hideProgressBar={isMobile ? true : false}
+        autoClose={700}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={true}
         rtl={false}
         pauseOnHover={false}
         pauseOnFocusLoss={false}
-        limit={isMobile ? 1 : 3}
+        limit={3}
         theme="dark"
-      />
+      />}
+
       <ErrorBoundary>
         <Routes>
           {/* public routes  */}

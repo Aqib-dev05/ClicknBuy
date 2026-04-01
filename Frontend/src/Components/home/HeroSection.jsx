@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 import hero1 from "../../assets/shoe.avif";
 import hero2 from "../../assets/headphone.avif";
@@ -12,33 +12,63 @@ const slides = [
   { id: 4, src: hero4, alt: "Featured collection 4" },
 ];
 
+const AUTO_SLIDE_INTERVAL = 3000; // 3 seconds
+
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef(null);
 
-  const goNext = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const goPrev = () =>
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const goNext = useCallback(
+    () => setCurrent((prev) => (prev + 1) % slides.length),
+    []
+  );
+  const goPrev = useCallback(
+    () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length),
+    []
+  );
+  const goTo = useCallback((index) => setCurrent(index), []);
+
+  // Auto-slide effect
+  useEffect(() => {
+    if (isPaused) return;
+
+    intervalRef.current = setInterval(goNext, AUTO_SLIDE_INTERVAL);
+
+    return () => clearInterval(intervalRef.current);
+  }, [current, isPaused, goNext]);
 
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl bg-black">
-          {/* Slides */}
+        <div
+          className="relative overflow-hidden rounded-2xl bg-black"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Slides – horizontal sliding track */}
           <div className="relative h-64 w-full sm:h-80 md:h-100 lg:h-[75vh]">
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                  index === current ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="h-full w-full object-fill"
-                />
-              </div>
-            ))}
+            <div
+              className="flex h-full transition-transform duration-700 ease-in-out"
+              style={{
+                width: `${slides.length * 100}%`,
+                transform: `translateX(-${current * (100 / slides.length)}%)`,
+              }}
+            >
+              {slides.map((slide) => (
+                <div
+                  key={slide.id}
+                  className="h-full flex-shrink-0"
+                  style={{ width: `${100 / slides.length}%` }}
+                >
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="h-full w-full object-fill"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Arrows */}
@@ -65,10 +95,9 @@ export default function HeroSection() {
               <button
                 key={slide.id}
                 type="button"
-                onClick={() => setCurrent(index)}
-                className={`h-2.5 w-2.5 rounded-full border border-white/60 transition ${
-                  index === current ? "bg-white" : "bg-white/20"
-                }`}
+                onClick={() => goTo(index)}
+                className={`h-2.5 w-2.5 rounded-full border border-white/60 transition ${index === current ? "bg-white" : "bg-white/20"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
