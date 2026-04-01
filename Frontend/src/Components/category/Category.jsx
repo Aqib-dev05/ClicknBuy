@@ -31,7 +31,8 @@ function Category() {
         dispatch(setCategories(response));
         if (response && response.length > 0) {
           setSelectedCategory(response[0]);
-          console.log(categories)
+          // Fetch subcategories for the first category on initial load
+          fetchSubCategory(response[0]._id);
         }
       } catch (error) {
         dispatch(setError(error.message));
