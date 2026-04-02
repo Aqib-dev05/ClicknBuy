@@ -10,6 +10,7 @@ import {
   handlePostProduct,
   handlePutProduct,
   handleDeleteProduct,
+  handleDeleteProductImage,
 } from "../controllers/productController.js";
 
 const router = express.Router();
