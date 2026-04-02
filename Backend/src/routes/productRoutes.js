@@ -19,7 +19,8 @@ router
   .get("/:id", handleGetProductById)
   .get("/slug/:slug", handleGetProductBySlug)
   .post("/",checkAuth,checkAdmin,upload.array("images",5), handlePostProduct)
-  .put("/:id",checkAuth,checkAdmin, handlePutProduct)
+  .put("/:id",checkAuth,checkAdmin,upload.array("images",5), handlePutProduct)
+  .delete("/delete-image",checkAuth,checkAdmin, handleDeleteProductImage)
   .delete("/:id",checkAuth,checkAdmin, handleDeleteProduct);
 
 export default router;

@@ -18,7 +18,7 @@ import { motion as Motion } from "framer-motion";
 
 function LoginForm() {
   const { error, loading } = useSelector((state) => state.auth);
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -28,6 +28,9 @@ function LoginForm() {
   });
 
   if (isAuthenticated) {
+    if (user?.role === "admin") {
+      return <Navigate to={"/admin/dashboard"} />;
+    }
     return <Navigate to={"/"} />;
   }
 

@@ -22,8 +22,17 @@ import api from "../api/api";
   return data;
 }
 
- async function updateProduct(id, payload) {
-  const { data } = await api.put(`/products/${id}`, payload);
+ async function updateProduct(id, formData) {
+  const { data } = await api.put(`/products/${id}`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return data;
+}
+
+async function deleteProductImage(productId, public_id) {
+  const { data } = await api.delete("/products/delete-image", {
+    data: { productId, public_id }
+  });
   return data;
 }
 
@@ -41,4 +50,5 @@ export {
   createProduct,
   updateProduct,
   deleteProduct,
+  deleteProductImage
 };

@@ -186,9 +186,9 @@ function ProductDetails() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.55 }}
           >
-            <span className="text-lg">Category:</span>
+            <span className="text-lg">SubCategory:</span>
             <div className="flex gap-2">
-              <span className="text-green-700 text-lg font-[cursive] font-semibold ">{product?.SubCategory.name}</span>
+              <span className="text-green-700 text-lg font-[cursive] font-semibold ">{product?.SubCategory?.name}</span>
             </div>
           </Motion.div>
 
@@ -206,8 +206,8 @@ function ProductDetails() {
               className="bg-[#DB4444] text-white px-10 py-2 rounded-md font-medium"
               text="Buy Now"
             />
-              
-                <Wish classList="border-[1px] border-black p-2 rounded-md" size={25} payload={product} />
+
+            <Wish classList="border-[1px] border-black p-2 rounded-md" size={25} payload={product} />
           </Motion.div>
 
           {/* Delivery Info */}

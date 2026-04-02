@@ -7,16 +7,18 @@ import {
   handlePostSubCategory,
   handlePutSubCategory,
   handleDeleteSubCategory,
-  handleGetSubCategoryByCategory
+  handleGetSubCategoryByCategory,
+  handleGetSubCategoryByID
 } from "../controllers/subCategoryController.js";
 
 const router = express.Router();
 
 router
   .get("/", handleGetSubCategory)
+  .get("/:id", handleGetSubCategoryByID)
   .get("/category/:catId", handleGetSubCategoryByCategory)
-  .post("/",checkAuth,checkAdmin, handlePostSubCategory)
-  .put("/:id",checkAuth,checkAdmin, handlePutSubCategory)
-  .delete("/:id",checkAuth,checkAdmin, handleDeleteSubCategory);
+  .post("/", checkAuth, checkAdmin, handlePostSubCategory)
+  .put("/:id", checkAuth, checkAdmin, handlePutSubCategory)
+  .delete("/:id", checkAuth, checkAdmin, handleDeleteSubCategory);
 
 export default router;

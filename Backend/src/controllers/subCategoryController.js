@@ -7,8 +7,7 @@ import mongoTransection from "../config/mongoTransection.js";
 async function handleGetSubCategory(req, res) {
   try {
     const categories = await SubCategoryModel.find().populate(
-      "parent",
-      "name, slug",
+      "parent"
     );
     return res.status(200).json(categories);
   } catch (error) {
@@ -17,13 +16,30 @@ async function handleGetSubCategory(req, res) {
       .status(500)
       .json({ message: "Failed to fetch categories", error: error.message });
   }
-} // GET /api/subcategories/category/:catId
+}
+
+async function handleGetSubCategoryByID(req, res) {
+  const { id } = req.params;
+  try {
+    const subCategory = await SubCategoryModel.findById(id).populate(
+      "parent"
+    );
+    return res.status(200).json(subCategory);
+  } catch (error) {
+    console.error("Error in handleGetSubCategoryByID:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to fetch subcategory", error: error.message });
+  }
+}
+
+
+// GET /api/subcategories/category/:catId
 async function handleGetSubCategoryByCategory(req, res) {
   const { catId } = req.params;
   try {
     const subCategories = await SubCategoryModel.find({ parent: catId }).populate(
-      "parent",
-      "name slug",
+      "parent"
     );
     return res.status(200).json(subCategories);
   } catch (error) {
@@ -36,10 +52,10 @@ async function handleGetSubCategoryByCategory(req, res) {
 
 // POST /api/categories
 async function handlePostSubCategory(req, res) {
-  let { name, slug, parent } = req.body; //parent must be id
+  let { name, parent } = req.body; //parent must be id
 
   if (name) name = name.trim();
-  if (slug) slug = slug.trim();
+  let slug = name.toLowerCase().replace(/\s+/g, "-");
 
   if (
     (name == undefined && name == null && name == "") ||
@@ -71,10 +87,11 @@ async function handlePostSubCategory(req, res) {
 // PUT /api/categories/:id
 async function handlePutSubCategory(req, res) {
   const { id } = req.params;
-  let { name, slug, parent } = req.body;
+  let { name, parent } = req.body;
 
   if (name) name = name.trim();
-  if (slug) slug = slug.trim();
+  let slug = name.toLowerCase().replace(/\s+/g, "-");
+
 
   try {
     const updateFields = {};
@@ -156,4 +173,5 @@ export {
   handlePostSubCategory,
   handlePutSubCategory,
   handleDeleteSubCategory,
+  handleGetSubCategoryByID,
 };

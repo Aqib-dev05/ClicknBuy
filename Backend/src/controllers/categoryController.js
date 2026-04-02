@@ -20,11 +20,12 @@ async function handleGetCategory(req, res) {
 
 // POST /api/categories
 async function handlePostCategory(req, res) {
-  const { name, slug } = req.body;
+  const { name } = req.body;
 
   if (name == undefined && name == null && name == "") {
     return res.status(400).json({ message: "Name is required" });
   }
+  let slug = name.toLowerCase().replace(/\s+/g, "-");
 
   try {
     const existing = await Category.findOne({ name });
@@ -45,7 +46,9 @@ async function handlePostCategory(req, res) {
 // PUT /api/categories/:id
 async function handlePutCategory(req, res) {
   const { id } = req.params;
-  const { name, slug } = req.body;
+  const { name } = req.body;
+  let slug = name.toLowerCase().replace(/\s+/g, "-");
+
 
   try {
     const updateFields = {};
@@ -120,8 +123,8 @@ async function handleDeleteCategory(req, res) {
     res
       .status(200)
       .json({ message: "Category and associated data deleted successfully" });
-      
-      
+
+
   } catch (error) {
     console.error("Error in handleDeleteCategory:", error);
     return res

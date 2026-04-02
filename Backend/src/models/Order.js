@@ -10,7 +10,7 @@ const orderSchema = mongoose.Schema({
     {
       product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Product"
+        ref: "Product"
       },
     },
     {
@@ -53,7 +53,7 @@ const orderSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+}, { timestamps: true });
 
- const Order = mongoose.model("Order",orderSchema);
-  export default Order;
+const Order = mongoose.model("Order", orderSchema);
+export default Order;

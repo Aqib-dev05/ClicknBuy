@@ -11,7 +11,7 @@ const ProductSchema = mongoose.Schema({
   },
   description: String,
   basePrice: Number,
-  discountedPrice:{
+  discountedPrice: {
     type: Number,
     default: function () {
       return this.basePrice;
@@ -24,12 +24,12 @@ const ProductSchema = mongoose.Schema({
   },
   ratings: {
     type: Number,
-    default: 0,
+    default: 2,
   },
   images: [{
-    url:String,
-    public_id:String,
-    _id:false
+    url: String,
+    public_id: String,
+    _id: false
   }],
   reviews: [
     {
@@ -49,7 +49,7 @@ const ProductSchema = mongoose.Schema({
       },
     },
   ],
-});
+}, { timestamps: true });
 
- const Product = mongoose.model("Product",ProductSchema);
- export default Product;
+const Product = mongoose.model("Product", ProductSchema);
+export default Product;

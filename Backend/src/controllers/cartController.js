@@ -7,7 +7,7 @@ async function handleGetCart(req, res) {
   try {
     let cart = await Cart.findOne({ user: userId }).populate(
       "products.product",
-      "name basePrice discountedPrice images slug",
+      "_id name basePrice discountedPrice images slug",
     );
 
     if (!cart) {
@@ -56,7 +56,7 @@ async function handleAddToCart(req, res) {
     await cart.save();
     const updatedCart = await cart.populate(
       "products.product",
-      "name basePrice discountedPrice images slug",
+      "_id name basePrice discountedPrice images slug",
     );
 
     return res.status(200).json(updatedCart);
@@ -77,7 +77,7 @@ async function handleBulkInsertion(req, res) {
   if (typeof items === "string") {
     items = JSON.parse(items);
   }
-  
+
   try {
     let cart = await Cart.findOne({ user: userId });
 

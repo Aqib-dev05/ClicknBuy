@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { MainLayout, SecondaryLayout, AuthLayout } from "./Components/Layout";
 import UserProtected from "./Components/protectedChecker/UserProtected.jsx";
 import ScrollToTop from "./Components/layouts/ScrollToTop.jsx";
@@ -31,6 +31,22 @@ import { setUser, logout, setLoading, setError } from "./Redux/Slices/authSlics.
 import api from "./api/api.js";
 import { HashLoader } from "react-spinners";
 
+// Admin Components
+import AdminProtected from "./Components/admin/AdminProtected.jsx";
+import AdminDashboard from "./Components/admin/AdminDashboard.jsx";
+import ProductTable from "./Components/admin/ProductTable.jsx";
+import AddProduct from "./Components/admin/AddProduct.jsx";
+import EditProduct from "./Components/admin/EditProduct.jsx";
+import CategoryTable from "./Components/admin/CategoryTable.jsx";
+import SubCategoryTable from "./Components/admin/SubCategoryTable.jsx";
+import UserTable from "./Components/admin/UserTable.jsx";
+import Reports from "./Components/admin/Reports.jsx";
+import AddCategory from "./Components/admin/AddCategory.jsx";
+import EditCategory from "./Components/admin/EditCategory.jsx";
+import AddSubCategory from "./Components/admin/AddSubCategory.jsx";
+import EditSubCategory from "./Components/admin/EditSubCategory.jsx";
+import ProductView from "./Components/admin/ProductView.jsx";
+
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -48,8 +64,6 @@ function App() {
         const res = await api.get("/auth/me");
         dispatch(setUser(res.data.user));
       } catch (err) {
-        // Vercel/production me backend na ho to `err.response` undefined hota hai.
-        // Isliye safe error message set karna zaroori hai (warna React crash = blank screen).
         const message =
           err?.response?.data?.message ||
           err?.message ||
@@ -62,7 +76,7 @@ function App() {
     };
 
     fetchUser();
-  }, []);
+  }, [dispatch, user]);
 
 
 
@@ -71,12 +85,7 @@ function App() {
   </div>
 
 
-  if (user?.role === "admin") return (
-    <>
-      <p>admin panel</p>
-    </>
-  )
-
+  // Admin logic handled by AdminProtected and Navigate below
 
   return (
     <>
@@ -96,7 +105,11 @@ function App() {
 
       <ErrorBoundary>
         <Routes>
-          {/* public routes  */}
+          {/* Admin routes handled by AdminProtected wrapper and Navigate-check for isolation */}
+          {user?.role === "admin" && (
+            <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+          )}
+
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
@@ -115,6 +128,27 @@ function App() {
             </Route>
           </Route>
 
+          {/* Admin routes protected by AdminProtected */}
+          <Route element={<AdminProtected />}>
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
+              <Route path="dashboard" element={<Reports />} />
+              <Route path="products" element={<ProductTable />} />
+              <Route path="products/:id" element={<ProductView />} />
+              <Route path="products/add" element={<AddProduct />} />
+              <Route path="products/edit/:id" element={<EditProduct />} />
+              <Route path="categories" element={<CategoryTable />} />
+              <Route path="categories/add" element={<AddCategory />} />
+              <Route path="categories/edit/:id" element={<EditCategory />} />
+              <Route path="subcategories" element={<SubCategoryTable />} />
+              <Route path="subcategories/add" element={<AddSubCategory />} />
+              <Route path="subcategories/edit/:id" element={<EditSubCategory />} />
+              <Route path="users" element={<UserTable />} />
+              <Route path="reports" element={<Reports />} />
+            </Route>
+          </Route>
+
+          {/* Auth layout is standalone */}
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
