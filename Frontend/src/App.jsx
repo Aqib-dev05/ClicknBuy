@@ -90,7 +90,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      {window.innerWidth > 768 && <ToastContainer
+      { <ToastContainer
         position="top-right"
         autoClose={700}
         hideProgressBar={false}
