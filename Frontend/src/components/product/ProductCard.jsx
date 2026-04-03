@@ -8,7 +8,7 @@ import RatingStars from "./RatingStars";
 import { addToCart } from "../../services/cartService.js"
 import { toast } from "react-toastify";
 import { setError, setLoading } from "../../Redux/Slices/cartSlice.js"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
 import { getLocally, setLocally } from "../../utils/LocalStore.jsx";
 import { motion as Motion } from "framer-motion";
@@ -18,6 +18,7 @@ export default function ProductCard({
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const [cartStatus, setCartStatus] = useState("idle"); // 'idle', 'loading', 'success'
 
 
@@ -28,6 +29,11 @@ export default function ProductCard({
 
   async function handleCartInsertion() {
     if (cartStatus !== "idle") return;
+
+    if (!user) {
+      toast.error("Please login to add product to cart!");
+      return;
+    }
 
     setCartStatus("loading");
     dispatch(setLoading(true));
