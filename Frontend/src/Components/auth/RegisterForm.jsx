@@ -152,15 +152,7 @@ function RegisterForm() {
           transition={{ duration: 0.4, delay: 0.45 }}
         />
         <h4 className='my-4 bg-red-100 italic text-lg font-md'>{error}</h4>
-        <Motion.span
-          className='text-[crimson] cursor-pointer font-semibold '
-          onClick={() => toast.info("Feature will be added in Future")}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-        >
-          Forget Password?
-        </Motion.span>
+        
         <Motion.div
           className="flex items-center md:w-[50%] w-[60%]  mt-3 gap-9 flex-wrap"
           initial={{ opacity: 0, y: 15 }}
