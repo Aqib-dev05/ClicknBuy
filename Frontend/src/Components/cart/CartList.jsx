@@ -31,6 +31,7 @@ function CartList({ onQuantityChange, getQuantity }) {
         const data = await getCart();
         if (data) {
           dispatch(addToCartRedux(data));
+          console.log(data)
           toast.success("Fetched Cart successful!");
         }
       } catch (err) {
@@ -147,7 +148,7 @@ function CartList({ onQuantityChange, getQuantity }) {
                     <p> {item.product.name}</p>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    Rs.{item.product.discountedPrice.toFixed(2)}
+                    ${item.product.discountedPrice.toFixed(2)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     {/* {item.quantity} */}
@@ -161,7 +162,7 @@ function CartList({ onQuantityChange, getQuantity }) {
                     />
                   </td>
                   <td className="px-6 py-4  whitespace-nowrap text-sm text-red-500 font-semibold">
-                    Rs.{(item.product.discountedPrice * item.quantity).toFixed(2)}
+                    ${(item.product.discountedPrice * item.quantity).toFixed(2)}
                   </td>
 
 
@@ -208,7 +209,7 @@ function CartList({ onQuantityChange, getQuantity }) {
               </div>
               <div className="flex justify-between text-sm text-gray-600 mb-1">
                 <span>Price:</span>
-                <span>Rs.{item.product.discountedPrice.toFixed(2)}</span>
+                <span>${item.product.discountedPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600 mb-1">
                 <span>Quantity:</span>
@@ -227,7 +228,7 @@ function CartList({ onQuantityChange, getQuantity }) {
               <div className="flex justify-between text-base font-semibold text-red-500 mt-2 pt-2 border-t border-gray-100">
                 <span>Subtotal:</span>
                 <span>
-                  Rs.{(item.product.discountedPrice * item.quantity).toFixed(2)}
+                  ${(item.product.discountedPrice * item.quantity).toFixed(2)}
                 </span>
               </div>
             </Motion.div>

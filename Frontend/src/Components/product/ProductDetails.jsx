@@ -92,7 +92,7 @@ function ProductDetails() {
           {/* Sidebar Thumbnails */}
           <div className="flex md:flex-col  gap-3 overflow-y-auto max-h-[500px]">
             {product?.images && product.images.length > 0 && product.images.map((img, index) => (
-              <Motion.div onClick={() => setMainImage((img.url))}
+              <Motion.div onClick={() => setMainImage((img?.url))}
                 key={index}
                 className={`w-20 h-20 overflow-hidden md:w-22 md:h-22 bg-gray-100  rounded-md flex items-center justify-center cursor-pointer border-[1px]  hover:border-red-500    transition-all duration-300 ${mainImage === img.url ? 'border-red-500' : 'border-gray-300'}`}
                 initial={{ opacity: 0, x: -20 }}
@@ -118,7 +118,7 @@ function ProductDetails() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img src={mainImage || (product?.images[0]?.url) || ImgPlaceholder}
+            <img src={cloudinaryOptimizer(mainImage) || cloudinaryOptimizer(product?.images[0]?.url) || ImgPlaceholder}
               alt="Main Product"
               className="w-full h-full object-contain"
               loading="lazy"
@@ -161,7 +161,7 @@ function ProductDetails() {
             transition={{ duration: 0.4, delay: 0.45 }}
           >
             <span className="font-bold text-[rgb(219,68,68)]">
-              Rs.{product.discountedPrice ? product.discountedPrice : product.basePrice}
+              ${product.discountedPrice ? product.discountedPrice : product.basePrice}
             </span>
             {product.basePrice && (
               <span className="text-xs text-gray-400 line-through">

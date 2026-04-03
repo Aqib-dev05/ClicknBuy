@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Button from "../layouts/Button";
 import { toast } from "react-toastify";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import { motion as Motion } from "framer-motion";
 
 function CartTotalCalc() {
 
-   const [subPrice,setSubPrice] = useState(0);
-   const {cartItems} = useSelector((state)=>state.cart)
+  const [subPrice, setSubPrice] = useState(0);
+  const { cartItems } = useSelector((state) => state.cart)
 
-   const calSubTotal = ()=>{
+  const calSubTotal = () => {
     let sub = 0;
-    cartItems.forEach((item)=>{
+    cartItems.forEach((item) => {
       sub += item.product.discountedPrice * item.quantity;
     })
     setSubPrice(sub);
-   }
+  }
 
-   useEffect(()=>{
+  useEffect(() => {
     calSubTotal();
-   },[cartItems])
+  }, [cartItems])
 
   return (
     <Motion.div
@@ -39,22 +39,22 @@ function CartTotalCalc() {
       </Motion.h4>
       <div className="flex justify-between items-center mt-3 mb-2 ">
         <p>Subtotal:</p>
-        <p>Rs. {subPrice}</p>
+        <p>${subPrice}</p>
       </div>
-      
+
       <hr />
       <div className="flex justify-between items-center mt-3 mb-2 ">
         <p>Shipping:</p>
-        <p>Rs.400</p>
+        <p>$2</p>
       </div>
-      
+
       <hr />
       <div className="flex justify-between items-center mt-3 mb-2 ">
         <p>Total:</p>
-        <p>Rs.{subPrice + 400}</p>
+        <p>${subPrice + 2}</p>
       </div>
       <br /><br />
-      <Button text={"Proceed to Checkout"} onClick={()=>toast.info("Functionality Soon!")} />
+      <Button text={"Proceed to Checkout"} onClick={() => toast.info("Functionality Soon!")} />
     </Motion.div>
   );
 }

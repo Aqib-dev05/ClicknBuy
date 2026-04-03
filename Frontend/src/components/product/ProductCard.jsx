@@ -125,7 +125,7 @@ export default function ProductCard({
         {/* Price */}
         <div className="mt-1 flex items-center gap-2 text-lg">
           <span className="font-bold text-[rgb(219,68,68)]">
-            Rs. {(payload.discountedPrice ?? payload.basePrice) ?? 120}
+            ${(payload.discountedPrice ?? payload.basePrice) ?? 120}
           </span>
           {payload.basePrice && (
             <span className="text-xs text-gray-400 line-through">

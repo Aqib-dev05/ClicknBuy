@@ -11,7 +11,7 @@ function EditProduct() {
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [subCategories, setSubCategories] = useState([]);
-  
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -23,10 +23,6 @@ function EditProduct() {
 
   const [existingImages, setExistingImages] = useState([]);
   const [newImages, setNewImages] = useState([]);
-
-  useEffect(() => {
-    fetchInitialData();
-  }, [id, fetchInitialData]);
 
   const fetchInitialData = useCallback(async () => {
     setFetching(true);
@@ -58,6 +54,10 @@ function EditProduct() {
     }
   }, [id]);
 
+  useEffect(() => {
+    fetchInitialData();
+  }, [id, fetchInitialData]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -86,7 +86,7 @@ function EditProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       const data = new FormData();
       data.append("name", formData.name);
@@ -153,7 +153,7 @@ function EditProduct() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Base Price */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Base Price (Rs.)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Base Price ($)</label>
             <input
               required
               type="number"
@@ -165,7 +165,7 @@ function EditProduct() {
           </div>
           {/* Discounted Price */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Discounted Price (Rs.)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Discounted Price ($)</label>
             <input
               type="number"
               name="discountedPrice"
@@ -226,7 +226,7 @@ function EditProduct() {
                 </button>
               </div>
             ))}
-            
+
             {/* New Image Previews */}
             {newImages.map((file, index) => (
               <div key={index} className="relative group">

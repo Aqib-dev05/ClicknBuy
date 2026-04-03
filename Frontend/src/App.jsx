@@ -46,6 +46,7 @@ import EditCategory from "./Components/admin/EditCategory.jsx";
 import AddSubCategory from "./Components/admin/AddSubCategory.jsx";
 import EditSubCategory from "./Components/admin/EditSubCategory.jsx";
 import ProductView from "./Components/admin/ProductView.jsx";
+import EditAdminProfile from "./Components/admin/EditAdminProfile.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -90,7 +91,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      { <ToastContainer
+      {<ToastContainer
         position="top-right"
         autoClose={700}
         hideProgressBar={false}
@@ -145,6 +146,7 @@ function App() {
               <Route path="subcategories/edit/:id" element={<EditSubCategory />} />
               <Route path="users" element={<UserTable />} />
               <Route path="reports" element={<Reports />} />
+              <Route path="/admin/edit-profile" element={<EditAdminProfile />} />
             </Route>
           </Route>
 

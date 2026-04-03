@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { useProfileContext } from "./profileContext";
-import {formatPhone} from "../../Validators/phoneVal"
+import { formatPhone } from "../../Validators/phoneVal"
+import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer"
 
 function ProfileCard() {
   const { currentProfile } = useProfileContext();
@@ -16,10 +17,10 @@ function ProfileCard() {
       <div className="flex flex-col items-center text-center">
         <img
           src={
-            currentProfile?.avatar?.url ||
+            cloudinaryOptimizer(currentProfile?.avatar?.url) ||
             "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"
           }
-          alt="User avatar"
+          alt={currentProfile?.name.charAt(0).toUpperCase() + currentProfile?.name.slice(1)}
           loading="lazy"
           className="w-24 h-24 rounded-full object-cover border-4 border-gray-100 shadow-sm"
         />

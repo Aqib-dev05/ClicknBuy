@@ -54,8 +54,8 @@ function ProductTable() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">Image</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">B Price</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">D Price</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">B Price <span>$</span> </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">D Price <span>$</span> </th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500  tracking-wider">Qty.</th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500  tracking-wider">Action</th>
             </tr>

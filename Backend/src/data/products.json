@@ -2,9 +2,8 @@
     {
         "name": "Mango Jiuce",
         "slug": "mango-jiuce",
-        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
-        "basePrice": 300,
-        "discountedPrice": 300,
+        "description": "Premium 100% natural mango juice, 1 liter. No added sugar or preservatives.",
+        "basePrice": 4.0,
         "quantity": 60,
         "SubCategory": "juices",
         "images": [
@@ -25,9 +24,8 @@
     {
         "name": "Nescafe Coffee",
         "slug": "nescafe-coffee",
-        "description": "Nescafe Coffee, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
-        "basePrice": 1300,
-        "discountedPrice": 1300,
+        "description": "Rich and aromatic Nescafe coffee house blend. 100% natural coffee beans.",
+        "basePrice": 12.0,
         "quantity": 260,
         "SubCategory": "coffee",
         "images": [
@@ -48,9 +46,8 @@
     {
         "name": "Greek Yogurt",
         "slug": "greek-yogurt",
-        "description": "Greek Yogurt, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
-        "basePrice": 499,
-        "discountedPrice": 499,
+        "description": "Authentic 100% natural Greek yogurt, 1 liter. High protein and thick texture.",
+        "basePrice": 5.0,
         "quantity": 70,
         "SubCategory": "yogurt",
         "images": [
@@ -71,9 +68,8 @@
     {
         "name": "Milk Pack",
         "slug": "milk-pack",
-        "description": "Milk, 1 Litre, Fresh From Dairy",
-        "basePrice": 299,
-        "discountedPrice": 299,
+        "description": "Fresh dairy milk pack, 1 liter. Pasteurized and homogenized for premium quality.",
+        "basePrice": 3.0,
         "quantity": 700,
         "SubCategory": "milk",
         "images": [
@@ -94,9 +90,8 @@
     {
         "name": "Cheese",
         "slug": "cheese",
-        "description": "Cheese, 1 kg, Fresh From Dairy",
-        "basePrice": 2099,
-        "discountedPrice": 2099,
+        "description": "Premium 1kg block of fresh farmhouse cheese. Perfect for gourmet cooking.",
+        "basePrice": 15.0,
         "quantity": 20,
         "SubCategory": "cheese",
         "images": [
@@ -117,9 +112,8 @@
     {
         "name": "Cow Butter",
         "slug": "cow-butter",
-        "description": "Butter, 1 kg, Fresh From Dairy.Lorem ipsum dolor",
-        "basePrice": 2099,
-        "discountedPrice": 2099,
+        "description": "Pure cow butter, 1kg. Rich, creamy, and ideal for baking and daily use.",
+        "basePrice": 12.0,
         "quantity": 20,
         "SubCategory": "butter",
         "images": [
@@ -140,9 +134,8 @@
     {
         "name": "White Suger",
         "slug": "white-suger",
-        "description": "Suger, 1 kg, White crystaline powder.Lorem ipsum dolor",
-        "basePrice": 177,
-        "discountedPrice": 177,
+        "description": "Pure white crystalline sugar, 1kg pack. Fine grain quality for all kitchen needs.",
+        "basePrice": 2.0,
         "quantity": 200,
         "SubCategory": "sugar",
         "images": [
@@ -155,9 +148,8 @@
     {
         "name": "Banaspati Rice",
         "slug": "banaspati-rice",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 400,
-        "discountedPrice": 400,
+        "description": "Premium long-grain Banaspati rice, 1kg. Naturally aromatic and aged to perfection.",
+        "basePrice": 5.0,
         "quantity": 600,
         "SubCategory": "rice",
         "images": [
@@ -174,9 +166,8 @@
     {
         "name": "Wheat Flour",
         "slug": "wheat-flour",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 400,
-        "discountedPrice": 400,
+        "description": "High-quality whole wheat flour, 1kg. Perfect for soft rotis and healthy baking.",
+        "basePrice": 4.0,
         "quantity": 600,
         "SubCategory": "flour",
         "images": [
@@ -201,9 +192,8 @@
     {
         "name": "iPhone 14 Pro Max",
         "slug": "iphone-14-pro-max",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 500000,
-        "discountedPrice": 500000,
+        "description": "Apple iPhone 14 Pro Max. Pro camera system, Dynamic Island, and A16 Bionic chip.",
+        "basePrice": 1099.0,
         "quantity": 10,
         "SubCategory": "iphones",
         "images": [
@@ -224,9 +214,8 @@
     {
         "name": "Red Magic 8 Pro",
         "slug": "red-magic-8-pro",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 501000,
-        "discountedPrice": 501000,
+        "description": "Red Magic 8 Pro Gaming Phone. Snapdragon 8 Gen 2 with advanced cooling system.",
+        "basePrice": 649.0,
         "quantity": 14,
         "SubCategory": "gaming-phones",
         "images": [
@@ -255,9 +244,8 @@
     {
         "name": "Android Phone",
         "slug": "android-phone",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 50000,
-        "discountedPrice": 50000,
+        "description": "High-performance Android smartphone. 8GB RAM, 128GB storage, and vibrant display.",
+        "basePrice": 249.0,
         "quantity": 50,
         "SubCategory": "android-phones",
         "images": [
@@ -274,9 +262,8 @@
     {
         "name": "Cooking Oil Fresh",
         "slug": "cooking-oil-fresh",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 400,
-        "discountedPrice": 400,
+        "description": "Pure vegetable cooking oil. Low cholesterol and fortified with Vitamins A & D.",
+        "basePrice": 8.0,
         "quantity": 50,
         "SubCategory": "cooking-oil",
         "images": [
@@ -293,9 +280,8 @@
     {
         "name": "Laptop Dell Inspiron ",
         "slug": "laptop-dell-inspiron",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 140000,
-        "discountedPrice": 140000,
+        "description": "Dell Inspiron Business Laptop. Sleek design with powerful performance for professionals.",
+        "basePrice": 699.0,
         "quantity": 5,
         "SubCategory": "business-laptops",
         "images": [
@@ -320,9 +306,8 @@
     {
         "name": "MacBook Air M3 ",
         "slug": "macbook-air-m3",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 440000,
-        "discountedPrice": 440000,
+        "description": "Apple MacBook Air with M3 chip. Supercharged performance in an incredibly thin design.",
+        "basePrice": 1199.0,
         "quantity": 5,
         "SubCategory": "ultrabooks",
         "images": [
@@ -351,9 +336,8 @@
     {
         "name": "Asus Legion 5 Pro ",
         "slug": "asus-legion-5-pro",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 340000,
-        "discountedPrice": 340000,
+        "description": "ASUS Legion 5 Pro Gaming Laptop. High FPS gaming with RTX graphics and QHD screen.",
+        "basePrice": 1399.0,
         "quantity": 7,
         "SubCategory": "gaming-laptops",
         "images": [
@@ -378,9 +362,8 @@
     {
         "name": "Lays Chips",
         "slug": "lays-chips",
-        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
-        "basePrice": 60,
-        "discountedPrice": 60,
+        "description": "Classic Lay's potato chips. Thin, crispy, and seasoned for the perfect snack.",
+        "basePrice": 1.0,
         "quantity": 60000,
         "SubCategory": "chips",
         "images": [
@@ -417,9 +400,8 @@
     {
         "name": "4U Chips",
         "slug": "4u-chips",
-        "description": "Mango Flavoured Jiuce, 1 Litre, 100% Natural, No Added Alcohol,No Added Suger,No Preservatives or Flavour Enhancers",
-        "basePrice": 60,
-        "discountedPrice": 60,
+        "description": "4U Premium potato chips. Extra crunchy with a variety of bold, savory flavors.",
+        "basePrice": 1.0,
         "quantity": 60000,
         "SubCategory": "chips",
         "images": [
@@ -456,9 +438,8 @@
     {
         "name": "Colgate Toothpaste",
         "slug": "colgate-toothpaste",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 100,
-        "discountedPrice": 100,
+        "description": "Colgate Total Advanced Health Toothpaste. Provides 12-hour germ protection.",
+        "basePrice": 3.0,
         "quantity": 70,
         "SubCategory": "toothpaste",
         "images": [
@@ -487,9 +468,8 @@
     {
         "name": "Hair Shampoo Men",
         "slug": "hair-shampoo-men",
-        "description": "lorem ipsem dolor siitit 30 dd hello world",
-        "basePrice": 100,
-        "discountedPrice": 100,
+        "description": "Men's revitalizing hair shampoo. Deep cleanses and strengthens hair from root to tip.",
+        "basePrice": 5.0,
         "quantity": 70,
         "SubCategory": "shampoo",
         "images": [

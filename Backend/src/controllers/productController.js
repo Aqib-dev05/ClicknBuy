@@ -204,8 +204,8 @@ async function handlePostProduct(req, res) {
       basePrice,
       discountedPrice,
       quantity,
-      // store subcategory reference in `category` field of Product schema
-      category: Subcategory,
+      // store subcategory reference in SubCategory field of Product schema
+      SubCategory: SubCategory,
       images: uploadedImages,
     });
 
@@ -249,14 +249,14 @@ async function handlePutProduct(req, res) {
       // Find subcategory to determine folder path (reusing logic from POST)
       const subCatId = Subcategory || product.SubCategory;
       const subCat = await SubCategoryModel.findById(subCatId).populate("parent", "slug name");
-      
+
       const categorySlug = subCat?.parent?.slug || subCat?.parent?.name || "uncategorized";
       const subSlug = subCat?.slug || "general";
       const folderPath = `/products/${categorySlug}/${subSlug}`;
 
       const uploadPromises = req.files.map(file => uploadOnCloudinary(file.path, folderPath));
       const cloudResps = await Promise.all(uploadPromises);
-      
+
       const newImages = cloudResps
         .filter(resp => resp && resp.secure_url && resp.public_id)
         .map(resp => ({
@@ -337,7 +337,6 @@ async function handleDeleteProduct(req, res) {
         console.log("All product images deleted from Cloudinary");
       } catch (cloudinaryError) {
         console.error("Error deleting images from Cloudinary:", cloudinaryError.message);
-        // Continue with product deletion even if image deletion fails
       }
     }
 

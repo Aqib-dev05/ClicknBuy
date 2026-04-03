@@ -4,29 +4,27 @@ import Button from "../Components/layouts/Button";
 import { useNavigate } from "react-router-dom";
 import { bulkInsertion } from "../services/cartService.js";
 import { toast } from "react-toastify";
-import { HashLoader, PulseLoader } from "react-spinners"
+import { HashLoader, PulseLoader } from "react-spinners";
 import { motion as Motion } from "framer-motion";
+import { getLocally } from "../utils/LocalStore.jsx";
 
 
 function WishListPage() {
 
   const navigate = useNavigate();
   const [wishedProducts, setWishedProducts] = useState([]);
-  const [loading, setLoading] = useState(false)
-  const [btnLoading, setBtnLoading] = useState(false)
+  const [loading, setLoading] = useState(true);
+  const [btnLoading, setBtnLoading] = useState(false);
 
   useEffect(() => {
-    async function localFetch() {
+    function localFetch() {
       try {
-        setLoading(true)
-        const items = await JSON.parse(localStorage.getItem("wishlist")) || [];
+        const items = getLocally("wishlist") || [];
         setWishedProducts(items);
-
       } catch (err) {
-        console.log(err)
-      }
-      finally {
-        setLoading(false)
+        console.error("Error fetching wishlist locally:", err);
+      } finally {
+        setLoading(false);
       }
     }
     localFetch();
@@ -86,7 +84,11 @@ function WishListPage() {
       </Motion.div>
 
       {
-        loading ? <HashLoader /> :
+        loading ? (
+          <div className="flex justify-center items-center py-20 min-h-[400px]">
+             <HashLoader color="#DB4444" />
+          </div>
+        ) :
 
           wishedProducts.length > 0 ? (
             <Motion.div

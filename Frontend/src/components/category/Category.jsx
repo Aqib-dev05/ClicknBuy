@@ -153,7 +153,7 @@ function Category() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence>
                       {subCategories && subCategories.length > 0 ? (
                         subCategories.map((sub, index) => (
                           <Motion.div

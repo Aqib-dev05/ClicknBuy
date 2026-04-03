@@ -261,14 +261,14 @@ function ProductView() {
                                         <span className="text-gray-500 text-sm">
                                             Discounted Price:
                                         </span>
-                                        <span className="text-sm font-semibold font-black text-gray-900">
-                                            Rs. {product?.discountedPrice || product?.basePrice}
+                                        <span className="text-sm font-semibold text-gray-900">
+                                            ${product?.discountedPrice || product?.basePrice}
                                         </span>
                                     </div>
                                     <div className="flex justify-between items-center decoration-red-400">
                                         <span className="text-gray-500 text-sm">Base Price:</span>
                                         <span className="text-gray-400 line-through">
-                                            Rs. {product.basePrice}
+                                            ${product.basePrice}
                                         </span>
                                     </div>
                                 </div>

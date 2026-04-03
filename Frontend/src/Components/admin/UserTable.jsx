@@ -15,22 +15,13 @@ function UserTable() {
     setLoading(true);
     try {
       const data = await getUsers();
-      setUsers(data.users || []);
+      setUsers(data);
+      console.log(data)
     } catch (err) {
-      toast.error("Failed to fetch users");
+      const message = err.response.data.message || "Failed to fetch users";
+      toast.error(message);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this user?")) return;
-    try {
-      await deleteUser(id);
-      toast.success("User deleted");
-      fetchUsers();
-    } catch (err) {
-      toast.error("Failed to delete user");
     }
   };
 
@@ -45,24 +36,30 @@ function UserTable() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone No.</th>
+              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {users.map((u) => (
-              <tr key={u._id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{u.firstName} {u.lastName}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{u.email}</td>
+              <tr key={u._id} className={`hover:bg-gray-50 ${u.role === "admin" ? "bg-red-100" : ""}`}>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{u.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${u.role === 'admin' ? 'bg-indigo-100 text-indigo-800' : 'bg-gray-100 text-gray-800'}`}>
-                    {u.role}
+                  <a href={`mailto:${u.email}`}>
+                    {u.email}
+
+                  </a>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer`}>
+                    <a href={`tel:${u.phone}`} className="hover:text-blue-600">
+                      {u.phone}
+
+                    </a>
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <button onClick={() => handleDelete(u._id)} className="text-red-600 hover:text-red-900">
-                    <Trash2 size={18} />
-                  </button>
+                  {u.address.city + ", " + u.address.country + ", " + u.address.postalCode}
                 </td>
               </tr>
             ))}
