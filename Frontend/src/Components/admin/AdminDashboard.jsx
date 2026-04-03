@@ -24,12 +24,15 @@ function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
-      await logOut();
+      const res = await logOut();
+      if (!res || res.message !== "Logout successful") {
+        throw new Error(res?.message || "Logout failed");
+      }
       dispatch(logout());
       toast.success("Logged out successfully");
       navigate("/login");
     } catch (err) {
-      toast.error("Logout failed. Please try again.");
+      toast.error(err?.message || "Logout failed. Please try again.");
       console.error(err);
     }
   };

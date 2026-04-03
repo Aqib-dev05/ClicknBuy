@@ -23,22 +23,24 @@ function ProfileProvider({ children }) {
 
   const handleLogout = async () => {
     try {
-     const res = await logOut();
-if(res){
-dispatch(logout());
+      const res = await logOut();
+      if (!res || res.message !== "Logout successful") {
+        throw new Error(res?.message || "Logout failed");
+      }
+
+      dispatch(logout());
       dispatch(setProfile(null));
       toast.success("Logged out successfully");
       navigate("/login");
-}
-    } catch(error) {
+    } catch (error) {
       console.log(error);
-toast.info(error.response?.data?.message || error.response?.data || "Failed to Logout");
-    } 
+      toast.info(error.response?.data?.message || error.message || "Failed to Logout");
+    }
   };
 
   const value = useMemo(
     () => {
-      const currentProfile = profile || user || {};
+
       return {
         user,
         currentProfile,
