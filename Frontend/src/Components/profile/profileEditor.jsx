@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Save, Eye, EyeOff } from "lucide-react";
+import { Save, Eye, EyeOff, X } from "lucide-react";
 import { toast } from "react-toastify";
 import { updateUser } from "../../services/userService";
 import { setUser } from "../../Redux/Slices/authSlics";
@@ -54,6 +54,13 @@ function ProfileEditor() {
   const onAvatarChange = (event) => {
     const file = event.target.files?.[0] || null;
     setFormData((prev) => ({ ...prev, avatar: file }));
+  };
+
+  const removeSelectedAvatar = () => {
+    setFormData((prev) => ({ ...prev, avatar: null }));
+    // Reset the file input
+    const fileInput = document.querySelector('input[name="avatar"]');
+    if (fileInput) fileInput.value = '';
   };
 
   const onSubmit = async (event) => {
@@ -204,13 +211,40 @@ function ProfileEditor() {
       </div>
       <div>
         <label className="block text-sm text-gray-600 mb-1">Profile Picture</label>
-        <input
-          name="avatar"
-          type="file"
-          accept="image/*"
-          onChange={onAvatarChange}
-          className="w-full rounded-xl border border-gray-300 px-3 py-2 file:mr-3 file:rounded-md file:border-0 file:bg-gray-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-gray-700 hover:file:bg-gray-200"
-        />
+        <div className="space-y-3">
+          {/* Current/Selected Avatar Display */}
+          {(formData.avatar && currentProfile?.avatar) && (
+            <div className="relative inline-block">
+              <img
+                src={formData.avatar ? URL.createObjectURL(formData.avatar) : currentProfile.avatar}
+                alt="Profile preview"
+                className="w-20 h-20 rounded-full object-cover border-2 border-gray-200"
+              />
+              {formData.avatar && (
+                <button
+                  type="button"
+                  onClick={removeSelectedAvatar}
+                  className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                  title="Remove selected image"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* File Input */}
+          <input
+            name="avatar"
+            type="file"
+            accept="image/*"
+            onChange={onAvatarChange}
+            className="w-full rounded-xl border border-gray-300 px-3 py-2 file:mr-3 file:rounded-md file:border-0 file:bg-gray-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-gray-700 hover:file:bg-gray-200"
+          />
+          <p className="text-xs text-gray-500">
+            {formData.avatar ? `Selected: ${formData.avatar.name}` : "Upload a new profile picture (optional)"}
+          </p>
+        </div>
       </div>
       <button
         type="submit"

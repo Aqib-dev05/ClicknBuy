@@ -2,7 +2,7 @@ import express from "express";
 import userModel from "../models/User.js";
 import cartModel from "../models/Cart.js";
 import orderModel from "../models/Order.js";
-import { uploadOnCloudinary } from "../utils/cloudinay.js";
+import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinay.js";
 import mongoTransection from "../config/mongoTransection.js";
 
 async function getAllUsersInfo(req, res) {
@@ -57,6 +57,17 @@ async function putSingleUser(req, res) {
 
     // Handle avatar file upload if provided
     if (req.file && req.file.path) {
+      // Delete old avatar if it exists and is not the default
+      const existingUser = await userModel.findById(id);
+      if (existingUser.avatar && existingUser.avatar.public_id && existingUser.avatar.public_id !== "default") {
+        try {
+          await deleteFromCloudinary(existingUser.avatar.public_id);
+        } catch (deleteError) {
+          console.error("Error deleting old avatar:", deleteError.message);
+          // Continue with upload even if delete fails
+        }
+      }
+
       const uploadResult = await uploadOnCloudinary(req.file.path, "avatars");
 
       if (!uploadResult) {
@@ -86,6 +97,7 @@ async function putSingleUser(req, res) {
       updatedUser,
     });
   } catch (error) {
+     
     res.status(500).json({
       err: "Operation Failed",
       message: error.message,
@@ -96,6 +108,22 @@ async function putSingleUser(req, res) {
 async function deleteUser(req, res) {
   const { id } = req.params;
   try {
+    // Find the user to get avatar info before deletion
+    const userToDelete = await userModel.findById(id);
+    if (!userToDelete) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Delete avatar from Cloudinary if it exists and is not the default
+    if (userToDelete.avatar && userToDelete.avatar.public_id && userToDelete.avatar.public_id !== "default") {
+      try {
+        await deleteFromCloudinary(userToDelete.avatar.public_id);
+      } catch (deleteError) {
+        console.error("Error deleting avatar:", deleteError.message);
+        // Continue with user deletion even if avatar delete fails
+      }
+    }
+
     //porduction k liye, as localDb standalone hy
     //    await mongoTransection(async (session) => {
 
@@ -113,6 +141,7 @@ async function deleteUser(req, res) {
     await cartModel.deleteOne({ user: id });
     await orderModel.deleteOne({ user: id });
     const deletedUser = await userModel.findByIdAndDelete(id);
+
 
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found" });
