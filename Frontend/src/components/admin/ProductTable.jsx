@@ -9,32 +9,36 @@ import { useSelector, useDispatch } from "react-redux"
 import { setProducts, setLoading, setError } from "../../Redux/Slices/productSlice"
 
 function ProductTable() {
-  const { product, loading, error } = useSelector((state) => state.products)
+  const { product, loading } = useSelector((state) => state.products)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    fetchProducts();
-  }, [dispatch]);
-
-  const fetchProducts = async () => {
+  const fetchProducts = React.useCallback(async () => {
     dispatch(setLoading(true));
     try {
       // Fetching all products (no pagination limit for admin view)
       const data = await getProducts({ limit: 1000 });
-      dispatch(setProducts(data.products || []));
+      dispatch(setProducts(data || { products: [] }));
     } catch (err) {
       const message = err.response?.data?.message || "Failed to fetch products";
-      dispatch(setError(message))
-      toast.error(error);
+      dispatch(setError(message));
+      toast.error(message);
     } finally {
       dispatch(setLoading(false));
     }
-  };
+  }, [dispatch]);
 
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
+  if (loading) return (
+    <div className='flex justify-center items-center h-[70vh]'>
+        <Loader2 className="animate-spin h-10 w-10 text-[rgb(219,68,68)]" />
+    </div>
+  );
 
-  if (loading) return <div className="flex justify-center p-10"><Loader2 className="animate-spin h-8 w-8 text-[rgb(219,68,68)]" /></div>;
+  const productList = Array.isArray(product?.products) ? product.products : [];
 
   return (
     <div>
@@ -61,39 +65,35 @@ function ProductTable() {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {product?.map((product) => (
-              <tr key={product._id} className="hover:bg-gray-50">
+            {productList.map((productItem) => (
+              <tr key={productItem._id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <img
-                    src={cloudinaryOptimizer(product?.images?.[0]?.url) || "https://via.placeholder.com/50"}
-                    alt={product.name}
+                    src={cloudinaryOptimizer(productItem?.images?.[0]?.url) || "https://via.placeholder.com/50"}
+                    alt={productItem.name}
                     className="h-12 w-12 object-cover rounded-md"
                   />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900 line-clamp-1 max-w-[200px]">{product?.name}</div>
+                  <div className="text-sm font-medium text-gray-900 line-clamp-1 max-w-[200px]">{productItem?.name}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{product?.basePrice}</div>
+                  <div className="text-sm text-gray-900">{productItem?.basePrice}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="text-sm text-gray-900">
-                    {product?.discountedPrice}
+                    {productItem?.discountedPrice || "N/A"}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <span className="text-sm text-gray-900">
-                    {product?.quantity}
+                    {productItem?.quantity}
                   </span>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
-
-                    onClick={() =>
-                      navigate(`/admin/products/${product?._id}`)
-
-                    }
-                    className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300 cursor-pointer ">
+                    onClick={() => navigate(`/admin/products/${productItem?._id}`)}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 cursor-pointer ">
                     View
                   </button>
                 </td>
@@ -104,6 +104,7 @@ function ProductTable() {
       </div>
     </div>
   );
+
 }
 
 export default ProductTable;

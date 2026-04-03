@@ -5,9 +5,13 @@ import { HashLoader, PulseLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import { motion as Motion } from "framer-motion";
 import { User, Mail, Phone, MapPin, Camera, Save, Key, Eye, EyeOff } from 'lucide-react';
+import { useDispatch } from 'react-redux';
+import { setUser as setAuthUser } from '../../Redux/Slices/authSlics';
+import { setProfile } from '../../Redux/Slices/profileSlice';
 
 function EditAdminProfile() {
 
+    const dispatch = useDispatch();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [btnLoading, setBtnLoading] = useState(false);
@@ -102,9 +106,10 @@ function EditAdminProfile() {
             }
 
             const res = await updateUser(user._id, data);
-            if (res) {
+            if (res && res.updatedUser) {
+                dispatch(setProfile(res.updatedUser));
+                dispatch(setAuthUser(res.updatedUser));
                 toast.success("Profile updated successfully!");
-                // Update local state if needed (user being fetched again on re-mount or manually)
             }
         } catch (err) {
             const message = err.response?.data?.message || "Failed to update profile";

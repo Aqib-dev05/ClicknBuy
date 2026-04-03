@@ -16,7 +16,7 @@ function UserTable() {
     try {
       const data = await getUsers();
       setUsers(data);
-      console.log(data)
+
     } catch (err) {
       const message = err.response.data.message || "Failed to fetch users";
       toast.error(message);
