@@ -20,13 +20,16 @@ async function handleRegister(req, res) {
       address,
     });
 
-    const token = generateToken(user);
-    res.cookie("access-token", token, {
+    const cookieOptions = {
       httpOnly: true,
-      secure: true,
-      sameSite: "none",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    };
+
+    const token = generateToken(user);
+    res.cookie("access-token", token, cookieOptions);
 
     return res.status(200).json({
       message: "Registeration successfull",
@@ -63,13 +66,16 @@ async function handleLogin(req, res) {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    const token = generateToken(user);
-    res.cookie("access-token", token, {
+    const cookieOptions = {
       httpOnly: true,
-      secure: true,
-      sameSite: "none",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    };
+
+    const token = generateToken(user);
+    res.cookie("access-token", token, cookieOptions);
 
     return res.status(200).json({
       message: "Login successful",
@@ -91,15 +97,21 @@ async function handleLogin(req, res) {
 
 const handleLogout = async (req, res) => {
   try {
-    res.clearCookie("access-token");
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      path: "/",
+    };
+
+    res.clearCookie("access-token", cookieOptions);
     res.status(200).json({
-      message: "Logout successful"
-    })
+      message: "Logout successful",
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error during logout" });
   }
-  catch (error) {
-    res.status(500).json({ message: "Server error during logout" })
-  }
-}
+};
 
 const getCurrentUser = async (req, res) => {
   try {
