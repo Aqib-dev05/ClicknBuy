@@ -3,7 +3,7 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { logOut } from "../../services/authService";
+import { logOut } from "../../services/authService.js";
 import { logout } from "../../Redux/Slices/authSlics";
 import { setProfile } from "../../Redux/Slices/profileSlice";
 
@@ -23,15 +23,17 @@ function ProfileProvider({ children }) {
 
   const handleLogout = async () => {
     try {
-      await logOut();
-    } catch {
-      // keep client logout flow even if api logout fails
-    } finally {
-      dispatch(logout());
+     const res = await logOut();
+if(res){
+dispatch(logout());
       dispatch(setProfile(null));
       toast.success("Logged out successfully");
       navigate("/login");
-    }
+}
+    } catch(error) {
+      console.log(error);
+toast.info(error.response?.data?.message || error.response?.data || "Failed to Logout");
+    } 
   };
 
   const value = useMemo(

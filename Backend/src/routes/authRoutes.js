@@ -6,7 +6,7 @@ import checkAuth from "../middlewares/authMiddleware.js"
  router
  .post('/register',handleRegister)
  .post('/login',handleLogin)
- .post('/logout',handleLogout)
+ .get('/logout',handleLogout)
  .get('/me',checkAuth,getCurrentUser)
 
   export default router;
