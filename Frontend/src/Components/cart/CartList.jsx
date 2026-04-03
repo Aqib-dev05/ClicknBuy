@@ -46,7 +46,7 @@ function CartList({ onQuantityChange, getQuantity }) {
     };
 
     fetchCartData();
-  }, []);
+  }, [dispatch]);
 
   async function handleRemoveFromCart(productId) {
     const confirm = window.confirm(
@@ -83,7 +83,7 @@ function CartList({ onQuantityChange, getQuantity }) {
     )
   }
 
-  if (cartItems.length === 0) return (
+  if (cartItems?.length === 0) return (
     <Motion.div
       className=" text-2xl text-center bg-red-300 my-4 py-6 px-8 "
       initial={{ opacity: 0, scale: 0.9 }}
@@ -195,7 +195,7 @@ function CartList({ onQuantityChange, getQuantity }) {
                 <h3 className="text-lg font-bold text-gray-900">
                   <img
                     onClick={() => handleViewProduct(item.product._id)}
-                    className="w-14 h-14 cursor-pointer "
+                    className="w-14 h-14 cursor-pointer object-cover rounded"
                     src={item.product.images[0].url}
                     alt="image"
                   />

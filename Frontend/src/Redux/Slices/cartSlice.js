@@ -14,7 +14,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCartRedux: (state, action) => {
       const cart = action.payload;
-      state.cartItems = cart.products || [];
+      state.cartItems = (cart.products || []).filter(item => item.product);
       state.totalQuantity = state.cartItems.reduce(
         (acc, item) => acc + item.quantity,
         0,
