@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Save } from "lucide-react";
+import { Save, Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import { updateUser } from "../../services/userService";
 import { setUser } from "../../Redux/Slices/authSlics";
@@ -26,6 +26,7 @@ function ProfileEditor() {
     country: "",
     avatar: null,
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     setFormData((prev) => ({
@@ -61,7 +62,7 @@ function ProfileEditor() {
 
     if (!validateEmail(formData?.email)) {
       toast.error("Invalid email format.");
-      return 
+      return
     }
     if (formData.phone && !validatePhone(formData?.phone)) {
       toast.error("Invalid phone number format.");
@@ -151,14 +152,23 @@ function ProfileEditor() {
       </div>
       <div>
         <label className="block text-sm text-gray-600 mb-1">Password (optional)</label>
-        <input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={onInputChange}
-          className="w-full rounded-xl border border-gray-300 px-4 py-2 outline-none focus:ring-2 focus:ring-black/20"
-          placeholder="Leave empty to keep current password"
-        />
+        <div className="relative">
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            value={formData.password}
+            onChange={onInputChange}
+            className="w-full rounded-xl border border-gray-300 px-4 py-2 outline-none focus:ring-2 focus:ring-black/20 pr-12"
+            placeholder="Leave empty to keep current password"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
