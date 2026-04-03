@@ -115,6 +115,7 @@ function ProfileEditor() {
       toast.success("Profile updated successfully");
       setActiveTab("profileDetails");
     } catch (error) {
+      console.log(error)
       toast.error(error?.response?.data?.message || "Failed to update profile");
     } finally {
       setIsSubmitting(false);

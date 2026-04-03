@@ -24,6 +24,7 @@ function ProfilePage() {
           // toast.success("Profile fetched successfully"); // Removed for better UX
         }
       } catch (err) {
+        
         const message = err?.response?.data?.message || "Something went wrong";
         console.log(err)
         dispatch(setError(message));

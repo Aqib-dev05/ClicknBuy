@@ -20,6 +20,7 @@ function ProductTable() {
       const data = await getProducts({ limit: 1000 });
       dispatch(setProducts(data || { products: [] }));
     } catch (err) {
+      console.log(err)
       const message = err.response?.data?.message || "Failed to fetch products";
       dispatch(setError(message));
       toast.error(message);

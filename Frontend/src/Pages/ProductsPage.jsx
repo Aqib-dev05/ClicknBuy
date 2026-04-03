@@ -40,6 +40,7 @@ function ProductsPage() {
           toast.success("Fetched Products successful!");
         }
       } catch (error) {
+        console.log(error)
         const message = error?.response?.data?.message;
         toast.error(`Something went wrong. ${message}`);
         dispatch(setError(message || "An unexpected error occurred."));

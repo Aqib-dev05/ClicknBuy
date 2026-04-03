@@ -35,6 +35,7 @@ function CartList({ onQuantityChange, getQuantity }) {
           toast.success("Fetched Cart successful!");
         }
       } catch (err) {
+        console.log(err)
         const message = err?.response?.data?.message;
         dispatch(setError(message || "An unexpected error occurred."));
         toast.error(`Something went wrong. ${error}`);

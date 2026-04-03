@@ -17,7 +17,8 @@ function CategoryTable() {
     try {
       const data = await getCategories();
       setCategories(data);
-    } catch {
+    } catch (err){
+      console.log(err)
       toast.error("Failed to fetch categories");
     } finally {
       setLoading(false);

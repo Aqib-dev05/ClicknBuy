@@ -48,6 +48,7 @@ function ProductDetails() {
       }
     }
     catch (err) {
+      console.log(err)
       toast.error("Failed to add product to cart!");
       dispatch(setError(err.message));
     }

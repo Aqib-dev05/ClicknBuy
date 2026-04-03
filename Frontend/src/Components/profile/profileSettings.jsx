@@ -24,6 +24,7 @@ function ProfileSettings() {
       toast.success("Account deleted successfully");
       navigate("/");
     } catch (error) {
+      console.log(error)
       toast.error(error?.response?.data?.message || "Failed to delete account");
     } finally {
       setIsSubmitting(false);

@@ -43,7 +43,8 @@ function EditSubCategory() {
           toast.error("Subcategory not found");
           navigate("/admin/subcategories");
         }
-      } catch {
+      } catch(err){
+        console.log(err)
         toast.error("Failed to load subcategory details");
       } finally {
         setFetching(false);

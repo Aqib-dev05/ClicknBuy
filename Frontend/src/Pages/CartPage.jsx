@@ -62,6 +62,7 @@ function CartPage() {
 
       setUpdatedCart([]);
     } catch (err) {
+      console.log(err)
       const message = err?.response?.data?.message;
       toast.error(message || "Update failed");
     } finally {
@@ -83,6 +84,7 @@ function CartPage() {
         dispatch(clearCartRedux());
       }
     } catch (err) {
+      console.log(err)
       const message = err?.response?.data?.message;
       dispatch(setError(message || "An unexpected error occurred."));
       toast.error(message || "Something went wrong");

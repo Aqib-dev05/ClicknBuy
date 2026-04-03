@@ -23,6 +23,7 @@ function AddCategory() {
       toast.success("Category created successfully!");
       navigate("/admin/categories");
     } catch (err) {
+      console.log(err)
       toast.error(err?.response?.data?.message || "Failed to create category");
     } finally {
       setLoading(false);

@@ -41,6 +41,7 @@ function AddSubCategory() {
       toast.success("Subcategory created successfully!");
       navigate("/admin/subcategories");
     } catch (err) {
+      console.log(err)
       toast.error(err?.response?.data?.message || "Failed to create subcategory");
     } finally {
       setLoading(false);
