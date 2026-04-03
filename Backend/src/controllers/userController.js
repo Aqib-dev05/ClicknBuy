@@ -56,7 +56,7 @@ async function putSingleUser(req, res) {
       updateFields.address = address;
 
     // Handle avatar file upload if provided
-    if (req.file && req.file.path) {
+    if (req.file ) {
       // Delete old avatar if it exists and is not the default
       const existingUser = await userModel.findById(id);
       if (existingUser.avatar && existingUser.avatar.public_id && existingUser.avatar.public_id !== "default") {

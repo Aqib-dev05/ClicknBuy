@@ -35,20 +35,23 @@ function ProfileProvider({ children }) {
   };
 
   const value = useMemo(
-    () => ({
-      user,
-      currentProfile,
-      activeTab,
-      setActiveTab,
-      isSidebarOpen,
-      setIsSidebarOpen,
-      isSubmitting,
-      setIsSubmitting,
-      handleLogout,
-      dispatch,
-      navigate,
-    }),
-    [user, currentProfile, activeTab, isSidebarOpen, isSubmitting, dispatch, navigate]
+    () => {
+      const currentProfile = profile || user || {};
+      return {
+        user,
+        currentProfile,
+        activeTab,
+        setActiveTab,
+        isSidebarOpen,
+        setIsSidebarOpen,
+        isSubmitting,
+        setIsSubmitting,
+        handleLogout,
+        dispatch,
+        navigate,
+      };
+    },
+    [user, profile, activeTab, isSidebarOpen, isSubmitting, dispatch, navigate]
   );
 
   return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;
