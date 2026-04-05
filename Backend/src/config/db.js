@@ -18,6 +18,7 @@ export const connectDB = async (mongo_uri) => {
     const conn = await mongoose.connect(mongo_uri, {
       dbName: "ecommerce",
       maxPoolSize: 10,
+      
     });
     isConnected = conn.connections[0].readyState === 1;
     cachedConnection = conn;
