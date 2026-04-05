@@ -64,35 +64,4 @@ app.get("/check", (req, res) => {
   res.send("Authenticated");
 });
 
-
-import productModel from "./models/Product.js"
-import {redisClient} from "./config/redisClient.js"
-
-// test route for chaching tesing
-app.get("/test-cache",async (req, res) => {
-
-  const cachedProducts = await redisClient.get("products");
-
-  if (cachedProducts) {
-    console.log("Cache hit");
-    return res.json(JSON.parse(cachedProducts));
-  }
-
-  const products = await productModel.find().populate(
-    {
-      path: "SubCategory",
-      populate: {
-        path: "parent",
-        model: "Category",
-      },
-    }
-  )
-
-  await redisClient.set("products", JSON.stringify(products));
-  await redisClient.expire("products", 30);
-
-
-  res.json(products);
-})
-
 export default app;
