@@ -42,7 +42,7 @@ function UserTable() {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {users.map((u) => (
-              <tr key={u._id} className={`hover:bg-gray-50 ${u.role === "admin" ? "bg-red-100" : ""}`}>
+              <tr key={u._id} className={` ${u.role === "admin" ? "bg-red-200 " : " bg-white"}`}>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{u.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <a href={`mailto:${u.email}`}>

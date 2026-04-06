@@ -139,7 +139,7 @@ function EditAdminProfile() {
                     <div className="absolute -bottom-16 left-8 md:left-12">
                         <div className="relative group">
                             <img
-                                src={preview || "/default-avatar.png"}
+                                src={preview || "https://res.cloudinary.com/dvfdxbzem/image/upload/v1774003344/default.png"}
                                 alt="Profile"
                                 className="w-32 h-32 rounded-full border-4 border-white object-cover shadow-lg bg-white"
                             />
