@@ -4,12 +4,25 @@ import cartModel from "../models/Cart.js";
 import orderModel from "../models/Order.js";
 import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinay.js";
 import mongoTransection from "../config/mongoTransection.js";
+import {redisClient} from "../config/redisClient.js"
+
 
 async function getAllUsersInfo(req, res) {
+
+    const cachedUsers = await redisClient.get("users")
+
+    if(cachedUsers){
+      return res.status(200).json(JSON.parse(cachedUsers));
+    }
+
   try {
     const users = await userModel.find()
       .select("name email phone role address")
       .lean();
+
+      await redisClient.set("users", JSON.stringify(users));
+      await redisClient.expire("users", 240); // Cache for 4 minutes
+
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -92,6 +105,8 @@ async function putSingleUser(req, res) {
       return res.status(404).json({ message: "User not updated or not found" });
     }
 
+    await redisClient.del("users");
+
     res.status(200).json({
       message: "User updated successfully",
       updatedUser,
@@ -146,6 +161,7 @@ async function deleteUser(req, res) {
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found" });
     }
+    await redisClient.del("users")
 
     res
       .status(200)

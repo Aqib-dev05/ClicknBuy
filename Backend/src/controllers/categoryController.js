@@ -3,12 +3,24 @@ import Category from "../models/Category.js";
 import subCategoryModel from "../models/SubCategory.js";
 import productModel from "../models/Product.js";
 import mongoTransection from "../config/mongoTransection.js";
-import SubCategory from "../models/SubCategory.js";
+import {redisClient} from "../config/redisClient.js"
 
 // GET /api/categories
 async function handleGetCategory(req, res) {
+
+   const cachedCat = await redisClient.get("categories");
+   if(cachedCat){
+     return res.status(200).json(JSON.parse(cachedCat));
+   }
+
   try {
+
     const categories = await Category.find({});
+
+    await redisClient.set("categories", JSON.stringify(categories));
+    await redisClient.expire("categories", 300);
+
+
     return res.status(200).json(categories);
   } catch (error) {
     console.error("Error in handleGetCategory:", error);
@@ -34,6 +46,10 @@ async function handlePostCategory(req, res) {
     }
 
     const category = await Category.create({ name, slug });
+
+    await redisClient.del("categories");
+
+
     return res.status(201).json(category);
   } catch (error) {
     console.error("Error in handlePostCategory:", error);
@@ -73,6 +89,7 @@ async function handlePutCategory(req, res) {
     if (!updated) {
       return res.status(404).json({ message: "Category not found" });
     }
+    await redisClient.del("categories");
 
     return res.status(200).json(updated);
   } catch (error) {
@@ -120,6 +137,7 @@ async function handleDeleteCategory(req, res) {
     if (!cat) {
       throw new Error("Category not found");
     }
+    await redisClient.del("categories");
     res
       .status(200)
       .json({ message: "Category and associated data deleted successfully" });

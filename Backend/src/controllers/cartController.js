@@ -1,10 +1,20 @@
 import Cart from "../models/Cart.js";
+import {redisClient} from "../config/redisClient.js"
 
 // GET /api/cart
 async function handleGetCart(req, res) {
   const userId = req.user?._id || req.user?.id;
 
+  const cachedCart = await redisClient.get(`cart:${userId}`);
+
+  if (cachedCart) {
+    return res.status(200).json(JSON.parse(cachedCart));
+  }
+
+
   try {
+  
+    
     let cart = await Cart.findOne({ user: userId }).populate(
       "products.product",
       "_id name basePrice discountedPrice images slug",
@@ -13,6 +23,9 @@ async function handleGetCart(req, res) {
     if (!cart) {
       cart = await Cart.create({ user: userId, products: [] });
     }
+
+    await redisClient.set(`cart:${userId}`, JSON.stringify(cart));
+    await redisClient.expire(`cart:${userId}`, 60*3.2);
 
     return res.status(200).json(cart);
   } catch (error) {
@@ -59,6 +72,8 @@ async function handleAddToCart(req, res) {
       "_id name basePrice discountedPrice images slug",
     );
 
+    await redisClient.del(`cart:${userId}`);
+
     return res.status(200).json(updatedCart);
   } catch (error) {
     console.error("Error in handleAddToCart:", error);
@@ -99,6 +114,9 @@ async function handleBulkInsertion(req, res) {
 
     await cart.save();
 
+    await redisClient.del(`cart:${userId}`);
+
+
     return res.status(200).json({ message: "Products added to cart successfully" });
   } catch (error) {
     console.error("Error in handleBulkInsertion:", error);
@@ -136,6 +154,8 @@ async function handleUpdateCartItem(req, res) {
         "products.product",
         "name basePrice discountedPrice images slug",
       );
+
+      await redisClient.del(`cart:${userId}`);
       return res.status(200).json(updatedCart);
     } else {
       return res.status(404).json({ message: "Item not found in cart" });
@@ -165,10 +185,14 @@ async function handleRemoveFromCart(req, res) {
     );
 
     await cart.save();
+
     const updatedCart = await cart.populate(
       "products.product",
       "name basePrice discountedPrice images slug",
     );
+
+    await redisClient.del(`cart:${userId}`);
+
     return res.status(200).json(updatedCart);
   } catch (error) {
     console.error("Error in handleRemoveFromCart:", error);
@@ -192,6 +216,7 @@ async function handleClearCart(req, res) {
     cart.products = [];
     await cart.save();
 
+    await redisClient.del(`cart:${userId}`);
     return res.status(200).json({ message: "Cart cleared successfully", cart });
   } catch (error) {
     console.error("Error in handleClearCart:", error);
@@ -230,6 +255,8 @@ async function handleBulkUpdate(req, res) {
       "products.product",
       "name basePrice discountedPrice images slug",
     );
+
+    await redisClient.del(`cart:${userId}`);
 
     return res.status(200).json(updatedCart);
   } catch (error) {

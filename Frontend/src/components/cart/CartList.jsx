@@ -31,7 +31,7 @@ function CartList({ onQuantityChange, getQuantity }) {
         const data = await getCart();
         if (data) {
           dispatch(addToCartRedux(data));
-          console.log(data)
+        
           toast.success("Fetched Cart successful!");
         }
       } catch (err) {

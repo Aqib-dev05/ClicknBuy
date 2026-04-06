@@ -2,13 +2,24 @@ import express from "express";
 import SubCategoryModel from "../models/SubCategory.js";
 import productModel from "../models/Product.js";
 import mongoTransection from "../config/mongoTransection.js";
+import { redisClient } from "../config/redisClient.js";
 
 // GET /api/categories
 async function handleGetSubCategory(req, res) {
+
+   const cachedSub = await redisClient.get("subCategories")
+
+   if (cachedSub) {
+     return res.status(200).json(JSON.parse(cachedSub));
+   }
   try {
+
     const categories = await SubCategoryModel.find().populate(
       "parent"
     );
+    await redisClient.set("subCategories", JSON.stringify(categories));
+    await redisClient.expire("subCategories", 240); // Cache for 4 minutes
+
     return res.status(200).json(categories);
   } catch (error) {
     console.error("Error in handleGetSubCategory:", error);
@@ -75,6 +86,9 @@ async function handlePostSubCategory(req, res) {
     }
 
     const SubCategory = await SubCategoryModel.create({ name, slug, parent });
+
+    await redisClient.del("subCategories")
+
     return res.status(201).json(SubCategory);
   } catch (error) {
     console.error("Error in handlePostSubCategory:", error);
@@ -119,6 +133,7 @@ async function handlePutSubCategory(req, res) {
       return res.status(404).json({ message: "SubCategory not found" });
     }
 
+    await redisClient.del("subCategories")
     return res.status(200).json(updated);
   } catch (error) {
     console.error("Error in handlePutSubCategory:", error);
@@ -155,6 +170,7 @@ async function handleDeleteSubCategory(req, res) {
     if (!deleted) {
       return res.status(404).json({ message: "SubCategory not found" });
     }
+    await redisClient.del("subCategories")
     return res
       .status(200)
       .json({ message: "SubCategory and associated Products deleted successfully" });

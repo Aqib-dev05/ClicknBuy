@@ -124,12 +124,9 @@ function CartPage() {
           getQuantity={getQuantity}
         />
 
-        <Motion.div
+        <div
           className="my-6 flex-wrap-reverse gap-y-2 flex w-full justify-between items-center px-4 sm:px-6 lg:px-8"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        
         >
           <Button
             onClick={() => navigate("/products")}
@@ -144,7 +141,7 @@ function CartPage() {
             varient="default"
             className="hover:bg-blue-600 hover:text-white rounded-sm transition duration-200"
           />}
-        </Motion.div >
+        </div >
         <div className="flex justify-end w-full px-4 sm:px-6 lg:px-8 mt-3">
 
         {cartItems.length > 0 && <CartTotalCalc   />}

@@ -2,6 +2,7 @@ import express from "express";
 import productModel from "../models/Product.js";
 import SubCategoryModel from "../models/SubCategory.js";
 import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinay.js";
+import {redisClient} from "../config/redisClient.js"
 
 async function handleGetProductsGeneral(req, res) {
   const { q, sub, sortBy, page = 1, limit = 20 } = req.query;
@@ -10,6 +11,13 @@ async function handleGetProductsGeneral(req, res) {
     const pageNumber = parseInt(page, 10) || 1;
     const limitNumber = parseInt(limit, 10) || 20;
     const skip = (pageNumber - 1) * limitNumber;
+
+    const cachedProducts = await redisClient.get(cacheKey);
+    if (cachedProducts) {
+      console.log("Products fetched from cache");
+      return res.status(200).json(JSON.parse(cachedProducts));
+    }
+
 
     const query = {};
 
@@ -50,6 +58,8 @@ async function handleGetProductsGeneral(req, res) {
       productModel.countDocuments(query),
     ]);
 
+  
+
     return res.status(200).json({
       page: pageNumber,
       limit: limitNumber,
@@ -68,7 +78,15 @@ async function handleGetProductsGeneral(req, res) {
 async function handleGetProductById(req, res) {
   const { id } = req.params;
 
+  const productCacheKey = `product:${id}`;
+
   try {
+    const cachedProduct = await redisClient.get(productCacheKey);
+    if (cachedProduct) {
+      
+      return res.status(200).json(JSON.parse(cachedProduct));
+    }
+
     const product = await productModel.findById(id).populate(
       {
         path: "SubCategory",
@@ -86,6 +104,10 @@ async function handleGetProductById(req, res) {
     if (!product) {
       return res.status(401).send("Product Not Found!!!");
     }
+
+    await redisClient.set(productCacheKey, JSON.stringify(product));
+    await redisClient.expire(productCacheKey, 300); // Cache expires in 1 hour
+
     res.status(200).json(product);
   } catch (err) {
     res.status(500).json({
@@ -98,7 +120,15 @@ async function handleGetProductById(req, res) {
 async function handleGetProductBySlug(req, res) {
   const { slug } = req.params;
 
+   const productCacheKey = `product:slug:${slug}`;
+
   try {
+    const cachedProduct = await redisClient.get(productCacheKey);
+    if (cachedProduct) {
+     
+      return res.status(200).json(JSON.parse(cachedProduct));
+    }
+
     const product = await productModel.findOne({ slug }).populate(
       "SubCategory",
 
@@ -107,6 +137,9 @@ async function handleGetProductBySlug(req, res) {
     if (!product) {
       return res.status(401).send("Product Not Found!!!");
     }
+
+    await redisClient.set(productCacheKey, JSON.stringify(product));
+    await redisClient.expire(productCacheKey, 300); // Cache expires in 5 minutes
     res.status(200).json(product);
   } catch (err) {
     res.status(500).json({
@@ -204,10 +237,10 @@ async function handlePostProduct(req, res) {
       basePrice,
       discountedPrice,
       quantity,
-      // store subcategory reference in SubCategory field of Product schema
       SubCategory: SubCategory,
       images: uploadedImages,
     });
+
 
     res.status(201).json(product);
   } catch (error) {
@@ -280,6 +313,10 @@ async function handlePutProduct(req, res) {
       { new: true }
     ).populate("SubCategory");
 
+     await redisClient.del(`product:${id}`);
+     await redisClient.del(`product:slug:${updatedProduct.slug}`);
+     await redisClient.del(`product:slug:${product.slug}`);
+
     res.status(200).json(updatedProduct);
   } catch (error) {
     console.error("Error in handlePutProduct:", error);
@@ -342,6 +379,9 @@ async function handleDeleteProduct(req, res) {
 
     // Delete product from database
     const deleted = await productModel.findByIdAndDelete(id);
+
+      await redisClient.del(`product:${id}`);
+      await redisClient.del(`product:slug:${product.slug}`);
 
     res.status(200).json({
       message: "Product deleted successfully!",
