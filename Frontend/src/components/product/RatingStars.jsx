@@ -14,7 +14,7 @@ function RatingStars({rating=3.5,reviews=120}) {
           ))}
         </div>
         <span className="ml-1 text-[11px] text-gray-600">
-          {rating.toFixed(1)} ({reviews})
+          {rating.toFixed(1)} ({reviews + 1 })
         </span>
       </div>
   )

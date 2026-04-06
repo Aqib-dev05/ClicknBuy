@@ -14,10 +14,9 @@
     "slug": "gaming-phones",
     "parent": "MOBILE_PHONES_ID"
   },
-
   {
-    "name": "Ultrabooks",
-    "slug": "ultrabooks",
+    "name": "Business Laptops",
+    "slug": "business-laptops",
     "parent": "LAPTOPS_ID"
   },
   {
@@ -26,11 +25,10 @@
     "parent": "LAPTOPS_ID"
   },
   {
-    "name": "Business Laptops",
-    "slug": "business-laptops",
+    "name": "MacBooks",
+    "slug": "macbooks",
     "parent": "LAPTOPS_ID"
   },
-
   {
     "name": "RAM",
     "slug": "ram",
@@ -52,27 +50,15 @@
     "parent": "COMPUTER_COMPONENTS_ID"
   },
   {
-    "name": "Motherboards",
-    "slug": "motherboards",
-    "parent": "COMPUTER_COMPONENTS_ID"
-  },
-
-  {
     "name": "Keyboards",
     "slug": "keyboards",
-    "parent": "COMPUTER_ACCESSORIES_ID"
+    "parent": "COMPUTER_COMPONENTS_ID"
   },
   {
     "name": "Mouse",
     "slug": "mouse",
-    "parent": "COMPUTER_ACCESSORIES_ID"
+    "parent": "COMPUTER_COMPONENTS_ID"
   },
-  {
-    "name": "Headsets",
-    "slug": "headsets",
-    "parent": "COMPUTER_ACCESSORIES_ID"
-  },
-
   {
     "name": "Chips",
     "slug": "chips",
@@ -88,7 +74,6 @@
     "slug": "chocolates",
     "parent": "SNACKS_ID"
   },
-
   {
     "name": "Milk",
     "slug": "milk",
@@ -109,7 +94,6 @@
     "slug": "cheese",
     "parent": "DAIRY_PRODUCTS_ID"
   },
-
   {
     "name": "Rice",
     "slug": "rice",
@@ -130,7 +114,6 @@
     "slug": "sugar",
     "parent": "GROCERY_ID"
   },
-
   {
     "name": "Soft Drinks",
     "slug": "soft-drinks",
@@ -151,7 +134,6 @@
     "slug": "coffee",
     "parent": "BEVERAGES_ID"
   },
-
   {
     "name": "Shampoo",
     "slug": "shampoo",
@@ -167,7 +149,6 @@
     "slug": "toothpaste",
     "parent": "PERSONAL_HEALTH_CARE_ID"
   },
-
   {
     "name": "Detergents",
     "slug": "detergents",
@@ -176,11 +157,6 @@
   {
     "name": "Dishwash",
     "slug": "dishwash",
-    "parent": "HOUSEHOLD_ITEMS_ID"
-  },
-  {
-    "name": "Cleaning Supplies",
-    "slug": "cleaning-supplies",
     "parent": "HOUSEHOLD_ITEMS_ID"
   }
 ]

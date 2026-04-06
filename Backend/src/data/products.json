@@ -1,506 +1,1210 @@
 [
-    {
-        "name": "Mango Jiuce",
-        "slug": "mango-jiuce",
-        "description": "Premium 100% natural mango juice, 1 liter. No added sugar or preservatives.",
-        "basePrice": 4.0,
-        "quantity": 60,
-        "SubCategory": "juices",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722562/jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul.webp",
-                "public_id": "jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722581/c681a6131199019.Y3JvcCw2MDAwLDQ2OTMsMCw2NTM_afxo6o.jpg",
-                "public_id": "c681a6131199019.Y3JvcCw2MDAwLDQ2OTMsMCw2NTM_afxo6o"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722573/fruit-cocktails-and-juices-AGBFHT_rxtd18.jpg",
-                "public_id": "fruit-cocktails-and-juices-AGBFHT_rxtd18"
-            }
-        ]
-    },
-    {
-        "name": "Nescafe Coffee",
-        "slug": "nescafe-coffee",
-        "description": "Rich and aromatic Nescafe coffee house blend. 100% natural coffee beans.",
-        "basePrice": 12.0,
-        "quantity": 260,
-        "SubCategory": "coffee",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722538/cloves-and-coffee-benefits-recipe_rlknyf.jpg",
-                "public_id": "cloves-and-coffee-benefits-recipe_rlknyf"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722547/Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt.jpg",
-                "public_id": "Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722530/171026-better-coffee-boost-se-329p_mvgtiu.jpg",
-                "public_id": "171026-better-coffee-boost-se-329p_mvgtiu"
-            }
-        ]
-    },
-    {
-        "name": "Greek Yogurt",
-        "slug": "greek-yogurt",
-        "description": "Authentic 100% natural Greek yogurt, 1 liter. High protein and thick texture.",
-        "basePrice": 5.0,
-        "quantity": 70,
-        "SubCategory": "yogurt",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722483/91215_jxkwbm.jpg",
-                "public_id": "91215_jxkwbm"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722500/250px-Turkish_strained_yogurt_xcrtgy.jpg",
-                "public_id": "250px-Turkish_strained_yogurt_xcrtgy"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722491/How-to-Make-Yogurt-7_tido0x.jpg",
-                "public_id": "How-to-Make-Yogurt-7_tido0x"
-            }
-        ]
-    },
-    {
-        "name": "Milk Pack",
-        "slug": "milk-pack",
-        "description": "Fresh dairy milk pack, 1 liter. Pasteurized and homogenized for premium quality.",
-        "basePrice": 3.0,
-        "quantity": 700,
-        "SubCategory": "milk",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722206/pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg.png",
-                "public_id": "pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722221/millk-bottle-farm-background-59785244_iu82nr.jpg",
-                "public_id": "millk-bottle-farm-background-59785244_iu82nr"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722213/avatars-000656046305-0p4aem-t240x240_hmljyh.jpg",
-                "public_id": "avatars-000656046305-0p4aem-t240x240_hmljyh"
-            }
-        ]
-    },
-    {
-        "name": "Cheese",
-        "slug": "cheese",
-        "description": "Premium 1kg block of fresh farmhouse cheese. Perfect for gourmet cooking.",
-        "basePrice": 15.0,
-        "quantity": 20,
-        "SubCategory": "cheese",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722168/Buitoni-44128831-20oz-FourCheese-Ravioli-Front-1-scaled_htcmgo.png",
-                "public_id": "Buitoni-44128831-20oz-FourCheese-Ravioli-Front-1-scaled_htcmgo"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722160/swiss_ir7ind.jpg",
-                "public_id": "swiss_ir7ind"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722152/sharp-cheddar-slices_1_i7olin.jpg",
-                "public_id": "sharp-cheddar-slices_1_i7olin"
-            }
-        ]
-    },
-    {
-        "name": "Cow Butter",
-        "slug": "cow-butter",
-        "description": "Pure cow butter, 1kg. Rich, creamy, and ideal for baking and daily use.",
-        "basePrice": 12.0,
-        "quantity": 20,
-        "SubCategory": "butter",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722117/Butter-2-sticks_saktpr.png",
-                "public_id": "Butter-2-sticks_saktpr"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722123/bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6.jpg",
-                "public_id": "bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722130/Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij.jpg",
-                "public_id": "Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij"
-            }
-        ]
-    },
-    {
-        "name": "White Suger",
-        "slug": "white-suger",
-        "description": "Pure white crystalline sugar, 1kg pack. Fine grain quality for all kitchen needs.",
-        "basePrice": 2.0,
-        "quantity": 200,
-        "SubCategory": "sugar",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721600/pngtree-pile-of-sugar-png-image_16070563_yvp97v.png",
-                "public_id": "pngtree-pile-of-sugar-png-image_16070563_yvp97v"
-            }
-        ]
-    },
-    {
-        "name": "Banaspati Rice",
-        "slug": "banaspati-rice",
-        "description": "Premium long-grain Banaspati rice, 1kg. Naturally aromatic and aged to perfection.",
-        "basePrice": 5.0,
-        "quantity": 600,
-        "SubCategory": "rice",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721565/68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37.jpg",
-                "public_id": "68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721560/Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv.png",
-                "public_id": "Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv"
-            }
-        ]
-    },
-    {
-        "name": "Wheat Flour",
-        "slug": "wheat-flour",
-        "description": "High-quality whole wheat flour, 1kg. Perfect for soft rotis and healthy baking.",
-        "basePrice": 4.0,
-        "quantity": 600,
-        "SubCategory": "flour",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721535/All-about-grain-flours-resized_gzluvh.jpg",
-                "public_id": "All-about-grain-flours-resized_gzluvh"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721539/L1040948_inm82z.jpg",
-                "public_id": "L1040948_inm82z"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721544/what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup.jpg",
-                "public_id": "what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721549/AdobeStock_442212782_b3wph0.jpg",
-                "public_id": "AdobeStock_442212782_b3wph0"
-            }
-        ]
-    },
-    {
-        "name": "iPhone 14 Pro Max",
-        "slug": "iphone-14-pro-max",
-        "description": "Apple iPhone 14 Pro Max. Pro camera system, Dynamic Island, and A16 Bionic chip.",
-        "basePrice": 1099.0,
-        "quantity": 10,
-        "SubCategory": "iphones",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721892/iphone-15-pro-max-render.png_l1fulc.png",
-                "public_id": "iphone-15-pro-max-render.png_l1fulc"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721884/intro-1712862962_vfj5bi.jpg",
-                "public_id": "intro-1712862962_vfj5bi"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721877/iphone-card-40-17-202509_FMT_WHH_a05exi.jpg",
-                "public_id": "iphone-card-40-17-202509_FMT_WHH_a05exi"
-            }
-        ]
-    },
-    {
-        "name": "Red Magic 8 Pro",
-        "slug": "red-magic-8-pro",
-        "description": "Red Magic 8 Pro Gaming Phone. Snapdragon 8 Gen 2 with advanced cooling system.",
-        "basePrice": 649.0,
-        "quantity": 14,
-        "SubCategory": "gaming-phones",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721838/A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa.jpg",
-                "public_id": "A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721828/hq720_cszbol.jpg",
-                "public_id": "hq720_cszbol"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721822/6g3gfqcFEciKX6xqKw2tuC_p2vj9n.jpg",
-                "public_id": "6g3gfqcFEciKX6xqKw2tuC_p2vj9n"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721851/RedMagic_E-sports_Tablet_Pro_1__do5qym.jpg",
-                "public_id": "RedMagic_E-sports_Tablet_Pro_1__do5qym"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721843/h732_nfeobo.png",
-                "public_id": "h732_nfeobo"
-            }
-        ]
-    },
-    {
-        "name": "Android Phone",
-        "slug": "android-phone",
-        "description": "High-performance Android smartphone. 8GB RAM, 128GB storage, and vibrant display.",
-        "basePrice": 249.0,
-        "quantity": 50,
-        "SubCategory": "android-phones",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721668/samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo.jpg",
-                "public_id": "samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721662/oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs.jpg",
-                "public_id": "oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs"
-            }
-        ]
-    },
-    {
-        "name": "Cooking Oil Fresh",
-        "slug": "cooking-oil-fresh",
-        "description": "Pure vegetable cooking oil. Low cholesterol and fortified with Vitamins A & D.",
-        "basePrice": 8.0,
-        "quantity": 50,
-        "SubCategory": "cooking-oil",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721507/mazola_2520corn_2520oil_2520pb_xxmyrx.jpg",
-                "public_id": "mazola_2520corn_2520oil_2520pb_xxmyrx"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721512/d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg.jpg",
-                "public_id": "d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg"
-            }
-        ]
-    },
-    {
-        "name": "Laptop Dell Inspiron ",
-        "slug": "laptop-dell-inspiron",
-        "description": "Dell Inspiron Business Laptop. Sleek design with powerful performance for professionals.",
-        "basePrice": 699.0,
-        "quantity": 5,
-        "SubCategory": "business-laptops",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721419/hero_IT-products-laptops-ultrapc_gd4xif.jpg",
-                "public_id": "hero_IT-products-laptops-ultrapc_gd4xif"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721413/71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv.jpg",
-                "public_id": "71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721409/81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4.jpg",
-                "public_id": "81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721403/61TGRBGTNzL_awgc0f.jpg",
-                "public_id": "61TGRBGTNzL_awgc0f"
-            }
-        ]
-    },
-    {
-        "name": "MacBook Air M3 ",
-        "slug": "macbook-air-m3",
-        "description": "Apple MacBook Air with M3 chip. Supercharged performance in an incredibly thin design.",
-        "basePrice": 1199.0,
-        "quantity": 5,
-        "SubCategory": "ultrabooks",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721372/Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj.jpg",
-                "public_id": "Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721375/im-49790107_q4gacw.jpg",
-                "public_id": "im-49790107_q4gacw"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721379/Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii.jpg",
-                "public_id": "Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721384/164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e.jpg",
-                "public_id": "164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721387/hero-image.fill.size_1248x702.v1742210013_ybxbwc.jpg",
-                "public_id": "hero-image.fill.size_1248x702.v1742210013_ybxbwc"
-            }
-        ]
-    },
-    {
-        "name": "Asus Legion 5 Pro ",
-        "slug": "asus-legion-5-pro",
-        "description": "ASUS Legion 5 Pro Gaming Laptop. High FPS gaming with RTX graphics and QHD screen.",
-        "basePrice": 1399.0,
-        "quantity": 7,
-        "SubCategory": "gaming-laptops",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721274/asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576_vzvxic.jpg",
-                "public_id": "asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576_vzvxic"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721277/5sfgkizamk_bpl7pq.webp",
-                "public_id": "5sfgkizamk_bpl7pq"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721272/08_Legion_Pro_7i_10_edjjbv.png",
-                "public_id": "08_Legion_Pro_7i_10_edjjbv"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721266/71sgAr9atBS_tpmgzl.jpg",
-                "public_id": "71sgAr9atBS_tpmgzl"
-            }
-        ]
-    },
-    {
-        "name": "Lays Chips",
-        "slug": "lays-chips",
-        "description": "Classic Lay's potato chips. Thin, crispy, and seasoned for the perfect snack.",
-        "basePrice": 1.0,
-        "quantity": 60000,
-        "SubCategory": "chips",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720990/a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0.jpg",
-                "public_id": "a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720988/PhotoRoom_007_20220605_110107_xw3c2x.png",
-                "public_id": "PhotoRoom_007_20220605_110107_xw3c2x"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720986/TAKISFUEGO92.3G_b13qfd.png",
-                "public_id": "TAKISFUEGO92.3G_b13qfd"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/bps-pharma-be-real-4u_tngj7d.jpg",
-                "public_id": "bps-pharma-be-real-4u_tngj7d"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx.jpg",
-                "public_id": "c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720976/663f340576c86_jquwfx.webp",
-                "public_id": "663f340576c86_jquwfx"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720926/chipsfuego-01_kwqbfu.png",
-                "public_id": "chipsfuego-01_kwqbfu"
-            }
-        ]
-    },
-    {
-        "name": "4U Chips",
-        "slug": "4u-chips",
-        "description": "4U Premium potato chips. Extra crunchy with a variety of bold, savory flavors.",
-        "basePrice": 1.0,
-        "quantity": 60000,
-        "SubCategory": "chips",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720923/Hi_Res-00028400759045_C1C1_ceptsg.jpg",
-                "public_id": "Hi_Res-00028400759045_C1C1_ceptsg"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720920/0002840070569_jtt19c.jpg",
-                "public_id": "0002840070569_jtt19c"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720918/0002840058929_snbvzb.jpg",
-                "public_id": "0002840058929_snbvzb"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720915/81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq.jpg",
-                "public_id": "81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720911/0002840000291_uwraxn.jpg",
-                "public_id": "0002840000291_uwraxn"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720909/lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4.jpg",
-                "public_id": "lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720906/0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs.jpg",
-                "public_id": "0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs"
-            }
-        ]
-    },
-    {
-        "name": "Colgate Toothpaste",
-        "slug": "colgate-toothpaste",
-        "description": "Colgate Total Advanced Health Toothpaste. Provides 12-hour germ protection.",
-        "basePrice": 3.0,
-        "quantity": 70,
-        "SubCategory": "toothpaste",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721229/hlt-toms-of-maine-whole-care-natural-toothpaste-with-fluoride-jaimie-hesterberg-2-588bf9d1a0eb45d3b47f4e0520aae2e4_bg8hyy.jpg",
-                "public_id": "hlt-toms-of-maine-whole-care-natural-toothpaste-with-fluoride-jaimie-hesterberg-2-588bf9d1a0eb45d3b47f4e0520aae2e4_bg8hyy"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721225/toothpaste__1523627538_33881-300x225_wgjdqw.jpg",
-                "public_id": "toothpaste__1523627538_33881-300x225_wgjdqw"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721222/ioeCHM2UGXoPRwPyEuPx4_sbifec.png",
-                "public_id": "ioeCHM2UGXoPRwPyEuPx4_sbifec"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721218/shp-update-best-whitening-toothpastes-tout-2652019cc4a24f21972dfd77b8ce7047_zuhxap.jpg",
-                "public_id": "shp-update-best-whitening-toothpastes-tout-2652019cc4a24f21972dfd77b8ce7047_zuhxap"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721213/80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_zy9qqo.webp",
-                "public_id": "80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_zy9qqo"
-            }
-        ]
-    },
-    {
-        "name": "Hair Shampoo Men",
-        "slug": "hair-shampoo-men",
-        "description": "Men's revitalizing hair shampoo. Deep cleanses and strengthens hair from root to tip.",
-        "basePrice": 5.0,
-        "quantity": 70,
-        "SubCategory": "shampoo",
-        "images": [
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721161/shutterstock_243233965_auluql.jpg",
-                "public_id": "shutterstock_243233965_auluql"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721157/Hair_dye_hero_odr3ez.jpg",
-                "public_id": "Hair_dye_hero_odr3ez"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721154/shampoo.2_tqycyc.jpg",
-                "public_id": "shampoo.2_tqycyc"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721151/0004126000715_kgngqs.jpg",
-                "public_id": "0004126000715_kgngqs"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721148/Meclay_London_Smooth_Straight_Shampoo_660ML_dnhz0l.jpg",
-                "public_id": "Meclay_London_Smooth_Straight_Shampoo_660ML_dnhz0l"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721144/PZYQHYRFFWY7NXK5UYPPY4BL_sijoe4.png",
-                "public_id": "PZYQHYRFFWY7NXK5UYPPY4BL_sijoe4"
-            },
-            {
-                "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721141/OGX-Nourishing-Coconut-Milk-Moisturizing-Hair-Shampoo-Conditioner-Set-13-fl-oz_d55bf602-8070-4802-aa23-636e9be1736b.59bdf70181a184be2fcbdd3785f0fb14_wbfzuu.jpg",
-                "public_id": "OGX-Nourishing-Coconut-Milk-Moisturizing-Hair-Shampoo-Conditioner-Set-13-fl-oz_d55bf602-8070-4802-aa23-636e9be1736b.59bdf70181a184be2fcbdd3785f0fb14_wbfzuu"
-            }
-        ]
-    }
+  {
+    "name": "Samsung Galaxy A22 5G",
+    "slug": "samsung-galaxy-a22-5g",
+    "description": "Blazing-fast 5G connectivity, Snapdragon processor, 6.6\" FHD+ display, 5000mAh battery, and 48MP quad camera. Sleek design built for performance at an unbeatable price.",
+    "basePrice": 299.99,
+    "quantity": 80,
+    "SubCategory": "android-phones",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721668/samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo.jpg",
+        "public_id": "samsung-galaxy-a22-5g-with-8gb-ram-128gb-storage-mobile-phones-471_jioaoo"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721662/oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs.jpg",
+        "public_id": "oppo-g-samsung-hand-placing-two-brand-new-android-smartphone-boxes-mobile-device-packages-closeup-panning-shot-nobody-white-235852334_jtzljs"
+      }
+    ]
+  },
+  {
+    "name": "IPhone 15 Pro Max",
+    "slug": "iphone-15-pro-max",
+    "description": "Powered by A17 Pro chip, titanium frame, 48MP ProCamera system with 5x optical zoom, Action Button, and all-day battery — the most powerful iPhone ever made.",
+    "basePrice": 1199.99,
+    "quantity": 50,
+    "SubCategory": "iphones",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721892/iphone-15-pro-max-render.png_l1fulc.png",
+        "public_id": "iphone-15-pro-max-render.png_l1fulc"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721884/intro-1712862962_vfj5bi.jpg",
+        "public_id": "intro-1712862962_vfj5bi"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721877/iphone-card-40-17-202509_FMT_WHH_a05exi.jpg",
+        "public_id": "iphone-card-40-17-202509_FMT_WHH_a05exi"
+      }
+    ]
+  },
+  {
+    "name": "Red Magic Pro",
+    "slug": "red-magic-pro",
+    "description": "Snapdragon 8 Gen 3, 6.8\" AMOLED 165Hz display, built-in cooling fan, 6500mAh battery, and customizable shoulder triggers — engineered purely for mobile gaming dominance.",
+    "basePrice": 699.99,
+    "quantity": 45,
+    "SubCategory": "gaming-phones",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721851/RedMagic_E-sports_Tablet_Pro_1__do5qym.jpg",
+        "public_id": "RedMagic_E-sports_Tablet_Pro_1__do5qym"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721843/h732_nfeobo.png",
+        "public_id": "h732_nfeobo"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721838/A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa.jpg",
+        "public_id": "A74F4D6B-F170-45DA-8CD6-1C4941D71596_u9lisa"
+      }
+    ]
+  },
+  {
+    "name": "ASUS ROG Phone",
+    "slug": "asus-rog-phone",
+    "description": "Ultra-responsive 144Hz display, AirTrigger haptic controls, 65W fast charging, and Aero Active Cooler compatibility — the ultimate gaming smartphone for competitive players.",
+    "basePrice": 749.99,
+    "quantity": 35,
+    "SubCategory": "gaming-phones",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721828/hq720_cszbol.jpg",
+        "public_id": "hq720_cszbol"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721822/6g3gfqcFEciKX6xqKw2tuC_p2vj9n.jpg",
+        "public_id": "6g3gfqcFEciKX6xqKw2tuC_p2vj9n"
+      }
+    ]
+  },
+  {
+    "name": "Lenovo Legion Pro 7i",
+    "slug": "lenovo-legion-pro-7i",
+    "description": "Intel Core i9 13th Gen, RTX 4070 GPU, 32GB DDR5, 1TB NVMe SSD, 16\" QHD 240Hz Mini-LED display — Lenovo's flagship for uncompromising gaming performance.",
+    "basePrice": 1799.99,
+    "quantity": 28,
+    "SubCategory": "gaming-laptops",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455345/71sgAr9atBS_truwda.jpg",
+        "public_id": "71sgAr9atBS_truwda"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455339/uCZ8c4rptHRENAVpNwyc2P_czzjxq.jpg",
+        "public_id": "uCZ8c4rptHRENAVpNwyc2P_czzjxq"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455336/best-gaming-laptops-20242028-medium_hztxcy.jpg",
+        "public_id": "best-gaming-laptops-20242028-medium_hztxcy"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455333/08_Legion_Pro_7i_10_nt889g.png",
+        "public_id": "08_Legion_Pro_7i_10_nt889g"
+      }
+    ]
+  },
+  {
+    "name": "Dell Latitude 5540",
+    "slug": "dell-latitude-5540",
+    "description": "Intel Core i7, 16GB RAM, 512GB SSD, 15.6\" FHD display with MIL-STD-810H durability, fingerprint reader, and enterprise-grade security for professionals on the move.",
+    "basePrice": 999.99,
+    "quantity": 40,
+    "SubCategory": "business-laptops",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721419/hero_IT-products-laptops-ultrapc_gd4xif.jpg",
+        "public_id": "hero_IT-products-laptops-ultrapc_gd4xif"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721413/71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv.jpg",
+        "public_id": "71qw3LgiZoL._AC_UF894_1000_QL80__bwqlsv"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721409/81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4.jpg",
+        "public_id": "81qXqmF4XWL._AC_UF894_1000_QL80__dwhaz4"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721403/61TGRBGTNzL_awgc0f.jpg",
+        "public_id": "61TGRBGTNzL_awgc0f"
+      }
+    ]
+  },
+  {
+    "name": "Apple MacBook M1",
+    "slug": "apple-macbook-air-m1",
+    "description": "Apple M1 chip with 8-core CPU and GPU, 8GB unified memory, 256GB SSD, Retina display, up to 18 hours battery — the world's best thin-and-light laptop.",
+    "basePrice": 1099.99,
+    "quantity": 35,
+    "SubCategory": "macbooks",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721387/hero-image.fill.size_1248x702.v1742210013_ybxbwc.jpg",
+        "public_id": "hero-image.fill.size_1248x702.v1742210013_ybxbwc"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721384/164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e.jpg",
+        "public_id": "164091-laptops-news-apple-s-macbook-air-could-be-getting-bigger-in-2023-image1-4ckrvmv5j7_jp2p1e"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721379/Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii.jpg",
+        "public_id": "Apple-MacBook-Air-13-3-inch-Laptop-Silver-M1-Chip-Built-for-Apple-Intelligence-8GB-RAM-256GB-storage_47ef93ce-800f-454c-b163-f2ed5a1496a2.ca6b031502c0aa2bf3b1a3824a3a586b_xru9ii"
+      }
+    ]
+  },
+  {
+    "name": "Apple MacBook Air M2",
+    "slug": "apple-macbook-air-m2",
+    "description": "M2 chip delivers 18% faster CPU performance, 10-core GPU, 15.3\" Liquid Retina display, MagSafe charging, and fanless silent design in a beautifully thin aluminum body.",
+    "basePrice": 1299.99,
+    "quantity": 30,
+    "SubCategory": "macbooks",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721375/im-49790107_q4gacw.jpg",
+        "public_id": "im-49790107_q4gacw"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721372/Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj.jpg",
+        "public_id": "Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large_ojd8hj"
+      }
+    ]
+  },
+  {
+    "name": "Kingston 16GB DDR4 3200MHz RAM",
+    "slug": "kingston-16gb-ddr4-3200mhz-ram",
+    "description": "High-performance DDR4 SDRAM module at 3200MHz, plug-and-play compatibility with Intel and AMD platforms, CL22 latency, and lifetime warranty for reliable everyday computing.",
+    "basePrice": 44.99,
+    "quantity": 120,
+    "SubCategory": "ram",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455160/62274349f8fa2931e9e10736048067b9_zlouju.png",
+        "public_id": "62274349f8fa2931e9e10736048067b9_zlouju"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455154/ram-2-1655868000270_pnccat.jpg",
+        "public_id": "ram-2-1655868000270_pnccat"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455145/sup77hdxada4_jhwnhc.jpg",
+        "public_id": "sup77hdxada4_jhwnhc"
+      }
+    ]
+  },
+  {
+    "name": "ADATA XPG 32GB DDR4 Gaming RAM Kit",
+    "slug": "adata-xpg-32gb-ddr4-gaming-ram-kit",
+    "description": "XPG spectral RGB DDR4 dual-channel kit, 3600MHz overclocking support, heat spreader design, XMP 2.0 profile, and stunning lighting — maximize your gaming rig's potential.",
+    "basePrice": 89.99,
+    "quantity": 80,
+    "SubCategory": "ram",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455140/s-l1200_hubdtc.jpg",
+        "public_id": "s-l1200_hubdtc"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455134/20-236-879-03_niyhgz.webp",
+        "public_id": "20-236-879-03_niyhgz"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455129/xpg-ram_hmfkcz.webp",
+        "public_id": "xpg-ram_hmfkcz"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455124/How_to_Check_How_Much_RAM_You_Have-Hero.jpg_zpzwiu.jpg",
+        "public_id": "How_to_Check_How_Much_RAM_You_Have-Hero.jpg_zpzwiu"
+      }
+    ]
+  },
+  {
+    "name": "Samsung 980 NVMe SSD 1TB",
+    "slug": "samsung-980-nvme-ssd-1tb",
+    "description": "PCIe 3.0 NVMe M.2 SSD, sequential reads up to 3500MB/s, optimized heat control, and Samsung's Intelligent TurboWrite — perfect for gaming, editing, and system drives.",
+    "basePrice": 79.99,
+    "quantity": 90,
+    "SubCategory": "ssd",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455206/SATA-V-Series_ho08sd.jpg",
+        "public_id": "SATA-V-Series_ho08sd"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455201/MZ-V8V1T0BW_001_Front_Black_vf8svc.jpg",
+        "public_id": "MZ-V8V1T0BW_001_Front_Black_vf8svc"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455195/wd-red-sa500-nas-sata-ssd-500GB-left.png.thumb.1280.1280_xg7y6r.png",
+        "public_id": "wd-red-sa500-nas-sata-ssd-500GB-left.png.thumb.1280.1280_xg7y6r"
+      }
+    ]
+  },
+  {
+    "name": "SanDisk Portable Solid State Drive 500GB",
+    "slug": "sandisk-portable-solid-state-drive-500gb",
+    "description": "Compact USB-C portable SSD with 520MB/s read speed, up to 2m drop protection, and pocket-friendly design — fast, durable storage for smartphones and laptops on the go.",
+    "basePrice": 59.99,
+    "quantity": 70,
+    "SubCategory": "ssd",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455190/sandisk-creator-portable-phone-ssd-front.png.thumb.1280.1280_heztbz.png",
+        "public_id": "sandisk-creator-portable-phone-ssd-front.png.thumb.1280.1280_heztbz"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455184/product-9550-e1s-left-white_3A3-2-all-others_cpyeqb.jpg",
+        "public_id": "product-9550-e1s-left-white_3A3-2-all-others_cpyeqb"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455177/product-2600-80mm-right-white_vzavjm.jpg",
+        "public_id": "product-2600-80mm-right-white_vzavjm"
+      }
+    ]
+  },
+  {
+    "name": "WD Black SN770M NVMe SSD 1TB",
+    "slug": "wd-black-sn770m-nvme-ssd-1tb",
+    "description": "WD Black PCIe Gen4 M.2 SSD delivering 5150MB/s sequential reads, optimized for handheld gaming consoles and laptops, with 5-year limited warranty for long-term reliability.",
+    "basePrice": 94.99,
+    "quantity": 60,
+    "SubCategory": "ssd",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455172/wd-black-sn770m-nvme-ssd-left.png.thumb.1280.1280_pjzjql.png",
+        "public_id": "wd-black-sn770m-nvme-ssd-left.png.thumb.1280.1280_pjzjql"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455166/1280px-2023_Dysk_SSD_Patriot_P210_2TB_o2vq2t.jpg",
+        "public_id": "1280px-2023_Dysk_SSD_Patriot_P210_2TB_o2vq2t"
+      }
+    ]
+  },
+  {
+    "name": "Seagate BarraCuda 3.5-inch Internal HDD 500GB",
+    "slug": "seagate-barracuda-3-5-inch-internal-hdd-500gb",
+    "description": "Reliable 7200RPM SATA III hard drive, 32MB cache, 500GB storage capacity, whisper-quiet operation — an ideal upgrade for desktop PCs and gaming console storage expansion.",
+    "basePrice": 39.99,
+    "quantity": 65,
+    "SubCategory": "hdd",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455001/960px-ST3400820AS_jw2fae.jpg",
+        "public_id": "960px-ST3400820AS_jw2fae"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454996/adding-a-hard-disk-1-1_aiaff4.jpg",
+        "public_id": "adding-a-hard-disk-1-1_aiaff4"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454991/1280px-Hatachi_500_GB_hard_drive_2C_2011_zgult5.jpg",
+        "public_id": "1280px-Hatachi_500_GB_hard_drive_2C_2011_zgult5"
+      }
+    ]
+  },
+  {
+    "name": "MSI GeForce RTX 4060 Ventus 2X OC 8GB",
+    "slug": "msi-geforce-rtx-4060-ventus-2x-oc-8gb",
+    "description": "NVIDIA Ada Lovelace architecture, DLSS 3, 8GB GDDR6, dual TORX 3.0 fans, and factory overclock — delivers smooth 1080p and 1440p gaming at exceptional value.",
+    "basePrice": 329.99,
+    "quantity": 42,
+    "SubCategory": "graphics-cards",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454975/0064875_msi-geforce-rtx-4060-ventus-2x-black-8g-oc-graphics-card_500_dwcxqi.png",
+        "public_id": "0064875_msi-geforce-rtx-4060-ventus-2x-black-8g-oc-graphics-card_500_dwcxqi"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454971/1755223625244_uebkee.webp",
+        "public_id": "1755223625244_uebkee"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454966/6114eJ0KO0L_afbjjm.jpg",
+        "public_id": "6114eJ0KO0L_afbjjm"
+      }
+    ]
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4070",
+    "slug": "nvidia-geforce-rtx-4070",
+    "description": "12GB GDDR6X VRAM, third-gen RT cores, DLSS 3 Frame Generation, AV1 encode, and 5888 CUDA cores — stunning 4K gaming performance in a power-efficient Ada Lovelace package.",
+    "basePrice": 599.99,
+    "quantity": 28,
+    "SubCategory": "graphics-cards",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454961/71WSd4clFZL._AC_UF894_1000_QL80__ilhyix.jpg",
+        "public_id": "71WSd4clFZL._AC_UF894_1000_QL80__ilhyix"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454955/812BZZHeKTL_xighfq.jpg",
+        "public_id": "812BZZHeKTL_xighfq"
+      }
+    ]
+  },
+  {
+    "name": "RGB Mechanical Gaming Keyboard",
+    "slug": "rgb-mechanical-gaming-keyboard",
+    "description": "Tactile Cherry MX switches, per-key RGB backlighting, 100% anti-ghosting with N-key rollover, aircraft-grade aluminum frame, and removable USB-C cable — built for gamers.",
+    "basePrice": 79.99,
+    "quantity": 95,
+    "SubCategory": "keyboards",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455060/1_x062NMSyLbDRrmgtNWl8dA_thusp4.png",
+        "public_id": "1_x062NMSyLbDRrmgtNWl8dA_thusp4"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455056/6-pro-top-view_cunzoj.jpg",
+        "public_id": "6-pro-top-view_cunzoj"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455051/lightgreen-pineprofessional_kdqahg.png",
+        "public_id": "lightgreen-pineprofessional_kdqahg"
+      }
+    ]
+  },
+  {
+    "name": "Logitech K980 Slim Solar Wireless Keyboard",
+    "slug": "logitech-k980-slim-solar-wireless-keyboard",
+    "description": "Charges from any light source, 2-year battery life in darkness, Bluetooth & USB receiver dual mode, whisper-quiet keys, and full-size layout for comfortable daily productivity.",
+    "basePrice": 119.99,
+    "quantity": 55,
+    "SubCategory": "keyboards",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455046/signature-slim-solar-plus-wireless-keyboard-k980-graphite-top-view-1_mnfdch.png",
+        "public_id": "signature-slim-solar-plus-wireless-keyboard-k980-graphite-top-view-1_mnfdch"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455040/71zMsBPu3qL_igskhg.jpg",
+        "public_id": "71zMsBPu3qL_igskhg"
+      }
+    ]
+  },
+  {
+    "name": "Microsoft Wireless Ergonomic Mouse",
+    "slug": "microsoft-wireless-ergonomic-mouse",
+    "description": "Precision BlueTrack sensor works on any surface, 12-month battery life, contoured comfort grip, and 2.4GHz wireless with nano receiver — dependable for all-day productivity.",
+    "basePrice": 29.99,
+    "quantity": 130,
+    "SubCategory": "mouse",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455105/51UxpYCwMkL._AC_UF894_1000_QL80__o74lre.jpg",
+        "public_id": "51UxpYCwMkL._AC_UF894_1000_QL80__o74lre"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455100/518681_30975_L2_v27ojj.jpg",
+        "public_id": "518681_30975_L2_v27ojj"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455095/330px-Microsoft-wireless-mouse_j91nv6.jpg",
+        "public_id": "330px-Microsoft-wireless-mouse_j91nv6"
+      }
+    ]
+  },
+  {
+    "name": "Logitech G502 Hero Gaming Mouse",
+    "slug": "logitech-g502-hero-gaming-mouse",
+    "description": "HERO 25K sensor, 25,600 DPI, 11 programmable buttons, adjustable weight system, and LIGHTSYNC RGB lighting — precision-tuned for competitive FPS and MMO gaming.",
+    "basePrice": 59.99,
+    "quantity": 90,
+    "SubCategory": "mouse",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455090/61oBEHNRtnL._AC_UF894_1000_QL80__htazmp.jpg",
+        "public_id": "61oBEHNRtnL._AC_UF894_1000_QL80__htazmp"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455085/3-Tasten-Maus_Microsoft_so4eif.jpg",
+        "public_id": "3-Tasten-Maus_Microsoft_so4eif"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455079/250px-A_computer_mouse_2C_black_and_white_2C_retouched_2C_keyboard_visible_in_background_itk3rq.jpg",
+        "public_id": "250px-A_computer_mouse_2C_black_and_white_2C_retouched_2C_keyboard_visible_in_background_itk3rq"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455074/61elBjOv_OL._AC_UF894_1000_QL80__rhryn7.jpg",
+        "public_id": "61elBjOv_OL._AC_UF894_1000_QL80__rhryn7"
+      }
+    ]
+  },
+  {
+    "name": "Takis Fuego Hot Chili Pepper & Lime Chips",
+    "slug": "takis-fuego-hot-chili-pepper-lime-chips",
+    "description": "Intensely rolled tortilla chips dusted with fiery chili pepper and zesty lime seasoning. Crunchy, bold, and addictively spicy — the fan-favourite snack for extreme heat lovers.",
+    "basePrice": 2.99,
+    "quantity": 350,
+    "SubCategory": "chips",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720990/a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0.jpg",
+        "public_id": "a8925b_10678f42ec13427da36fe0b1d5197c8f_w1f0z0"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720988/PhotoRoom_007_20220605_110107_xw3c2x.png",
+        "public_id": "PhotoRoom_007_20220605_110107_xw3c2x"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720986/TAKISFUEGO92.3G_b13qfd.png",
+        "public_id": "TAKISFUEGO92.3G_b13qfd"
+      }
+    ]
+  },
+  {
+    "name": "Be Real Assorted Flavour Chips",
+    "slug": "be-real-assorted-flavour-chips",
+    "description": "Crispy potato chips in a bold assorted pack featuring BBQ, cheese, and sour cream flavours. Made with quality ingredients for a satisfying snack at any time of day.",
+    "basePrice": 2.49,
+    "quantity": 280,
+    "SubCategory": "chips",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/bps-pharma-be-real-4u_tngj7d.jpg",
+        "public_id": "bps-pharma-be-real-4u_tngj7d"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720982/c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx.jpg",
+        "public_id": "c7e668d3a316fc3acb6ac86b63aea16a_pnjdwx"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720976/663f340576c86_jquwfx.webp",
+        "public_id": "663f340576c86_jquwfx"
+      }
+    ]
+  },
+  {
+    "name": "Lay's Classic Chips",
+    "slug": "lay-s-classic-chips",
+    "description": "Thinly sliced, perfectly seasoned, and delightfully crunchy — Lay's Classic is the world's favourite potato chip. Light, airy, and impossible to put down.",
+    "basePrice": 1.99,
+    "quantity": 500,
+    "SubCategory": "chips",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720926/chipsfuego-01_kwqbfu.png",
+        "public_id": "chipsfuego-01_kwqbfu"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720923/Hi_Res-00028400759045_C1C1_ceptsg.jpg",
+        "public_id": "Hi_Res-00028400759045_C1C1_ceptsg"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720920/0002840070569_jtt19c.jpg",
+        "public_id": "0002840070569_jtt19c"
+      }
+    ]
+  },
+  {
+    "name": "Lay's Baked Potato Crisps",
+    "slug": "lay-s-baked-potato-crisps",
+    "description": "All the satisfying crunch with 65% less fat than regular chips. Lay's Baked delivers real potato taste in a guilt-free snack perfect for lunch boxes and movie nights.",
+    "basePrice": 2.29,
+    "quantity": 420,
+    "SubCategory": "chips",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720918/0002840058929_snbvzb.jpg",
+        "public_id": "0002840058929_snbvzb"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720915/81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq.jpg",
+        "public_id": "81Ui6bB1nJL._AC_UF894_1000_QL80__iob5gq"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720911/0002840000291_uwraxn.jpg",
+        "public_id": "0002840000291_uwraxn"
+      }
+    ]
+  },
+  {
+    "name": "Red Hot Potato Chips",
+    "slug": "red-hot-potato-chips",
+    "description": "Fiery red hot seasoning meets perfectly crispy potato chips — UTZ Red Hot delivers bold heat with every crunchy bite. A spicy American classic loved by heat-seekers.",
+    "basePrice": 1.79,
+    "quantity": 300,
+    "SubCategory": "chips",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720909/lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4.jpg",
+        "public_id": "lay-s-chile-limon-potato-chips-32-g-quick-pantry_w20ku4"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772720906/0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs.jpg",
+        "public_id": "0-41780-19029-1_UTZ_2.75oz_Red_Hot_Chips_Bag_front_1_g6wncs"
+      }
+    ]
+  },
+  {
+    "name": "Bakeri Coconut Biscuits",
+    "slug": "bakeri-coconut-biscuits",
+    "description": "Crisp and golden Bakeri biscuits in classic and toasted coconut varieties. Baked with quality ingredients for a light, crumbly texture that pairs perfectly with tea or coffee.",
+    "basePrice": 1.99,
+    "quantity": 220,
+    "SubCategory": "biscuits",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455877/GUEST_3c07f877-f0b8-4854-ae53-ae26ebb2711c_umxdfs.jpg",
+        "public_id": "GUEST_3c07f877-f0b8-4854-ae53-ae26ebb2711c_umxdfs"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455868/bakeri-coconut-biscuits-66g-lu-baazwsh-131260_ugbxad.jpg",
+        "public_id": "bakeri-coconut-biscuits-66g-lu-baazwsh-131260_ugbxad"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455860/bakeri-classic-biscuits-95g-lu-baazwsh-474907_wubhni.jpg",
+        "public_id": "bakeri-classic-biscuits-95g-lu-baazwsh-474907_wubhni"
+      }
+    ]
+  },
+  {
+    "name": "Original Lemon Sandwich Biscuits",
+    "slug": "original-lemon-sandwich-biscuits",
+    "description": "Two buttery biscuit layers filled with smooth, tangy lemon cream — EBM's iconic lemon sandwich is a household favourite in a generous family-size 432g pack.",
+    "basePrice": 2.49,
+    "quantity": 180,
+    "SubCategory": "biscuits",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455853/EBMorginalLemonSandwich432gfront_kqi03z.jpg",
+        "public_id": "EBMorginalLemonSandwich432gfront_kqi03z"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455844/61bRzY--HTL_hboyst.jpg",
+        "public_id": "61bRzY--HTL_hboyst"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455836/102010806-ECOM_qnz4dj.jpg",
+        "public_id": "102010806-ECOM_qnz4dj"
+      }
+    ]
+  },
+  {
+    "name": "Premium Assorted Chocolate Gift Box",
+    "slug": "premium-assorted-chocolate-gift-box",
+    "description": "A curated selection of dark, milk, and exotic chocolates with velvety ganache, crispy pralines, and fruity centres — the perfect indulgent gift for any chocolate lover.",
+    "basePrice": 12.99,
+    "quantity": 130,
+    "SubCategory": "chocolates",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455985/815clZ-mGtL._SL1500__pwvysm.jpg",
+        "public_id": "815clZ-mGtL._SL1500__pwvysm"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455976/Baklava30.1.25-309_pgi6ws.jpg",
+        "public_id": "Baklava30.1.25-309_pgi6ws"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455967/81EdRpucfuL._AC_UF894_1000_QL80__gx60ag.jpg",
+        "public_id": "81EdRpucfuL._AC_UF894_1000_QL80__gx60ag"
+      }
+    ]
+  },
+  {
+    "name": "KitKat Matcha & Milk Chocolate Bar Collection",
+    "slug": "kitkat-matcha-milk-chocolate-bar-collection",
+    "description": "Crisp wafer fingers coated in smooth milk chocolate and rare Japanese matcha white chocolate. Snap into a moment of pure delight with KitKat's iconic bar collection.",
+    "basePrice": 6.99,
+    "quantity": 200,
+    "SubCategory": "chocolates",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455959/il_570xN.6327282188_42lh_ncy2ft.jpg",
+        "public_id": "il_570xN.6327282188_42lh_ncy2ft"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455949/KitKat_Japan_Itoen_Matcha_Chocolate_vdmlvv.jpg",
+        "public_id": "KitKat_Japan_Itoen_Matcha_Chocolate_vdmlvv"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455941/KitKat_202_20Finger_20Milk_20Chocolate_20Bar.png_qgcydw.webp",
+        "public_id": "KitKat_202_20Finger_20Milk_20Chocolate_20Bar.png_qgcydw"
+      }
+    ]
+  },
+  {
+    "name": "Hershey's Milk Chocolate Bar",
+    "slug": "hershey-s-milk-chocolate-bar",
+    "description": "America's most beloved chocolate since 1900 — rich, creamy Hershey's milk chocolate with that unmistakably smooth taste. Perfect for snacking, baking, and sharing.",
+    "basePrice": 3.49,
+    "quantity": 400,
+    "SubCategory": "chocolates",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455932/GUEST_236d7bbd-4e6d-4349-b5cf-a2826bfe6995_yosu0t.jpg",
+        "public_id": "GUEST_236d7bbd-4e6d-4349-b5cf-a2826bfe6995_yosu0t"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455924/0_34000_22970_3_701_22970_000_Item_Front_t52zsj.webp",
+        "public_id": "0_34000_22970_3_701_22970_000_Item_Front_t52zsj"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455915/IMG-9579_akuodo.png",
+        "public_id": "IMG-9579_akuodo"
+      }
+    ]
+  },
+  {
+    "name": "Cadbury Dairy Milk Fruit & Nut 3.5oz",
+    "slug": "cadbury-dairy-milk-fruit-nut-3-5oz",
+    "description": "Velvety Cadbury Dairy Milk chocolate studded with plump raisins and crunchy whole almonds. A timeless British classic delivering the perfect balance of sweet and nutty.",
+    "basePrice": 4.99,
+    "quantity": 280,
+    "SubCategory": "chocolates",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455907/5c23692a97d16d83d47a39d170e28138_1710679_w4sh23.jpg",
+        "public_id": "5c23692a97d16d83d47a39d170e28138_1710679_w4sh23"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455898/71tIX0VDMeL._AC_UF894_1000_QL80__kjwrd5.jpg",
+        "public_id": "71tIX0VDMeL._AC_UF894_1000_QL80__kjwrd5"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455889/Cadbury-Dairy-Milk-Fruit-Nut-Milk-Chocolate-Candy-Bar-3-5-oz_1287eb4c-bb47-45b9-9271-b60d8e298a4b.564662144a34643e79a29cf127a1e98c_i6pzr3.jpg",
+        "public_id": "Cadbury-Dairy-Milk-Fruit-Nut-Milk-Chocolate-Candy-Bar-3-5-oz_1287eb4c-bb47-45b9-9271-b60d8e298a4b.564662144a34643e79a29cf127a1e98c_i6pzr3"
+      }
+    ]
+  },
+  {
+    "name": "Farm Fresh Full Cream Milk 1 Litre",
+    "slug": "farm-fresh-full-cream-milk-1-litre",
+    "description": "Pasteurized whole milk sourced from free-range grass-fed cows — rich in calcium, vitamin D, and natural protein. Creamy, fresh taste for drinking, cooking, and baking.",
+    "basePrice": 1.79,
+    "quantity": 700,
+    "SubCategory": "milk",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722221/millk-bottle-farm-background-59785244_iu82nr.jpg",
+        "public_id": "millk-bottle-farm-background-59785244_iu82nr"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722213/avatars-000656046305-0p4aem-t240x240_hmljyh.jpg",
+        "public_id": "avatars-000656046305-0p4aem-t240x240_hmljyh"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722206/pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg.png",
+        "public_id": "pngtree-milk-carton-box-with-glass-clipart-png-image_4504931_q95jqg"
+      }
+    ]
+  },
+  {
+    "name": "Great Value Plain Nonfat Yogurt 32oz",
+    "slug": "great-value-plain-nonfat-yogurt-32oz",
+    "description": "Smooth, tangy nonfat yogurt with live active cultures, zero added sugar, and high-quality protein. Versatile for breakfast parfaits, dips, smoothies, or healthy snacking.",
+    "basePrice": 2.99,
+    "quantity": 350,
+    "SubCategory": "yogurt",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455291/960038585-C1N1_fmqxcf.jpg",
+        "public_id": "960038585-C1N1_fmqxcf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455283/Great-Value-Plain-Nonfat-Yogurt-32-oz_015c769e-4219-4d88-9dda-ffbe573773d1.86e510646bda68ba8db6c9f6aeb187db_l1l3bj.jpg",
+        "public_id": "Great-Value-Plain-Nonfat-Yogurt-32-oz_015c769e-4219-4d88-9dda-ffbe573773d1.86e510646bda68ba8db6c9f6aeb187db_l1l3bj"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455277/Product_Details_2-1-1024x852_droj65.jpg",
+        "public_id": "Product_Details_2-1-1024x852_droj65"
+      }
+    ]
+  },
+  {
+    "name": "Dannon Oikos Pro Vanilla Protein Yogurt",
+    "slug": "dannon-oikos-pro-vanilla-protein-yogurt",
+    "description": "20g of protein per serving, creamy vanilla flavour, live active cultures, and zero artificial sweeteners — Oikos Pro is the smart Greek yogurt for active, health-focused lifestyles.",
+    "basePrice": 3.49,
+    "quantity": 300,
+    "SubCategory": "yogurt",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455272/dannon-plain-non-fat-yogurt-32oz_qu5yq1.png",
+        "public_id": "dannon-plain-non-fat-yogurt-32oz_qu5yq1"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455265/Oikos-Pro-20g-Protein-Vanilla-Yogurt-Cultured-Dairy-Product-5-3-oz_bd41893d-bdb5-457e-b424-616a391bffee.27a9154999c4d298061638e63d4294e5_hcwinv.jpg",
+        "public_id": "Oikos-Pro-20g-Protein-Vanilla-Yogurt-Cultured-Dairy-Product-5-3-oz_bd41893d-bdb5-457e-b424-616a391bffee.27a9154999c4d298061638e63d4294e5_hcwinv"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455256/tnZOe-EkTT6CahzEsEH4dA_gmi_hi_res_jpeg_tbc4ja.jpg",
+        "public_id": "tnZOe-EkTT6CahzEsEH4dA_gmi_hi_res_jpeg_tbc4ja"
+      }
+    ]
+  },
+  {
+    "name": "Anchor Pure Unsalted Butter Sticks 250g",
+    "slug": "anchor-pure-unsalted-butter-sticks-250g",
+    "description": "Churned from 100% fresh cream, Anchor unsalted butter delivers a rich, clean flavour with a smooth, velvety texture — the trusted choice for baking, pastry, and everyday cooking.",
+    "basePrice": 3.99,
+    "quantity": 380,
+    "SubCategory": "butter",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722130/Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij.jpg",
+        "public_id": "Simply-Recipes-Butter-Stick-Tip-LEAD-OPTION-01-9af98bb20efd463c933b4e158dc108ce_ajepij"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722123/bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6.jpg",
+        "public_id": "bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7_xnmsx6"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722117/Butter-2-sticks_saktpr.png",
+        "public_id": "Butter-2-sticks_saktpr"
+      }
+    ]
+  },
+  {
+    "name": "Sharp Cheddar Cheese Slices 400g",
+    "slug": "sharp-cheddar-cheese-slices-400g",
+    "description": "Aged sharp cheddar with bold, tangy flavour and firm crumbly texture. Perfect for burgers, sandwiches, grilled cheese, and cheeseboards — sliced for everyday convenience.",
+    "basePrice": 5.49,
+    "quantity": 160,
+    "SubCategory": "cheese",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455239/Mexican-Cheese-square_jgzjc8.jpg",
+        "public_id": "Mexican-Cheese-square_jgzjc8"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455234/cheese-fondue-without-alcohol_l5httf.jpg",
+        "public_id": "cheese-fondue-without-alcohol_l5httf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455228/sharp-cheddar-slices_1_gith5u.jpg",
+        "public_id": "sharp-cheddar-slices_1_gith5u"
+      }
+    ]
+  },
+  {
+    "name": "Swiss & Blue Cheese Selection",
+    "slug": "swiss-blue-cheese-selection",
+    "description": "A gourmet pairing of nutty Swiss Emmental and bold blue-veined cheese — rich, complex flavours ideal for cheese boards, wine pairings, salads, and gourmet sandwiches.",
+    "basePrice": 7.99,
+    "quantity": 120,
+    "SubCategory": "cheese",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455223/blue-cheeses-1_wufk0d.jpg",
+        "public_id": "blue-cheeses-1_wufk0d"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455218/AdobeStock_130281036-5376x4214-b0eeb384-e4a9-4b9b-bc90-cdbbf4d24b40_1200x_hy40xu.jpg",
+        "public_id": "AdobeStock_130281036-5376x4214-b0eeb384-e4a9-4b9b-bc90-cdbbf4d24b40_1200x_hy40xu"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455212/swiss_ykgnp9.jpg",
+        "public_id": "swiss_ykgnp9"
+      }
+    ]
+  },
+  {
+    "name": "Premium Basmati Long Grain Rice 5kg",
+    "slug": "premium-basmati-long-grain-rice-5kg",
+    "description": "Extra-long aged Basmati grains with signature floral aroma, fluffy non-sticky texture, and low glycemic index. The go-to rice for biryani, pilaf, and everyday Pakistani cooking.",
+    "basePrice": 9.99,
+    "quantity": 320,
+    "SubCategory": "rice",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721565/68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37.jpg",
+        "public_id": "68fb88bbd83c4fc981d889e9_Raw_20Rice_bhhc37"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721560/Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv.png",
+        "public_id": "Untitleddesign_ce44865d-cd99-4de4-b08f-f77f759162ee_cb3lcv"
+      }
+    ]
+  },
+  {
+    "name": "Whole Wheat All-Purpose Flour 2kg",
+    "slug": "whole-wheat-all-purpose-flour-2kg",
+    "description": "Stone-ground from premium hard wheat, this versatile flour is perfect for roti, bread, cakes, and pasta. Fine texture ensures consistent rise and authentic home-baked flavour.",
+    "basePrice": 2.49,
+    "quantity": 430,
+    "SubCategory": "flour",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721549/AdobeStock_442212782_b3wph0.jpg",
+        "public_id": "AdobeStock_442212782_b3wph0"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721544/what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup.jpg",
+        "public_id": "what-is-sorghum-flour-5201022-Hero_02-f5b8569624c34c648bb10a0d0f07c9f6_itqwup"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721539/L1040948_inm82z.jpg",
+        "public_id": "L1040948_inm82z"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721535/All-about-grain-flours-resized_gzluvh.jpg",
+        "public_id": "All-about-grain-flours-resized_gzluvh"
+      }
+    ]
+  },
+  {
+    "name": "Mazola Pure Corn Cooking Oil 1 Litre",
+    "slug": "mazola-pure-corn-cooking-oil-1-litre",
+    "description": "Heart-healthy corn oil with a high smoke point, zero cholesterol, and rich in polyunsaturated fats. Ideal for frying, baking, and sautéing with a light, neutral flavour.",
+    "basePrice": 4.49,
+    "quantity": 360,
+    "SubCategory": "cooking-oil",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721512/d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg.jpg",
+        "public_id": "d5f87828-1ca7-4a3d-8e95-ba03e0ab22f5.7ef89592777c431cfd995ec034d8ccbb_tlvcxg"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721507/mazola_2520corn_2520oil_2520pb_xxmyrx.jpg",
+        "public_id": "mazola_2520corn_2520oil_2520pb_xxmyrx"
+      }
+    ]
+  },
+  {
+    "name": "Refined White Granulated Sugar 1kg",
+    "slug": "refined-white-granulated-sugar-1kg",
+    "description": "Pure, fine-grain white sugar processed for consistent sweetness and quick dissolving. Hygienically packaged for lasting freshness — essential for beverages, baking, and cooking.",
+    "basePrice": 1.29,
+    "quantity": 900,
+    "SubCategory": "sugar",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772721600/pngtree-pile-of-sugar-png-image_16070563_yvp97v.png",
+        "public_id": "pngtree-pile-of-sugar-png-image_16070563_yvp97v"
+      }
+    ]
+  },
+  {
+    "name": "Assorted Carbonated Soft Drinks 1.5L",
+    "slug": "assorted-carbonated-soft-drinks-1-5l",
+    "description": "Ice-cold carbonated soft drinks bursting with refreshing flavour — available in classic cola, lemon-lime, and orange. Perfect chilled at parties, meals, or any occasion.",
+    "basePrice": 1.99,
+    "quantity": 550,
+    "SubCategory": "soft-drinks",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454860/81PFMk9gnSL._AC_UF894_1000_QL80__tjb45l.jpg",
+        "public_id": "81PFMk9gnSL._AC_UF894_1000_QL80__tjb45l"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454853/8f1abd_80bf432a005041b59c2a7fa1960ce71e_mv2_nzhsuf.jpg",
+        "public_id": "8f1abd_80bf432a005041b59c2a7fa1960ce71e_mv2_nzhsuf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454848/300Wx300H-1-HYK-24760_zq9hzg.jpg",
+        "public_id": "300Wx300H-1-HYK-24760_zq9hzg"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454843/maxresdefault_dwi2hc.jpg",
+        "public_id": "maxresdefault_dwi2hc"
+      }
+    ]
+  },
+  {
+    "name": "Cold-Pressed Fruit Juice Bundle 1L",
+    "slug": "cold-pressed-fruit-juice-bundle-1l",
+    "description": "100% pure cold-pressed juice — no added sugar, artificial colours, or preservatives. Packed with vitamins from real fruit in mango, orange, and mixed berry varieties.",
+    "basePrice": 4.99,
+    "quantity": 280,
+    "SubCategory": "juices",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454907/home_bundles_dhtse6.png",
+        "public_id": "home_bundles_dhtse6"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454899/hub_juicecleanse_article_580x330_s1tqbd.jpg",
+        "public_id": "hub_juicecleanse_article_580x330_s1tqbd"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722562/jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul.webp",
+        "public_id": "jbxt1RfG1fOsukD._SL640_QL75_FMwebp__ypygul"
+      }
+    ]
+  },
+  {
+    "name": "Premium Loose Leaf Green Tea 100g",
+    "slug": "premium-loose-leaf-green-tea-100g",
+    "description": "Hand-picked high-altitude green tea leaves with a delicate grassy aroma, light golden brew, and powerful antioxidants. Brew daily for calm focus and natural wellness.",
+    "basePrice": 5.99,
+    "quantity": 260,
+    "SubCategory": "tea",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454813/71kem3EPVLL_ez8jis.jpg",
+        "public_id": "71kem3EPVLL_ez8jis"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775454809/raw-tea-in-blue-cup-and-hot-tea-in-glass-on-black-background-MNH3ED_u8agir.jpg",
+        "public_id": "raw-tea-in-blue-cup-and-hot-tea-in-glass-on-black-background-MNH3ED_u8agir"
+      }
+    ]
+  },
+  {
+    "name": "Nescafe Gold Arabica Blend Coffee 250g",
+    "slug": "nescafe-gold-arabica-blend-coffee-250g",
+    "description": "Smooth, balanced medium-roast coffee crafted from 100% Arabica beans with rich chocolate and caramel notes. Dissolves instantly for a café-quality cup every single morning.",
+    "basePrice": 13.99,
+    "quantity": 195,
+    "SubCategory": "coffee",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722547/Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt.jpg",
+        "public_id": "Corkframes_Coffee_Guide_520x500_422ebe38-4cfa-42b5-a266-b9bfecabaf30_wcwmgt"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722538/cloves-and-coffee-benefits-recipe_rlknyf.jpg",
+        "public_id": "cloves-and-coffee-benefits-recipe_rlknyf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1772722530/171026-better-coffee-boost-se-329p_mvgtiu.jpg",
+        "public_id": "171026-better-coffee-boost-se-329p_mvgtiu"
+      }
+    ]
+  },
+  {
+    "name": "Aveeno Oat Milk Blend Nourishing Shampoo 12oz",
+    "slug": "aveeno-oat-milk-blend-nourishing-shampoo-12oz",
+    "description": "Oat milk and keratin-infused formula gently cleanses while deeply nourishing dry, damaged hair. Dermatologist-tested, sulfate-free, and safe for color-treated hair.",
+    "basePrice": 8.99,
+    "quantity": 200,
+    "SubCategory": "shampoo",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455476/ave_052800673007_oat_milk_blend_shampoo_12oz_vanity-en-us_pjv7bi.webp",
+        "public_id": "ave_052800673007_oat_milk_blend_shampoo_12oz_vanity-en-us_pjv7bi"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455467/cln-shampoo-shop-all-products-cln-skin-care-375550_jstz5y.jpg",
+        "public_id": "cln-shampoo-shop-all-products-cln-skin-care-375550_jstz5y"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455460/keratin_soothing_oil_shampoo-13oz-package-front_nlnrrv.webp",
+        "public_id": "keratin_soothing_oil_shampoo-13oz-package-front_nlnrrv"
+      }
+    ]
+  },
+  {
+    "name": "Johnson's Kids Gentle Tearless Shampoo 400ml",
+    "slug": "johnson-s-kids-gentle-tearless-shampoo-400ml",
+    "description": "No-tears formula clinically proven gentle for children's sensitive eyes and delicate scalp. Hypoallergenic, paraben-free, and leaves hair soft, clean, and tangle-free with every wash.",
+    "basePrice": 5.49,
+    "quantity": 260,
+    "SubCategory": "shampoo",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455453/JNS_USA_US_381371183876_120225902_614416_Kids_Shampoo_400ml_00000_pq98jb.webp",
+        "public_id": "JNS_USA_US_381371183876_120225902_614416_Kids_Shampoo_400ml_00000_pq98jb"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455446/Coconut_curls_Packing_update_shampoo-front_q0wird.webp",
+        "public_id": "Coconut_curls_Packing_update_shampoo-front_q0wird"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455439/163357_b8ihqt.jpg",
+        "public_id": "163357_b8ihqt"
+      }
+    ]
+  },
+  {
+    "name": "Impecca Blonde Color-Protecting Shampoo",
+    "slug": "impecca-blonde-color-protecting-shampoo",
+    "description": "Purple pigment formula neutralizes brassy tones and protects blonde, silver, and highlighted hair. Hydrates with argan oil while extending colour vibrancy between salon visits.",
+    "basePrice": 9.99,
+    "quantity": 140,
+    "SubCategory": "shampoo",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455431/100508693-hero01_fwcm5m.jpg",
+        "public_id": "100508693-hero01_fwcm5m"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455424/impecca-blonde_package-front_beapcf.webp",
+        "public_id": "impecca-blonde_package-front_beapcf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455417/24_gdxhhy.jpg",
+        "public_id": "24_gdxhhy"
+      }
+    ]
+  },
+  {
+    "name": "Dove Moisturizing Beauty Bar Soap",
+    "slug": "dove-moisturizing-beauty-bar-soap",
+    "description": "With ¼ moisturizing cream, Dove Beauty Bar gently cleanses without stripping skin's natural moisture. Dermatologist-recommended for soft, hydrated, healthy-feeling skin every day.",
+    "basePrice": 3.99,
+    "quantity": 320,
+    "SubCategory": "soap",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455818/71WDxKiX3ML._AC_UF1000_1000_QL80__qvzww7.jpg",
+        "public_id": "71WDxKiX3ML._AC_UF1000_1000_QL80__qvzww7"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455810/81bzj3Z4bML._AC_UF1000_1000_QL80__vuptrh.jpg",
+        "public_id": "81bzj3Z4bML._AC_UF1000_1000_QL80__vuptrh"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455793/61DUb3Fgn_L._AC_UF894_1000_QL80__jym1ks.jpg",
+        "public_id": "61DUb3Fgn_L._AC_UF894_1000_QL80__jym1ks"
+      }
+    ]
+  },
+  {
+    "name": "Pears Pure & Gentle Transparent Glycerin Soap",
+    "slug": "pears-pure-gentle-transparent-glycerin-soap",
+    "description": "Iconic transparent glycerin bar enriched with natural oils — Pears' 200-year-old heritage formula is gentle enough for sensitive skin, leaving it visibly clear and moisturized.",
+    "basePrice": 2.99,
+    "quantity": 280,
+    "SubCategory": "soap",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455784/Slider_1_-_Pears_Soap__Transparent__Tried____True_zwhsmc.jpg",
+        "public_id": "Slider_1_-_Pears_Soap__Transparent__Tried____True_zwhsmc"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455776/Avo_Lifestyle_jucdsf.jpg",
+        "public_id": "Avo_Lifestyle_jucdsf"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455766/Natural_Shmapooo_Bar_Ayurvedic_Herb-1_mu7hch.jpg",
+        "public_id": "Natural_Shmapooo_Bar_Ayurvedic_Herb-1_mu7hch"
+      }
+    ]
+  },
+  {
+    "name": "Natural Ayurvedic Herbal Bar Soap Collection",
+    "slug": "natural-ayurvedic-herbal-bar-soap-collection",
+    "description": "Handcrafted with neem, turmeric, and aloe vera extracts — this toxin-free Ayurvedic soap deeply cleanses, fights bacteria, and restores skin's natural glow naturally.",
+    "basePrice": 4.49,
+    "quantity": 200,
+    "SubCategory": "soap",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455757/BEST-BAR-SOAPS-SUB-9272-2x1-1_pokw1c.jpg",
+        "public_id": "BEST-BAR-SOAPS-SUB-9272-2x1-1_pokw1c"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455749/51U43l3fbML._AC_UF1000_1000_QL80__xbvcgd.jpg",
+        "public_id": "51U43l3fbML._AC_UF1000_1000_QL80__xbvcgd"
+      }
+    ]
+  },
+  {
+    "name": "David's Sensitive Natural Toothpaste",
+    "slug": "david-s-sensitive-natural-toothpaste",
+    "description": "Plant-based fluoride toothpaste with nano-hydroxyapatite and peppermint oil. Whitens gently, remineralizes enamel, and soothes sensitive teeth — free from SLS, parabens, and artificial dyes.",
+    "basePrice": 9.99,
+    "quantity": 160,
+    "SubCategory": "toothpaste",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455512/oiyf9EPM3R2CA3EK80CjN_mapiwd.jpg",
+        "public_id": "oiyf9EPM3R2CA3EK80CjN_mapiwd"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455505/davids-sensitive-toothpaste-original-vs-hydroxi-packaging_mebskj.jpg",
+        "public_id": "davids-sensitive-toothpaste-original-vs-hydroxi-packaging_mebskj"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455498/61gNQ-dX-YL_rrgiub.jpg",
+        "public_id": "61gNQ-dX-YL_rrgiub"
+      }
+    ]
+  },
+  {
+    "name": "Crest 3D White Deep Stain Remover Toothpaste",
+    "slug": "crest-3d-white-deep-stain-remover-toothpaste",
+    "description": "Advanced micro-cleansing whitening technology removes 10 years of surface stains in just 3 days. Strengthens enamel while delivering fresh, long-lasting minty clean breath.",
+    "basePrice": 5.99,
+    "quantity": 220,
+    "SubCategory": "toothpaste",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455491/80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_v2gybq.webp",
+        "public_id": "80741761-37000670384-CR-CMP-Cinn-Rush-ActFoam-24_5.4oz__49537_v2gybq"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455484/80804650_Crest_3DW_Deep_Stain_Remover_Ultra_White_2.1oz_US_ENG_MOI_PI__50487_cxdkv9.webp",
+        "public_id": "80804650_Crest_3DW_Deep_Stain_Remover_Ultra_White_2.1oz_US_ENG_MOI_PI__50487_cxdkv9"
+      }
+    ]
+  },
+  {
+    "name": "Persil Power Laundry Detergent Powder 3kg",
+    "slug": "persil-power-laundry-detergent-powder-3kg",
+    "description": "Persil's deep-clean enzyme formula tackles tough stains at cold temperatures, brightens whites, protects colours, and leaves a fresh long-lasting fragrance with every wash.",
+    "basePrice": 9.99,
+    "quantity": 210,
+    "SubCategory": "detergents",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455316/best-smelling-laundry-detergents-68dbf4d5d23f6.png_ja6kyn.png",
+        "public_id": "best-smelling-laundry-detergents-68dbf4d5d23f6.png_ja6kyn"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455311/persil-laundry-detergents-94188-64_1000_lcjdr9.jpg",
+        "public_id": "persil-laundry-detergents-94188-64_1000_lcjdr9"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455305/eco-friendly-laundry-detergents-667b1189b3af0.png_cp10eg.png",
+        "public_id": "eco-friendly-laundry-detergents-667b1189b3af0.png_cp10eg"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455300/BEST-LAUNDRY-DETERGENTS-2048px-0210-2x1-1_nmxhsh.jpg",
+        "public_id": "BEST-LAUNDRY-DETERGENTS-2048px-0210-2x1-1_nmxhsh"
+      }
+    ]
+  },
+  {
+    "name": "Vim Lemon Dishwash Liquid Gel 500ml",
+    "slug": "vim-lemon-dishwash-liquid-gel-500ml",
+    "description": "Concentrated lemon-power formula cuts through grease in seconds, removes dried food residue, and leaves dishes sparkling clean. Gentle on hands, tough on grease and grime.",
+    "basePrice": 3.99,
+    "quantity": 280,
+    "SubCategory": "dishwash",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455707/VimDishwashLiquidGel-Lemon120ml_kuppl0.jpg",
+        "public_id": "VimDishwashLiquidGel-Lemon120ml_kuppl0"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455697/Gain-Ultra-Dishwashing-Liquid-Dish-Soap-Original-Scent-90-0-fl-oz_064d1984-632d-4781-b54e-807f64683116.2b4deb9be5056b1994aa344b3d33363b_bmzknd.jpg",
+        "public_id": "Gain-Ultra-Dishwashing-Liquid-Dish-Soap-Original-Scent-90-0-fl-oz_064d1984-632d-4781-b54e-807f64683116.2b4deb9be5056b1994aa344b3d33363b_bmzknd"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455689/GenericLabelDishwashArtwork_bc8oy7.jpg",
+        "public_id": "GenericLabelDishwashArtwork_bc8oy7"
+      }
+    ]
+  },
+  {
+    "name": "Max Lemon Dishwash Bar & Gel Combo Pack",
+    "slug": "max-lemon-dishwash-bar-gel-combo-pack",
+    "description": "Dual-action dishwash combo with antibacterial bar soap and multipurpose gel. Effective on oil, curry stains, and dried food — economical and long-lasting for everyday kitchen use.",
+    "basePrice": 4.99,
+    "quantity": 240,
+    "SubCategory": "dishwash",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455681/VimDishwashLiquidGel-LemonQuickPantry_769210c5-ed73-48ac-98de-6a9c28678592_y7sjyz.png",
+        "public_id": "VimDishwashLiquidGel-LemonQuickPantry_769210c5-ed73-48ac-98de-6a9c28678592_y7sjyz"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455673/0714077_glitter-dishwash-bar-300gm-dish-soap-bar-for-effective-cleaning-and-grease-removal_g2zfmi.webp",
+        "public_id": "0714077_glitter-dishwash-bar-300gm-dish-soap-bar-for-effective-cleaning-and-grease-removal_g2zfmi"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455665/rollins-industries-pvt-ltd-max-lemon-dishwash-soap-bar-185g-6953231810689_800x_l5cqo1.jpg",
+        "public_id": "rollins-industries-pvt-ltd-max-lemon-dishwash-soap-bar-185g-6953231810689_800x_l5cqo1"
+      },
+      {
+        "url": "https://res.cloudinary.com/dvfdxbzem/image/upload/v1775455658/61dTZuKWMML_yqbvnb.jpg",
+        "public_id": "61dTZuKWMML_yqbvnb"
+      }
+    ]
+  }
 ]

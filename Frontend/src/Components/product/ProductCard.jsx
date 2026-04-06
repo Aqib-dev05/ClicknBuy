@@ -97,7 +97,7 @@ export default function ProductCard({
         </div>
 
         {/* Image + hover CTA */}
-        <div className=" flex flex-col  max-md:h-60 h-75 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+        <div className=" flex flex-col  max-md:h-60 h-74 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
           <img
             src={cloudinaryOptimizer(payload.images[0].url) || sampleImage}
             alt={payload.title || "Sample product"}
@@ -125,8 +125,8 @@ export default function ProductCard({
         />
 
         {/* Title */}
-        <h3 className="line-clamp-2 text-md font-semibold text-gray-900">
-          {payload.name || "Sample Product Title Goes Here"}
+        <h3 className="line-clamp-1 overflow-hidden text-md font-semibold text-gray-900">
+          {payload.name || "Sample Product Title"}
         </h3>
 
         {/* Price */}

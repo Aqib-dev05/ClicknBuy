@@ -150,7 +150,7 @@ function ProductDetails() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.4 }}
           >
-            <RatingStars rating={4.5} reviews={150} />
+            <RatingStars rating={product?.rating} reviews={product?.reviews} />
             <span className="text-gray-300">|</span>
             <span className="text-green-500 text-sm font-medium">{product?.quantity > 0 ? "In Stock" : "Out of Stock"}</span>
           </Motion.div>
