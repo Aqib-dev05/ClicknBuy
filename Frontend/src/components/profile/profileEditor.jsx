@@ -5,7 +5,7 @@ import { updateUser } from "../../services/userService";
 import { setUser } from "../../Redux/Slices/authSlics";
 import { setProfile } from "../../Redux/Slices/profileSlice";
 import { useProfileContext } from "./profileContext";
-import { formatPhone, validatePhone, validateEmail } from "../../Validators/phoneVal";
+import {  validatePhone, validateEmail } from "../../Validators/phoneVal";
 
 function ProfileEditor() {
   const {
@@ -33,7 +33,7 @@ function ProfileEditor() {
       ...prev,
       name: currentProfile?.name || "",
       email: currentProfile?.email || "",
-      phone: formatPhone(currentProfile?.phone) || "",
+      phone: (currentProfile?.phone) || "",
       city: currentProfile?.address?.[0]?.city || "",
       postalCode: currentProfile?.address?.[0]?.postalCode || "",
       country: currentProfile?.address?.[0]?.country || "",

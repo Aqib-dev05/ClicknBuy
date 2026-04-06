@@ -1,6 +1,5 @@
 import React from "react";
 import { useProfileContext } from "./profileContext";
-import { formatPhone } from "../../Validators/phoneVal";
 
 function ProfileDetails() {
   const { currentProfile } = useProfileContext();
@@ -19,7 +18,7 @@ function ProfileDetails() {
         </p>
         <p className="bg-gray-200 rounded-xl p-4">
           <span className="block text-sm text-gray-500">Phone</span>
-          <span className="font-medium">{formatPhone(currentProfile?.phone) || "N/A"}</span>
+          <span className="font-medium">{(currentProfile?.phone) || "N/A"}</span>
         </p>
         </div>
         <br /><br />

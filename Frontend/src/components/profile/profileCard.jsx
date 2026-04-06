@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { useProfileContext } from "./profileContext";
-import { formatPhone } from "../../Validators/phoneVal"
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer"
 
 function ProfileCard() {
@@ -37,7 +36,7 @@ function ProfileCard() {
         </div>
         <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Phone</p>
-          <p className="mt-1 text-gray-900">{formatPhone(currentProfile?.phone) || "N/A"}</p>
+          <p className="mt-1 text-gray-900">{(currentProfile?.phone) || "N/A"}</p>
         </div>
         <div className="rounded-xl bg-gray-200 p-3">
           <p className="text-xs uppercase tracking-wide text-gray-500">Address (city) </p>
