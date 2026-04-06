@@ -12,11 +12,6 @@ async function handleGetProductsGeneral(req, res) {
     const limitNumber = parseInt(limit, 10) || 20;
     const skip = (pageNumber - 1) * limitNumber;
 
-    const cachedProducts = await redisClient.get(cacheKey);
-    if (cachedProducts) {
-      console.log("Products fetched from cache");
-      return res.status(200).json(JSON.parse(cachedProducts));
-    }
 
 
     const query = {};
