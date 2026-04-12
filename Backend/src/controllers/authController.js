@@ -1,7 +1,7 @@
 import express from "express";
 import UserModel from "../models/User.js";
 import OtpModel from "../models/Otp.js";
-import otpGenerator from "../utils/otpGenerator.js";
+import { otpGenerator } from "../utils/otpGenerator.js";
 import { sendOTPEmail } from "../config/nodeMialer.js";
 import { generateToken } from "../utils/jwtGenerator.js";
 import { cookieOptions } from "../utils/cookieOptions.js"
