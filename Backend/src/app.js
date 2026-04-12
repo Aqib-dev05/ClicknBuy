@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -11,7 +10,9 @@ import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import checkAuth from "./middlewares/authMiddleware.js";
 
+
 const app = express();
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -59,6 +60,8 @@ app.use("/api/cart", checkAuth, cartRoutes);
 app.get("/", (req, res) => {
   res.send("Hello");
 });
+
+
 
 
 export default app;
