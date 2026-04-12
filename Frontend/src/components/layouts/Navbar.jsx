@@ -115,12 +115,12 @@ export default function Navbar() {
       </nav>
       {isMobile && (
         <nav className="fixed bottom-0 left-0 z-[100] w-full border-t border-gray-200 bg-white">
-          <ul className="flex items-center justify-around py-1 text-sm font-medium text-gray-700">
+          <ul className="flex items-center justify-around  text-sm font-medium text-gray-700">
             <li>
               <NavLink
                 to={"/"}
                 type="button"
-                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                className="rounded-md p-2 transition "
                 aria-label="Home"
               >
                 <House className="h-6 w-6" />
@@ -130,7 +130,7 @@ export default function Navbar() {
               <NavLink
                 to={"/products"}
                 type="button"
-                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                className="rounded-md p-2 transition "
                 aria-label="Products"
               >
                 <ShoppingBasket className="h-6 w-6" />
@@ -141,7 +141,7 @@ export default function Navbar() {
                 <NavLink
                   to={"/cart"}
                   type="button"
-                  className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                  className="rounded-md p-2 transition "
                   aria-label="Cart"
                 >
                   <ShoppingCart className="h-6 w-6" />
@@ -152,7 +152,7 @@ export default function Navbar() {
               <NavLink
                 to={isAuthenticated ? "/profile" : "/login"}
                 type="button"
-                className="rounded-md p-2 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+                className="rounded-md p-2 transition "
                 aria-label="Account"
               >
                 <User className="h-6 w-6" />

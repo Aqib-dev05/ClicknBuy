@@ -9,7 +9,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import checkAuth from "./middlewares/authMiddleware.js";
-import { globalLimiter } from "./middlewares/rateLimiter.js"
+
 
 const app = express();
 
@@ -46,7 +46,7 @@ app.use(
   })
 );
 
-app.use(globalLimiter);
+
 
 //router routes
 app.use("/api/auth", authRoutes);
