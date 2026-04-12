@@ -60,8 +60,5 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-app.get("/check", (req, res) => {
-  res.send("Authenticated");
-});
 
 export default app;

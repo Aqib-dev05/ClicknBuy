@@ -1,12 +1,26 @@
 import express from "express";
-import {handleLogin,handleRegister,getCurrentUser,handleLogout} from "../controllers/authController.js"
-import checkAuth from "../middlewares/authMiddleware.js"
- const router = express.Router();
+import {
+    handleLogin,
+    handleRegister,
+    getCurrentUser,
+    handleLogout,
+    handleForgetPassword,
+    handleVerifyOtp,
+    handleResetPassword
+} from "../controllers/authController.js";
+import checkAuth from "../middlewares/authMiddleware.js";
+import forgetPasswordMiddleware from "../middlewares/forgetPassMiddleware.js"
 
- router
- .post('/register',handleRegister)
- .post('/login',handleLogin)
- .get('/logout',handleLogout)
- .get('/me',checkAuth,getCurrentUser)
 
-  export default router;
+const router = express.Router();
+
+router
+    .post("/register", handleRegister)
+    .post("/login", handleLogin)
+    .get("/logout", handleLogout)
+    .get("/me", checkAuth, getCurrentUser)
+    .post("/forget-password", handleForgetPassword)
+    .post("/verify-otp", forgetPasswordMiddleware, handleVerifyOtp)
+    .put("/reset-password", forgetPasswordMiddleware, handleResetPassword)
+
+export default router;
