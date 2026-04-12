@@ -159,6 +159,10 @@ const handleVerifyOtp = async (req, res) => {
     }
 
     await OtpModel.deleteMany({ email });
+    res.clearCookie("forget-password-token", cookieOptions);
+
+    const token = jwt.sign({ email }, "forget-password-token-secret-key", { expiresIn: "10m" });
+    res.cookie("forget-password-token-new", token, cookieOptions);
 
     return res.status(200).json({
       message: "OTP verified successfully",
@@ -171,7 +175,9 @@ const handleVerifyOtp = async (req, res) => {
 
 const handleResetPassword = async (req, res) => {
   const { newPassword } = req.body;
-  const email = req.forgetPassUser.email;
+  const email = req.forgetPassUserNew.email;
+
+
 
   if (!newPassword || (newPassword == undefined && newPassword == null && newPassword == "")) {
     return res.status(400).json({ message: "Password is required" });

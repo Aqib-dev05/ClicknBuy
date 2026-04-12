@@ -31,9 +31,27 @@ async function logOut() {
   return data;
 }
 
+async function forgetPassword(email) {
+  const { data } = await api.post("/auth/forget-password", { email });
+  return data;
+}
+
+async function verifyOtp(otp) {
+  const { data } = await api.post("/auth/verify-otp", { otp });
+  return data;
+}
+
+async function resetPassword(password) {
+  const { data } = await api.put("/auth/reset-password", { password });
+  return data;
+}
+
 export {
   register,
   login,
   getMe,
-  logOut
+  logOut,
+  forgetPassword,
+  verifyOtp,
+  resetPassword
 };

@@ -6,12 +6,14 @@ import {
     handleLogout,
     handleForgetPassword,
     handleVerifyOtp,
-    handleResetPassword
+    handleResetPassword,
 } from "../controllers/authController.js";
 import checkAuth from "../middlewares/authMiddleware.js";
-import forgetPasswordMiddleware from "../middlewares/forgetPassMiddleware.js"
-import { loginLimiter, otpLimiter } from "../middlewares/rateLimiter.js"
-
+import {
+    checkForgetPassToken,
+    checkForgetPassTokenNew,
+} from "../middlewares/forgetPassMiddleware.js";
+import { loginLimiter, otpLimiter } from "../middlewares/rateLimiter.js";
 
 const router = express.Router();
 
@@ -21,7 +23,7 @@ router
     .get("/logout", handleLogout)
     .get("/me", checkAuth, getCurrentUser)
     .post("/forget-password", otpLimiter, handleForgetPassword)
-    .post("/verify-otp", forgetPasswordMiddleware, handleVerifyOtp)
-    .put("/reset-password", forgetPasswordMiddleware, handleResetPassword)
+    .post("/verify-otp", checkForgetPassToken, handleVerifyOtp)
+    .put("/reset-password", checkForgetPassTokenNew, handleResetPassword);
 
 export default router;
