@@ -6,6 +6,13 @@ import Button from "../layouts/Button";
 function ProfileTopbar() {
   const { isSidebarOpen, setIsSidebarOpen, handleLogout } = useProfileContext();
 
+  function isMobile() {
+    if (window.innerWidth < 768) {
+      return "";
+    }
+    return "Logout";
+  }
+
   return (
     <div className="bg-white rounded-2xl shadow-sm p-3 sm:p-4 flex items-center justify-between mb-4">
       <div className="flex items-center gap-2">
@@ -18,8 +25,8 @@ function ProfileTopbar() {
         </button>
         <h1 className="text-lg sm:text-xl font-bold text-gray-900">My Profile Dashboard</h1>
       </div>
-      
-      <Button onClick={handleLogout} text={<LogOut size={18} />} icon={"Logout"} className="rounded-lg" />
+
+      <Button onClick={handleLogout} text={<LogOut size={18} />} icon={isMobile()} className="rounded-lg" />
     </div>
   );
 }
