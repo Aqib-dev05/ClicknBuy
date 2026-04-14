@@ -14,6 +14,9 @@ import Faq from "./Faq"
 import TermAndConditions from "./TermAndConditions"
 import PrivayPolicy from "./PrivacyPolicy"
 import SubCategoryPage from "./SubCategoryPage";
+import ForgetPassword from "./ForgetPassword";
+import VerifyOtpPage from "./VerifyOtpPage";
+import ResetPassword from "./ResetPassword";
 
 export {
   AboutPage,
@@ -31,5 +34,8 @@ export {
   Faq,
   TermAndConditions,
   PrivayPolicy,
-  SubCategoryPage
+  SubCategoryPage,
+  ForgetPassword,
+  VerifyOtpPage,
+  ResetPassword
 };

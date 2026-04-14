@@ -1,0 +1,140 @@
+.otp-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e98e3e 0%, #db4444 100%);
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.otp-card {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.otp-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.otp-header h2 {
+    color: #333;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.otp-header p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.otp-header .email-highlight {
+    color: #db4444;
+    font-weight: 600;
+}
+
+.otp-input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.otp-box {
+    width: 50px;
+    height: 60px;
+    border: 2px solid #e1e8ef;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    background: #f8fafc;
+}
+
+.otp-box:focus {
+    border-color: #db4444;
+    box-shadow: 0 0 0 4px rgba(219, 68, 68, 0.1);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.otp-box::placeholder {
+    color: #cbd5e1;
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to right, #db5656, #db4444);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(219, 68, 68, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verify-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(219, 68, 68, 0.4);
+    filter: brightness(1.1);
+}
+
+.verify-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.resend-section {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.resend-section p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.resend-btn.active {
+    color: #db4444;
+    cursor: pointer;
+}
+
+.resend-btn.active:hover {
+    text-decoration: underline;
+    filter: brightness(1.1);
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 15px;
+}

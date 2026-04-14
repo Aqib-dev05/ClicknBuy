@@ -12,7 +12,7 @@ import {
   setLoading,
 } from "../../Redux/Slices/authSlics";
 import { HashLoader } from "react-spinners";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../Validators/phoneVal"
 import { motion as Motion } from "framer-motion";
 
@@ -21,6 +21,7 @@ function LoginForm() {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     email: "",
@@ -160,7 +161,7 @@ function LoginForm() {
         <h4 className="my-4 bg-red-100 italic text-lg font-md">{error}</h4>
         <Motion.span
           className="text-[crimson] cursor-pointer font-semibold hover:text-red-800"
-          onClick={() => toast.info("Feature will be added in Future")}
+          onClick={() => { navigate("/forget-password") }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.5 }}

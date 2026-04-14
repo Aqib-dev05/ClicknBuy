@@ -23,7 +23,10 @@ import {
   Faq,
   TermAndConditions,
   PrivayPolicy,
-  SubCategoryPage
+  ForgetPassword,
+  SubCategoryPage,
+  VerifyOtpPage,
+  ResetPassword,
 } from "./Pages/index.js";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -154,10 +157,16 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+
+
           </Route>
 
           <Route element={<SecondaryLayout />}>
             <Route path="*" element={<ErrorPage />} />
+            <Route path="/forget-password" element={<ForgetPassword />} />
+            <Route path="/verify-otp" element={<VerifyOtpPage />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+
             <Route path="/terms-and-conditions" element={<TermAndConditions />} />
             <Route path="/privacy-policy" element={<PrivayPolicy />} />
           </Route>
