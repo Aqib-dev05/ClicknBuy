@@ -28,6 +28,9 @@ async function handleRegister(req, res) {
 
     const token = generateToken(user);
     res.cookie("access-token", token, cookieOptions);
+    //cleanUp
+    res.clearCookie("forget-password-token", cookieOptions);
+
 
     return res.status(200).json({
       message: "Registeration successfull",
@@ -64,6 +67,9 @@ async function handleLogin(req, res) {
 
     const token = generateToken(user);
     res.cookie("access-token", token, cookieOptions);
+    //cleanUp
+    res.clearCookie("forget-password-token", cookieOptions);
+
 
     return res.status(200).json({
       message: "Login successful",
@@ -139,7 +145,7 @@ const handleForgetPassword = async (req, res) => {
 
     return res.status(200).json({
       message: "OTP sent successfully",
-      otpEntry,
+      expiry: otpEntry.expiresAt,
     });
   } catch (error) {
     res.status(500).json({ message: "Server error during forget password" });
@@ -191,6 +197,9 @@ const handleResetPassword = async (req, res) => {
 
     user.password = newPassword;
     await user.save();
+
+    res.clearCookie("forget-password-token-new", cookieOptions);
+
 
     return res.status(200).json({
       message: "Password reset successful",

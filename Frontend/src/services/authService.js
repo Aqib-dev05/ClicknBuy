@@ -41,8 +41,8 @@ async function verifyOtp(otp) {
   return data;
 }
 
-async function resetPassword(password) {
-  const { data } = await api.put("/auth/reset-password", { password });
+async function resetPassword(newPassword) {
+  const { data } = await api.put("/auth/reset-password", { newPassword });
   return data;
 }
 
