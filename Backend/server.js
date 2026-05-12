@@ -12,7 +12,7 @@ import app from "./src/app.js";
 import {redisClient} from "./src/config/redisClient.js"
 
 const PORT = process.env.PORT;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGODB_URI;
 
 const startServer = async () => {
   await connectDB(MONGO_URI);
