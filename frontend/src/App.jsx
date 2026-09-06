@@ -27,10 +27,10 @@ import {
   SubCategoryPage,
   VerifyOtpPage,
   ResetPassword,
-} from "./Pages/index.js";
+} from "./pages/index.js";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, logout, setLoading, setError } from "./Redux/Slices/authSlics.js";
+import { setUser, logout, setLoading, setError } from "./redux/Slices/authSlics.js";
 import api from "./api/api.js";
 import { HashLoader } from "react-spinners";
 

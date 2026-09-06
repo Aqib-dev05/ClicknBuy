@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { getSubCategories } from "../../services/subCategoryService"
-import { setSubCategories, setError, setLoading } from "../../Redux/Slices/productSlice"
+import { setSubCategories, setError, setLoading } from "../../redux/Slices/productSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { HashLoader } from "react-spinners"
 import { useNavigate } from 'react-router-dom'

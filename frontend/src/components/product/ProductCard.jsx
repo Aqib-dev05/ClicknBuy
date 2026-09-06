@@ -7,7 +7,7 @@ import Wish from "../wishlist/Wish";
 import RatingStars from "./RatingStars";
 import { addToCart } from "../../services/cartService.js"
 import { toast } from "react-toastify";
-import { setError, setLoading } from "../../Redux/Slices/cartSlice.js"
+import { setError, setLoading } from "../../redux/Slices/cartSlice.js"
 import { useDispatch, useSelector } from "react-redux";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer.js"
 import { getLocally, setLocally } from "../../utils/LocalStore.jsx";

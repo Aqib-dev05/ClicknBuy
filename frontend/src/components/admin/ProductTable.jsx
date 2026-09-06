@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
-import { setProducts, setLoading, setError } from "../../Redux/Slices/productSlice"
+import { setProducts, setLoading, setError } from "../../redux/Slices/productSlice"
 
 function ProductTable() {
   const { product, loading } = useSelector((state) => state.products)

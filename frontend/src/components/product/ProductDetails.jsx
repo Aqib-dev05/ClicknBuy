@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getProductById } from "../../services/productService"
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux"
-import { setLoading, setError } from "../../Redux/Slices/cartSlice";
+import { setLoading, setError } from "../../redux/Slices/cartSlice";
 import { addToCart } from "../../services/cartService"
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";
 import { motion as Motion } from "framer-motion";

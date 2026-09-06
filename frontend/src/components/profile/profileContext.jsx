@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logOut } from "../../services/authService.js";
-import { logout } from "../../Redux/Slices/authSlics";
-import { setProfile } from "../../Redux/Slices/profileSlice";
+import { logout } from "../../redux/Slices/authSlics";
+import { setProfile } from "../../redux/Slices/profileSlice";
 
 const ProfileContext = createContext(null);
 

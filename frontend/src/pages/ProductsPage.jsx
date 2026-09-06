@@ -6,7 +6,7 @@ import {
   setProducts,
   setError,
   setLoading,
-} from "../Redux/Slices/productSlice";
+} from "../redux/Slices/productSlice";
 import { HashLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { useSearchParams } from "react-router-dom";

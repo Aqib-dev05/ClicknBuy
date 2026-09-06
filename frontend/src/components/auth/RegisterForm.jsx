@@ -4,7 +4,7 @@ import Button from '../layouts/Button'
 import { toast } from 'react-toastify'
 import { register } from '../../services/authService'
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, setToken, setIsAuthenticated, setError, setLoading } from '../../Redux/Slices/authSlics'
+import { setUser, setToken, setIsAuthenticated, setError, setLoading } from '../../redux/Slices/authSlics'
 import { HashLoader } from "react-spinners"
 import { Link, Navigate } from "react-router-dom"
 import { validateEmail } from "../../validators/phoneVal"

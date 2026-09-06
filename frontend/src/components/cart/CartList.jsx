@@ -10,7 +10,7 @@ import {
   removeFromCartRedux,
   setLoading,
   setError,
-} from "../../Redux/Slices/cartSlice";
+} from "../../redux/Slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import Button from "../layouts/Button";
 import cloudinaryOptimizer from "../../utils/cloudinaryOptimizer";

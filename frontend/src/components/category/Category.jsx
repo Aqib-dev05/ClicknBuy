@@ -7,7 +7,7 @@ import {
   setSubCategories,
   setError,
   setLoading,
-} from "../../Redux/Slices/productSlice";
+} from "../../redux/Slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { ChevronRight, LayoutGrid } from "lucide-react";

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Save, Eye, EyeOff, X } from "lucide-react";
 import { toast } from "react-toastify";
 import { updateUser } from "../../services/userService";
-import { setUser } from "../../Redux/Slices/authSlics";
-import { setProfile } from "../../Redux/Slices/profileSlice";
+import { setUser } from "../../redux/Slices/authSlics";
+import { setProfile } from "../../redux/Slices/profileSlice";
 import { useProfileContext } from "./profileContext";
 import {  validatePhone, validateEmail } from "../../validators/phoneVal";
 

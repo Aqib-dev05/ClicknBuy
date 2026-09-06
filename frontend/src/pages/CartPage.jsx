@@ -10,7 +10,7 @@ import {
   setLoading,
   clearCartRedux,
   addToCartRedux,
-} from "../Redux/Slices/cartSlice";
+} from "../redux/Slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { motion as Motion } from "framer-motion";
 

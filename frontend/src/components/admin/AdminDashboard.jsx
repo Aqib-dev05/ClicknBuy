@@ -13,7 +13,7 @@ import {
   X
 } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../Redux/Slices/authSlics";
+import { logout } from "../../redux/Slices/authSlics";
 import { logOut } from "../../services/authService";
 import { toast } from "react-toastify";
 

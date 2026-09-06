@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import { motion as Motion } from "framer-motion";
 import { User, Mail, Phone, MapPin, Camera, Save, Key, Eye, EyeOff } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { setUser as setAuthUser } from '../../Redux/Slices/authSlics';
-import { setProfile } from '../../Redux/Slices/profileSlice';
+import { setUser as setAuthUser } from '../../redux/Slices/authSlics';
+import { setProfile } from '../../redux/Slices/profileSlice';
 
 function EditAdminProfile() {
 

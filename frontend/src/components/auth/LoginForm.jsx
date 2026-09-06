@@ -10,7 +10,7 @@ import {
   setIsAuthenticated,
   setError,
   setLoading,
-} from "../../Redux/Slices/authSlics";
+} from "../../redux/Slices/authSlics";
 import { HashLoader } from "react-spinners";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../validators/phoneVal"

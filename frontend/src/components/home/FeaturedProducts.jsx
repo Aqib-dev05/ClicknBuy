@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Button from '../layouts/Button'
 import { getProducts } from '../../services/productService'
 import { useSelector,useDispatch } from 'react-redux'
-import {setProducts,setError,setLoading} from "../../Redux/Slices/productSlice"
+import {setProducts,setError,setLoading} from "../../redux/Slices/productSlice"
 import { HashLoader } from 'react-spinners'
 import { motion as Motion } from 'framer-motion'
 

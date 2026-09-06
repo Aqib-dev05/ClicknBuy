@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Profile from "../components/profile/Profile"
-import { setError, setLoading, setProfile } from "../Redux/Slices/profileSlice"
+import { setError, setLoading, setProfile } from "../redux/Slices/profileSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserById } from '../services/userService'
 import { HashLoader } from "react-spinners"

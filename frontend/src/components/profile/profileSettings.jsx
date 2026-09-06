@@ -2,8 +2,8 @@ import React from "react";
 import { Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { deleteUser } from "../../services/userService";
-import { logout } from "../../Redux/Slices/authSlics";
-import { setProfile } from "../../Redux/Slices/profileSlice";
+import { logout } from "../../redux/Slices/authSlics";
+import { setProfile } from "../../redux/Slices/profileSlice";
 import { useProfileContext } from "./profileContext";
 
 function ProfileSettings() {
