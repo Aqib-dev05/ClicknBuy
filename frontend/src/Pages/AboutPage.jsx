@@ -1,0 +1,192 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/layouts/Button";
+import MyLinks from "../data/myInfo"
+import MyPic from "../assets/mypicAi.jpeg"
+import { CodeXml, Hexagon, BugOff } from "lucide-react";
+import { HashLoader } from "react-spinners";
+import { motion as Motion } from "framer-motion";
+
+
+
+
+const SERVICES = [
+  {
+    title: "Backend Development",
+    icon: <Hexagon />,
+    description:
+      "Developing secure and efficient server-side logic, database management, and API integrations using Node.js and Express.",
+  },
+  {
+    title: "Frontend Development",
+    icon: <CodeXml />,
+    description:
+      "Crafting responsive, high-performance, and visually appealing user interfaces using React.js and modern CSS frameworks.",
+  },
+
+  {
+    title: "Custom Development",
+    icon: <BugOff />,
+    description:
+      "Tailored web applications built with modern technologies to solve specific business challenges.",
+  },
+];
+
+const SKILLS = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React.js",
+  "Node.js",
+  "Tailwind CSS",
+  "MongoDB",
+  "MySQL",
+  "Firebase",
+  "Express.js",
+  "Redux Toolkit",
+  "REST APIs",
+  "Git & GitHub",
+];
+
+
+
+
+function AboutPage() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+
+
+
+
+  return (
+    <div onLoad={() => setLoading(false)} className="min-h-screen bg-white">
+      {
+        loading && <div className="w-full h-[85vh] flex justify-center items-center bg-amber-200 "><HashLoader /> </div>
+
+      }
+      {/* Hero Section */}
+      <section className="bg-gray-900 text-white py-20 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+          <div className="flex-1 text-center md:text-left">
+            <Motion.h1 initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-4xl md:text-6xl font-bold mb-4">
+              Hi, I'm <span className="text-red-600">M. Aqib Ali</span>
+            </Motion.h1>
+            <Motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-xl text-gray-400 mb-8">
+              A passionate Full Stack Developer dedicated to building
+              high-quality e-commerce experiences and digital solutions.
+            </Motion.p>
+
+            <div className="flex justify-center items-center gap-3 w-full">
+              {MyLinks.map((link, index) => (
+                <Motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: index * 0.2 }} key={index + 2} className="w-14 h-14 rounded-full hover:bg-red-600 transition-colors duration-200 hover:text-white bg-gray-800 flex items-center justify-center ">
+                  <a
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    aria-label={link.name}
+                  >
+                    {link.icon}
+                  </a>
+                </Motion.span>
+              ))}
+            </div>
+
+          </div>
+          <div className="flex-1">
+            <Motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .5 }} className="relative w-84 h-84 max-md:w-60 max-md:h-60 mx-auto">
+              <div className="absolute inset-0 bg-red-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <img
+                src={MyPic}
+                loading="lazy"
+                alt="M. Aqib Ali"
+                className="relative z-10 rounded-full border-4 border-red-600 object-cover w-full h-full"
+              />
+            </Motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Technical <span className="text-red-600">Expertise</span>
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {SKILLS.map((skill, index) => (
+              <Motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: .2, delay: index * 0.1 }}
+                viewport={{ once: true }}
+
+                key={index}
+                className="px-6 py-2 cursor-default bg-white shadow-sm border border-gray-200 rounded-full text-gray-700 font-medium hover:border-red-600 transition-colors"
+              >
+                {skill}
+              </Motion.span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16">
+            What I <span className="text-red-600">Offer</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {SERVICES.map((service, index) => (
+              <Motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: .3, delay: index * .1, ease: "easeInOut" }}
+                viewport={{ once: true, amount: .5 }}
+                key={index}
+                className="hover:shadow-[1px_1px_18px_#ff000033]  shadow-md transition-all duration-200 p-8 bg-white border border-gray-100 rounded-xl"
+
+              >
+                <div className="w-12 h-12 text-white flex justify-center items-center text-4xl bg-red-600 mb-6 rounded-full">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </Motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gray-50 py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Let's Build Something{" "}
+            <span className="text-red-600">Great Together</span>
+          </h2>
+          <p className="text-gray-600 mb-10 text-lg">
+            Whether you have a question or want to start a project, I'm always
+            open to discussing new opportunities.
+          </p>
+          <div className="flex justify-center gap-6">
+            <button
+              onClick={() => navigate("/contact")}
+              className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors rounded-md font-semibold"
+            >
+              Contact Me
+            </button>
+            <Button text="Go Back" onClick={() => navigate(-1)} />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default AboutPage;
