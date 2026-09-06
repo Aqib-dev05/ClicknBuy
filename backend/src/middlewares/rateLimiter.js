@@ -1,4 +1,4 @@
-import rateLimit from "express-rate-limit"
+import rateLimit, { ipKeyGenerator } from "express-rate-limit"
 
 //////////////////////////////
 // 🌍 GLOBAL LIMITER
@@ -36,7 +36,7 @@ export const otpLimiter = rateLimit({
     max: 3,
 
     // per email + fallback IP
-    keyGenerator: (req) => req.body.email || req.ip,
+    keyGenerator: (req) => req.body.email || ipKeyGenerator(req),
 
     standardHeaders: true,
     legacyHeaders: false,
